@@ -1,0 +1,9 @@
+python-dotenv
+kaggle
+transformers
+jupyterlab
+ipywidgets
+pandas
+torch
+transformers
+sentencepiece

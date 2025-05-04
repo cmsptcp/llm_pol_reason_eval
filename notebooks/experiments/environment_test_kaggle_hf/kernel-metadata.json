@@ -1,0 +1,13 @@
+{
+  "id": "piotrorowski/test-bielika-11b-na-kaggle",
+  "title": "Test Bielika 11B na Kaggle",
+  "code_file": "test_bielik_kaggle.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "true",
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

@@ -1,0 +1,55 @@
+# Pliki konfiguracyjne środowiska
+.env
+*.env
+.env.*
+
+# Katalog wirtualnego środowiska Python
+.venv/
+venv/
+env/
+*/.venv/
+*/venv/
+*/env/
+
+# Bytecode i pliki zoptymalizowane Pythona
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Pliki dystrybucyjne/pakietów
+build/
+dist/
+*.egg-info/
+downloads/
+eggs/
+*.egg
+wheels/
+*.whl
+
+# Pliki związane z instalacją
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Pliki związane z testowaniem
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Pliki generowane przez linters
+.pylintrc
+pylint-report.txt
+
+# Konfiguracja i pliki tymczasowe PyCharm
+.idea/
+
+# Pliki systemowe
+.DS_Store
+Thumbs.db
