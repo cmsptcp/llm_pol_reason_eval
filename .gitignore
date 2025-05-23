@@ -22,6 +22,7 @@ build/
 dist/
 *.egg-info/
 downloads/
+data/downloads/
 eggs/
 *.egg
 wheels/
@@ -53,3 +54,7 @@ pylint-report.txt
 # Pliki systemowe
 .DS_Store
 Thumbs.db
+
+# Pliki tymczasowe
+data/download/
+*.tmp

@@ -1,0 +1,36 @@
+{
+ "contexts": [
+ {
+ "context_id": "string", // Unikalny identyfikator fragmentu kontekstu
+ "origin_source_id": "string", // Identyfikator pochodzenia (np. symbol arkusza matury, nazwa książki lub dokumentu)
+ "context_content": "string" // Pełna treść fragmentu kontekstu (wraz z autorem/tytułem)
+ }
+ // ... więcej obiektów kontekstów
+],
+"questions": [
+ {
+ "id_question": "string", // Unikalny identyfikator pytania
+ "category": "string", // Kategoria pytania (np. "matura_jezyk_polski, generowane_książka, generowane_dokument, matura_matematyka")
+ "question_type": "string", // Typ pytania ("open" - pytanie otwarte, "closed_TFQ" - pytania zamknięte prawda/fałsz, "closed_YNQ" - pytania zamknięte tak/nie, "closed_MCQ" - pytania zamknięte jednokrotnego wyboru - ang. Multiple Choice Question, "closed_MRQ" - pytania zamknięte wielokrotnego wyboru - ang. Multiple Response Question, "closed_MSQ" - pytania zamknięte wielokrotnego wyboru gdzie trzeba oznaczyć wszystkie poprawne odpowiedzi by otrzymać komplet punktów - ang. Multiple Selection Question, "closed_MTF" - pytanie zamknięte wielokrotnej oceny prawda/fałsz - ang. Multiple True False Question, "open_synthesizing" - pytania otwarte - synteza, itp.)
+ "origin_source_id": "string", // Identyfikator pochodzenia (np. unikalny symbol arkusza, książki itp.)
+ "context_ids": [ // Lista identyfikatorów kontekstów powiązanych z pytaniem
+ "string"
+],
+ "question_text": "string", // Pełna treść pytania (w języku polskim)
+ "answer": {
+ "correct_answer": "any", // Prawidłowa odpowiedź - wymagane w przypadku pytań zamkniętych
+ "example_answers": [ // Lista przykładowych poprawnych odpowiedzi (w języku polskim) - wymagane do pytań otwartych
+ "string"
+ ],
+ "scoring_rules": "string", // Opcjonalne: Opis zasad oceniania i punktacji do pytań otwartych (w języku polskim)
+ "max_points": "number", // Maksymalna liczba punktów, domyślnie 1.0
+ "external_context_required": "string | null", // Opcjonalne: Tytuł wymaganego zewnętrznego kontekstu (np. całej lektury)
+ "exam_requirements": { // Opcjonalne: Wymagania egzaminacyjne do pytań otwartych
+ "general": "string", // Wymagania ogólne
+ "specific": "string" // Wymagania szczegółowe
+ }
+ }
+ }
+ // ... więcej obiektów pytań
+ ]
+}

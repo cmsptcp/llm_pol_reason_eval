@@ -1,0 +1,205 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schemat pytań i kontekstów (finalne wymagania)",
+  "description": "Struktura danych do przechowywania kontekstów oraz pytań z odpowiedziami i metadanymi.",
+  "type": "object",
+  "properties": {
+    "contexts": {
+      "type": "array",
+      "description": "Lista fragmentów kontekstowych.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "context_id": {
+            "type": "string",
+            "description": "Unikalny identyfikator fragmentu kontekstu."
+          },
+          "origin_source_id": {
+            "type": "string",
+            "description": "Identyfikator pochodzenia (np. symbol arkusza matury, nazwa książki lub dokumentu)."
+          },
+          "context_content": {
+            "type": "string",
+            "description": "Pełna treść fragmentu kontekstu (wraz z autorem/tytułem)."
+          }
+        },
+        "required": [
+          "context_id",
+          "origin_source_id",
+          "context_content"
+        ]
+      }
+    },
+    "questions": {
+      "type": "array",
+      "description": "Lista pytań.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "type": "string",
+            "description": "Unikalny identyfikator pytania."
+          },
+          "category": {
+            "type": "string",
+            "description": "Kategoria pytania (np. \"matura_jezyk_polski\", \"generowane_książka\")."
+          },
+          "question_type": {
+            "type": "string",
+            "description": "Typ pytania.",
+            "enum": [
+              "open",
+              "closed_TFQ",
+              "closed_YNQ",
+              "closed_MCQ",
+              "closed_MRQ",
+              "closed_MSQ",
+              "closed_MTF",
+              "open_synthesizing"
+            ]
+          },
+          "origin_source_id": {
+            "type": "string",
+            "description": "Identyfikator pochodzenia (np. unikalny symbol arkusza, książki itp.)."
+          },
+          "context_ids": {
+            "type": "array",
+            "description": "Opcjonalne: Lista identyfikatorów kontekstów powiązanych z pytaniem.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "question_text": {
+            "type": "string",
+            "description": "Pełna treść pytania (w języku polskim)."
+          },
+          "generated_by": {
+            "type": "string",
+            "description": "Informacja o modelu/systemie, który wygenerował pytanie."
+          },
+          "generation_date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data wygenerowania pytania w formacie ISO 8601 (np. \"2024-05-21T14:30:00Z\")."
+          },
+          "choices": {
+            "type": "array",
+            "description": "Opcjonalna tablica opcji odpowiedzi (dla pytań zamkniętych typu MCQ, MRQ, MSQ, MTF).",
+            "items": {
+              "type": "object",
+              "properties": {
+                "choice_id": {
+                  "type": "string",
+                  "description": "Unikalny identyfikator opcji w ramach danego pytania (np. \"A\", \"B\", \"1\", \"2\")."
+                },
+                "text_choice": {
+                  "type": "string",
+                  "description": "Treść opcji odpowiedzi."
+                }
+              },
+              "required": [
+                "choice_id",
+                "text_choice"
+              ]
+            }
+          },
+          "answer": {
+            "type": "object",
+            "properties": {
+              "correct_answer": {
+                "oneOf": [
+                  { "type": "string", "description": "Pojedynczy choice_id lub wartość tekstowa." },
+                  { "type": "boolean", "description": "Wartość prawda/fałsz." },
+                  { "type": "array", "items": { "type": "string" }, "description": "Tablica choice_id." },
+                  { "type": "null", "description": "Gdy odpowiedź jest w innych polach." }
+                ],
+                "description": "Prawidłowa odpowiedź - struktura zależy od question_type."
+              },
+              "example_answers": {
+                "type": "array",
+                "description": "Lista przykładowych poprawnych odpowiedzi.",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "statement_evaluations": {
+                "type": "array",
+                "description": "Tablica ocen dla pytań typu \"closed_MTF\" lub ewaluacji opcji.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "choice_id": {
+                      "type": "string",
+                      "description": "Identyfikator ocenianej opcji."
+                    },
+                    "is_true": {
+                      "type": "boolean",
+                      "description": "Wartość logiczna stwierdzenia/opcji."
+                    }
+                  },
+                  "required": [
+                    "choice_id",
+                    "is_true"
+                  ]
+                }
+              },
+              "scoring_rules": {
+                "type": ["string", "null"],
+                "description": "Opcjonalne: Opis zasad oceniania i punktacji."
+              },
+              "max_points": {
+                "type": "number",
+                "default": 1.0,
+                "description": "Maksymalna liczba punktów."
+              },
+              "external_context_required": {
+                "type": ["string", "null"],
+                "description": "Opcjonalne: Tytuł wymaganego zewnętrznego kontekstu."
+              },
+              "exam_requirements": {
+                "type": ["object", "null"],
+                "description": "Opcjonalne: Wymagania egzaminacyjne.",
+                "properties": {
+                  "general": {
+                    "type": "string",
+                    "description": "Wymagania ogólne."
+                  },
+                  "specific": {
+                    "type": "string",
+                    "description": "Wymagania szczegółowe."
+                  }
+                },
+                "required": [ // Wymagane tylko jeśli obiekt exam_requirements istnieje i nie jest null
+                  "general",
+                  "specific"
+                ]
+              }
+            },
+            "required": [
+              "max_points"
+            ],
+            "anyOf": [
+              { "required": ["correct_answer"] },
+              { "required": ["example_answers"] },
+              { "required": ["statement_evaluations"] }
+            ]
+          }
+        },
+        "required": [
+          "question_id",
+          "category",
+          "question_type",
+          "origin_source_id",
+          "question_text",
+          "generated_by",
+          "generation_date",
+          "answer"
+        ]
+      }
+    }
+  },
+  "required": [
+    "contexts",
+    "questions"
+  ]
+}

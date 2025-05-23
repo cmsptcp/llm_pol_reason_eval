@@ -1,9 +1,21 @@
-python-dotenv
-kaggle
-transformers
+python-dotenv~=1.1.0
+kaggle~=1.7.4.2
+transformers~=4.51.3
 jupyterlab
 ipywidgets
-pandas
-torch
+pandas~=2.2.3
+numpy
+torch~=2.5.1+cu121
 transformers
+accelerate
+bitsandbytes
 sentencepiece
+huggingface_hub[hf_xet]
+
+# manually install torch for your CUDA version
+# pip uninstall torch torchvision torchaudio
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+# to install from this requirements.txt, run:
+# pip install -r requirements.txt
+pytest~=8.3.5
+dotenv~=0.9.9

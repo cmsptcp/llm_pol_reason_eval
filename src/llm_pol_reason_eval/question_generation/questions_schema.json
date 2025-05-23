@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "contexts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "context_id": { "type": "string" },
+          "origin_source_id": { "type": "string" },
+          "context_content": { "type": "string" }
+        },
+        "required": ["context_id", "origin_source_id", "context_content"]
+      }
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id_question": { "type": "string" },
+          "category": { "type": "string" },
+          "question_type": { "type": "string",
+            "enum": ["open", "closed_TFQ", "closed_YNQ", "closed_MCQ", "closed_MRQ", "closed_MSQ", "closed_MTF", "open_synthesizing"]
+          },
+          "origin_source_id": { "type": "string" },
+          "context_ids": { "type": "array", "items": { "type": "string" } },
+          "question_text": { "type": "string" },
+          "answer": {
+            "type": "object",
+            "properties": {
+              "correct_answer": { "type": ["string", "number", "boolean", "array", "object", "null"] },
+              "example_answers": { "type": "array", "items": { "type": "string" } },
+              "scoring_rules": { "type": "string" },
+              "max_points": { "type": "number", "default": 1.0 },
+              "external_context_required": { "type": ["string", "null"] },
+              "exam_requirements": {
+                "type": "object",
+                "properties": {
+                  "general": { "type": "string" },
+                  "specific": { "type": "string" }
+                }
+              }
+            },
+            "required": ["max_points"]
+          }
+        },
+        "required": ["id_question", "category", "question_type", "origin_source_id", "context_ids", "question_text", "answer"]
+      }
+    }
+  },
+  "required": ["contexts", "questions"]
+}

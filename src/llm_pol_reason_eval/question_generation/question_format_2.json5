@@ -1,0 +1,56 @@
+{
+  // Główny obiekt zawierający konteksty i pytania
+  "contexts": [
+    // Tablica obiektów kontekstowych
+    {
+      "context_id": "string", // Unikalny identyfikator fragmentu kontekstu (wymagane)
+      "origin_source_id": "string", // Identyfikator pochodzenia, np. ISBN, symbol arkusza (wymagane)
+      "context_content": "string" // Pełna treść fragmentu kontekstu (wymagane)
+    }
+    // ... więcej obiektów kontekstów
+  ],
+  "questions": [
+    // Tablica obiektów pytań
+    {
+      "question_id": "string", // Unikalny identyfikator pytania (wymagane)
+      "category": "string", // Kategoria pytania, np. "matura_język_polski", "matura_matematyka", książka_proza (wymagane)
+      "question_type": "string", // Typ pytania, np. "open" - pytania otwarte, "closed_TF" - pytania zamknięte typu prawda/fałsz, "closed_YN" - pytania zamknięte typu tak/nie, "closed_MCQ" - pytania zamknięte jednokrotnego wyboru, "closed_MTF" - pytania zamknięte wielokrotnego wyboru typu prawda/fałsz, "closed_MRQ" - pytania zamknięte z wieloma poprawnymi odpowiedziami, "open_synthesis" - pytania otwarte, gdzie celem jest streszczenie lub synteza tekstu lub tekstów (wymagane)
+      "origin_source_id": "string", // Identyfikator pochodzenia pytania, np. symbol arkusza, książki (wymagane)
+      "context_ids": [ // Opcjonalne: Lista identyfikatorów kontekstów (string) powiązanych z pytaniem
+        "string"
+      ],
+      "question_text": "string", // Pełna treść pytania w języku polskim (wymagane)
+      "generated_by": "string", // Informacja o modelu/systemie, który wygenerował pytanie (wymagane)
+      "generation_date": "string", // Data wygenerowania pytania w formacie ISO 8601, np. "2024-05-21T14:30:00Z" (wymagane)
+      "choices": [ // Opcjonalne: Tablica opcji odpowiedzi (dla pytań zamkniętych typu MCQ, MRQ, MTF)
+        {
+          "choice_id": "string", // Unikalny identyfikator opcji w ramach danego pytania (np. "A", "B", "1", "2")
+          "choice_text": "string" // Treść opcji odpowiedzi
+        }
+        // ... więcej opcji
+      ],
+      "answer": { // Obiekt zawierający szczegóły odpowiedzi (wymagane)
+        // Co najmniej jedno z pól: correct_answer, example_answers, LUB statement_evaluations musi być obecne.
+        "correct_answer": "any", // Prawidłowa odpowiedź. Może być: string (choice_id), boolean, array (lista choice_id), lub null. Struktura zależy od question_type.
+        "example_answers": [ // Lista przykładowych poprawnych odpowiedzi (string) w języku polskim, głównie dla pytań otwartych.
+          "string"
+        ],
+        "statement_evaluations": [ // Tablica ocen dla pytań typu "closed_MTF" lub do ewaluacji poszczególnych opcji.
+          {
+            "choice_id": "string", // Identyfikator ocenianej opcji (odpowiadający choice_id z tablicy choices)
+            "is_true": "boolean"   // Wartość logiczna (prawda/fałsz) dla danego stwierdzenia/opcji
+          }
+          // ... więcej ocen stwierdzeń
+        ],
+        "scoring_rules": "string | null", // Opcjonalne: Opis zasad oceniania i punktacji (np. w języku polskim), szczególnie dla pytań otwartych
+        "max_points": "number", // Maksymalna liczba punktów, domyślnie 1.0 (wymagane)
+        "external_context_required": "string | null", // Opcjonalne: Tytuł wymaganego zewnętrznego kontekstu (np. całej lektury)
+        "exam_requirements": { // Opcjonalne: Wymagania egzaminacyjne do pytań otwartych. Może być obiektem lub null.
+          "general": "string", // Wymagania ogólne (wymagane, jeśli exam_requirements istnieje i nie jest null)
+          "specific": "string" // Wymagania szczegółowe (wymagane, jeśli exam_requirements istnieje i nie jest null)
+        }
+      }
+    }
+    // ... więcej obiektów pytań
+  ]
+}
