@@ -1,0 +1,114 @@
+{
+  // Główny obiekt zawierający konteksty i pytania
+  "contexts": {
+    // Obiekt mapujący context_id na dane kontekstu
+    "string_context_id_1": {
+      // Unikalny identyfikator kontekstu,
+      // w przypadku matur może to być symbol arkusza maturalnego i identyfikator fragmentu tekstu
+      "context_id": "string_context_id_1",  // Unikalny identyfikator kontekstu, duplikat dla spójności danych
+      "origin_source_id": "string",         // Identyfikator pochodzenia, np. ISBN książki, symbol arkusza maturalnego
+      "context_content": "string",          // Pełna treść fragmentu kontekstu
+      "generated_by": "string",             // Informacja o modelu/systemie, który wygenerował kontekst
+                                            // wraz z wersją (np. "GPT-4, wersja 2023-10-01" lub "Gemini 2.5 Pro)
+      "generation_date": "string"           // Data wygenerowania kontekstu w formacie ISO 8601
+    },
+    "string_context_id_2": {
+      "context_id": "string_context_id_2",
+      "origin_source_id": "string",
+      "context_content": "string",
+      "generated_by": "string",
+      "generation_date": "string"
+    }
+    // ... więcej obiektów kontekstów jako pary klucz-wartość
+  },
+  "questions": {
+    // Obiekt mapujący question_id na dane pytania
+    "string_question_id_1": {
+      // Unikalny identyfikator pytania,
+      // w przypadku matur może to być symbol arkusza maturalnego i szczegółowy identyfikator pytania
+      "question_id": "string_question_id_1", // Unikalny identyfikator pytania, duplikat dla spójności danych
+      "category": "string",                  // Kategoria pytania, np. "matura_język_polski", "matura_matematyka", "książka_proza"
+      "question_type": "string",             // Typ pytania, np. "open_text", "open_numeric", "closed_TF", "closed_YN", "closed_MTF", "closed_MCQ", "closed_MRQ", "open_essay", "open_synthesis", "open_summary", "open_poetry_interpretation", gdzie "closed_TF" to pytanie typu Prawda/Fałsz, "closed_YN" to Tak/Nie, "closed_MTF" to pytanie typu wielokrotnego wyboru typu Prawda/Fałsz, "closed_MCQ" to pytanie jednokrotnego wyboru,"closed_MRQ" to pytanie wielokrotnego wyboru,
+      "origin_source_id": "string",          // Identyfikator pochodzenia pytania (np. symbol arkusza maturalnego)
+      "context_ids": [                       // Lista identyfikatorów kontekstów powiązanych z pytaniem
+        "string_context_id_1"                // Odwołanie do klucza w obiekcie "contexts"
+      ],
+      "question_text": "string",             // Pełna treść pytania
+      "generated_by": "string",              // Informacja o modelu/systemie, który wygenerował pytanie
+      "generation_date": "string",           // Data wygenerowania pytania w formacie ISO 8601
+      "choices": [                           // Tablica opcji odpowiedzi (istotna dla pytań zamkniętych)
+        {
+          "choice_id": "string",             // Unikalny (w zakresie pytania) identyfikator opcji
+          "choice_text": "string"            // Treść opcji odpowiedzi
+        }
+        // ... więcej opcji
+      ],
+      "answer": {                            // Obiekt zawierający szczegóły odpowiedzi
+        "correct_answer": "any",             // Prawidłowa odpowiedź. Typ zależy od `question_type` (np. string, array of strings, object)
+        "example_answers": [                 // Lista przykładowych poprawnych odpowiedzi (dla pytań otwartych)
+          "string"
+        ],
+        "statement_evaluations": [           // Tablica ocen dla pytań typu "closed_MTF" (Prawda/Fałsz)
+          {
+            "choice_id": "string",           // Identyfikator ocenianej opcji (stwierdzenia) z pola "choices"
+            "is_true": "boolean"             // Wartość logiczna stwierdzenia (prawda/fałsz)
+          }
+          // ... więcej ocen stwierdzeń
+        ],
+        "scoring_rules": {
+          // Obiekt opisujący zasady oceniania i punktacji.
+          // Może przyjąć wartość `null`, gdy dodatkowe reguły punktacji nie są wymagane lub podane.
+          "scoring_summary": "string",       // Ogólny, tekstowy opis zasad oceniania danego pytania.
+                                             // Np. "Za każdą poprawną odpowiedź 1 pkt."
+          "evaluation_rules": [
+            // Tablica szczegółowych reguł ewaluacji odpowiedzi.
+            // Może być `null`, jeśli nie ma potrzeby definiowania szczegółowych reguł.
+            {
+              "rule_id": "string",           // Unikalny identyfikator reguły w obrębie pytania.
+                                             // Np. "aspekt_1_poprawnosc_merytoryczna"
+              "description": "string | null",  // Tekstowy opis reguły ewaluacji.
+                                             // Np. "Sprawdzenie obecności definicji pojęcia X."
+              "element_max_points_contribution": "number | null",
+                                             // Maksymalna liczba punktów za spełnienie tej reguły.
+                                             // `null` dla reguł pomocniczych lub gdy punktacja wynika z `scoring_levels`.
+              "scoring_levels": [
+                // Tablica definiująca poziomy oceny lub warunki przyznania/odjęcia punktów.
+                // Może być `null`, jeśli reguła jest prosta (np. binarna).
+                {
+                  "condition_or_level_description": "string",
+                                             // Opis warunku lub poziomu oceny.
+                                             // Np. "Pełna i wyczerpująca odpowiedź", "Częściowa odpowiedź z drobnymi błędami"
+                  "score_impact": "number"   // Wartość punktowa (dodatnia lub ujemna) związana ze spełnieniem warunku.
+                }
+                // ... więcej poziomów/warunków dla danej reguły
+              ]
+            }
+            // ... więcej reguł ewaluacji
+          ],
+          "overall_guidance_for_llm": "string | null"
+                                             // Dodatkowe uwagi dla systemu oceniającego (np. LLM).
+                                             // Np. "Zwróć szczególną uwagę na argumentację."
+        },
+        "max_points": "number",              // Maksymalna liczba punktów do uzyskania za całe pytanie, domyślnie 1
+        "external_context_required": "string | null",
+                                             // Tytuł/opis wymaganego zewnętrznego kontekstu (np. znajomość lektury).
+                                             // Może być `null`.
+        "exam_requirements": [
+          // Tablica obiektów reprezentujących powiązane wymagania egzaminacyjne.
+          // Może być pusta lub `null`.
+          {
+            "general_requirements": "string",  // Opis wymagania ogólnego z podstawy programowej.
+                                               // Np. "I. Kształcenie literackie i kulturowe."
+            "specific_requirements": "string"  // Opis wymagania szczegółowego z podstawy programowej.
+                                               // Np. "1. Czytanie utworów literackich. Uczeń: 1) rozpoznaje rodzaje..."
+          }
+          // ... więcej par wymagań ogólnych i szczegółowych
+        ]
+      }
+    },
+    "string_question_id_2": {
+      // ... (analogiczna struktura dla kolejnego pytania)
+    }
+    // ... więcej obiektów pytań jako pary klucz-wartość
+  }
+}

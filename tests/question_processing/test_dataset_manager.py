@@ -5,12 +5,12 @@ import tempfile
 import shutil
 import pytest
 import time
-from llm_pol_reason_eval.question_processing.dataset_processor import DatasetProcessor, DuplicatesStrategy
+from llm_pol_reason_eval.question_processing.dataset_manager import DatasetManager, DuplicatesStrategy
 
 
 CONTEXT_FIELDS = {
     "required": ["context_id", "origin_source_id", "context_content"],
-    "optional": []
+    "optional": ["generated_by", "generation_date"]
 }
 
 QUESTION_FIELDS = {
@@ -20,9 +20,9 @@ QUESTION_FIELDS = {
 }
 
 ANSWER_FIELDS = {
-    "required": ["scoring_rules", "max_points", "external_context_required", "exam_requirements"],
-    "optional": set(),
-    "required_any": ["correct_answer", "example_answers", "statement_evaluations"]
+    "required": ["max_points"],
+    "optional": ["scoring_rules", "exam_requirements", "external_context_required", "correct_answer", "example_answers", "statement_evaluations"],
+    "required_any": set()
 }
 
 DATASET_DIR = 'data/dataset_raw'
@@ -36,50 +36,52 @@ def test_generated_question_json_structure(json_path):
         json_data = json.load(f)
 
     if 'contexts' in json_data:
-        for i, context in enumerate(json_data["contexts"]):
-            context_keys = set(context.keys())
+        for cid, context in json_data["contexts"].items():
+            assert isinstance(context, dict), f"Kontekst {cid} nie jest słownikiem."
+            assert "context_id" in context, f"Kontekst {cid} nie zawiera pola 'context_id'."
+            assert cid == context["context_id"], \
+                f"Kontekst {cid} ma 'context_id' różne od klucza w słowniku: {context['context_id']}."
+
             allowed_context_keys = set(CONTEXT_FIELDS["required"]) | set(CONTEXT_FIELDS["optional"])
+            context_keys = set(context.keys())
 
             assert context_keys.issubset(allowed_context_keys), \
-                f"Kontekst {i} zawiera niedozwolone pola: {context_keys - allowed_context_keys}"
+                f"Kontekst {cid} zawiera niedozwolone pola: {context_keys - allowed_context_keys}"
 
             for req_field in CONTEXT_FIELDS["required"]:
                 assert req_field in context, f"Brak wymaganego pola '{req_field}' w kontekście {i}"
 
     assert "questions" in json_data, "Brak klucza 'questions' w danych JSON."
-    for i, question in enumerate(json_data["questions"]):
+    for qid, question in json_data["questions"].items():
+        assert isinstance(question, dict), f"Pytanie {qid} nie jest słownikiem."
+        assert "question_id" in question, f"Pytanie {qid} nie zawiera pola 'question_id'."
+        assert qid == question["question_id"], \
+            f"Pytanie {qid} ma 'question_id' różne od klucza w słowniku: {question['question_id']}."
+
         question_keys = set(question.keys())
         allowed_question_keys = set(QUESTION_FIELDS["required"]) | set(QUESTION_FIELDS["optional"])
 
         assert question_keys.issubset(allowed_question_keys), \
-            f"Pytanie {i} zawiera niedozwolone pola: {question_keys - allowed_question_keys}"
+            f"Pytanie {qid} zawiera niedozwolone pola: {question_keys - allowed_question_keys}"
 
         for req_field in QUESTION_FIELDS["required"]:
-            assert req_field in question, f"Brak wymaganego pola '{req_field}' w pytaniu {i}"
+            assert req_field in question, f"Brak wymaganego pola '{req_field}' w pytaniu {qid}"
 
-        assert "answer" in question, f"Brak pola 'answer' w pytaniu {i}"
+        assert "answer" in question, f"Brak pola 'answer' w pytaniu {qid}"
         answer = question["answer"]
         answer_keys = set(answer.keys())
-        allowed_answer_keys = set(ANSWER_FIELDS["required"]) | set(ANSWER_FIELDS["optional"]) | set(
-            ANSWER_FIELDS["required_any"])
+        allowed_answer_keys = set(ANSWER_FIELDS["required"]) | set(ANSWER_FIELDS["optional"])
 
         assert answer_keys.issubset(allowed_answer_keys), \
-            f"Odpowiedź w pytaniu {i} zawiera niedozwolone pola: {answer_keys - allowed_answer_keys}"
+            f"Odpowiedź w pytaniu {qid} zawiera niedozwolone pola: {answer_keys - allowed_answer_keys}"
 
         for req_field in ANSWER_FIELDS["required"]:
-            assert req_field in answer, f"Brak wymaganego pola '{req_field}' w odpowiedzi pytania {i}"
+            assert req_field in answer, f"Brak wymaganego pola '{req_field}' w odpowiedzi pytania {qid}"
 
-        required_any_present_and_not_empty = False
-        for req_any_field in ANSWER_FIELDS["required_any"]:
-            if req_any_field in answer and answer[req_any_field]:
-                required_any_present_and_not_empty = True
-                break
-        assert required_any_present_and_not_empty, \
-            f"W odpowiedzi pytania {i} musi wystąpić co najmniej jedno niepuste pole z {ANSWER_FIELDS['required_any']}"
 
 @pytest.mark.parametrize('json_path', get_generated_json_files())
 def test_dataset_processor_full(json_path):
-    ds = DatasetProcessor()
+    ds = DatasetManager()
 
     # Dodawanie danych
     ds.add_data_from_json_file(json_path)

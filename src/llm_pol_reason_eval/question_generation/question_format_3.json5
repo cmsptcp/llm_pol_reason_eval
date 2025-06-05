@@ -1,0 +1,67 @@
+{
+  // Główny obiekt zawierający konteksty i pytania
+  "contexts": {
+    // Obiekt mapujący context_id na dane kontekstu
+    "string_context_id_1": { // Unikalny identyfikator kontekstu, w przypadku matur może to być symbol arkusza maturalnego i identyfikator fragmentu tekstu
+      "context_id": "string_context_id_1", // Unikalny identyfikator kontekstu, duplikat dla spójności danych
+      "origin_source_id": "string", // Identyfikator pochodzenia, np. ISBN, symbol arkusza maturalnego
+      "context_content": "string", // Pełna treść fragmentu kontekstu
+      "generated_by": "string", // Informacja o modelu/systemie, który wygenerował kontekst wraz z wersją
+      "generation_date": "string" // Data wygenerowania kontekstu w formacie ISO 8601
+    },
+    "string_context_id_2": {
+      "context_id": "string_context_id_2",
+      "origin_source_id": "string",
+      "context_content": "string",
+      "generated_by": "string",
+      "generation_date": "string"
+    }
+    // ... więcej obiektów kontekstów jako pary klucz-wartość
+  },
+  "questions": {
+    // Obiekt mapujący question_id na dane pytania
+    "string_question_id_1": { // Unikalny identyfikator pytania, w przypadku matur może to być symbol arkusza maturalnego i szczegółowy identyfikator pytania
+      "question_id": "string_question_id_1", // Unikalny identyfikator pytania, duplikat dla spójności danych
+      "category": "string", // Kategoria pytania, np. "matura_język_polski", "matura_matematyka", "książka_proza", "dokument_urzędowy" itp.
+      "question_type": "string", // Typ pytania
+      "origin_source_id": "string", // Identyfikator pochodzenia pytania
+      "context_ids": [ // Lista identyfikatorów kontekstów powiązanych z pytaniem
+        "string_context_id_1" // Odwołanie do klucza w obiekcie "contexts"
+      ],
+      "question_text": "string", // Pełna treść pytania
+      "generated_by": "string", // Informacja o modelu/systemie, który wygenerował pytanie
+      "generation_date": "string", // Data wygenerowania pytania w formacie ISO 8601
+      "choices": [ // Tablica opcji odpowiedzi (dla pytań zamkniętych)
+        {
+          "choice_id": "string", // Unikalny (w zakresie pytania) identyfikator opcji
+          "choice_text": "string" // Treść opcji odpowiedzi
+        }
+        // ... więcej opcji
+      ],
+      "answer": { // Obiekt zawierający szczegóły odpowiedzi
+        "correct_answer": "any", // Prawidłowa odpowiedź (typ zależy od question_type)
+        "example_answers": [ // Lista przykładowych poprawnych odpowiedzi (dla pytań otwartych)
+          "string"
+        ],
+        "statement_evaluations": [ // Tablica ocen dla pytań typu "closed_MTF"
+          {
+            "choice_id": "string", // Identyfikator ocenianej opcji
+            "is_true": "boolean"   // Wartość logiczna stwierdzenia
+          }
+          // ... więcej ocen stwierdzeń
+        ],
+        "scoring_rules": "string | null", // Opis zasad oceniania i punktacji
+        "max_points": "number", // Maksymalna liczba punktów
+        "external_context_required": "string | null", // Tytuł wymaganego zewnętrznego kontekstu
+        "exam_requirements": { // Wymagania egzaminacyjne
+          "general": "string", // Wymagania ogólne
+          "specific": "string" // Wymagania szczegółowe
+        }
+      }
+    },
+    "string_question_id_2": {
+      // ... (analogiczna struktura dla kolejnego pytania)
+    }
+    // ... więcej obiektów pytań jako pary klucz-wartość
+  }
+}
