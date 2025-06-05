@@ -1,4 +1,3 @@
-python
 import json
 from typing import List, Dict, Any, Optional, Callable
 
@@ -17,14 +16,12 @@ class DatasetManager:
         self._add_data(data, duplicate_strategy)
 
     def _add_data(self, data: dict, duplicate_strategy: str):
-        # Obsługa nowej struktury: contexts, questions
         for ctx_id, ctx in data.get("contexts", {}).items():
             if ctx_id in self.contexts:
                 if duplicate_strategy == "replace":
                     self.contexts[ctx_id] = ctx
                 elif duplicate_strategy == "merge":
                     self.contexts[ctx_id].update(ctx)
-                # skip = nic nie rób
             else:
                 self.contexts[ctx_id] = ctx
 
@@ -94,10 +91,28 @@ class DatasetManager:
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(self.get_all_data_as_json_string())
 
-    def remove_contexts_by_query(self, query: Callable[[dict], bool]):
-        to_remove = [k for k, v in self.contexts.items() if query(v)]
-        for k in to_remove:
-            del self.contexts[k]
+    def remove_contexts_by_query(self, query: Callable[[dict], bool], force: bool = False):
+        contexts_to_remove_ids = {
+            cid for cid, context_data in self.contexts.items() if query(context_data)
+        }
+
+        if not contexts_to_remove_ids:
+            return
+
+        if not force:
+            for question_data in self.questions.values():
+                if "context_ids" in question_data:
+                    for linked_ctx_id in question_data["context_ids"]:
+                        if linked_ctx_id in contexts_to_remove_ids:
+                            raise ValueError(
+                                f"Kontekst {linked_ctx_id} jest powiązany z co najmniej jednym pytaniem i nie może "
+                                f"zostać usunięty bez użycia opcji force=True."
+                            )
+        self.contexts = {
+            cid: context_data
+            for cid, context_data in self.contexts.items()
+            if cid not in contexts_to_remove_ids
+        }
 
     def remove_questions_by_query(self, query: Callable[[dict], bool]):
         to_remove = [k for k, v in self.questions.items() if query(v)]

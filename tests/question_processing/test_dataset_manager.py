@@ -4,9 +4,7 @@ import glob
 import tempfile
 import shutil
 import pytest
-import time
-from llm_pol_reason_eval.question_processing.dataset_manager import DatasetManager, DuplicatesStrategy
-
+from llm_pol_reason_eval.question_processing.dataset_manager import DatasetManager
 
 CONTEXT_FIELDS = {
     "required": ["context_id", "origin_source_id", "context_content"],
@@ -21,14 +19,17 @@ QUESTION_FIELDS = {
 
 ANSWER_FIELDS = {
     "required": ["max_points"],
-    "optional": ["scoring_rules", "exam_requirements", "external_context_required", "correct_answer", "example_answers", "statement_evaluations"],
+    "optional": ["scoring_rules", "exam_requirements", "external_context_required", "correct_answer", "example_answers",
+                 "statement_evaluations"],
     "required_any": set()
 }
 
 DATASET_DIR = 'data/dataset_raw'
 
+
 def get_generated_json_files():
     return glob.glob(os.path.join(DATASET_DIR, '**', '*.json'), recursive=True)
+
 
 @pytest.mark.parametrize('json_path', get_generated_json_files())
 def test_generated_question_json_structure(json_path):
@@ -49,7 +50,7 @@ def test_generated_question_json_structure(json_path):
                 f"Kontekst {cid} zawiera niedozwolone pola: {context_keys - allowed_context_keys}"
 
             for req_field in CONTEXT_FIELDS["required"]:
-                assert req_field in context, f"Brak wymaganego pola '{req_field}' w kontekście {i}"
+                assert req_field in context, f"Brak wymaganego pola '{req_field}' w kontekście {cid}"
 
     assert "questions" in json_data, "Brak klucza 'questions' w danych JSON."
     for qid, question in json_data["questions"].items():
@@ -79,94 +80,198 @@ def test_generated_question_json_structure(json_path):
             assert req_field in answer, f"Brak wymaganego pola '{req_field}' w odpowiedzi pytania {qid}"
 
 
-@pytest.mark.parametrize('json_path', get_generated_json_files())
-def test_dataset_processor_full(json_path):
+@pytest.mark.parametrize('json_paths', [get_generated_json_files()])
+def test_dataset_manager(json_paths):
+    if not json_paths:
+        pytest.skip("Nie znaleziono plików JSON do przetestowania.")
+
     ds = DatasetManager()
 
-    # Dodawanie danych
-    ds.add_data_from_json_file(json_path)
-    assert not ds.contexts_df.empty or not ds.questions_df.empty
+    # 1) Załadować wszystkie pliki json do datasetu
+    for json_path in json_paths:
+        ds.add_data_from_json_file(json_path, duplicate_strategy="replace")  # Użyj replace, aby mieć pewność stanu
 
-    # Dodawanie z inną strategią duplikatów
-    ds.add_data_from_json_file(json_path, dup_strategy=DuplicatesStrategy.IGNORE_DUPLICATES)
-    assert ds.questions_df['question_id'].is_unique
+    # 2) Sprawdzić, czy działają statystyki datasetu
+    initial_question_count = len(ds.questions)
+    initial_context_count = len(ds.contexts)
+    print(f"Załadowano {initial_question_count} pytań i {initial_context_count} kontekstów.")
 
-    # Pobierz pytania typu closed_MTF jako JSON (z kontekstami)
-    json_string_closed_mtf = ds.get_questions_as_json_string(
-        query_string="question_type == 'closed_MTF'",
-        with_contexts=True
-    )
-    closed_mtf_questions = json.loads(json_string_closed_mtf)["questions"]
-    assert closed_mtf_questions, "Brak pytań closed_MTF"
-    closed_mtf_ids = [q["question_id"] for q in closed_mtf_questions]
-    first_closed_mtf_id = closed_mtf_ids[0]
+    # 3) Sprawdzić, czy dataset ma co najmniej 1 pytanie
+    assert initial_question_count > 0, "Dataset powinien zawierać co najmniej jedno pytanie."
+    # 4) Sprawdzić, czy dataset ma co najmniej 1 kontekst
+    assert initial_context_count > 0, "Dataset powinien zawierać co najmniej jeden kontekst."
 
-    # Usuń jedno z tych pytań
-    ds.remove_questions_by_query(f"question_id == '{first_closed_mtf_id}'")
-    assert first_closed_mtf_id not in ds.questions_df['question_id'].values
+    # 5) Spróbować dodać jeszcze raz każdy z plików w różnych strategiach
+    # Użyjemy pierwszego pliku do testowania strategii na głównym ds
+    if json_paths:
+        first_json_path = json_paths[0]
 
-    # Dodaj ponownie pytania closed_MTF z json_string_closed_mtf
-    ds.add_data_from_json_string(json_string_closed_mtf)
-    assert first_closed_mtf_id in ds.questions_df['question_id'].values
+        # Strategia "skip"
+        count_q_before_skip = len(ds.questions)
+        count_c_before_skip = len(ds.contexts)
+        ds.add_data_from_json_file(first_json_path, duplicate_strategy="skip")
+        assert len(
+            ds.questions) == count_q_before_skip, "Strategia 'skip' nie powinna zmieniać liczby pytań, jeśli dane już istnieją."
+        assert len(
+            ds.contexts) == count_c_before_skip, "Strategia 'skip' nie powinna zmieniać liczby kontekstów, jeśli dane już istnieją."
 
-    # Usuwanie pytań po query
-    initial_q = len(ds.questions_df)
-    ds.remove_questions_by_query("question_type == 'closed_MTF'")
-    assert len(ds.questions_df) <= initial_q
+        # Strategia "replace"
+        ds.add_data_from_json_file(first_json_path, duplicate_strategy="replace")
+        temp_ds_replace = DatasetManager()
+        temp_ds_replace.add_data_from_json_file(first_json_path)
+        assert len(ds.questions) >= len(temp_ds_replace.questions) or not temp_ds_replace.questions
+        assert len(ds.contexts) >= len(temp_ds_replace.contexts) or not temp_ds_replace.contexts
 
-    # Usuwanie kontekstów po query (bez force)
-    initial_c = len(ds.contexts_df)
-    ds.remove_contexts_by_query("origin_source_id == 'nonexistent'")
-    assert len(ds.contexts_df) <= initial_c
+        # Strategia "merge"
+        ds.add_data_from_json_file(first_json_path, duplicate_strategy="merge")
+        assert len(ds.questions) >= len(temp_ds_replace.questions) or not temp_ds_replace.questions
+        assert len(ds.contexts) >= len(temp_ds_replace.contexts) or not temp_ds_replace.contexts
 
-    # Usuwanie kontekstów po query (force)
-    ds.remove_contexts_by_query("origin_source_id == 'nonexistent'", by_force=True)
+    # 6) Pobrać przykładowe pytanie
+    sample_question_id = None
+    sample_question_data = None
+    if ds.questions:
+        sample_question_id = list(ds.questions.keys())[0]
+        sample_question_data = ds.questions[sample_question_id]
 
-    # Serializacja wszystkich danych do stringa
-    all_json = ds.get_all_data_as_json_string()
-    assert 'questions' in all_json
+        # 7) Usunąć to pytanie
+        ds.remove_questions_by_query(lambda q: q['question_id'] == sample_question_id)
+        assert sample_question_id not in ds.questions, "Przykładowe pytanie nie zostało usunięte."
 
-    # Serializacja pytań z query i kontekstami
-    q_json = ds.get_questions_as_json_string(query_string="question_type == 'open'", with_contexts=True)
-    parsed = json.loads(q_json)
-    assert 'questions' in parsed
-    assert 'contexts' in parsed
+    # 8) Usunąć pytanie, którego nie ma w datasecie
+    count_before_remove_non_existent = len(ds.questions)
+    ds.remove_questions_by_query(lambda q: q['question_id'] == "ID_KTORE_NA_PEWNO_NIE_ISTNIEJE_12345")
+    assert len(
+        ds.questions) == count_before_remove_non_existent, "Usunięcie nieistniejącego pytania nie powinno zmieniać liczby pytań."
 
-    # Serializacja kontekstów z query
-    c_json = ds.get_contexts_as_json_string(query_string="origin_source_id == 'nonexistent'")
-    assert 'contexts' in json.loads(c_json)
+    # 9) Dodać z powrotem pytanie które wcześniej usunięto
+    if sample_question_id and sample_question_data:
+        question_to_add_back_str = json.dumps({"questions": {sample_question_id: sample_question_data}})
+        ds.add_data_from_json_string(question_to_add_back_str, duplicate_strategy="replace")
+        assert sample_question_id in ds.questions, "Przykładowe pytanie nie zostało dodane z powrotem."
 
-    # Zapis wszystkich danych do pliku
-    with tempfile.NamedTemporaryFile(suffix='.json', delete=False) as tmpfile:
-        out_path = tmpfile.name
-    ds.save_all_data_to_json_file(out_path)
-    assert os.path.exists(out_path)
-    with open(out_path, encoding='utf-8') as f:
-        data = json.load(f)
-    assert 'questions' in data
-    os.remove(out_path)
+    # 10) Spróbować usunąć kontekst, który jest powiązany z jakimś pytaniem
+    linked_context_id_to_remove = None
+    if ds.questions and ds.contexts:
+        for q_id, q_data in ds.questions.items():
+            if q_data.get("context_ids"):
+                for ctx_id in q_data["context_ids"]:
+                    if ctx_id in ds.contexts:
+                        linked_context_id_to_remove = ctx_id
+                        break
+            if linked_context_id_to_remove:
+                break
 
-    # Zapis batchy pytań do pliku jsonl
+    if linked_context_id_to_remove:
+        print(f"Próba usunięcia powiązanego kontekstu: {linked_context_id_to_remove}")
+        # Oczekujemy błędu, ponieważ kontekst jest powiązany z pytaniem
+        with pytest.raises(ValueError,
+                           match=f"Kontekst {linked_context_id_to_remove} jest powiązany z co najmniej jednym pytaniem i nie może zostać usunięty."):
+            ds.remove_contexts_by_query(lambda c: c['context_id'] == linked_context_id_to_remove)
+        # Sprawdzenie, czy kontekst nadal istnieje po nieudanej próbie usunięcia
+        assert linked_context_id_to_remove in ds.contexts, "Powiązany kontekst nie powinien zostać usunięty, jeśli zgłoszono błąd."
+    else:
+        print("Nie znaleziono kontekstu powiązanego z pytaniem do przetestowania usunięcia.")
+
+    # 11) Pobrać pytania w batchach po 3
+    if ds.questions:
+        batches_of_3_str_list = ds.get_questions_in_batches_as_jsonl_string(batch_size=3)
+        assert isinstance(batches_of_3_str_list, list), "Wynik batchowania powinien być listą."
+        if batches_of_3_str_list:  # Jeśli są jakiekolwiek batche
+            assert isinstance(batches_of_3_str_list[0], str), "Elementy listy batchy powinny być stringami JSONL."
+            first_batch_data = json.loads(batches_of_3_str_list[0])
+            assert "questions" in first_batch_data, "Każdy batch powinien zawierać klucz 'questions'."
+            assert len(first_batch_data["questions"]) <= 3, "Rozmiar batcha nie powinien przekraczać zadanego."
+
+    # 12) Pobrać pytania 1 typu z kontekstami
+    # Znajdź pierwszy dostępny typ pytania
+    example_question_type = None
+    if ds.questions:
+        for q_data in ds.questions.values():
+            if "question_type" in q_data:
+                example_question_type = q_data["question_type"]
+                break
+
+    if example_question_type:
+        typed_questions_str = ds.get_questions_as_json_string(
+            query=lambda q: q.get("question_type") == example_question_type,
+            with_contexts=True
+        )
+        typed_questions_data = json.loads(typed_questions_str)
+        assert "questions" in typed_questions_data
+        if typed_questions_data["questions"]:  # Jeśli znaleziono pytania tego typu
+            assert "contexts" in typed_questions_data, "Konteksty powinny być dołączone, jeśli with_contexts=True i są pytania."
+            for q_data in typed_questions_data["questions"].values():
+                assert q_data.get("question_type") == example_question_type
+
+    # 13) Pobrać pytania 1 typu w batchach po 5 z kontekstami
+    if example_question_type and ds.questions:
+        typed_batches_str_list = ds.get_questions_in_batches_as_jsonl_string(
+            batch_size=5,
+            query=lambda q: q.get("question_type") == example_question_type,
+            with_contexts=True,
+            sort_key="question_id"  # Dodajemy sortowanie dla spójności
+        )
+        assert isinstance(typed_batches_str_list, list)
+        if typed_batches_str_list:
+            first_typed_batch_data = json.loads(typed_batches_str_list[0])
+            assert "questions" in first_typed_batch_data
+            if first_typed_batch_data["questions"]:
+                assert "contexts" in first_typed_batch_data
+                assert len(first_typed_batch_data["questions"]) <= 5
+                for q_data_batch in first_typed_batch_data["questions"].values():
+                    assert q_data_batch.get("question_type") == example_question_type
+
+    # 14) Zapisać plik jsonl
     temp_dir = tempfile.mkdtemp()
-    output_jsonl = os.path.join(temp_dir, "batch.jsonl")
-    ds.save_questions_in_batches_as_jsonl_file(
-        output_jsonl,
-        batch_size=2,
-        query_string="question_id.str.contains('Zadanie_1', na=False) or question_id.str.contains('Zadanie_2', na=False)",
-        sort_questions_by_key='question_id'
-    )
-    assert os.path.exists(output_jsonl)
-    with open(output_jsonl, encoding='utf-8') as f:
-        lines = f.readlines()
-    assert lines
+    try:
+        output_jsonl_path = os.path.join(temp_dir, "test_batch_output.jsonl")
+        ds.save_questions_in_batches_as_jsonl_file(
+            filepath=output_jsonl_path,
+            batch_size=2,  # Mały batch dla testu
+            query=lambda q: True,  # Wszystkie pytania
+            with_contexts=True,
+            sort_key="question_id"
+        )
+        assert os.path.exists(output_jsonl_path), "Plik JSONL nie został utworzony."
 
-    # Pobranie batchy jako string jsonl
-    jsonl_str = ds.get_questions_in_batches_as_jsonl_string(
-        batch_size=2,
-        query_string="question_id.str.contains('Zadanie_1', na=False)",
-        with_contexts=True,
-        sort_questions_by_key='question_id'
-    )
-    assert jsonl_str.strip() != ""
+        # 15) Otworzyć plik jsonl i spróbować dodać do nowego datasetu wybrany batch
+        if os.path.exists(output_jsonl_path) and os.path.getsize(output_jsonl_path) > 0:
+            with open(output_jsonl_path, "r", encoding="utf-8") as f:
+                first_line_batch_str = f.readline().strip()
 
-    shutil.rmtree(temp_dir)
+            if first_line_batch_str:
+                ds_new = DatasetManager()
+                ds_new.add_data_from_json_string(first_line_batch_str)
+
+                first_batch_json_data = json.loads(first_line_batch_str)
+                expected_q_count_in_batch = len(first_batch_json_data.get("questions", {}))
+                expected_c_count_in_batch = len(first_batch_json_data.get("contexts", {}))
+
+                assert len(
+                    ds_new.questions) == expected_q_count_in_batch, "Liczba pytań w nowym DS nie zgadza się z batchem."
+                assert len(
+                    ds_new.contexts) == expected_c_count_in_batch, "Liczba kontekstów w nowym DS nie zgadza się z batchem."
+            else:
+                print("Plik JSONL był pusty, pomijanie testu ładowania batcha.")
+        else:
+            print("Plik JSONL nie istnieje lub jest pusty, pomijanie testu ładowania batcha.")
+            if not ds.questions:  # Jeśli nie było pytań, plik JSONL może być pusty
+                assert not os.path.exists(output_jsonl_path) or os.path.getsize(output_jsonl_path) == 0
+
+    finally:
+        shutil.rmtree(temp_dir)
+
+    # Końcowe sprawdzenie zapisu i odczytu całego datasetu
+    final_temp_dir = tempfile.mkdtemp()
+    try:
+        all_data_path = os.path.join(final_temp_dir, "all_data.json")
+        ds.save_all_data_to_json_file(all_data_path)
+        assert os.path.exists(all_data_path)
+
+        ds_loaded_all = DatasetManager()
+        ds_loaded_all.add_data_from_json_file(all_data_path)
+        assert len(ds_loaded_all.questions) == len(ds.questions)
+        assert len(ds_loaded_all.contexts) == len(ds.contexts)
+    finally:
+        shutil.rmtree(final_temp_dir)
