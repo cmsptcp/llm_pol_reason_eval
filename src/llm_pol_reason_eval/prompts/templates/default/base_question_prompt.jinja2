@@ -1,0 +1,27 @@
+Proszę odpowiedzieć na poniższą serię pytań. Po każdej kompletnej odpowiedzi umieść unikalny separator: '[[---KONIEC ODPOWIEDZI---]]'.
+
+{% for q_id, q_data in questions.items() %}
+========================================
+### PYTANIE {{ loop.index }}
+
+{% if q_data.get("context_ids") and contexts %}
+### KONTEKST(Y)
+{% for cid in q_data.get("context_ids", []) %}
+{% if contexts.get(cid) %}
+---
+{{ contexts[cid].context_content }}
+---
+{% endif %}
+{% endfor %}
+{% endif %}
+
+### TREŚĆ PYTANIA
+{{ q_data.question_text }}
+
+{% if q_data.get("choices") %}
+### OPCJE WYBORU
+{% for choice in q_data.get("choices", []) %}
+- {{ choice.choice_id }}: {{ choice.choice_text }}
+{% endfor %}
+{% endif %}
+{% endfor %}

@@ -21,3 +21,4 @@ huggingface_hub[hf_xet]
 # pip install -r requirements.txt
 pytest~=8.3.5
 dotenv~=0.9.9
+pytest-mock

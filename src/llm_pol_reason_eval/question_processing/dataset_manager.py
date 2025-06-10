@@ -1,13 +1,14 @@
 import json
 from sortedcontainers import SortedDict
-from typing import List, Dict, Any, Optional, Callable
-from collections import Counter
+from typing import List, Dict, Any, Optional, Callable, Iterator
+from collections import Counter, defaultdict
 
+from llm_pol_reason_eval.data_models import ContextData, QuestionData
 
 class DatasetManager:
     def __init__(self):
-        self.contexts: SortedDict[str, dict] = SortedDict()
-        self.questions: SortedDict[str, dict] = SortedDict()
+        self.contexts: SortedDict[str, ContextData] = SortedDict()
+        self.questions: SortedDict[str, QuestionData] = SortedDict()
 
     def add_data_from_json_file(self, filepath: str, duplicate_strategy: str = "skip"):
         with open(filepath, "r", encoding="utf-8") as f:
@@ -20,171 +21,107 @@ class DatasetManager:
 
     def _add_data(self, data: dict, duplicate_strategy: str):
         for ctx_id, ctx in data.get("contexts", {}).items():
-            if ctx_id in self.contexts:
-                if duplicate_strategy == "replace":
-                    self.contexts[ctx_id] = ctx
-                elif duplicate_strategy == "merge":
-                    self.contexts[ctx_id].update(ctx)
-            else:
+            if ctx_id not in self.contexts or duplicate_strategy == "replace":
                 self.contexts[ctx_id] = ctx
-
+            elif duplicate_strategy == "merge":
+                self.contexts[ctx_id].update(ctx)
         for q_id, q in data.get("questions", {}).items():
-            if q_id in self.questions:
-                if duplicate_strategy == "replace":
-                    self.questions[q_id] = q
-                elif duplicate_strategy == "merge":
-                    self.questions[q_id].update(q)
-            else:
+            if q_id not in self.questions or duplicate_strategy == "replace":
                 self.questions[q_id] = q
+            elif duplicate_strategy == "merge":
+                 self.questions[q_id].update(q)
 
     @staticmethod
-    def _filter(items: SortedDict[str, dict], query: Optional[Callable[[dict], bool]] = None) -> SortedDict[str, dict]:
+    def _filter(items: SortedDict, query: Optional[Callable[[dict], bool]] = None) -> SortedDict:
         if not query:
             return items
         return SortedDict((k, v) for k, v in items.items() if query(v))
 
-    def get_questions_in_batches_as_jsonl_string(self, batch_size: int = 10, with_contexts: bool = True,
-                                                 query: Optional[Callable[[dict], bool]] = None) -> List[str]:
-        """
-        Generates batches of questions as JSONL string.
-        Each batch (line of JSONL string) is a JSON object containing questions and optionally contexts.
-        """
+    def _get_contexts_for_questions(self, question_dict: Dict[str, QuestionData]) -> SortedDict[str, ContextData]:
+        ctx_ids = set(cid for q_data in question_dict.values() for cid in q_data.get("context_ids", []))
+        return SortedDict({cid: self.contexts[cid] for cid in sorted(list(ctx_ids)) if cid in self.contexts})
+
+    def get_grouped_question_batches(self, batch_size: int = 10, with_contexts: bool = True,
+                                     query: Optional[Callable[[dict], bool]] = None) -> Iterator[Dict[str, Any]]:
+        """Zwraca pytania w grupach według kategorii i typu pytania."""
         filtered_questions = self._filter(self.questions, query)
-        keys = list(filtered_questions.keys())
-        batches = []
-        for i in range(0, len(keys), batch_size):
-            batch_q_data = SortedDict()
-            current_keys = keys[i:i + batch_size]
-            for k in current_keys:
-                batch_q_data[k] = filtered_questions[k]
+        grouped_by_type = defaultdict(list)
+        for q_id, q_data in filtered_questions.items():
+            key = (q_data.get("category", "unknown"), q_data.get("question_type", "unknown"))
+            grouped_by_type[key].append((q_id, q_data))
+        for (category, q_type), questions_in_group in grouped_by_type.items():
+            for i in range(0, len(questions_in_group), batch_size):
+                batch_questions_tuples = questions_in_group[i:i + batch_size]
+                batch_q_data = SortedDict({q_id: q_data for q_id, q_data in batch_questions_tuples})
+                batch_data = {"questions": batch_q_data, "metadata": {'category': category, 'question_type': q_type}}
+                if with_contexts:
+                    batch_data["contexts"] = self._get_contexts_for_questions(batch_q_data)
+                yield batch_data
 
-            batch_data: Dict[str, Any]
-            if with_contexts:
-                ctx_ids = set()
-                for q in batch_q_data.values():
-                    ctx_ids.update(q.get("context_ids", []))
+    def get_grouped_question_batches_as_json_strings(self, batch_size: int = 10, with_contexts: bool = True,
+                                                     query: Optional[Callable[[dict], bool]] = None) -> List[str]:
+        batch_generator = self.get_grouped_question_batches(batch_size, with_contexts, query)
+        return [json.dumps(batch, ensure_ascii=False) for batch in batch_generator]
 
-                batch_c_data = SortedDict()
-                for cid in ctx_ids:  # SortedDict posortuje klucze automatycznie
-                    if cid in self.contexts:
-                        batch_c_data[cid] = self.contexts[cid]
-                batch_data = {"questions": batch_q_data, "contexts": batch_c_data}
-            else:
-                batch_data = {"questions": batch_q_data}
-            batches.append(json.dumps(batch_data, ensure_ascii=False))
-        return batches
-
-    def save_questions_in_batches_as_jsonl_file(self, filepath: str, batch_size: int = 100, with_contexts: bool = True,
-                                                query: Optional[Callable[[dict], bool]] = None):
-        batches = self.get_questions_in_batches_as_jsonl_string(batch_size, with_contexts, query)
+    def save_grouped_batches_as_jsonl_file(self, filepath: str, batch_size: int = 100, with_contexts: bool = True,
+                                           query: Optional[Callable[[dict], bool]] = None):
+        json_strings = self.get_grouped_question_batches_as_json_strings(batch_size, with_contexts, query)
         with open(filepath, "w", encoding="utf-8") as f:
-            for batch in batches:
-                f.write(batch + "\n")
-
-    def get_contexts_as_json_string(self, query: Optional[Callable[[dict], bool]] = None,
-                                    human_readable: bool = True) -> str:
-        filtered_contexts = self._filter(self.contexts, query)
-        if human_readable:
-            return json.dumps(filtered_contexts, ensure_ascii=False, indent=2, sort_keys=False)
-        return json.dumps(filtered_contexts, ensure_ascii=False, separators=(",", ":"))
+            for json_string in json_strings:
+                f.write(json_string + "\n")
 
     def get_questions_as_json_string(self, with_contexts: bool = True, query: Optional[Callable[[dict], bool]] = None,
                                      human_readable: bool = True) -> str:
+        """Zwraca pytania jako JSON string, z opcjonalnym filtrowaniem i kontekstami."""
         filtered_questions = self._filter(self.questions, query)
-
-        data: Dict[str, Any]
+        data = {"questions": filtered_questions}
         if with_contexts:
-            ctx_ids = set()
-            for q in filtered_questions.values():
-                ctx_ids.update(q.get("context_ids", []))
-
-            contexts_data = SortedDict()
-            for cid in ctx_ids:  # SortedDict posortuje klucze automatycznie
-                if cid in self.contexts:
-                    contexts_data[cid] = self.contexts[cid]
-            data = {"questions": filtered_questions, "contexts": contexts_data}
-        else:
-            data = {"questions": filtered_questions}
-
-        if human_readable:
-            return json.dumps(data, ensure_ascii=False, indent=2, sort_keys=False)
-        return json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-
-    def get_all_data_as_json_string(self, human_readable: bool = True) -> str:
-        data = {"contexts": self.contexts, "questions": self.questions}
-        if human_readable:
-            return json.dumps(data, ensure_ascii=False, indent=2, sort_keys=False)
-        return json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+            data["contexts"] = self._get_contexts_for_questions(filtered_questions)
+        serializer_args = {'ensure_ascii': False, 'indent': 2} if human_readable else {'ensure_ascii': False, 'separators': (",", ":")}
+        return json.dumps(data, **serializer_args)
 
     def save_all_data_to_json_file(self, filepath: str, human_readable: bool = True):
+        """Zapisuje wszystkie konteksty i pytania do pliku JSON."""
+        data = {"contexts": self.contexts, "questions": self.questions}
+        serializer_args = {'ensure_ascii': False, 'indent': 2} if human_readable else {'ensure_ascii': False, 'separators': (",", ":")}
         with open(filepath, "w", encoding="utf-8") as f:
-            f.write(self.get_all_data_as_json_string(human_readable=human_readable))
-
-    def remove_contexts_by_query(self, query: Callable[[dict], bool], force: bool = False):
-        contexts_to_remove_ids = {
-            cid for cid, context_data in self.contexts.items() if query(context_data)
-        }
-
-        if not contexts_to_remove_ids:
-            return
-
-        if not force:
-            for question_data in self.questions.values():
-                if "context_ids" in question_data:
-                    for linked_ctx_id in question_data["context_ids"]:
-                        if linked_ctx_id in contexts_to_remove_ids:
-                            raise ValueError(
-                                f"Kontekst {linked_ctx_id} jest powiązany z co najmniej jednym pytaniem i nie może "
-                                f"zostać usunięty bez użycia opcji force=True."
-                            )
-
-        new_contexts = SortedDict()
-        for cid, context_data in self.contexts.items():
-            if cid not in contexts_to_remove_ids:
-                new_contexts[cid] = context_data
-        self.contexts = new_contexts
+            json.dump(data, f, **serializer_args)
 
     def remove_questions_by_query(self, query: Callable[[dict], bool]):
         to_remove = [k for k, v in self.questions.items() if query(v)]
         for k in to_remove:
             del self.questions[k]
 
+    def remove_contexts_by_query(self, query: Callable[[dict], bool], force: bool = False):
+        """
+        Usuwa konteksty pasujące do podanego query.
+        Domyślnie nie usuwa kontekstów, które są powiązane z pytaniami,
+        """
+        contexts_to_remove_ids = {cid for cid, c_data in self.contexts.items() if query(c_data)}
+        if not contexts_to_remove_ids:
+            return
+        if not force:
+            linked_q_ids = {q_id for q_id, q_data in self.questions.items() if any(cid in contexts_to_remove_ids for cid in q_data.get("context_ids", []))}
+            if linked_q_ids:
+                raise ValueError(
+                    f"Nie można usunąć kontekstów, ponieważ są powiązane z pytaniami: {list(linked_q_ids)[:5]}... "
+                    f"Użyj force=True, aby kontynuować."
+                )
+        for cid in contexts_to_remove_ids:
+            if cid in self.contexts:
+                del self.contexts[cid]
+
     def get_stats(self) -> Dict[str, List[Any]]:
-        category_counter = Counter()
-        type_counter = Counter()
-        category_type_counter = Counter()
-
-        for question_data in self.questions.values():
-            category = question_data.get("category")
-            question_type = question_data.get("question_type")
-
-            if category:
-                category_counter[category] += 1
-            if question_type:
-                type_counter[question_type] += 1
-            if category and question_type:
-                category_type_counter[(category, question_type)] += 1
-
-        question_category_stats = category_counter.most_common()
-        question_type_stats = type_counter.most_common()
-        question_category_by_type_stats = category_type_counter.most_common()
-
+        """Statystyki dotyczące kategorii i typów pytań."""
+        category_counter = Counter(q.get("category") for q in self.questions.values() if q.get("category"))
+        type_counter = Counter(q.get("question_type") for q in self.questions.values() if q.get("question_type"))
         return {
-            "question_category_stats": question_category_stats,
-            "question_type_stats": question_type_stats,
-            "question_category_by_type_stats": question_category_by_type_stats,
+            "question_category_stats": category_counter.most_common(),
+            "question_type_stats": type_counter.most_common(),
         }
 
     def get_question_category_list(self) -> list[str]:
-        categories = set()
-        for question_data in self.questions.values():
-            if "category" in question_data:
-                categories.add(question_data["category"])
-        return sorted(list(categories))
+        return sorted({q["category"] for q in self.questions.values() if "category" in q})
 
     def get_question_type_list(self) -> list[str]:
-        question_types = set()
-        for question_data in self.questions.values():
-            if "question_type" in question_data:
-                question_types.add(question_data["question_type"])
-        return sorted(list(question_types))
+        return sorted({q["question_type"] for q in self.questions.values() if "question_type" in q})

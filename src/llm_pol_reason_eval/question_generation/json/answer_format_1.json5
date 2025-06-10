@@ -1,6 +1,6 @@
 {
   // Główny obiekt zawierający odpowiedzi modeli
-  "answers": {
+  "model_answers": {
     // Obiekt mapujący answer_id na dane odpowiedzi
     "string_answer_id_1": {
       // Unikalny identyfikator odpowiedzi
