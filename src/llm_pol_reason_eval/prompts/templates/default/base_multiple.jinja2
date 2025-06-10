@@ -1,0 +1,27 @@
+Proszę odpowiedzieć na poniższą serię pytań.
+
+{% for q_data in questions %}
+========================================
+### PYTANIE {{ loop.index }}
+
+{% if q_data.contexts %}
+### KONTEKST(Y)
+{% for context in q_data.contexts %}
+---
+{{ context }}
+---
+{% endfor %}
+{% endif %}
+
+### TREŚĆ PYTANIA
+{{ q_data.text }}
+
+{% if q_data.choices %}
+### OPCJE ODPOWIEDZI
+{% for choice in q_data.choices %}
+{{ choice.choice_id }}: {{ choice.choice_text }}
+{% endfor %}
+{% endif %}
+
+### ODPOWIEDŹ
+{% endfor %}

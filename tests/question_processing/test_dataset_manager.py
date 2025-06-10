@@ -26,6 +26,13 @@ ANSWER_FIELDS = {
 
 DATASET_DIR = 'data/dataset_raw'
 
+def assert_allowed_keys(data, data_fields, entity_name):
+    allowed_keys = set(data_fields["required"]) | set(data_fields.get("optional", []))
+    data_keys = set(data.keys())
+    assert data_keys.issubset(allowed_keys), \
+        f"{entity_name} zawiera niedozwolone pola: {data_keys - allowed_keys}"
+    for req_field in data_fields["required"]:
+        assert req_field in data, f"{entity_name} nie zawiera wymaganego pole '{req_field}'"
 
 def get_generated_json_files():
     return glob.glob(os.path.join(DATASET_DIR, '**', '*.json'), recursive=True)
@@ -42,15 +49,7 @@ def test_generated_question_json_structure(json_path):
             assert "context_id" in context, f"Kontekst {cid} nie zawiera pola 'context_id'."
             assert cid == context["context_id"], \
                 f"Kontekst {cid} ma 'context_id' różne od klucza w słowniku: {context['context_id']}."
-
-            allowed_context_keys = set(CONTEXT_FIELDS["required"]) | set(CONTEXT_FIELDS["optional"])
-            context_keys = set(context.keys())
-
-            assert context_keys.issubset(allowed_context_keys), \
-                f"Kontekst {cid} zawiera niedozwolone pola: {context_keys - allowed_context_keys}"
-
-            for req_field in CONTEXT_FIELDS["required"]:
-                assert req_field in context, f"Brak wymaganego pola '{req_field}' w kontekście {cid}"
+            assert_allowed_keys(context, CONTEXT_FIELDS, f"Kontekst {cid}")
 
     assert "questions" in json_data, "Brak klucza 'questions' w danych JSON."
     for qid, question in json_data["questions"].items():
@@ -59,27 +58,14 @@ def test_generated_question_json_structure(json_path):
         assert qid == question["question_id"], \
             f"Pytanie {qid} ma 'question_id' różne od klucza w słowniku: {question['question_id']}."
 
-        question_keys = set(question.keys())
-        allowed_question_keys = set(QUESTION_FIELDS["required"]) | set(QUESTION_FIELDS["optional"])
-
-        assert question_keys.issubset(allowed_question_keys), \
-            f"Pytanie {qid} zawiera niedozwolone pola: {question_keys - allowed_question_keys}"
-
-        for req_field in QUESTION_FIELDS["required"]:
-            assert req_field in question, f"Brak wymaganego pola '{req_field}' w pytaniu {qid}"
+        assert_allowed_keys(question, QUESTION_FIELDS, f"Pytanie {qid}")
 
         assert "answer" in question, f"Brak pola 'answer' w pytaniu {qid}"
         answer = question["answer"]
-        answer_keys = set(answer.keys())
-        allowed_answer_keys = set(ANSWER_FIELDS["required"]) | set(ANSWER_FIELDS["optional"])
-
-        assert answer_keys.issubset(allowed_answer_keys), \
-            f"Odpowiedź w pytaniu {qid} zawiera niedozwolone pola: {answer_keys - allowed_answer_keys}"
-
-        for req_field in ANSWER_FIELDS["required"]:
-            assert req_field in answer, f"Brak wymaganego pola '{req_field}' w odpowiedzi pytania {qid}"
+        assert_allowed_keys(answer, ANSWER_FIELDS, f"Odpowiedź w pytaniu {qid}")
 
 
+# noinspection PyUnreachableCode
 @pytest.mark.parametrize('json_paths', [get_generated_json_files()])
 def test_dataset_manager(json_paths):
     if not json_paths:
@@ -144,7 +130,7 @@ def test_dataset_manager(json_paths):
     assert len(
         ds.questions) == count_before_remove_non_existent, "Usunięcie nieistniejącego pytania nie powinno zmieniać liczby pytań."
 
-    # 9) Dodać z powrotem pytanie które wcześniej usunięto
+    # 9) Dodać z powrotem pytanie, które wcześniej usunięto
     if sample_question_id and sample_question_data:
         question_to_add_back_str = json.dumps({"questions": {sample_question_id: sample_question_data}})
         ds.add_data_from_json_string(question_to_add_back_str, duplicate_strategy="replace")
@@ -210,7 +196,6 @@ def test_dataset_manager(json_paths):
             batch_size=5,
             query=lambda q: q.get("question_type") == example_question_type,
             with_contexts=True,
-            sort_key="question_id"  # Dodajemy sortowanie dla spójności
         )
         assert isinstance(typed_batches_str_list, list)
         if typed_batches_str_list:
@@ -231,7 +216,6 @@ def test_dataset_manager(json_paths):
             batch_size=2,  # Mały batch dla testu
             query=lambda q: True,  # Wszystkie pytania
             with_contexts=True,
-            sort_key="question_id"
         )
         assert os.path.exists(output_jsonl_path), "Plik JSONL nie został utworzony."
 

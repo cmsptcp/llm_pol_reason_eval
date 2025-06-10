@@ -10,7 +10,7 @@
 "questions": [
  {
  "id_question": "string", // Unikalny identyfikator pytania
- "category": "string", // Kategoria pytania (np. "matura_jezyk_polski, generowane_książka, generowane_dokument, matura_matematyka")
+ "category": "string", // Kategoria pytania (np. "matura_język_polski, generowane_książka, generowane_dokument, matura_matematyka")
  "question_type": "string", // Typ pytania ("open" - pytanie otwarte, "closed_TFQ" - pytania zamknięte prawda/fałsz, "closed_YNQ" - pytania zamknięte tak/nie, "closed_MCQ" - pytania zamknięte jednokrotnego wyboru - ang. Multiple Choice Question, "closed_MRQ" - pytania zamknięte wielokrotnego wyboru - ang. Multiple Response Question, "closed_MSQ" - pytania zamknięte wielokrotnego wyboru gdzie trzeba oznaczyć wszystkie poprawne odpowiedzi by otrzymać komplet punktów - ang. Multiple Selection Question, "closed_MTF" - pytanie zamknięte wielokrotnej oceny prawda/fałsz - ang. Multiple True False Question, "open_synthesizing" - pytania otwarte - synteza, itp.)
  "origin_source_id": "string", // Identyfikator pochodzenia (np. unikalny symbol arkusza, książki itp.)
  "context_ids": [ // Lista identyfikatorów kontekstów powiązanych z pytaniem

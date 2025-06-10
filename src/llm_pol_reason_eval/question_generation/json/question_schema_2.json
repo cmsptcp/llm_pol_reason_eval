@@ -42,7 +42,7 @@
           },
           "category": {
             "type": "string",
-            "description": "Kategoria pytania (np. \"matura_jezyk_polski\", \"generowane_książka\")."
+            "description": "Kategoria pytania (np. \"matura_język_polski\", \"generowane_książka\")."
           },
           "question_type": {
             "type": "string",

@@ -88,7 +88,7 @@
   "questions": {
     "MPOP-P1-100-2305_zad_1": {
       "question_id": "MPOP-P1-100-2305_zad_1",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "open_text",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -123,7 +123,7 @@
     },
     "MPOP-P1-100-2305_zad_2": {
       "question_id": "MPOP-P1-100-2305_zad_2",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "open_text",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -156,7 +156,7 @@
     },
     "MPOP-P1-100-2305_zad_3": {
       "question_id": "MPOP-P1-100-2305_zad_3",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "open_text",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -214,7 +214,7 @@
     },
     "MPOP-P1-100-2305_zad_4": {
       "question_id": "MPOP-P1-100-2305_zad_4",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "closed_MTF",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -264,7 +264,7 @@
     },
     "MPOP-P1-100-2305_zad_5": {
       "question_id": "MPOP-P1-100-2305_zad_5",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "open_text",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -299,7 +299,7 @@
     },
     "MPOP-P1-100-2305_zad_6": {
       "question_id": "MPOP-P1-100-2305_zad_6",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "open_synthesis",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -355,7 +355,7 @@
     },
     "MPOP-P1-100-2305_zad_7": {
       "question_id": "MPOP-P1-100-2305_zad_7",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "open_text",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -391,7 +391,7 @@
     },
     "MPOP-P1-100-2305_zad_8": {
       "question_id": "MPOP-P1-100-2305_zad_8",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "open_text",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -439,7 +439,7 @@
     },
     "MPOP-P1-100-2305_zad_9": {
       "question_id": "MPOP-P1-100-2305_zad_9",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "open_text",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -475,7 +475,7 @@
     },
     "MPOP-P1-100-2305_zad_11": {
       "question_id": "MPOP-P1-100-2305_zad_11",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "closed_MTF",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -524,7 +524,7 @@
     },
     "MPOP-P1-100-2305_zad_12_1": {
       "question_id": "MPOP-P1-100-2305_zad_12_1",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "open_text",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -561,7 +561,7 @@
     },
     "MPOP-P1-100-2305_zad_12_2": {
       "question_id": "MPOP-P1-100-2305_zad_12_2",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "open_text",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -595,7 +595,7 @@
     },
     "MPOP-P1-100-2305_zad_13": {
       "question_id": "MPOP-P1-100-2305_zad_13",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "open_text",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -631,7 +631,7 @@
     },
     "MPOP-P1-100-2305_zad_15": {
       "question_id": "MPOP-P1-100-2305_zad_15",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "open_text",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [],
@@ -663,7 +663,7 @@
     },
     "MPOP-P1-100-2305_zad_16_1": {
       "question_id": "MPOP-P1-100-2305_zad_16_1",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "closed_MCQ",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -711,7 +711,7 @@
     },
     "MPOP-P1-100-2305_zad_16_2": {
       "question_id": "MPOP-P1-100-2305_zad_16_2",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "open_text",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
@@ -746,7 +746,7 @@
     },
     "MPOP-P1-100-2305_zad_17": {
       "question_id": "MPOP-P1-100-2305_zad_17",
-      "category": "matura_jezyk_polski",
+      "category": "matura_język_polski",
       "question_type": "open_text",
       "origin_source_id": "MPOP-P1-100-2305",
       "context_ids": [
