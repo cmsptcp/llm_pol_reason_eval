@@ -31,7 +31,8 @@ class LLMQAEngine:
 
     def generate_answers(self, dataset_filepath: str, batch_size: int = 10,
                          query: Optional[Callable[[dict], bool]] = None,
-                         param_overrides: Optional[Dict[str, Any]] = None) -> List[ModelAnswerData]:
+                         param_overrides: Optional[Dict[str, Any]] = None,
+                         partial_output_filepath: Optional[str] = "results_partial.json") -> List[ModelAnswerData]:
         self.results = []
         self.dataset_manager.add_data_from_json_file(dataset_filepath)
         batch_generator = self.dataset_manager.get_grouped_question_batches(batch_size=batch_size, query=query)
@@ -41,9 +42,10 @@ class LLMQAEngine:
         for batch_data in batch_generator:
             metadata = batch_data['metadata']
             q_type = metadata['question_type']
+            q_category = metadata['category']
             question_ids_in_batch = list(batch_data['questions'].keys())
 
-            print(f"\n--- Przetwarzanie batcha | Typ: {q_type}, Pytania: {len(question_ids_in_batch)} ---")
+            print(f"\n--- Przetwarzanie batcha | Typ: {q_type}, Kategoria: {q_category}, Pytania: {len(question_ids_in_batch)} ---")
 
             messages = self.prompt_manager.get_question_prompt(self.model_name, batch_data)
 
@@ -61,13 +63,20 @@ class LLMQAEngine:
             parsed_answers = self._parse_batched_response(batched_response, question_ids_in_batch)
 
             for q_id, answer_text in parsed_answers.items():
-                self.results.append({
+                answer = {
                     "answer_id": f"ans_{uuid.uuid4()}",
                     "question_id": q_id,
                     "answer_text": answer_text,
                     "generated_by": f"{self.model_name} ({self.model_path})",
                     "generation_date": datetime.now(timezone.utc).isoformat(),
-                })
+                }
+                self.results.append(answer)
+                print(f"Nowa odpowiedź: {answer}")
+
+                # Zapisz partial po każdej odpowiedzi
+                output_data = {"model_answers": {res["answer_id"]: res for res in self.results}}
+                with open(partial_output_filepath, "w", encoding="utf-8") as f:
+                    json.dump(output_data, f, ensure_ascii=False, indent=2)
 
         print("\nZakończono generowanie odpowiedzi.")
         return self.results

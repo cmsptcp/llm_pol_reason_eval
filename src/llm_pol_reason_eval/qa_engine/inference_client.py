@@ -17,9 +17,10 @@ class HuggingFaceClient(InferenceClient):
 
         self.model = AutoModelForCausalLM.from_pretrained(
             model_path,
-            torch_dtype=torch.bfloat16 if self.device == "cuda" else torch.float32,
+            torch_dtype=torch.float16 if self.device == "cuda" else torch.float32,
             device_map=self.device, trust_remote_code=True
         )
+        self.model.eval()
         self.tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
 
         self.default_generation_config = GenerationConfig.from_pretrained(model_path)
@@ -38,6 +39,7 @@ class HuggingFaceClient(InferenceClient):
             config_to_use.update(**generation_params_override)
 
         inputs = self.tokenizer(prompt, return_tensors="pt").to(self.device)
-        outputs = self.model.generate(**inputs, generation_config=config_to_use)
+        with torch.inference_mode():
+            outputs = self.model.generate(**inputs, generation_config=config_to_use)
         response = self.tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
         return response

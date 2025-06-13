@@ -22,3 +22,7 @@ huggingface_hub[hf_xet]
 pytest~=8.3.5
 dotenv~=0.9.9
 pytest-mock
+
+# vllm for inference
+# vllm
+# openai

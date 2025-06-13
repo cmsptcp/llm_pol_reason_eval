@@ -1,5 +1,78 @@
-Przeanalizuj poniższe zadania krok po kroku. Najpierw przedstaw swój tok rozumowania w sekcji <thinking>, a następnie udziel ostatecznej, zwięzłej odpowiedzi w sekcji <answer>. Każdą kompletną odpowiedź (tok rozumowania i finalna odpowiedź) oddziel unikalnym separatorem: '[[---KONIEC ODPOWIEDZI---]]'.
+Twoja rola to wzorowy uczeń liceum, który rozwiązuje zadania z arkusza maturalnego z języka polskiego. Analizuj polecenia i załączone teksty z najwyższą starannością.
 
+Poniżej znajdują się przykłady, jak powinna wyglądać Twoja odpowiedź. Zawsze odpowiadaj w języku polskim.
+
+### PRZYKŁADY
+
+========================================
+{# Przykład 1: Zadanie otwarte oparte na wyszukiwaniu informacji w tekście nieliterackim. #}
+### ZADANIE 1 (Przykład)
+
+### KONTEKST(Y)
+---
+Grzegorz Żuk, Kultura - komunikowanie wartości
+
+Kultura jest właściwa każdemu człowiekowi, wspólna wszystkim ludziom, wyróżnia nas spośród innych stworzeń. [...] Obejmuje to wszystko, co człowiek stworzył wysiłkiem swej woli, rozumu i pracy [...]. Kultura tworzy się w nieustannej interakcji między ludźmi, kształtuje wspólnotę i każdego człowieka. [...] W akcie tworzenia kultury człowiek dokonuje samopoznania. [...] Za pomocą kultury człowiek porusza się w przestrzeni wielkiej ludzkiej wspólnoty [...].
+---
+
+### POLECENIE
+Na podstawie tekstu Grzegorza Żuka podaj dwie zalety kultury.
+
+### ODPOWIEDŹ
+<thinking>Polecenie prosi o dwie zalety kultury na podstawie tekstu G. Żuka. Przeszukuję podany fragment w poszukiwaniu korzyści. Znajduję następujące stwierdzenia: "wyróżnia nas spośród innych stworzeń", "kształtuje wspólnotę i każdego człowieka", "człowiek dokonuje samopoznania", "porusza się w przestrzeni wielkiej ludzkiej wspólnoty". Wybieram dwie z nich i formułuję zwięzłą odpowiedź.</thinking>
+<answer>
+Na podstawie tekstu Grzegorza Żuka, dwie zalety kultury to:
+1.  Kształtuje wspólnotę oraz każdego człowieka z osobna.
+2.  Umożliwia człowiekowi dokonanie samopoznania.
+</answer>
+[[---KONIEC ODPOWIEDZI---]]
+
+========================================
+{# Przykład 2: Zadanie zamknięte typu Prawda/Fałsz z wieloma stwierdzeniami. #}
+### ZADANIE 2 (Przykład)
+
+### KONTEKST(Y)
+---
+Józef Tischner, Dialog
+
+Dialog oznacza, że ludzie wyszli z kryjówek [...]. Trzeba się wychylić, przekroczyć próg [...]. Nie każda rozmowa człowieka z człowiekiem jest rzetelnym dialogiem. [...] Warunkiem dialogu jest zdolność „wczuwania się\" w punkt widzenia drugiego.
+---
+
+### POLECENIE
+Oceń prawdziwość podanych stwierdzeń odnoszących się do tekstu Józefa Tischnera. Zaznacz P, jeśli stwierdzenie jest prawdziwe, albo F - jeśli jest fałszywe.
+
+### OPCJE WYBORU
+- 1: Gotowość do dialogu wymaga odwagi.
+- 2: Rzetelny dialog jest tym samym co rozmowa.
+- 3: Dialog wymaga współodczuwania.
+
+### ODPOWIEDŹ
+<thinking>Analizuję każde stwierdzenie w odniesieniu do tekstu.
+1. Stwierdzenie 'Gotowość do dialogu wymaga odwagi'. W tekście jest mowa o 'wyjściu z kryjówki' i 'przekroczeniu progu', co jest metaforą odwagi. Zatem: P.
+2. Stwierdzenie 'Rzetelny dialog jest tym samym co rozmowa'. W tekście czytam: "Nie każda rozmowa człowieka z człowiekiem jest rzetelnym dialogiem". To bezpośrednie zaprzeczenie. Zatem: F.
+3. Stwierdzenie 'Dialog wymaga współodczuwania'. Tekst podaje jako warunek dialogu "zdolność 'wczuwania się'", co jest synonimem współodczuwania. Zatem: P.
+Finalna odpowiedź powinna być zwięzłą listą ocen w formacie "Numer. Ocena".</thinking>
+<answer>
+1. P
+2. F
+3. P
+</answer>
+[[---KONIEC ODPOWIEDZI---]]
+
+========================================
+{# Przykład 3: Zadanie otwarte wymagające znajomości lektury i interpretacji symbolu. #}
+### ZADANIE 3 (Przykład)
+
+### POLECENIE
+Wyjaśnij symbolikę złotego rogu w Weselu Stanisława Wyspiańskiego.
+
+### ODPOWIEDŹ
+<thinking>Pytanie dotyczy symboliki złotego rogu z "Wesela". Złoty róg jest darem od Wernyhory dla Gospodarza. Miał on moc zwołania narodu do powstania i walki o niepodległość. Symbolizuje więc siłę, ducha walki, szansę na zjednoczenie i odzyskanie wolności. Jego zgubienie przez Jaśka, który schyla się po czapkę z piór (symbol prywaty), oznacza zaprzepaszczenie tej historycznej szansy.</thinking>
+<answer>Złoty róg w "Weselu" jest symbolem szansy na odzyskanie niepodległości, wezwaniem do walki narodowowyzwoleńczej i siły zdolnej zjednoczyć naród. Jego utrata symbolizuje zaprzepaszczenie tej dziejowej okazji na rzecz prywaty, bierności i materializmu.</answer>
+[[---KONIEC ODPOWIEDZI---]]
+
+--- TERAZ TWOJA KOLEJ ---
+{# Tutaj Jinja2 wstawi właściwe pytania z batcha #}
 {% for q_id, q_data in questions.items() %}
 ========================================
 ### ZADANIE {{ loop.index }}
@@ -25,3 +98,5 @@ Przeanalizuj poniższe zadania krok po kroku. Najpierw przedstaw swój tok rozum
 {% endfor %}
 {% endif %}
 {% endfor %}
+---
+Przypomnienie: Twoja odpowiedź musi być w całości sformułowana w języku polskim.
