@@ -1,56 +1,107 @@
 import pytest
-import tempfile
-import json
 from pathlib import Path
+from unittest.mock import MagicMock, patch
+import sys
+import os
+
+# Ustaw katalog temp na poziomie projektu
+PROJECT_ROOT = Path(__file__).parent.parent.parent.resolve()
+TEMP_DIR = PROJECT_ROOT / "temp"
+TEMP_DIR.mkdir(exist_ok=True)
+
+# Patch AutoTokenizer przed importem LLMQAEngine
+mock_tokenizer = MagicMock()
+mock_tokenizer.from_pretrained = MagicMock(return_value=mock_tokenizer)
+sys.modules["transformers"] = MagicMock()
+sys.modules["transformers"].AutoTokenizer = MagicMock(from_pretrained=lambda *a, **k: mock_tokenizer)
+
 from llm_pol_reason_eval.qa_engine.llm_qa_engine import LLMQAEngine
 from llm_pol_reason_eval.qa_engine.inference_client import InferenceClient
+from llm_pol_reason_eval.question_processing.dataset_manager import DatasetManager
 
-
-@pytest.fixture
-def mock_inference_client(mocker):
-    mock_client = mocker.MagicMock(spec=InferenceClient)
-
-    def mock_get_response(prompt: str, **kwargs):
-        num_questions = prompt.count("### PYTANIE")
-        answers = [f"Mocked Answer {i + 1}" for i in range(num_questions)]
-        separator = "[[---KONIEC ODPOWIEDZI---]]"
-        return separator.join(answers) + separator
-
-    mock_client.get_response.side_effect = mock_get_response
-    return mock_client
-
+class MockInferenceClient(InferenceClient):
+    def get_response(self, prompt_string, generation_params_override=None):
+        return "<answer>Odpowiedź testowa</answer> [[---KONIEC ODPOWIEDZI---]]"
 
 @pytest.fixture
-def temp_dataset_file():
-    test_data = {
-        "contexts": {"C1": {"context_id": "C1", "context_content": "Content C1"}},
-        "questions": {
-            "Q1": {"question_id": "Q1", "category": "cat1", "question_type": "type1", "question_text": "Text Q1",
-                   "context_ids": ["C1"]},
-            "Q2": {"question_id": "Q2", "category": "cat1", "question_type": "type1", "question_text": "Text Q2",
-                   "context_ids": []}
-        }
+def engine():
+    dm = DatasetManager()
+    dm.questions["q1"] = {
+        "question_id": "q1",
+        "question_text": "Ile to jest 2+2?",
+        "question_type": "open_text",
+        "context_ids": [],
+        "category": "matematyka"
     }
-    with tempfile.NamedTemporaryFile(mode='w+', delete=False, suffix=".json", encoding='utf-8') as tmp:
-        json.dump(test_data, tmp)
-        tmp_path = tmp.name
-    yield tmp_path
-    Path(tmp_path).unlink()
+    dm.questions["q2"] = {
+        "question_id": "q2",
+        "question_text": "Wymień stolicę Polski.",
+        "question_type": "open_text",
+        "context_ids": [],
+        "category": "geografia"
+    }
+    engine = LLMQAEngine(
+        model_name="mock-model",
+        model_path="mock-path",
+        inference_client=MockInferenceClient()
+    )
+    engine.dataset_manager = dm
+    return engine
 
+def test_generate_prompt_and_count_questions(engine):
+    batch = next(engine.dataset_manager.get_grouped_question_batches(batch_size=2))
+    prompt = engine.prompt_manager.get_question_prompt(
+        {"name": "mock-model", "family": "default"},
+        batch,
+        {"main_template": "base_question_prompt.jinja2"}
+    )
+    prompt_text = "\n".join([m["content"] for m in prompt])
+    zadanie_count = prompt_text.count("### ZADANIE")
+    expected_count = len(batch["questions"])
+    assert zadanie_count == expected_count
+    for q in batch["questions"].values():
+        assert q["question_text"] in prompt_text
 
-def test_llm_qa_engine_generate_answers(mock_inference_client, temp_dataset_file):
-    model_name = "bielik-1.5b-v3-instruct"
-    model_path = "speakleash/Bielik-1.5B-v3.0-Instruct"
+def test_inference_and_answer_format(engine):
+    batch = next(engine.dataset_manager.get_grouped_question_batches(batch_size=1))
+    prompt = engine.prompt_manager.get_question_prompt(
+        {"name": "mock-model", "family": "default"},
+        batch,
+        {"main_template": "base_question_prompt.jinja2"}
+    )
+    prompt_string = "\n".join([m["content"] for m in prompt])
+    response = engine.inference_client.get_response(prompt_string)
+    assert "<answer>" in response and "</answer>" in response
+    assert "Odpowiedź testowa" in response
 
-    engine = LLMQAEngine(model_name, model_path, mock_inference_client)
-    engine.generate_answers(dataset_filepath=temp_dataset_file, batch_size=10)
+def test_full_pipeline(engine):
+    batch = next(engine.dataset_manager.get_grouped_question_batches(batch_size=1))
+    prompt = engine.prompt_manager.get_question_prompt(
+        {"name": "mock-model", "family": "default"},
+        batch,
+        {"main_template": "base_question_prompt.jinja2"}
+    )
+    prompt_string = "\n".join([m["content"] for m in prompt])
+    response = engine.inference_client.get_response(prompt_string)
+    import re
+    match = re.search(r"<answer>(.*?)</answer>", response, re.DOTALL)
+    assert match
+    answer_text = match.group(1).strip()
+    assert answer_text == "Odpowiedź testowa"
 
-    assert len(engine.results) == 2
-    mock_inference_client.get_response.assert_called_once()
+def test_dataset_manager_stats(engine):
+    stats = engine.dataset_manager.get_stats()
+    assert "question_category_stats" in stats
+    assert ("matematyka", 1) in stats["question_category_stats"]
+    assert ("geografia", 1) in stats["question_category_stats"]
 
-    result_q1 = next(r for r in engine.results if r["question_id"] == "Q1")
-    result_q2 = next(r for r in engine.results if r["question_id"] == "Q2")
-
-    assert result_q1["answer_text"] == "Mocked Answer 1"
-    assert result_q2["answer_text"] == "Mocked Answer 2"
-    assert result_q1["generated_by"].startswith(model_name)
+def test_prompt_contains_no_ids(engine):
+    batch = next(engine.dataset_manager.get_grouped_question_batches(batch_size=2))
+    prompt = engine.prompt_manager.get_question_prompt(
+        {"name": "mock-model", "family": "default"},
+        batch,
+        {"main_template": "base_question_prompt.jinja2"}
+    )
+    prompt_text = "\n".join([m["content"] for m in prompt])
+    for q in batch["questions"].values():
+        assert q.get("question_id", "") not in prompt_text

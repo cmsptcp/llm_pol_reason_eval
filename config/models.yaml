@@ -1,6 +1,15 @@
 # Domyślne konfiguracje modeli dla aplikacji
 bielik-1-5b-v3-instruct:
   path: "speakleash/Bielik-1.5B-v3.0-Instruct"
+  family: "bielik"
+  generation_params:
+    max_new_tokens: 512
+    temperature: 0.3
+    do_sample: true
+
+bielik-11b-v26-instruct:
+  path: "speakleash/Bielik-11B-v2.6-Instruct"
+  family: "bielik"
   generation_params:
     max_new_tokens: 512
     temperature: 0.3
@@ -8,6 +17,16 @@ bielik-1-5b-v3-instruct:
 
 qwen3-1-7b:
   path: "Qwen/Qwen3-1.7B"
+  family: "qwen3"
+  generation_params:
+    max_new_tokens: 768
+    temperature: 0.6
+    do_sample: true
+    top_p: 0.95
+
+qwen3-14b:
+  path: "Qwen/Qwen3-14B"
+  family: "qwen3"
   generation_params:
     max_new_tokens: 768
     temperature: 0.6

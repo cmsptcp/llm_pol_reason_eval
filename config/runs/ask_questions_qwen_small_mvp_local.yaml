@@ -1,0 +1,89 @@
+experiments:
+  bielik-small-precise-matura:
+    task_name: "Bielik 1.5B v3 - Odpowiedzi precyzyjne na pytania maturalne"
+    model: bielik-1-5b-v3-instruct
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/bielik-small-precise-matura"
+    iterations: 3
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: []
+    param_overrides:
+      per_type:
+        closed_MTF: { do_sample: false, temperature: 0.01 }
+
+  bielik-normal-precise-matura:
+    task_name: "Bielik 11B v2.6 - Odpowiedzi precyzyjne na pytania maturalne"
+    model: bielik-11b-v26-instruct
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/bielik-normal-precise-matura"
+    iterations: 3
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: [ ]
+    param_overrides:
+      per_type:
+        closed_MTF: { do_sample: false, temperature: 0.01 }
+
+  qwen-small-thinking-matura:
+    task_name: "Qwen3 1.7B - Odpowiedzi z myśleniem i few-shot"
+    model: qwen3-1-7b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-small-thinking-matura"
+    iterations: 3
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components:
+        - "few_shot"
+      template_params:
+        show_thinking_output: false
+    param_overrides:
+      default:
+        enable_thinking: true
+
+  qwen-normal-thinking-matura:
+    task_name: "Qwen3 14B - Odpowiedzi z myśleniem i few-shot"
+    model: qwen3-14b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-small-thinking-matura"
+    iterations: 3
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components:
+        - "few_shot"
+      template_params:
+        show_thinking_output: false
+    param_overrides:
+      default:
+        enable_thinking: true
+
+  bielik-small-cot-few-shot-matura:
+    task_name: "Bielik 1.5B - Odpowiedzi chain of thought (CoT) i przykładami (Few-Shot)"
+    model: bielik-1-5b-v3-instruct
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/bielik-cot-few-shot"
+    iterations: 3
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components:
+        - "chain_of_thought"
+        - "few_shot"
+    param_overrides:
+      per_type:
+        closed_MTF: { do_sample: false, temperature: 0.01 }
+
+  qwen-small-no-thinking-output:
+    task_name: "Qwen3 1.7B - Odpowiedzi z myśleniem (Thinking) bez pokazywania myślenia, z przykładami (Few-Shot)"
+    model: qwen3-1-7b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-no-thinking-output"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_prompt.jinja2"
+      components:
+        - "few_shot"
+      template_params:
+        show_thinking_output: false
+    param_overrides:
+      default:
+        enable_thinking: true

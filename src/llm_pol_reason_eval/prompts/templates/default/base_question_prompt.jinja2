@@ -1,8 +1,16 @@
-Proszę odpowiedzieć na poniższą serię pytań. Po każdej kompletnej odpowiedzi umieść unikalny separator: '[[---KONIEC ODPOWIEDZI---]]'.
+{# 1. Składanie głównej instrukcji na podstawie flag z konfiguracji #}
+{% if 'chain_of_thought' in components %}{% include '_components/instruction_cot.jinja2' %}{% else %}Proszę odpowiedzieć na poniższą serię pytań.{% endif %}
+Po każdej kompletnej odpowiedzi umieść unikalny separator: '[[---KONIEC ODPOWIEDZI---]]'.
 
+{# 2. Dołączanie przykładów "Few-Shot", jeśli zadeklarowano #}
+{% if 'few_shot' in components and few_shot_path %}{% include few_shot_path %}{% endif %}
+--- TERAZ TWOJA KOLEJ ---
+
+
+{# 3. Renderowanie właściwych pytań z batcha #}
 {% for q_id, q_data in questions.items() %}
 ========================================
-### PYTANIE {{ loop.index }}
+### ZADANIE {{ loop.index }}
 
 {% if q_data.get("context_ids") and contexts %}
 ### KONTEKST(Y)
@@ -15,7 +23,7 @@ Proszę odpowiedzieć na poniższą serię pytań. Po każdej kompletnej odpowie
 {% endfor %}
 {% endif %}
 
-### TREŚĆ PYTANIA
+### POLECENIE
 {{ q_data.question_text }}
 
 {% if q_data.get("choices") %}
@@ -25,3 +33,6 @@ Proszę odpowiedzieć na poniższą serię pytań. Po każdej kompletnej odpowie
 {% endfor %}
 {% endif %}
 {% endfor %}
+
+### ODPOWIEDZI
+(Pamiętaj o umieszczeniu każdej odpowiedzi w tagach <answer>...</answer> i oddzieleniu ich separatorem '[[---KONIEC ODPOWIEDZI---]]')
