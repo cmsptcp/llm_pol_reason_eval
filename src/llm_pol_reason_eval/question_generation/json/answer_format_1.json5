@@ -2,11 +2,15 @@
   // Główny obiekt zawierający odpowiedzi modeli
   "model_answers": {
     // Obiekt mapujący answer_id na dane odpowiedzi
-    "string_answer_id_1": {
-      // Unikalny identyfikator odpowiedzi
-      "answer_id": "string_answer_id_1",
+    "string_model_answer_id_1": {
+      // Unikalny identyfikator odpowiedzi, zawierający identyfikator modelu i numer odpowiedzi
+      "model_answer_id": "string_answer_id_1",
+      // Unikalny identyfikator pytania
+      "question_id": "string_question_id_1",
       // Treść odpowiedzi wygenerowanej przez model
-      "answer_text": "string",
+      "model_answer_raw_text": "string",
+      // Treść odpowiedzi wygenerowanej przez model po obróbce
+      "model_answer_clean_text": "string",
       // Nazwa/model systemu, który wygenerował odpowiedź (np. "GPT-4, wersja 2023-10-01")
       "generated_by": "string",
       // Data wygenerowania odpowiedzi w formacie ISO 8601

@@ -1,20 +1,19 @@
 {# 1. Składanie głównej instrukcji na podstawie flag z konfiguracji #}
-{% if 'chain_of_thought' in components %}{% include '_components/instruction_cot.jinja2' %}{% else %}Proszę odpowiedzieć na poniższą serię pytań.{% endif %}
-Po każdej kompletnej odpowiedzi umieść unikalny separator: '[[---KONIEC ODPOWIEDZI---]]'.
+{% if 'chain_of_thought' in components %}{% include '_components/default/instruction_cot.jinja2' %}{% else %}Proszę odpowiedzieć na poniższe zadanie.{% endif %}
 
-{# 2. Dołączanie przykładów "Few-Shot", jeśli zadeklarowano #}
-{% if 'few_shot' in components and few_shot_path %}{% include few_shot_path %}{% endif %}
+{# 2. Dołączanie przykładów "Few-Shot", jeśli zadeklarowano i ścieżka istnieje w template_params #}
+{# template_params.enable_thinking jest używane wewnątrz examples_few_shot.jinja2 #}
+{% if 'few_shot' in components and template_params.few_shot_path %}{% include template_params.few_shot_path %}{% endif %}
 --- TERAZ TWOJA KOLEJ ---
 
-
-{# 3. Renderowanie właściwych pytań z batcha #}
-{% for q_id, q_data in questions.items() %}
+{# 3. Renderowanie właściwego pytania #}
 ========================================
-### ZADANIE {{ loop.index }}
+{# Używamy template_params.question_index, jeśli jest dostępne #}
+### ZADANIE {% if template_params.question_index %}{{ template_params.question_index }}{% else %}1{% endif %}
 
-{% if q_data.get("context_ids") and contexts %}
+{% if question.get("context_ids") and contexts %}
 ### KONTEKST(Y)
-{% for cid in q_data.get("context_ids", []) %}
+{% for cid in question.get("context_ids", []) %}
 {% if contexts.get(cid) %}
 ---
 {{ contexts[cid].context_content }}
@@ -24,15 +23,14 @@ Po każdej kompletnej odpowiedzi umieść unikalny separator: '[[---KONIEC ODPOW
 {% endif %}
 
 ### POLECENIE
-{{ q_data.question_text }}
+{{ question.question_text }}
 
-{% if q_data.get("choices") %}
+{% if question.get("choices") %}
 ### OPCJE WYBORU
-{% for choice in q_data.get("choices", []) %}
+{% for choice in question.get("choices", []) %}
 - {{ choice.choice_id }}: {{ choice.choice_text }}
 {% endfor %}
 {% endif %}
-{% endfor %}
 
-### ODPOWIEDZI
-(Pamiętaj o umieszczeniu każdej odpowiedzi w tagach <answer>...</answer> i oddzieleniu ich separatorem '[[---KONIEC ODPOWIEDZI---]]')
+### ODPOWIEDŹ
+(Pamiętaj o umieszczeniu odpowiedzi w tagach <answer>...</answer>)

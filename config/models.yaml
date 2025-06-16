@@ -1,5 +1,6 @@
 # Domyślne konfiguracje modeli dla aplikacji
 bielik-1-5b-v3-instruct:
+  name: "bielik-1-5b-v3-instruct"
   path: "speakleash/Bielik-1.5B-v3.0-Instruct"
   family: "bielik"
   generation_params:
@@ -7,15 +8,26 @@ bielik-1-5b-v3-instruct:
     temperature: 0.3
     do_sample: true
 
+bielik-4-5b-v3-instruct:
+  name: "bielik-4-5b-v3-instruct"
+  path: "speakleash/Bielik-4.5B-v3.0-Instruct"
+  family: "bielik"
+  generation_params:
+    max_new_tokens: 1024
+    temperature: 0.3
+    do_sample: true
+
 bielik-11b-v26-instruct:
+  name: "bielik-11b-v26-instruct"
   path: "speakleash/Bielik-11B-v2.6-Instruct"
   family: "bielik"
   generation_params:
-    max_new_tokens: 512
+    max_new_tokens: 1024
     temperature: 0.3
     do_sample: true
 
 qwen3-1-7b:
+  name: "qwen3-1-7b"
   path: "Qwen/Qwen3-1.7B"
   family: "qwen3"
   generation_params:
@@ -24,7 +36,18 @@ qwen3-1-7b:
     do_sample: true
     top_p: 0.95
 
+qwen3-4b:
+  name: "qwen3-4b"
+  path: "Qwen/Qwen3-4B"
+  family: "qwen3"
+  generation_params:
+    max_new_tokens: 768
+    temperature: 0.6
+    do_sample: true
+    top_p: 0.95
+
 qwen3-14b:
+  name: "qwen3-14b"
   path: "Qwen/Qwen3-14B"
   family: "qwen3"
   generation_params:
@@ -32,3 +55,23 @@ qwen3-14b:
     temperature: 0.6
     do_sample: true
     top_p: 0.95
+
+pllum-12b-instruct:
+  name: "pllum-12b-instruct"
+  path: "CYFRAGOVPL/PLLuM-12B-instruct"
+  family: "pllum"
+  generation_params:
+    max_new_tokens: 1024
+    temperature: 0.7
+    do_sample: true
+    top_p: 0.9
+
+llama-pllum-8b-instruct:
+  name: "llama-pllum-8b-instruct"
+  path: "CYFRAGOVPL/Llama-PLLuM-8B-instruct"
+  family: "pllum"
+  generation_params:
+    max_new_tokens: 1024
+    temperature: 0.7
+    do_sample: true
+    top_p: 0.9

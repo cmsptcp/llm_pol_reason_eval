@@ -4,7 +4,7 @@ experiments:
     model: bielik-1-5b-v3-instruct
     input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
     output_dir: "results/bielik-small-precise-matura"
-    iterations: 3
+    iterations: 1
     prompt_composition:
       main_template: "base_question_prompt.jinja2"
       components: []
@@ -17,7 +17,7 @@ experiments:
     model: bielik-11b-v26-instruct
     input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
     output_dir: "results/bielik-normal-precise-matura"
-    iterations: 3
+    iterations: 1
     prompt_composition:
       main_template: "base_question_prompt.jinja2"
       components: [ ]
@@ -30,7 +30,7 @@ experiments:
     model: qwen3-1-7b
     input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
     output_dir: "results/qwen-small-thinking-matura"
-    iterations: 3
+    iterations: 1
     prompt_composition:
       main_template: "base_question_prompt.jinja2"
       components:
@@ -46,7 +46,7 @@ experiments:
     model: qwen3-14b
     input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
     output_dir: "results/qwen-small-thinking-matura"
-    iterations: 3
+    iterations: 1
     prompt_composition:
       main_template: "base_question_prompt.jinja2"
       components:
@@ -62,7 +62,7 @@ experiments:
     model: bielik-1-5b-v3-instruct
     input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
     output_dir: "results/bielik-cot-few-shot"
-    iterations: 3
+    iterations: 1
     prompt_composition:
       main_template: "base_question_prompt.jinja2"
       components:

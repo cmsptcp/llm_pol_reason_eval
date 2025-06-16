@@ -112,7 +112,7 @@ def test_dataset_manager_integration(json_paths):
         assert linked_context_id not in ds.contexts
 
     # 11) Pobrać pytania w batchach (test ogólny)
-    batches_str_list_generic = list(ds.get_grouped_question_batches(batch_size=3))
+    batches_str_list_generic = list(ds.generate_question_batches(batch_size=3))
     assert isinstance(batches_str_list_generic, list)
     if batches_str_list_generic:
         assert isinstance(batches_str_list_generic[0], dict)
@@ -126,7 +126,7 @@ def test_dataset_manager_integration(json_paths):
 
     # 13) Pobrać pytania 1 typu w batchach po 5 z kontekstami
     if example_question_type:
-        typed_batches_str_list = ds.get_grouped_question_batches_as_json_strings(
+        typed_batches_str_list = ds.generate_question_batches_as_json_strings(
             batch_size=5, query=lambda q: q.get("question_type") == example_question_type)
         assert isinstance(typed_batches_str_list, list)
 
@@ -134,7 +134,7 @@ def test_dataset_manager_integration(json_paths):
     temp_dir = tempfile.mkdtemp()
     try:
         output_jsonl_path = os.path.join(temp_dir, "test_output.jsonl")
-        ds.save_grouped_batches_as_jsonl_file(filepath=output_jsonl_path, batch_size=2)
+        ds.save_question_batches_as_jsonl_file(filepath=output_jsonl_path, batch_size=2)
         assert os.path.exists(output_jsonl_path)
 
         # 15) Otworzyć plik jsonl i spróbować dodać do nowego datasetu
@@ -172,8 +172,8 @@ def test_dataset_manager_integration(json_paths):
         assert all(isinstance(t, str) for t in types)
         assert types == sorted(types)
 
-    # 18) Sprawdzić generator get_grouped_question_batches()
-    generator = ds.get_grouped_question_batches(batch_size=1, query=lambda q: q["question_id"] == sample_question_id)
+    # 18) Sprawdzić generator generate_question_batches()
+    generator = ds.generate_question_batches(batch_size=1, query=lambda q: q["question_id"] == sample_question_id)
     first_and_only_batch = next(generator, None)
     assert first_and_only_batch is not None, "Generator powinien zwrócić co najmniej jeden batch dla istniejącego pytania."
     assert "questions" in first_and_only_batch
@@ -194,3 +194,4 @@ def test_dataset_manager_integration(json_paths):
         assert len(ds_loaded_all.contexts) == len(ds.contexts)
     finally:
         shutil.rmtree(final_temp_dir)
+

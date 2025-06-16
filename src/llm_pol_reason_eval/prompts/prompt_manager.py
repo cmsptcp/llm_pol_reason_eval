@@ -29,27 +29,77 @@ class PromptManager:
 
         for path in filter(None, potential_paths):
             if (self.templates_dir / path).exists():
-                print(f"Używanie szablonu: {path.as_posix()}")
                 return path.as_posix()
 
         raise FileNotFoundError(
             f"Nie znaleziono szablonu '{template_name}' dla modelu '{model_name}', rodziny '{model_family}' ani w 'default'.")
 
-    def get_question_prompt(self, model_cfg: Dict, batch_data: Dict, composition: Dict) -> List[Dict[str, str]]:
+    def prepare_question_chatml_prompt(
+            self,
+            model_cfg: Dict,
+            question_data: Dict,
+            contexts_for_question: Dict[str, Dict],
+            composition: Dict
+    ) -> List[Dict[str, str]]:
         main_template_name = composition.get("main_template", "base_question_prompt.jinja2")
-
-        # Rozwiązujemy ścieżkę do szablonu systemowego i głównego, używając logiki fallback
         system_template_path = self._resolve_template_path(model_cfg, "system.jinja2")
         user_template_path = self._resolve_template_path(model_cfg, main_template_name)
 
-        # Przygotowujemy pełny kontekst do renderowania, przekazując flagi i dane
+        template_params = composition.get("template_params", {}).copy()
+
+        if "few_shot" in composition.get("components", []):
+            question_type = question_data.get("question_type")
+            resolved_few_shot_path = None
+
+            if question_type:
+                specific_path = Path("_components") / question_type / "examples_few_shot.jinja2"
+                if (self.templates_dir / specific_path).exists():
+                    resolved_few_shot_path = specific_path.as_posix()
+
+            if not resolved_few_shot_path:
+                default_path = Path("_components") / "default" / "examples_few_shot.jinja2"
+                if (self.templates_dir / default_path).exists():
+                    resolved_few_shot_path = default_path.as_posix()
+
+            if resolved_few_shot_path:
+                template_params["few_shot_path"] = resolved_few_shot_path
+
         render_context = {
             "components": composition.get("components", []),
-            "template_params": composition.get("template_params", {}),
-            **batch_data
+            "template_params": template_params,
+            "question": question_data,
+            "contexts": contexts_for_question
         }
 
         system_content = self.jinja2_env.get_template(system_template_path).render()
         user_content = self.jinja2_env.get_template(user_template_path).render(**render_context)
 
         return [{"role": "system", "content": system_content}, {"role": "user", "content": user_content}]
+
+    def prepare_question_chatml_prompt_batch(
+            self,
+            model_cfg: Dict,
+            batch_data: Dict,
+            composition: Dict
+    ) -> List[List[Dict[str, str]]]:
+        all_prompts_chatml = []
+        questions_dict = batch_data.get('questions', {})
+        all_contexts_dict = batch_data.get('contexts', {})
+
+        for i, (q_id, q_data) in enumerate(questions_dict.items()):
+            contexts_for_this_question = {
+                cid: all_contexts_dict[cid]
+                for cid in q_data.get("context_ids", [])
+                if cid in all_contexts_dict
+            }
+            current_composition = composition.copy()
+            current_composition['template_params'] = current_composition.get('template_params', {}).copy()
+
+            chatml_prompt = self.prepare_question_chatml_prompt(
+                model_cfg,
+                q_data,
+                contexts_for_this_question,
+                current_composition
+            )
+            all_prompts_chatml.append(chatml_prompt)
+        return all_prompts_chatml

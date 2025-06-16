@@ -41,31 +41,74 @@ class DatasetManager:
         ctx_ids = set(cid for q_data in question_dict.values() for cid in q_data.get("context_ids", []))
         return SortedDict({cid: self.contexts[cid] for cid in sorted(list(ctx_ids)) if cid in self.contexts})
 
-    def get_grouped_question_batches(self, batch_size: int = 10, with_contexts: bool = True,
-                                     query: Optional[Callable[[dict], bool]] = None) -> Iterator[Dict[str, Any]]:
-        """Zwraca pytania w grupach według kategorii i typu pytania."""
+    def generate_question_batches(self, batch_size: int = 10, with_contexts: bool = True,
+                                  query: Optional[Callable[[dict], bool]] = None,
+                                  by_q_category: bool = True, by_q_type: bool = True) -> Iterator[Dict[str, Any]]:
+        """ Generuje batche pytań, opcjonalnie grupując po kategorii i/lub typie pytania. """
         filtered_questions = self._filter(self.questions, query)
-        grouped_by_type = defaultdict(list)
+
+        # Definiuj sposób grupowania w zależności od parametrów
+        grouped_by_criteria = defaultdict(list)
         for q_id, q_data in filtered_questions.items():
-            key = (q_data.get("category", "unknown"), q_data.get("question_type", "unknown"))
-            grouped_by_type[key].append((q_id, q_data))
-        for (category, q_type), questions_in_group in grouped_by_type.items():
+            key_parts = []
+            if by_q_category:
+                key_parts.append(q_data.get("category", "unknown"))
+            if by_q_type:
+                key_parts.append(q_data.get("question_type", "unknown"))
+
+            key = tuple(key_parts) if key_parts else ("all",)
+            grouped_by_criteria[key].append((q_id, q_data))
+
+        for group_key, questions_in_group in grouped_by_criteria.items():
             for i in range(0, len(questions_in_group), batch_size):
                 batch_questions_tuples = questions_in_group[i:i + batch_size]
                 batch_q_data = SortedDict({q_id: q_data for q_id, q_data in batch_questions_tuples})
-                batch_data = {"questions": batch_q_data, "metadata": {'category': category, 'question_type': q_type}}
+
+                # Metadata zależy od wybranych opcji grupowania
+                metadata = {}
+                if by_q_category and by_q_type:
+                    metadata = {'category': group_key[0], 'question_type': group_key[1]}
+                elif by_q_category:
+                    metadata = {'category': group_key[0]}
+                elif by_q_type:
+                    metadata = {'question_type': group_key[0]}
+
+                batch_data = {"questions": batch_q_data, "metadata": metadata}
                 if with_contexts:
                     batch_data["contexts"] = self._get_contexts_for_questions(batch_q_data)
                 yield batch_data
 
-    def get_grouped_question_batches_as_json_strings(self, batch_size: int = 10, with_contexts: bool = True,
-                                                     query: Optional[Callable[[dict], bool]] = None) -> List[str]:
-        batch_generator = self.get_grouped_question_batches(batch_size, with_contexts, query)
+    def generate_question_batches_as_json_strings(self, batch_size: int = 10, with_contexts: bool = True,
+                                                     query: Optional[Callable[[dict], bool]] = None,
+                                                     by_q_category: bool = True, by_q_type: bool = True) -> List[str]:
+        batch_generator = self.generate_question_batches(
+            batch_size=batch_size,
+            with_contexts=with_contexts,
+            query=query,
+            by_q_category=by_q_category,
+            by_q_type=by_q_type
+        )
         return [json.dumps(batch, ensure_ascii=False) for batch in batch_generator]
 
-    def save_grouped_batches_as_jsonl_file(self, filepath: str, batch_size: int = 100, with_contexts: bool = True,
-                                           query: Optional[Callable[[dict], bool]] = None):
-        json_strings = self.get_grouped_question_batches_as_json_strings(batch_size, with_contexts, query)
+    def get_questions_as_list(self, batch_size: int = 10, with_contexts: bool = True,
+                              query: Optional[Callable[[dict], bool]] = None,
+                              by_q_category: bool = True, by_q_type: bool = True) -> List[Dict[str, Any]]:
+        batch_generator = self.generate_question_batches(
+            batch_size=batch_size,
+            with_contexts=with_contexts,
+            query=query,
+            by_q_category=by_q_category,
+            by_q_type=by_q_type
+        )
+        return list(batch_generator)
+
+    def save_question_batches_as_jsonl_file(self, filepath: str, batch_size: int = 100,
+                                           with_contexts: bool = True,
+                                           query: Optional[Callable[[dict], bool]] = None,
+                                           by_q_category: bool = True, by_q_type: bool = True):
+        json_strings = self.generate_question_batches_as_json_strings(
+            batch_size, with_contexts, query, by_q_category, by_q_type
+        )
         with open(filepath, "w", encoding="utf-8") as f:
             for json_string in json_strings:
                 f.write(json_string + "\n")

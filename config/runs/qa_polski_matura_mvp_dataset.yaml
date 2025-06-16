@@ -1,0 +1,234 @@
+experiments:
+  bielik-small-matura:
+    task_name: "Bielik 1.5B - Domyślne ustawienia - Matura"
+    model: bielik-1-5b-v3-instruct
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/bielik-small-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: []
+    param_overrides: {}
+
+  bielik-small-fs-cot-matura:
+    task_name: "Bielik 1.5B - Few-Shot & CoT - Matura"
+    model: bielik-1-5b-v3-instruct
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/bielik-small-fs-cot-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: ["few_shot", "chain_of_thought"]
+    param_overrides: {}
+
+  qwen-small-nt-matura:
+    task_name: "Qwen3 1.7B - Bez myślenia - Matura"
+    model: qwen3-1-7b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-small-nt-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: []
+    param_overrides:
+      default:
+        enable_thinking: false
+
+  qwen-small-nt-fs-cot-matura:
+    task_name: "Qwen3 1.7B - Bez myślenia, Few-Shot & CoT - Matura"
+    model: qwen3-1-7b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-small-nt-fs-cot-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: ["few_shot", "chain_of_thought"]
+    param_overrides:
+      default:
+        enable_thinking: false
+
+  qwen-small-th-matura:
+    task_name: "Qwen3 1.7B - Z myśleniem - Matura"
+    model: qwen3-1-7b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-small-th-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_prompt.jinja2"
+      components: []
+      template_params:
+        show_thinking_output: true
+    param_overrides:
+      default:
+        enable_thinking: true
+
+  qwen-small-th-fs-cot-matura:
+    task_name: "Qwen3 1.7B - Z myśleniem, Few-Shot & CoT - Matura"
+    model: qwen3-1-7b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-small-th-fs-cot-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_prompt.jinja2"
+      components: ["few_shot", "chain_of_thought"]
+      template_params:
+        show_thinking_output: true
+    param_overrides:
+      default:
+        enable_thinking: true
+
+  bielik-medium-matura:
+    task_name: "Bielik 4.5B - Domyślne ustawienia - Matura"
+    model: bielik-4-5b-v3-instruct
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/bielik-medium-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: []
+    param_overrides: {}
+
+  bielik-medium-fs-cot-matura:
+    task_name: "Bielik 4.5B - Few-Shot & CoT - Matura"
+    model: bielik-4-5b-v3-instruct
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/bielik-medium-fs-cot-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: ["few_shot", "chain_of_thought"]
+    param_overrides: {}
+
+  bielik-normal-matura:
+    task_name: "Bielik 11B - Domyślne ustawienia - Matura"
+    model: bielik-11b-v26-instruct
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/bielik-normal-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: []
+    param_overrides: {}
+
+  bielik-normal-fs-cot-matura:
+    task_name: "Bielik 11B - Few-Shot & CoT - Matura"
+    model: bielik-11b-v26-instruct
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/bielik-normal-fs-cot-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: ["few_shot", "chain_of_thought"]
+    param_overrides: {}
+
+  qwen-medium-nt-matura:
+    task_name: "Qwen3 4B - Bez myślenia - Matura"
+    model: qwen3-4b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-medium-nt-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: []
+    param_overrides:
+      default:
+        enable_thinking: false
+
+  qwen-medium-nt-fs-cot-matura:
+    task_name: "Qwen3 4B - Bez myślenia, Few-Shot & CoT - Matura"
+    model: qwen3-4b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-medium-nt-fs-cot-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: ["few_shot", "chain_of_thought"]
+    param_overrides:
+      default:
+        enable_thinking: false
+
+  qwen-medium-th-matura:
+    task_name: "Qwen3 4B - Z myśleniem - Matura"
+    model: qwen3-4b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-medium-th-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_prompt.jinja2"
+      components: []
+      template_params:
+        show_thinking_output: true
+    param_overrides:
+      default:
+        enable_thinking: true
+
+  qwen-medium-th-fs-cot-matura:
+    task_name: "Qwen3 4B - Z myśleniem, Few-Shot & CoT - Matura"
+    model: qwen3-4b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-medium-th-fs-cot-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_prompt.jinja2"
+      components: ["few_shot", "chain_of_thought"]
+      template_params:
+        show_thinking_output: true
+    param_overrides:
+      default:
+        enable_thinking: true
+
+  qwen-normal-nt-matura:
+    task_name: "Qwen3 14B - Bez myślenia - Matura"
+    model: qwen3-14b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-normal-nt-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: []
+    param_overrides:
+      default:
+        enable_thinking: false
+
+  qwen-normal-nt-fs-cot-matura:
+    task_name: "Qwen3 14B - Bez myślenia, Few-Shot & CoT - Matura"
+    model: qwen3-14b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-normal-nt-fs-cot-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: ["few_shot", "chain_of_thought"]
+    param_overrides:
+      default:
+        enable_thinking: false
+
+  qwen-normal-th-matura:
+    task_name: "Qwen3 14B - Z myśleniem - Matura"
+    model: qwen3-14b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-normal-th-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_prompt.jinja2"
+      components: []
+      template_params:
+        show_thinking_output: true
+    param_overrides:
+      default:
+        enable_thinking: true
+
+  qwen-normal-th-fs-cot-matura:
+    task_name: "Qwen3 14B - Z myśleniem, Few-Shot & CoT - Matura"
+    model: qwen3-14b
+    input_dataset: "data/dataset/mvp_dataset_2025-06-08T20-42-43Z.json"
+    output_dir: "results/qwen-normal-th-fs-cot-matura-mvp"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_prompt.jinja2"
+      components: ["few_shot", "chain_of_thought"]
+      template_params:
+        show_thinking_output: true
+    param_overrides:
+      default:
+        enable_thinking: true

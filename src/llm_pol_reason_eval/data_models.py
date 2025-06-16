@@ -28,8 +28,10 @@ class QuestionData(TypedDict, total=False):
     generation_date: str
 
 class ModelAnswerData(TypedDict, total=False):
-    answer_id: str
+    model_answer_id: str
     question_id: str
-    answer_text: str
+    model_answer_raw_text: str
+    model_answer_clean_text: str
     generated_by: str
     generation_date: str
+    model_configuration: str

@@ -65,3 +65,6 @@ data/download/
 # Folder tymczasowy
 tmp/
 temp/
+
+# Jupyter Notebook checkpointy
+.ipynb_checkpoints/
