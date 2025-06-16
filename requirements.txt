@@ -2,6 +2,7 @@ python-dotenv~=1.1.0
 sortedcontainers
 kaggle~=1.7.4.2
 transformers~=4.51.3
+bitsandbytes
 jupyterlab
 ipywidgets
 pandas~=2.2.3
