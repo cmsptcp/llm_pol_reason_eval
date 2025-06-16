@@ -7,7 +7,7 @@ jupyterlab
 ipywidgets
 pandas~=2.2.3
 numpy
-torch~=2.5.1+cu121
+# torch~=2.5.1+cu121
 transformers
 accelerate
 bitsandbytes

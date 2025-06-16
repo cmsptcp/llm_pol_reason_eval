@@ -62,9 +62,10 @@ class HuggingFaceClient(InferenceClient):
 
     def get_responses_with_batching(self, prompts: List[str],
                                     generation_params_override: Optional[Dict[str, Any]] = None) -> List[str]:
-        config_to_use = self.default_generation_config.copy()
+        config_dict = self.default_generation_config.to_dict()
         if generation_params_override:
-            config_to_use.update(**generation_params_override)
+            config_dict.update(generation_params_override)
+        config_to_use = GenerationConfig.from_dict(config_dict)
 
         inputs = self.tokenizer(prompts, return_tensors="pt", padding=True, truncation=True).to(self.model.device if hasattr(self.model, "device") else self.device)
 
