@@ -3,6 +3,7 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Callable
+import re
 
 from transformers import AutoTokenizer
 
