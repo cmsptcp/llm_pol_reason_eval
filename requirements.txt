@@ -5,7 +5,7 @@ transformers~=4.51.3
 bitsandbytes
 jupyterlab
 ipywidgets
-pandas~=2.2.3
+pandas
 numpy
 # torch~=2.5.1+cu121
 transformers
@@ -25,5 +25,8 @@ dotenv~=0.9.9
 pytest-mock
 
 # vllm for inference
-# vllm
+vllm
+
+# Opcjonalne: Klient OpenAI. Potrzebny tylko, jeśli chcesz się łączyć
+# z serwerem vLLM uruchomionym w trybie API zgodnym z OpenAI.
 # openai
