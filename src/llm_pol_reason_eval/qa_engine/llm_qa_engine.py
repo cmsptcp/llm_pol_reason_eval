@@ -199,7 +199,7 @@ class LLMQAEngine:
             model_answer_clean_text=parsed_answer,
             generated_by=f"{self.model_name} ({self.model_path})",
             generation_date=datetime.now(timezone.utc).isoformat(),
-            model_configuration=json.dumps(model_config_details, ensure_ascii=False)
+            model_configuration=model_config_details
         )]
 
     def _get_generation_params_and_tokenizer_args(self, q_type: Optional[str], param_overrides: Dict) -> (Dict, Dict):

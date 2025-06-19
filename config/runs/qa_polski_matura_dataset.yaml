@@ -179,7 +179,7 @@ experiments:
 
   qwen-normal-nt-matura:
     task_name: "Qwen3 14B - Bez myślenia - Matura"
-    model: qwen3-14b
+    model: qwen3-14b-awq
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
     output_dir: "results/qwen-normal-nt-matura"
     iterations: 1
@@ -192,7 +192,7 @@ experiments:
 
   qwen-normal-nt-fs-cot-matura:
     task_name: "Qwen3 14B - Bez myślenia, Few-Shot & CoT - Matura"
-    model: qwen3-14b
+    model: qwen3-14b-awq
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
     output_dir: "results/qwen-normal-nt-fs-cot-matura"
     iterations: 1
@@ -205,7 +205,7 @@ experiments:
 
   qwen-normal-th-matura:
     task_name: "Qwen3 14B - Z myśleniem - Matura"
-    model: qwen3-14b
+    model: qwen3-14b-awq
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
     output_dir: "results/qwen-normal-th-matura"
     iterations: 1
@@ -220,7 +220,7 @@ experiments:
 
   qwen-normal-th-fs-cot-matura:
     task_name: "Qwen3 14B - Z myśleniem, Few-Shot & CoT - Matura"
-    model: qwen3-14b
+    model: qwen3-14b-awq
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
     output_dir: "results/qwen-normal-th-fs-cot-matura"
     iterations: 1

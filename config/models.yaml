@@ -12,6 +12,7 @@ bielik-4-5b-v3-instruct:
   name: "bielik-4-5b-v3-instruct"
   path: "speakleash/Bielik-4.5B-v3.0-Instruct"
   family: "bielik"
+  inference_backend: "vllm"
   generation_params:
     max_new_tokens: 1024
     temperature: 0.3
@@ -21,7 +22,8 @@ bielik-11b-v26-instruct:
   name: "bielik-11b-v26-instruct"
   path: "speakleash/Bielik-11B-v2.6-Instruct"
   family: "bielik"
-  quantization: "int8"
+  inference_backend: "vllm"
+  # quantization: "int8"
   generation_params:
     max_new_tokens: 1024
     temperature: 0.3
@@ -41,6 +43,7 @@ qwen3-4b:
   name: "qwen3-4b"
   path: "Qwen/Qwen3-4B"
   family: "qwen3"
+  inference_backend: "vllm"
   generation_params:
     max_new_tokens: 768
     temperature: 0.6
@@ -51,7 +54,20 @@ qwen3-14b:
   name: "qwen3-14b"
   path: "Qwen/Qwen3-14B"
   family: "qwen3"
-  quantization: "int8"
+  inference_backend: "vllm"
+  # quantization: "int8"
+  generation_params:
+    max_new_tokens: 768
+    temperature: 0.6
+    do_sample: true
+    top_p: 0.95
+
+qwen3-14b-awq:
+  name: "qwen3-14b-awq"
+  path: "Qwen/Qwen1.5-14B-Chat-AWQ"
+  family: "qwen3"
+  inference_backend: "vllm"
+  quantization: "awq"
   generation_params:
     max_new_tokens: 768
     temperature: 0.6
@@ -62,7 +78,8 @@ pllum-12b-instruct:
   name: "pllum-12b-instruct"
   path: "CYFRAGOVPL/PLLuM-12B-instruct"
   family: "pllum"
-  quantization: "int8"
+  inference_backend: "vllm"
+  # quantization: "int8"
   generation_params:
     max_new_tokens: 1024
     temperature: 0.7
@@ -73,6 +90,7 @@ llama-pllum-8b-instruct:
   name: "llama-pllum-8b-instruct"
   path: "CYFRAGOVPL/Llama-PLLuM-8B-instruct"
   family: "pllum"
+  inference_backend: "vllm"
   generation_params:
     max_new_tokens: 1024
     temperature: 0.7
