@@ -142,10 +142,10 @@ class LLMQAEngine:
         self.logger.info(f"Wysyłanie {len(final_prompts)} promptów do modelu z parametrami: {generation_params}")
         raw_responses = self.inference_client.get_responses_with_batching(final_prompts, generation_params)
 
-        model_config_details_json = json.dumps({
+        model_config_details = {
             "model_config": model_cfg, "prompt_composition": prompt_composition,
             "generation_parameters": generation_params
-        }, ensure_ascii=False)
+        }
 
         batch_model_answers = []
         for i, q_id in enumerate(q_ids_in_order):
@@ -159,7 +159,7 @@ class LLMQAEngine:
                 model_answer_clean_text=parsed_answer,
                 generated_by=f"{self.model_name} ({self.model_path})",
                 generation_date=datetime.now(timezone.utc).isoformat(),
-                model_configuration=model_config_details_json
+                model_configuration=model_config_details
             ))
         return batch_model_answers
 
