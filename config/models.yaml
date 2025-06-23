@@ -40,7 +40,7 @@ bielik-11b-v26-instruct-awq:
     do_sample: true
 
 bielik-11b-v26-instruct-fp8-dynamic:
-  name: "bielik-11b-v26-instruct"
+  name: "bielik-11b-v26-instruct-fp8-dynamic"
   path: "speakleash/Bielik-11B-v2.6-Instruct-FP8-Dynamic"
   family: "bielik"
   quantization: "fp8-dynamic"

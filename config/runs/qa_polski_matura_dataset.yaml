@@ -2,7 +2,7 @@ experiments:
   bielik-small-matura:
     task_name: "Bielik 1.5B - Domyślne ustawienia - Matura"
     model: bielik-1-5b-v3-instruct
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-small-matura"
     iterations: 1
     prompt_composition:
@@ -13,7 +13,7 @@ experiments:
   bielik-small-fs-cot-matura:
     task_name: "Bielik 1.5B - Few-Shot & CoT - Matura"
     model: bielik-1-5b-v3-instruct
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-small-fs-cot-matura"
     iterations: 1
     prompt_composition:
@@ -24,7 +24,7 @@ experiments:
   qwen-small-nt-matura:
     task_name: "Qwen3 1.7B - Bez myślenia - Matura"
     model: qwen3-1-7b
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-small-nt-matura"
     iterations: 1
     prompt_composition:
@@ -37,7 +37,7 @@ experiments:
   qwen-small-nt-fs-cot-matura:
     task_name: "Qwen3 1.7B - Bez myślenia, Few-Shot & CoT - Matura"
     model: qwen3-1-7b
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-small-nt-fs-cot-matura"
     iterations: 1
     prompt_composition:
@@ -50,7 +50,7 @@ experiments:
   qwen-small-th-matura:
     task_name: "Qwen3 1.7B - Z myśleniem - Matura"
     model: qwen3-1-7b
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-small-th-matura"
     iterations: 1
     prompt_composition:
@@ -65,7 +65,7 @@ experiments:
   qwen-small-th-fs-cot-matura:
     task_name: "Qwen3 1.7B - Z myśleniem, Few-Shot & CoT - Matura"
     model: qwen3-1-7b
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-small-th-fs-cot-matura"
     iterations: 1
     prompt_composition:
@@ -80,7 +80,7 @@ experiments:
   bielik-medium-matura:
     task_name: "Bielik 4.5B - Domyślne ustawienia - Matura"
     model: bielik-4-5b-v3-instruct
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-medium-matura"
     iterations: 1
     prompt_composition:
@@ -91,7 +91,7 @@ experiments:
   bielik-medium-fs-cot-matura:
     task_name: "Bielik 4.5B - Few-Shot & CoT - Matura"
     model: bielik-4-5b-v3-instruct
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-medium-fs-cot-matura"
     iterations: 1
     prompt_composition:
@@ -101,8 +101,8 @@ experiments:
 
   bielik-normal-matura:
     task_name: "Bielik 11B - Domyślne ustawienia - Matura"
-    model: bielik-11b-v26-instruct
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    model: bielik-11b-v26-instruct-fp8-dynamic
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-normal-matura"
     iterations: 1
     prompt_composition:
@@ -112,8 +112,8 @@ experiments:
 
   bielik-normal-fs-cot-matura:
     task_name: "Bielik 11B - Few-Shot & CoT - Matura"
-    model: bielik-11b-v26-instruct
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    model: bielik-11b-v26-instruct-fp8-dynamic
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-normal-fs-cot-matura"
     iterations: 1
     prompt_composition:
@@ -124,7 +124,7 @@ experiments:
   qwen-medium-nt-matura:
     task_name: "Qwen3 4B - Bez myślenia - Matura"
     model: qwen3-4b
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-medium-nt-matura"
     iterations: 1
     prompt_composition:
@@ -137,7 +137,7 @@ experiments:
   qwen-medium-nt-fs-cot-matura:
     task_name: "Qwen3 4B - Bez myślenia, Few-Shot & CoT - Matura"
     model: qwen3-4b
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-medium-nt-fs-cot-matura"
     iterations: 1
     prompt_composition:
@@ -150,7 +150,7 @@ experiments:
   qwen-medium-th-matura:
     task_name: "Qwen3 4B - Z myśleniem - Matura"
     model: qwen3-4b
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-medium-th-matura"
     iterations: 1
     prompt_composition:
@@ -165,7 +165,7 @@ experiments:
   qwen-medium-th-fs-cot-matura:
     task_name: "Qwen3 4B - Z myśleniem, Few-Shot & CoT - Matura"
     model: qwen3-4b
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-medium-th-fs-cot-matura"
     iterations: 1
     prompt_composition:
@@ -179,8 +179,8 @@ experiments:
 
   qwen-normal-nt-matura:
     task_name: "Qwen3 14B - Bez myślenia - Matura"
-    model: qwen3-14b-awq
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    model: qwen3-14b-fp8
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-normal-nt-matura"
     iterations: 1
     prompt_composition:
@@ -192,8 +192,8 @@ experiments:
 
   qwen-normal-nt-fs-cot-matura:
     task_name: "Qwen3 14B - Bez myślenia, Few-Shot & CoT - Matura"
-    model: qwen3-14b-awq
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    model: qwen3-14b-fp8
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-normal-nt-fs-cot-matura"
     iterations: 1
     prompt_composition:
@@ -205,8 +205,8 @@ experiments:
 
   qwen-normal-th-matura:
     task_name: "Qwen3 14B - Z myśleniem - Matura"
-    model: qwen3-14b-awq
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    model: qwen3-14b-fp8
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-normal-th-matura"
     iterations: 1
     prompt_composition:
@@ -220,8 +220,8 @@ experiments:
 
   qwen-normal-th-fs-cot-matura:
     task_name: "Qwen3 14B - Z myśleniem, Few-Shot & CoT - Matura"
-    model: qwen3-14b-awq
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-14T20-00-06Z.json"
+    model: qwen3-14b-fp8
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-normal-th-fs-cot-matura"
     iterations: 1
     prompt_composition:

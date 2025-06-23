@@ -156,19 +156,28 @@ class VLLMClient(InferenceClient):
             raise ImportError("vLLM nie jest zainstalowany. Uruchom 'pip install vllm' aby go zainstalować.")
 
         print(f"VLLMClient: Inicjalizacja modelu {model_path}")
-        self.default_generation_params = default_generation_params if default_generation_params else {}
-        max_model_len = model_config.get('max_model_len', 8192)
+        llm_kwargs = {
+            "model": model_path,
+            "trust_remote_code": True,
+            "gpu_memory_utilization": 0.9,
+            "enforce_eager": True,
+            "max_model_len": model_config.get('max_model_len', 8192)
+        }
 
-        # vLLM wymaga `trust_remote_code=True` dla modeli takich jak Qwen
-        # Ustawiamy również `gpu_memory_utilization`, aby nie zająć całej pamięci VRAM od razu.
-        # GPU L4 ma 24GB VRAM, więc 0.9 to bezpieczna wartość.
-        self.llm = LLM(
-            model=model_path,
-            trust_remote_code=True,
-            gpu_memory_utilization=0.9,
-            enforce_eager=True,
-            max_model_len=max_model_len
-        )
+        quantization_method = model_config.get("quantization")
+        if quantization_method:
+            quant_lower = quantization_method.lower()
+            if quant_lower == "awq":
+                llm_kwargs['quantization'] = 'awq'
+                print(f"VLLMClient: Włączanie kwantyzacji 'awq'.")
+            elif quant_lower.startswith("fp8"):  # Obsługa 'fp8' i 'fp8-dynamic'
+                llm_kwargs['quantization'] = 'fp8'
+                llm_kwargs['dtype'] = 'auto'
+                print(f"VLLMClient: Włączanie kwantyzacji 'fp8' (wykryto: '{quantization_method}').")
+            else:
+                print(f"VLLMClient: Ostrzeżenie - nieobsługiwana metoda kwantyzacji dla vLLM: '{quantization_method}'")
+
+        self.llm = LLM(**llm_kwargs)
         self.tokenizer = self.llm.get_tokenizer()
         print(f"VLLMClient: Model {model_path} załadowany.")
         print(f"VLLMClient: Domyślne parametry generowania: {self.default_generation_params}")
