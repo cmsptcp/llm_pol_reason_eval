@@ -1,189 +1,150 @@
 ### PRZYKŁADY
 
 ========================================
-{# Przykład 1: Zadanie zamknięte typu Prawda/Fałsz (closed_MTF). #}
-### ZADANIE 1 (Przykład)
-### KONTEKST(Y)
-Sebastian Szybka
-Świat jest matematyczny
-
-Prawa fizyczne są wyrażone w języku matematyki. Pozornie nie kryje się za tym nic niezwykłego. [...] Wydaje się, że tylko matematyka niesie w sobie moc tworzenia pojęć istotnie nowych, oryginalnych, a do tego mających swoje odpowiedniki w rzeczywistym świecie. [...] Matematyzacja jest oznaką dojrzałości teorii. W fizyce, która zajmuje się najprostszymi i najbardziej fundamentalnymi układami, nastąpiła ona najwcześniej.
-
----
-
-Łukasz Lamża
-Świat nie jest matematyczny
-
-Nie jestem pewien, czy świat w ogóle jest „jakiś”. Ale jeżeli już jakiś jest, to nie matematyczny. [...] Jest to przecież dokładnie ten sam błąd, który popełniają realiści naiwni, gdy po tym jak do świata przyłożą miarę swego oka, orzekają, że jest on czerwony! Fizyk, który przykłada do świata rachunek różniczkowy, nie ma prawa twierdzić, że proces przez niego analizowany jest różniczkowalny". [...] Farbami olejnymi świetnie maluje się krajobrazy. Ośmielam się twierdzić, że odwzorowanie matematyczne porządnego krajobrazu morskiego jest wręcz wielokrotnie gorsze od odwzorowania olejnego czy nawet pastelowego. To, że świat daje się „uolejnić”, albo że jest „pastelowalny”, nie oznacza jednak, że żyjemy w olejnym albo w pastelowym Wszechświecie!
-### POLECENIE
-Oceń prawdziwość podanych stwierdzeń odnoszących się do tekstu Sebastiana Szybki oraz do tekstu Łukasza Lamży. Zaznacz P, jeśli stwierdzenie jest prawdziwe, albo F - jeśli jest fałszywe.
-### OPCJE WYBORU
-- 1: W każdym z tekstów znajdują się terminy naukowe.
-- 2: W zdaniu z tekstu Sebastiana Szybki: Prawa fizyczne są wyrażone w języku matematyki, występuje słownictwo wartościujące.
-- 3: Wyrazy uolejnić, pastelowalny, zawarte w tekście Łukasza Lamży, są neologizmami.
-
-### ODPOWIEDŹ
-{% if template_params.get('enable_thinking') %}
-<thinking>
-Analizuję każde stwierdzenie w odniesieniu do dostarczonych tekstów.
-
-1.  **Stwierdzenie 1: "W każdym z tekstów znajdują się terminy naukowe."**
-    * W tekście Szybki znajduję terminy takie jak "prawa fizyczne", "fale grawitacyjne", "równania Maxwella".
-    * W tekście Lamży występują "realizm naiwny", "fala elektromagnetyczna", "rachunek różniczkowy".
-    * Oba teksty zawierają terminologię naukową. Zatem stwierdzenie jest prawdziwe (P).
-
-2.  **Stwierdzenie 2: "W zdaniu z tekstu Sebastiana Szybki [...] występuje słownictwo wartościujące."**
-    * Analizuję zdanie: "Prawa fizyczne są wyrażone w języku matematyki". Zdanie to ma charakter opisowy, informacyjny. Nie zawiera słów wyrażających ocenę (np. "doskonale", "źle").
-    * Zatem stwierdzenie jest fałszywe (F).
-
-3.  **Stwierdzenie 3: "Wyrazy uolejnić, pastelowalny [...] są neologizmami."**
-    * Autor (Lamża) tworzy te słowa na potrzeby swojego wywodu, aby pokazać pewną analogię. Nie są to słowa powszechnie używane w języku polskim. Są to więc neologizmy autorskie.
-    * Zatem stwierdzenie jest prawdziwe (P).
-</thinking>
-{% endif %}
-<answer>
-1. P
-2. F
-3. P
-</answer>
-[[---KONIEC ODPOWIEDZI---]]
-
-========================================
-{# Przykład 2: Zadanie zamknięte wielokrotnego wyboru (closed_MRQ). #}
-### ZADANIE 2 (Przykład)
+{# Przykład 1: Pytanie otwarte (open_text). #}
+### ZADANIE 1
 ### KONTEKST
-Tadeusz Różewicz
-List do ludożerców
+Maria Pawlikowska-Jasnorzewska
 
-Kochani ludożercy
-nie patrzcie wilkiem
-na człowieka […]
-Kochani ludożercy
-poczekajcie chwilę
-nie depczcie słabszych
-nie zgrzytajcie zębami […]
-Kochani ludożercy
-nie wykupujcie wszystkich
-świec sznurowadeł i makaronu
-Nie mówcie odwróceni tyłem:
-ja mnie mój moje
-mój żołądek, mój włos
-mój odcisk moje spodnie
-moja żona moje dzieci
-moje zdanie
-Kochani ludożercy
-nie zjadajmy się Dobrze
-bo nie zmartwychwstaniemy
-Naprawdę
-(Tadeusz Różewicz, List do ludożerców, [w:] tegoż, Niepokój. Wybór wierszy z lat 1944–1994, Warszawa 1995.)
+Miłość
+
+Nie widziałam cię już od miesiąca.
+I nic. Jestem może bledsza,
+trochę śpiąca, trochę bardziej milcząca,
+lecz widać można żyć bez powietrza!
+(Maria Pawlikowska-Jasnorzewska, Miłość, [w:] tejże, Poezje, t. I, Warszawa 1974.)
 ### POLECENIE
-Wskaż wszystkie środki stylistyczne, które występują w podanym wierszu i budują jego ironiczny charakter.
+Wyjaśnij, na czym polega paradoks sytuacji podmiotu lirycznego wiersza *Miłość*.
+
+### ODPOWIEDŹ
+{% if template_params.get('enable_thinking') or 'chain_of_thought' in components %}
+{% if template_params.get('enable_thinking') %}<thinking>{% endif %}
+Analizuję treść wiersza w celu znalezienia paradoksu.
+1.  **Identyfikacja sytuacji:** Podmiot liryczny opisuje swój stan po rozstaniu z ukochaną osobą.
+2.  **Zestawienie sprzeczności:** Z jednej strony miłość jest porównana do "powietrza" (warunek życia), z drugiej podmiot konstatuje, że bez niej wciąż żyje.
+3.  **Istota paradoksu:** Polega on na logicznej sprzeczności między tezą o niemożności życia bez miłości a faktem dalszej egzystencji. Ta sprzeczność ironicznie podkreśla ogrom straty.
+4.  **Sformułowanie odpowiedzi:** Odpowiedź musi być maksymalnie zwięzła, oddając istotę paradoksu w jednym lub dwóch zdaniach.
+{% if template_params.get('enable_thinking') %}</thinking>{% endif %}
+{% endif %}
+<answer>
+Paradoks polega na tym, że podmiot liryczny z ironicznym zdziwieniem konstatuje, iż potrafi żyć, chociaż utracił miłość, którą postrzegał jako warunek niezbędny do egzystencji – jak powietrze.
+</answer>
+[[---KONIEC ODPOWIEDZI---]]
+
+========================================
+{# Przykład 2: Pytanie jednokrotnego wyboru (closed_MCQ). #}
+### ZADANIE 2
+### KONTEKST
+Robert Pilat
+
+Kultura i kształtowanie samego siebie
+
+Pragnienie łączy kulturę popularną i kulturę wysoką. Jednak ta ostatnia skupia się nie tyle na przedmiotach potrzeb i pragnień, ile na ich podmiocie. Kultura wysoka objawia naturę podmiotu zdolnego do tego tworzenia i samo-tworzenia i pokazuje ten właśnie podmiot jako właściwy podmiot pragnień i potrzeb.
+(Na podstawie: Robert Pilat, Kultura i kształtowanie samego siebie, „Filozofuj!”, 2016 nr 5 (11).)
+### POLECENIE
+Dokończ zdanie. Wybierz i zaznacz właściwą odpowiedź.
+Wypowiedzenie *Pragnienie łączy kulturę popularną i kulturę wysoką* to
 ### OPCJE WYBORU
-- A: Apostrofa do "ludożerców".
-- B: Użycie metafor o charakterze sakralnym.
-- C: Wyliczenie egoistycznych zaimków i zwrotów.
-- D: Rozbudowane, wielokrotnie złożone zdania.
-- E: Zestawienie podniosłego tonu z trywialnymi prośbami.
+- A: zdanie pojedyncze.
+- B: zdanie złożone współrzędnie.
+- C: zdanie złożone podrzędnie.
+- D: równoważnik zdania.
 
 ### ODPOWIEDŹ
-{% if template_params.get('enable_thinking') %}
-<thinking>
-Analizuję każdy z podanych środków stylistycznych pod kątem jego obecności w wierszu i funkcji w budowaniu ironii.
-
-A. **Apostrofa do "ludożerców".** Wiersz wielokrotnie zwraca się bezpośrednio do "ludożerców", a nawet nazywa ich "Kochanymi ludożercami". Połączenie czułego zwrotu z brutalnym określeniem jest podstawą ironii w tym tekście. Środek występuje i pełni funkcję ironiczną. Zaznaczam A.
-
-B. **Metafory o charakterze sakralnym.** W tekście dominuje język prosty, bezpośredni. Poza ostatnim wersem o zmartwychwstaniu, który jest bardziej dosłownym ostrzeżeniem niż metaforą, brak jest rozbudowanych odniesień sakralnych. Odrzucam B.
-
-C. **Wyliczenie egoistycznych zaimków.** Wiersz zawiera wyliczenie: "ja mnie mój moje / mój żołądek, mój włos...". To wyliczenie w sposób dobitny piętnuje skrajny egoizm, który jest tematem wiersza. Środek występuje i wzmacnia przekaz. Zaznaczam C.
-
-D. **Rozbudowane, wielokrotnie złożone zdania.** Wiersz charakteryzuje się krótkimi, urywanymi wersami i prostymi konstrukcjami składniowymi. Składnia jest prosta, a nie rozbudowana. Odrzucam D.
-
-E. **Zestawienie podniosłego tonu z trywialnymi prośbami.** Podniosły, apostroficzny zwrot "Kochani ludożercy" zostaje skontrastowany z prozaicznymi, małostkowymi prośbami, np. "nie wykupujcie wszystkich / świec sznurowadeł i makaronu". Ten kontrast między powagą oskarżenia a trywialnością przykładów jest silnym źródłem ironii. Środek występuje i pełni funkcję ironiczną. Zaznaczam E.
-</thinking>
+{% if template_params.get('enable_thinking') or 'chain_of_thought' in components %}
+{% if template_params.get('enable_thinking') %}<thinking>{% endif %}
+Analizuję budowę składniową wypowiedzenia "Pragnienie łączy kulturę popularną i kulturę wysoką".
+1.  **Identyfikacja orzeczenia:** W zdaniu znajduje się jedno orzeczenie wyrażone formą osobową czasownika: "łączy".
+2.  **Identyfikacja podmiotu:** Kto? Co? łączy? -> "Pragnienie".
+3.  **Określenie typu zdania:** Zdanie, które zawiera tylko jedno orzeczenie, jest zdaniem pojedynczym. Zdanie złożone musiałoby mieć co najmniej dwa orzeczenia, a równoważnik zdania nie miałby orzeczenia w formie osobowej.
+{% if template_params.get('enable_thinking') %}</thinking>{% endif %}
 {% endif %}
 <answer>
-A, C, E
+A
 </answer>
 [[---KONIEC ODPOWIEDZI---]]
 
 ========================================
-{# Przykład 3: Zadanie otwarte typu notatka syntetyzująca (60-90 słów). #}
-### ZADANIE 3 (Przykład)
-### KONTEKST(Y)
-Tekst 1. Marcin Adamczak, Architektura i przypadek
-Przypadek zdaje się kategorią nader odległą od dziedziny architektury [...]. [Architekt Andrew Maynard] zamiast „maszyn do mieszkania" proponuje użycie maszyn w celu „podważenia społecznej hierarchii i zniwelowania różnic na rynku nieruchomości". Maynard odwołuje się do popularnych pomysłów wykorzystania kontenerów w celach mieszkaniowych. [...] Zaprojektowane w Corb 2.0 budowle składają się ze względnie autonomicznych modułów mieszkaniowych [...], które [...] pozostawałyby mobilne. [...] sam kształt budowli [...] miałby zmieniać się zgodnie z potrzebami mieszkańców [...]. Maynard podkreśla [...] społeczne aspekty projektu: jego egalitarność [...] i niwelowanie społecznych hierarchii [...]. Corb 2.0 jawi się niczym oryginalny projekt „architektury aleatorycznej", w której kształt [...] determinowane są przez przypadek.
+{# Przykład 3: Pytanie wielokrotnego wyboru (closed_MRQ). #}
+### ZADANIE 3
+### KONTEKST
+Molier
 
----
+Skąpiec
 
-Tekst 2. Rafał Szrajber, Gry komputerowe w edukacji architektonicznej i kulturalnej
-Bardzo dużo gier, które odniosły światowe sukcesy, bazuje na przenoszeniu wartości kulturowych, w tym także przestrzeni architektonicznej, do świata gry, jako elementu pozwalającego stworzyć i poprowadzić fabułę, wygenerować atrakcyjne otoczenie oraz dodać [...] wartości dodane [...]. Dzięki fabule [...] gra Assassin's Creed stała się dla graczy polem eksploracji średniowiecznych miast [...]. Fenomen gry Assassin's Creed II [...] ukazał graczom wspaniałe miasta - Wenecję, Florencję czy Rzym wyjęte prosto z epoki renesansu. Można tam nie tylko obcować z samą architekturą [...], ale spotkać wybitne postacie tego okresu [...].
+AKT CZWARTY
+
+SCENA VII
+
+HARPAGON
+
+sam, krzycząc jeszcze w ogrodzie, wpada bez kapelusza
+
+Złodziej! złodziej! rozbójnik! morderca! Ratunku! Kto w Boga wierzy! Jestem zgubiony, zamordowany! Gardło mi poderżnęli: wykradli mi pieniądze! Kto to być może? [...] Gdzie pędzić? Gdzie go szukać? [...] Oddaj pieniądze, łotrze!... Ha, to ja sam! Zmysły tracę [...]. Och, moje kochane złoto! moje biedne złoto! mój drogi przyjacielu! [...] umieram; już umarłem; pogrzebano mnie!
+(Molier, Skąpiec, przekł. Tadeusz Żeleński (Boy), Wrocław 1974.)
 ### POLECENIE
-Na podstawie obu tekstów napisz notatkę syntetyzującą na temat: funkcje architektury w życiu człowieka. Twoja wypowiedź powinna liczyć 60–90 wyrazów.
+Które środki stylistyczne w podanym fragmencie podkreślają gwałtowne usposobienie Harpagona? Zaznacz trzy właściwe odpowiedzi.
+### OPCJE WYBORU
+- A: Wykrzyknienia.
+- B: Porównania.
+- C: Wyliczenia.
+- D: Hiperbole.
+- E: Antytezy.
 
 ### ODPOWIEDŹ
-{% if template_params.get('enable_thinking') %}
-<thinking>
-Zadaniem jest zsyntetyzowanie informacji o funkcjach architektury na podstawie dwóch tekstów, w limicie 60-90 słów.
-
-1.  **Analiza tekstu Adamczaka:** Autor opisuje projekt architektury mobilnej i losowej. Główna funkcja tej architektury jest społeczna – ma ona niwelować nierówności i hierarchię, promować egalitaryzm i pozwalać na elastyczne dostosowanie przestrzeni.
-
-2.  **Analiza tekstu Szrajbera:** Autor skupia się na architekturze w świecie wirtualnym. Jej funkcje to przede wszystkim edukacyjna (pozwala poznawać historię), immersyjna (tworzy klimat) oraz narracyjna (stanowi tło dla fabuły).
-
-3.  **Porównanie i synteza:** Oba teksty pokazują, że architektura ma funkcje wykraczające poza zapewnienie schronienia. Adamczak skupia się na jej roli w kształtowaniu realnych relacji społecznych. Szrajber ukazuje jej zastosowanie w edukacji i rozrywce w przestrzeni wirtualnej. Punktem wspólnym jest ukazanie, jak architektura aktywnie wpływa na doświadczenie człowieka.
-
-4.  **Szkic notatki:** Wprowadzę temat nietypowych funkcji architektury. Następnie przedstawię funkcję społeczną opisaną przez Adamczaka. Potem funkcje edukacyjno-immersyjne z tekstu Szrajbera. Zakończę, pilnując limitu słów.
-
-5.  **Sprawdzenie długości:** "Oba teksty omawiają nietypowe funkcje architektury. Marcin Adamczak, opisując projekt mobilnych budowli, wskazuje na jej społeczną rolę – niwelowanie hierarchii i wspieranie egalitaryzmu. Z kolei Rafał Szrajber przedstawia funkcje architektury wirtualnej w grach komputerowych, gdzie służy ona edukacji, odtwarzaniu historii oraz budowaniu immersyjnego, atrakcyjnego dla gracza otoczenia." Liczba słów: 63. Mieści się w limicie.
-</thinking>
+{% if template_params.get('enable_thinking') or 'chain_of_thought' in components %}
+{% if template_params.get('enable_thinking') %}<thinking>{% endif %}
+Analizuję monolog Harpagona pod kątem środków stylistycznych wyrażających gwałtowność.
+1.  **Opcja A (Wykrzyknienia):** Tekst jest pełen wykrzyknień, które podkreślają panikę, np. "Złodziej! złodziej! [...] Ratunku!". Poprawne.
+2.  **Opcja C (Wyliczenia):** Harpagon wylicza epitety ("Złodziej! złodziej! rozbójnik! morderca!") oraz serię pytań. Poprawne.
+3.  **Opcja D (Hiperbole):** Harpagon wyolbrzymia swoją stratę, mówiąc: "Gardło mi poderżnęli" oraz "umieram; już umarłem; pogrzebano mnie!". Poprawne.
+4.  **Pozostałe opcje (B, E):** W tekście nie ma porównań ani antytez.
+{% if template_params.get('enable_thinking') %}</thinking>{% endif %}
 {% endif %}
 <answer>
-Oba teksty omawiają nietypowe funkcje architektury. Marcin Adamczak, opisując projekt mobilnych budowli, wskazuje na jej społeczną rolę – niwelowanie hierarchii i wspieranie egalitaryzmu. Z kolei Rafał Szrajber przedstawia funkcje architektury wirtualnej w grach komputerowych, gdzie służy ona edukacji, odtwarzaniu historii oraz budowaniu immersyjnego, atrakcyjnego dla gracza otoczenia.
+A, C, D
 </answer>
 [[---KONIEC ODPOWIEDZI---]]
 
 ========================================
-{# Przykład 4: Zadanie otwarte wymagające wyjaśnienia pojęcia na podstawie tekstu (open_text). #}
-### ZADANIE 4 (Przykład)
-### KONTEKST(Y)
-Łukasz Lamża
-Świat nie jest matematyczny
+{# Przykład 4: Pytanie otwarte typu synteza tekstów (open_synthesis). #}
+### ZADANIE 4
+### KONTEKST
+Tekst 1.
+Adam Mickiewicz, Rozmowa wieczorna
 
-[...] Wszystko zaczęło się od erozji naszego zdroworozsądkowego przekonania, że świat jest z grubsza taki, jakim go doświadczamy. W żargonie filozoficznym oznaczałoby to odchodzenie od realizmu naiwnego. To przekonanie, że jeżeli postrzegam jabłko jako czerwone, to ono jest czerwone. Innymi słowy: naiwny realista przypisuje światu - obiektywnemu „światu samemu w sobie”, niezależnemu od istnienia bądź nieistnienia ludzi - cechy swojej własnej świadomości, cechy tego, jak człowiek widzi świat. Przykład koloru jest szczególnie ciekawy, ponieważ skrupulatna analiza materii i widzenia barwnego mówi nam, że jabłko w żadnym zwykłym sensie nie jest czerwone, a tylko człowiek, widzący je, przeżywa wrażenie czerwieni.
+Z Tobą ja gadam¹, co królujesz w niebie,
+A razem gościsz w domku mego ducha;
+Gdy północ wszystko w ciemnościach zagrzebie
+I czuwa tylko zgryzota i skrucha,
+Z Tobą ja gadam! słów nie mam dla Ciebie:
+Myśl Twoja każdej myśli mej wysłucha;
+Najdalej władasz i służysz w pobliżu,
+Król na niebiosach, w sercu mym na krzyżu!
+¹ Gadam - rozmawiam.
+
+Tekst 2.
+Adam Mickiewicz, Dziady cz. III
+
+KONRAD
+Milczysz! - Jam Ci do głębi serce me otworzył,
+Zaklinam, daj mi władzę - jedna część jej licha,
+[...]
+Milczysz! - nie dasz dla serca, dajże dla rozumu.
+Widzisz, żem pierwszy z ludzi i z aniołów tłumu,
+Że Cię znam lepiej niźli Twoje archanioły,
+Wart, żebyś ze mną władzą dzielił się na poły
+Jeślim nie zgadł, odpowiedz - milczysz! ja nie kłamię.
 ### POLECENIE
-Na podstawie 2. akapitu tekstu Łukasza Lamży wyjaśnij, na czym polega postawa naiwnego realisty.
+Czy Konrad - bohater Dziadów cz. III - przyjmuje taką samą postawę wobec Boga, jaką wyraża podmiot liryczny w wierszu Rozmowa wieczorna? W uzasadnieniu odpowiedzi odwołaj się do obu zacytowanych fragmentów utworów.
 
 ### ODPOWIEDŹ
-{% if template_params.get('enable_thinking') %}
-<thinking>
-Zadanie polega na wyjaśnieniu pojęcia „postawa naiwnego realisty” na podstawie wskazanego akapitu. Muszę uważnie przeczytać ten fragment i wyodrębnić definicję. Autor pisze, że jest to „przekonanie, że świat jest z grubsza taki, jakim go doświadczamy”. Dalej precyzuje, że „naiwny realista przypisuje światu [...] cechy swojej własnej świadomości”. Kluczowe jest więc utożsamianie subiektywnego postrzegania z obiektywną rzeczywistością. Moja odpowiedź musi zwięźle ująć te dwa elementy.
-</thinking>
+{% if template_params.get('enable_thinking') or 'chain_of_thought' in components %}
+{% if template_params.get('enable_thinking') %}<thinking>{% endif %}
+Celem jest porównanie postawy wobec Boga w obu wierszach. Tekst 1 ("Rozmowa wieczorna") ukazuje postawę pełną pokory, zaufania i intymnej więzi. Tekst 2 ("Dziady cz. III") przedstawia postawę Konrada jako buntowniczą, roszczeniową i pełną pychy. Postawy są skrajnie różne. Odpowiedź musi zawierać rozstrzygnięcie i uzasadnienie oparte na tym kontraście.
+{% if template_params.get('enable_thinking') %}</thinking>{% endif %}
 {% endif %}
 <answer>
-Postawa naiwnego realisty polega na przekonaniu, że świat jest dokładnie taki, jakim go postrzegamy i doświadczamy. Taka postawa wyraża się w przypisywaniu obiektywnemu światu cech własnej świadomości i subiektywnych odczuć, które uznaje się za prawdziwy i wierny obraz rzeczywistości.
-</answer>
-[[---KONIEC ODPOWIEDZI---]]
-
-========================================
-{# Przykład 5: Zadanie otwarte odwołujące się do znajomości całej lektury (bez kontekstu). #}
-### ZADANIE 5 (Przykład)
-### KONTEKST(Y)
-
-### POLECENIE
-Na podstawie znanych Ci fragmentów Ferdydurke Witolda Gombrowicza wyjaśnij, czym jest forma i jak wpływa ona na człowieka. Odpowiedź zilustruj sytuacją z utworu.
-
-### ODPOWIEDŹ
-{% if template_params.get('enable_thinking') %}
-<thinking>
-Polecenie ma dwie części: wyjaśnienie pojęcia „formy” u Gombrowicza i jej wpływu oraz zilustrowanie tego przykładem z powieści.
-
-1.  **Definicja i wpływ:** Na podstawie znajomości „Ferdydurke” wiem, że „forma” to narzucany z zewnątrz, sztuczny schemat zachowania, rola społeczna, która ogranicza i zniekształca autentyczność człowieka. Celem Gombrowicza jest pokazanie niemożności ucieczki od niej („gęby”).
-
-2.  **Przykład:** Muszę wybrać konkretną sytuację z utworu. Dobrym przykładem jest scena w domu Młodziaków, którzy przyjmują „formę” nowoczesnej rodziny. Ta forma okazuje się fałszywa, gdy Józio ją demaskuje, prowokując ich do typowo mieszczańskiej, konwencjonalnej reakcji. Inny dobry przykład to szkoła i „upupianie” Józia. Wykorzystam przykład Młodziaków, bo dobrze ilustruje zarówno istnienie formy, jak i jej demaskację.
-
-W odpowiedzi połączę te dwa elementy.
-</thinking>
-{% endif %}
-<answer>
-W "Ferdydurke" forma to narzucony przez społeczeństwo lub drugiego człowieka sztuczny wzorzec zachowania, rola lub stereotyp, który zniewala i odbiera autentyczność. Wpływa ona na człowieka destrukcyjnie, ponieważ go ogranicza, upraszcza i zniekształca, uniemożliwiając wyrażenie prawdziwego "ja". Przykładem działania formy jest sytuacja w domu Młodziaków, którzy przyjmują formę nowoczesnej, wyzwolonej rodziny. Jej sztuczność demaskuje Józio, którego intryga (przyprowadzenie Kopyrdy do sypialni Zuty) sprawia, że Młodziakowie porzucają pozę i reagują w sposób konwencjonalny, zdradzając swoje prawdziwe, mieszczańskie oblicze.
+Nie, postawy wobec Boga w obu utworach są skrajnie różne. Podmiot liryczny w "Rozmowie wieczornej" zwraca się do Boga z pokorą i zaufaniem, widząc w Nim bliską istotę ("gościsz w domku mego ducha"). Natomiast Konrad w "Dziadach cz. III" przyjmuje postawę buntowniczą i roszczeniową. Czuje się równy Bogu ("wart, żebyś ze mną władzą dzielił się na poły") i żąda od Niego władzy, zarzucając Mu milczenie.
 </answer>
 [[---KONIEC ODPOWIEDZI---]]

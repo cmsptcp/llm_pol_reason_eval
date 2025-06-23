@@ -844,7 +844,7 @@
       "context_ids": [
         "MPO-P1_1P-152_kontekst_4"
       ],
-      "question_text": "Wolna wola człowieka czy siły od niego niezależne co przede wszystkim decyduje o ludzkim losie? Rozważ problem i uzasadnij swoje zdanie, odwołując się do podanego fragmentu Lalki, całego utworu Bolesława Prusa oraz innego tekstu kultury. Twoja praca powinna liczyć co najmniej 250 słów.",
+      "question_text": "Napisz wypracowanie na temat: Wolna wola człowieka czy siły od niego niezależne co przede wszystkim decyduje o ludzkim losie? Rozważ problem i uzasadnij swoje zdanie, odwołując się do podanego fragmentu Lalki, całego utworu Bolesława Prusa oraz innego tekstu kultury. Twoja praca powinna liczyć co najmniej 250 słów.",
       "generated_by": "Gemini Pro 2.5 Preview",
       "generation_date": "2024-05-15T12:00:00Z",
       "choices": [],
@@ -1044,7 +1044,7 @@
       "context_ids": [
         "MPO-P1_1P-152_kontekst_5"
       ],
-      "question_text": "Zinterpretuj podany utwór. Postaw tezę interpretacyjną i ją uzasadnij. Twoja praca powinna liczyć co najmniej 250 słów.",
+      "question_text": "Zinterpretuj podany utwór (wiersz Elizabeth Bishop 'Ta jedna sztuka' w tłumaczeniu Stanisława Barańczaka). Postaw tezę interpretacyjną i ją uzasadnij. Twoja praca powinna liczyć co najmniej 250 słów.",
       "generated_by": "Gemini Pro 2.5 Preview",
       "generation_date": "2024-05-15T12:00:00Z",
       "choices": [],

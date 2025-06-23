@@ -1,0 +1,778 @@
+{
+  "contexts": {
+    "MPOP-P1-100-2203_context_1": {
+      "context_id": "MPOP-P1-100-2203_context_1",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_content": "Walter Isaacson\n\nLeonardo da Vinci\n\nPrzywiązanie Leonarda da Vinci do zbieranych osobiście doświadczeń nie wynikało jedynie z drażliwości na punkcie braku formalnego wykształcenia. Spowodowało raczej, że przynajmniej na początku swojej drogi - Leonardo bagatelizował rolę teorii. Był urodzonym obserwatorem i eksperymentatorem, nie miał ani naturalnych skłonności, ani wpojonego przez nauczycieli nawyku zmagania się z abstrakcyjnymi pojęciami. Od rozumowania dedukcyjnego, wymagającego przyjęcia zbioru teoretycznych przesłanek, wolał rozumowanie indukcyjne, w którym na podstawie wyników swoich eksperymentów formułował ogólniejsze wnioski. Leonardo chciał najpierw przyjrzeć się faktom i dopiero na podstawie obserwacji próbować odkryć, jakie zależności je wywołują i jakie siły natury za nimi stoją. „W naturze przyczyna poprzedza działanie, ale my musimy podążyć w przeciwnym kierunku i obserwując działanie, odkryć przyczynę\". Leonardo uczynił fundamentem swojej nauki następujący schemat postępowania: obserwacje, dostrzeganie prawidłowości w obserwowanych zjawiskach, wreszcie weryfikacja wniosków za pomocą kolejnych spostrzeżeń i eksperymentów. Pomagała mu pomysłowość. Dzięki niej wymyślał różnego rodzaju urządzenia i błyskotliwe metody badania różnych zjawisk. Planując doświadczenia, wizualizował sobie różne zjawiska i oddawał te wyobrażenia na rysunkach. Nie czuł się na siłach, aby zmagać się z teorią. Wolał zdobywać wiedzę poprzez obserwację i utrwalanie swoich spostrzeżeń na szkicach.\n\nJednak nie poprzestał jedynie na przeprowadzaniu eksperymentów. Notatniki pokazują, jak zmieniało się jego podejście. W okolicach 1490 roku zaczął więcej czasu poświęcać studiowaniu ksiąg, co pomogło mu docenić korzyści płynące z możliwości osadzenia wyników badań w pewnych ramach teoretycznych. Co więcej, zaczął także pojmować, że teoria i empiria są wobec siebie komplementarne.\n\nO konieczności łączenia empirii z teorią Leonardo miał okazję przekonać się, studiując perspektywę. Prowadził systematyczne obserwacje, żeby uchwycić, jak zmniejszają się przedmioty w miarę oddalania się obserwatora. Ale sięgał także do ksiąg poświęconych geometrii, żeby opracować reguły opisujące związek między wielkością przedmiotu a odległością od niego. Przystępując do opisywania zasady perspektywy, zanotował, że niekiedy „będzie dedukować rezultaty z przyczyn, a czasem domyślać się przyczyn, obserwując skutki\". Zaczął nawet z lekceważeniem odnosić się do eksperymentatorów, którzy polegali jedynie na praktyce, nie mając najmniejszego pojęcia o teorii badanych zjawisk. „Ci, co przejawiają zamiłowanie do działań praktycznych, nie posiadając przy tym żadnej wiedzy teoretycznej, przypominają żeglarzy wsiadających na statek pozbawiony steru oraz kompasu; nigdy nie będą mieli pewności, dokąd naprawdę zmierzają\" - napisał w 1510 roku. „Wszelka praktyka musi zawsze opierać się na rzetelnej teorii\".\n\nW rezultacie Leonardo stał się - na ponad sto lat przed Galileuszem - jednym z najważniejszych myślicieli Zachodu, prowadzącym ciągły, bezpośredni dialog między teorią a empirią. Zapoczątkował drogę, której zwieńczeniem jest współczesna rewolucja naukowa. Niezwykła zdolność naszego bohatera do łączenia doświadczenia i teorii sprawiła, że jego naukowy dorobek stanowi do dziś doskonały przykład, jak uważna obserwacja świata, nieposkromiona ciekawość, gotowość do eksperymentowania i kwestionowania dogmatów, a także umiejętność dostrzegania podobieństw między odkryciami z różnych dyscyplin nauki, prowadzą do pomnożenia ludzkiej wiedzy.\n\nNa podstawie: Walter Isaacson, Leonardo da Vinci, tłum. Michał Strąkow, Kraków 2019.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z"
+    },
+    "MPOP-P1-100-2203_context_2": {
+      "context_id": "MPOP-P1-100-2203_context_2",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_content": "Hugo Steinhaus¹\n\nDrogi matematyki stosowanej\n\nUczono nas za młodu, że współpraca matematyka z przyrodnikiem ma się odbywać według takiego schematu: przyrodnik napotyka zagadnienie matematyczne w postaci równania algebraicznego lub różniczkowego i przynosi je matematykowi. Ten rozwiązuje je i oddaje w ręce przyrodnika gotowe rozwiązanie w formie wzorów. Matematyk nie powinien się troszczyć, skąd się wzięło zagadnienie ani do czego ma służyć rozwiązanie; nie powinien też zaglądać do protokołów, w których spisane są wyniki doświadczeń. Przeświadczenie, że specjalizacja nauk jest tak daleko posunięta, iż tylko ludzie tego samego cechu mogą się wzajemnie zrozumieć, z góry skazywało takie próby na niepowodzenie. Mówiono nam też, że w naukach przyrodniczych nie ma ani ścisłych definicyj², ani twierdzeń udowodnionych - już to samo wzbudzało w matematyku naszej generacji lekceważenie. Radzono nam przyjąć stan faktyczny podany przez przyrodnika za układ pewników, przerzucając odpowiedzialność na niego: my, oczywiście, nie możemy się mylić, a jeżeli nasze wzory nie stosują się do rzeczywistości, to może to być tylko winą przyrodnika albo nawet samej rzeczywistości, ale nigdy - winą matematyki.\n\nTen sposób współpracy rzadko kiedy prowadził do pozytywnych wyników. Wywołał on u wielu przyrodników przeświadczenie, że współpraca z matematykami jest niemożliwa, a u matematyków - że nauki przyrodnicze są zbiorem luźnych faktów empirycznych, a tak zwane prawa przyrody - wnioskami opartymi na indukcji przyrodniczej, niezasługującymi na miano prawd naukowych.\n\nJak powinna zatem wyglądać współpraca matematyki z innymi dyscyplinami? Najlepiej wyjaśni to porównanie wzięte z historii obu wojen światowych. W jednej i w drugiej współpracowały sztaby generalne z ekspertami cywilnymi. Tu wojskowi byli przyrodnikami, a eksperci grali rolę matematyków. Podczas pierwszej wojny światowej współpraca obu grup układała się według przestarzałego schematu: nie wtajemniczano ekspertów, do czego potrzebny był taki lub inny aparat, ale żądano skonstruowania. Jak wiadomo, podczas pierwszych lat drugiej wojny światowej, które były pasmem katastrof dla Wysp Brytyjskich, wprowadzono współpracę na zasadzie organicznej, to znaczy dopuszczenia ekspertów do dyskusji nad genezą, sensem i ważnością zagadnienia. Wiadomo także powszechnie, jakie rozmiary przybrała ta współpraca, na którą Niemcy, ze swoją supremacją³ elementu militarnego, nie umieli się przestawić. Mamy więc postulat: nie należy rozpoczynać współpracy, gdy zagadnienie jest gotowe, lecz - znacznie wcześniej. Są mianowicie zagadnienia, których przyrodnicy nie rozeznają jako matematycznych.\n\nMatematyka nie jest zbiorem gotowych wiadomości. Jest to raczej szkoła myślenia. Nauki przyrodnicze i techniczne, a i społeczne, nie są tylko rejestrem obserwacyj⁴ i eksperymentów. Współpraca - to jest matematyka stosowana. Matematyki stosowanej jako gotowej doktryny nie ma. Tworzy się ona przy zetknięciu matematycznej myśli ze światem otaczającym, ale wówczas tylko, gdy zarówno ów matematyczny duch, jak i przyrodnicza materia są w stanie płynnym. Do tego trzeba jednak uświadomić sobie, że nauka nie tylko opisuje rzeczywistość, ale także tworzy rzeczywistość nową, ilekroć przybiera aktywną postawę, nie czekając na zagadnienia, ale je stawiając.\n\nNa podstawie: Hugo Steinhaus, Drogi matematyki stosowanej, [w:] tenże, Między duchem a materią pośredniczy matematyka, Wrocław 2000.\n\n¹ Hugo Steinhaus (1887-1972) - wybitny polski matematyk, współtwórca Iwowskiej szkoły matematycznej, znany popularyzator matematyki. Drogi matematyki stosowanej to artykuł napisany przez prof. Steinhausa na podstawie jego referatu wygłoszonego na Zjeździe Matematyków Polskich w Warszawie we wrześniu 1948 r.\n² Definicyj - używana dawniej forma wyrazu definicji.\n³ Supremacja - przewaga.\n⁴ Obserwacyj - używana dawniej forma wyrazu obserwacji.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z"
+    },
+    "MPOP-P1-100-2203_context_kohelet": {
+      "context_id": "MPOP-P1-100-2203_context_kohelet",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_content": "Księga Koheleta\n\n1\n12 Ja, Kohelet, byłem królem nad Izraelem w Jeruzalem.\n13 I skierowałem umysł swój ku temu,\nby zastanawiać się i badać,\nile mądrości jest we wszystkim,\nco dzieje się pod niebem.\n[...]\n14 Widziałem wszelkie sprawy, jakie się dzieją pod słońcem.\nA oto: wszystko to marność i pogoń za wiatrem.\n15 To, co krzywe, nie da się wyprostować,\na czego nie ma, tego nie można liczyć.\n16 Tak powiedziałem sobie w sercu:\nOto nagromadziłem i przysporzyłem mądrości więcej\nniż wszyscy, co władali przede mną nad Jeruzalem,\na serce me doświadczyło wiele mądrości i wiedzy.\n17 I postanowiłem sobie poznać\nmądrość i wiedzę, szaleństwo i głupotę.\nPoznałem, że również i to jest pogonią za wiatrem,\n18 bo w wielkiej mądrości - wiele utrapienia,\na kto pomnaża wiedzę - pomnaża cierpienie.\n[...]\n\n2\n12 Postanowiłem\nprzyjrzeć się mądrości,\na także szaleństwu i głupocie.\nBo czego jeszcze dokonać może człowiek,\nktóry nastąpi po królu,\nnad to, czego on już dokonał?\n13 I zobaczyłem,\nże mądrość tak przewyższa głupotę,\njak światło przewyższa ciemności.\n14 Mędrzec ma w głowie swojej oczy,\na głupiec chodzi w ciemności.\nAle poznałem również,\nże ten sam los\nspotyka wszystkich.\n\nKsięga Koheleta, [w:] Pismo Święte Starego i Nowego Testamentu, Poznań 2016.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z"
+    },
+    "MPOP-P1-100-2203_context_tren_x": {
+      "context_id": "MPOP-P1-100-2203_context_tren_x",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_content": "Jan Kochanowski\n\nTren X\n\nOrszulo moja wdzięczna, gdzieś mi sie podziała?\nW którą stronę, w którąś sie krainę udała?\nCzyś ty nad wszystki nieba¹ wysoko wniesiona\nI tam w liczbę aniołków małych policzona?\nCzyliś do raju wzięta? Czyliś na szczęśliwe\nWyspy zaprowadzona? Czy cię przez teskliwe\nCharon jeziora wiezie i napawa zdrojem\nNiepomnym², że ty nie wiesz nic o płaczu mo[jem]?\nCzy człowieka zrzuciwszy i myśli dziewicze,\nWzięłaś na się postawę i piórka słowicze³?\nCzyli sie w czyścu czyścisz, jesli z strony ciała\nJakakolwiek zmazeczka na tobie została?\nCzyś po śmierci tam poszła, kędyś pierwej była⁴,\nNiżeś sie na mą ciężką żałość urodziła?\nGdzieśkolwiek jest, jesliś jest, lituj mej żałości,\nA nie możesz li w onej dawnej swej całości,\nPociesz mię, jako możesz, a staw sie przede mną\nLubo snem, lubo cieniem, lub marą nikczemną.\n\nJan Kochanowski, Tren X, [w:] tegoż, Poezje, Warszawa 1988.\n\n¹ Nad wszystki nieba - czyli do najwyższego nieba: Kochanowski odwołuje się tu do ówczesnych wyobrażeń, zgodnie z którymi kosmos składa się z dziesięciu nieb (sfer niebieskich), nad którymi znajduje się mieszkanie Boga, aniołów i wybranych.\n² Zdrojem niepomnym - powodującym zapomnienie - w mitologii greckiej dusze przewożone przez Charona po wypiciu wody z rzeki Lete zapominały o tym, co zrobiły, widziały i słyszały przedtem.\n³ Wzięłaś na się postawę i piórka słowicze - takie przemiany są często opisywane w antycznej poezji i mitologii.\n⁴ Czyś po śmierci tam poszła... - przekonanie, że dusze wracają po śmierci tam, skąd przyszły.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z"
+    },
+    "MPOP-P1-100-2203_context_wzietosc": {
+      "context_id": "MPOP-P1-100-2203_context_wzietosc",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_content": "Ignacy Krasicki\n\nWziętość¹ (fragment)\n\nBył niejakiś pan Łukasz, co chciał wiele dostać.\nCóż on czynił? - Najsamprzód zmyślił sobie postać.\nChciał oszukać, oszukał, bo to nie są cuda,\nI niezgrabne szalbierstwo² częstokroć się uda,\nA dopieroż gdy sztuczne³. Patrzał Łukasz pilnie,\nJak to się drudzy wznoszą i zgadł nieomylnie.\nZgadł sekret. - A ten jaki? - Do możniejszch przystać,\nStrzec się słabych, śmiać z cnoty, a z głupstwa korzystać.\nPrzykład wszystkim widoczny rzecz wyłuszczy prosta.\nGdy widzisz, senatorem że został starosta⁴,\nPatrz, jak się zsenatorzył. Był filut⁵, jest możny,\nWczoraj ledwo mościom pan⁶, dziś jaśnie wielmożny.\n\nIgnacy Krasicki, Wziętość, [w:] tegoż, Satyry i listy, Wrocław 1988.\n\n¹ Wziętość - popularność.\n² Szalbierstwo oszustwo, zwłaszcza wyłudzenie czegoś.\n³ Sztuczne przebiegłe, umiejętne.\n⁴ Senatorem że został starosta - starostowie nie mieli praw zasiadania w senacie, aby więc zostać senatorem, starosta musiał otrzymać któryś z wyższych urzędów: kasztelana, wojewody, ministra.\n⁵ Filut - tu: spryciarz.\n⁶ Wczoraj ledwo mościom pan tytuł grzecznościowy „mości pan\" obowiązywał w stosunku do każdego szlachcica, natomiast do szlachcica sprawującego jakiś urząd zwracano się „jaśnie wielmożny\".",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z"
+    },
+    "MPOP-P1-100-2203_context_piszczkowski": {
+      "context_id": "MPOP-P1-100-2203_context_piszczkowski",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_content": "Mieczysław Piszczkowski o twórczości Ignacego Krasickiego napisał:\n\nKrasicki [...] z obiektywną ciekawością studiuje duszę ludzką [...]. Z nieporównanym dowcipem wyśmiewa bystro zaobserwowane wady ludzkie.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z"
+    },
+    "MPOP-P1-100-2203_context_piesn_v": {
+      "context_id": "MPOP-P1-100-2203_context_piesn_v",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_content": "Jan Kochanowski\n\nPieśń V (Księgi wtóre)\n\nWieczna sromota¹ i nienagrodzona\nSzkoda², Polaku! Ziemia spustoszona\nPodolska leży, a pohaniec³ sprosny,\nNad Niestrem⁴ siedząc, dzieli łup żałosny⁶!\nNiewierny⁷ Turczyn psy zapuścił swoje⁸,\nKtórzy zagnali piękne łanie⁹ twoje\nZ dziećmi po społu a nie masz nadzieje,\nBy kiedy miały nawiedzić swe knieje.\nJedny¹⁰ za Dunaj Turkom zaprzedano,\nDrugie do hordy dalekiej zagnano;\nCóry szlacheckie (żal sie mocny Boże!)\nPsom bisurmańskim¹¹ brzydkie ścielą łoże.\nZbójce (niestety), zbójce nas wojują,\nKtórzy ani miast, ani wsi budują;\nPod kotarzami¹² tylko w polach siedzą,\nA nas nierządne, ach, nierządne, jedzą!\nTak odbieżałe stado¹³ więc drapają\nRozbójce wilcy, gdy po woli¹⁴ mają,\nŻe ani pasterz nad owcami chodzi,\nAni ostrożnych psów za sobą wodzi.\nJakiego serca Turkowi dodamy¹⁵,\nJesli tak lekkim¹⁶ ludziom nie zdołamy?\nLedwieć nam i tak króla nie podawa¹⁷;\nKto sie przypatrzy, mała nie dostawa¹⁸.\n\nZetrzy sen z oczu, a czuj w czas o sobie¹⁹,\nCny Lachu²⁰! Kto wie, jemu czyli tobie\nSzczęście chce służyć? A dokąd wyroku\nMars nie uczyni, nie ustępuj kroku!\nA teraz k'temu obróć myśli swoje\nJakobyć²¹ szkody nieprzyjaciel twoje\nKrwią swą nagrodził i omył tę zmazę,\nKtórej dziś niesiesz prze swej ziemie skazę.\nWsiadamy?²² Czy nas półmiski trzymają?\nBiedne półmiski, czego te czekają?\nTo pan, i jadać na śrebrze godniejszy,\nKomu żelazny Mars będzie chętniejszy²³.\n\nJan Kochanowski, Pieśń V, Księgi wtóre, [w:] tegoż, Poezje, Warszawa 1988.\n\n¹ Sromota - hańba.\n² Nienagrodzona szkoda - niepowetowana strata.\n³ Pohaniec - muzułmanin (Turek lub Tatar; poganin); określenie pogardliwe.\n⁴ Sprosny - godny potępienia, potworny, okrutny.\n⁵ Niestr - Dniestr.\n⁶ Żałosny - godny żalu.\n⁷ Niewierny - niechrześcijanin.\n⁸ Turczyn psy zapuścił swoje - Turek (sułtan turecki) wypuścił swoich poddanych - Tatarów.\n⁹ Łanie - tu: piękne kobiety.\n¹⁰ Jedny - jedne.\n¹¹ Bisurmański - mahometański.\n¹² Kotarz - szałas, namiot.\n¹³ Odbieżałe stado - opuszczone stado.\n¹⁴ Po woli - posłuszny komuś.\n¹⁵ Dodać serca - dodać odwagi.\n¹⁶ Lekki - podły, godny lekceważenia.\n¹⁷ Ledwieć nam i tak króla nie podawa - aluzja do tureckich rad w sprawie wyboru króla.\n¹⁸ Mała nie dostawa - mało brakuje.\n¹⁹ Czuj w czas o sobie - czuwaj nad sobą, nad swoim bezpieczeństwem.\n²⁰ Lach - Polak.\n²¹ Jakobyć - aby ci.\n²² Wsiadamy? - w znaczeniu: czy już wsiadamy na konie?\n²³ Chętniejszy - życzliwszy.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z"
+    },
+    "MPOP-P1-100-2203_context_grob_agamemnona": {
+      "context_id": "MPOP-P1-100-2203_context_grob_agamemnona",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_content": "Juliusz Słowacki\n\nGrób Agamemnona\n\n[16]\n\nO! Polsko! póki ty duszę anielską\nBędziesz więziła w czerepie¹ rubasznym,\nPóty kat będzie rąbał twoje cielsko,\nPóty nie będzie twój miecz zemsty strasznym,\nPóty mieć będziesz hyjenę² na sobie\nI grób i oczy otworzone w grobie!\n\n[17]\n\nZrzuć do ostatka te płachty ohydne,\nTę - Dejaniry³ palącą koszulę [...].\n\n[19]\n\nPolsko! lecz ciebie błyskotkami łudzą;\nPawiem narodów byłaś i papugą,\nA teraz jesteś służebnicą cudzą.\n[...]\n\n[20]\n\nPrzeklnij - lecz ciebie przepędzi ma dusza\nJak eumenida⁴ - przez wężowe rózgi,\nBoś ty jedyny syn Prometeusza:\nSęp ci wyjada nie serce - lecz mózgi.\nChoć muzę moją w twojej krwi zaszargam,\nSięgnę do wnętrza twych trzew - i zatargam.\n\n[21]\n\nSzczęknij z boleści i przeklinaj syna,\nLecz wiedz - że ręka przekleństw wyciągnięta\nNade mną - zwinie się w łęk jak gadzina,\nI z ramion ci się odkruszy zeschnięta,\nI w proch ją czarne szatany rozchwycą;\nBo nie masz władzy przekląć - niewolnico!\n\nJuliusz Słowacki, Grób Agamemnona, [w:] tegoż, Dzieła wybrane, t. 2., Wrocław 1974.\n\n¹ Czerep - czaszka, głowa, tu: aluzja do stylu życia i zachowania polskiej szlachty.\n² Hyjena - hiena; tu: martwym ciałem ojczyzny poety żywią się zaborcy.\n³ Dejanira - w mitologii greckiej żona Heraklesa, z zazdrości obdarzyła go zatrutą szatą, przez co doprowadziła do śmierci męża, dotąd niepokonanego przez nikogo.\n⁴ Eumenidy (Erynie) - boginie zemsty.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z"
+    },
+    "MPOP-P1-100-2203_context_raport_nowosilcowa": {
+      "context_id": "MPOP-P1-100-2203_context_raport_nowosilcowa",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_content": "Wysłanie więźniów odbyło się w zupełnym porządku i bez zakłócenia spokoju. Przestępcy podczas wywożenia, a nawet w czasie okuwania w kajdany, nie okazywali najmniejszej skruchy.\n\nM. Dernałowicz, K. Kostenicz, Z. Makowiecka, Kronika życia i twórczości Mickiewicza. Lata 1798-1824, Warszawa 1957.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z"
+    },
+    "MPOP-P1-100-2203_context_lalka": {
+      "context_id": "MPOP-P1-100-2203_context_lalka",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_content": "Bolesław Prus\n\nLalka\n\nWobec tego poczuł taki wstręt do handlu, spółek i wszystkich zysków, że dziwił się samemu sobie: jakim sposobem on mógł, prawie przez dwa lata, mięszać się do podobnych rzeczy? „Zdobywałem majątek dla niej!... - pomyślał. - Handel... ja i handel!... I to ja zgromadziłem przeszło pół miliona rubli w ciągu dwu lat, ja zmięszałem się z ekonomicznymi szulerami, stawiałem na kartę pracę i życie, no... i wygrałem... Ja idealista, ja - uczony, ja, który przecie rozumiem, że pół miliona rubli człowiek nie mógłby wypracować przez całe życie, nawet przez trzy życia... A jedyną pociechą, jaką jeszcze wyniosłem z tej szulerki, jest pewność, żem nie kradł i nie oszukiwał... Widocznie Bóg opiekuje się głupcami...\".\n\nPotem znowu wypadek przyniósł mu wiadomość o śmierci Stawskiego w liście z Paryża i od tej chwili kolejno budziły się w nim wspomnienia pani Stawskiej i Geista. „Mówiąc prawdę - myślał - powinien bym ten wyszulerowany majątek zwrócić ogółowi. Biedy i ciemnoty u nas pełno, a ci ludzie biedni i ciemni są jednocześnie najczcigodniejszym materiałem...\".\n\nBolesław Prus, Lalka, Wrocław 2019.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z"
+    },
+    "MPOP-P1-100-2203_context_melodia_mgiel": {
+      "context_id": "MPOP-P1-100-2203_context_melodia_mgiel",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_content": "Kazimierz Przerwa-Tetmajer\n\nMelodia mgieł nocnych\n(Nad Czarnym Stawem Gąsienicowym)\n\nCicho, cicho, nie budźmy śpiącej wody w kotlinie,\nlekko z wiatrem pląsajmy po przestworów głębinie...\nOkręcajmy się wstęgą naokoło księżyca,\nco nam ciała przeźrocze tęczą blasków nasyca,\ni wchłaniajmy potoków szmer, co toną w jeziorze,\ni limb szumy powiewne, i w smrekowym szept borze,\npijmy kwiatów woń rzeźwą, co na zboczach gór kwitną,\ndźwięczne, barwne i wonne, w głąb wzlatujmy błękitną.\n\nKazimierz Przerwa-Tetmajer, Melodia mgieł nocnych (Nad Czarnym Stawem Gąsienicowym), [w:] tegoż, Poezje wybrane, Wrocław 1968.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z"
+    },
+    "MPOP-P1-100-2203_context_ludzie_ktorzy_szli": {
+      "context_id": "MPOP-P1-100-2203_context_ludzie_ktorzy_szli",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_content": "Tadeusz Borowski\n\nLudzie, którzy szli\n\nNajpierw budowaliśmy na pustym polu, leżącym za barakami szpitala, boisko do piłki nożnej. Pole leżało „dobrze\" - z lewa cygański z jego wałęsającą się dzieciarnią, kobietami siedzącymi po ustępach i ślicznymi, wysztyftowanymi na ostatnią nitkę flegerkami¹, z tyłu - drut, za nim rampa z szerokimi torami kolei, wciąż zapełniona wagonami, a za rampą obóz kobiecy. Właściwie nie żaden obóz kobiecy. Tak się nie mówiło. Mówiło się FKL - i wystarczy. Z prawa od pola były krematoria, jedne za rampą, obok FKL-u, drugie bliżej, tuż przy drucie. Solidne budynki, mocno osadzone w ziemi. Za krematoriami lasek, którym szło się do białego domku.\n\nBudowaliśmy boisko wiosną i jeszcze przed jego skończeniem poczęliśmy siać pod oknami kwiatki i wykładać tłuczoną cegłą czerwone szlaczki naokoło bloków. Siało się szpinak i sałatę, słoneczniki i czosnek. Zakładało się trawniczki z wycinanej koło boiska murawy. Podlewało się to co dzień wodą przywożoną beczkami z obozowej umywalni. Kiedy podlewane kwiatki podrosły, skończyliśmy boisko.\n\nTadeusz Borowski, Ludzie, którzy szli, [w:] tegoż, Wspomnienia, wiersze, opowiadania, Warszawa 1981.\n\n¹ Fleger - sanitariusz w szpitalu.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z"
+    }
+  },
+  "questions": {
+    "MPOP-P1-100-2203_q1": {
+      "question_id": "MPOP-P1-100-2203_q1",
+      "category": "matura_jezyk_polski",
+      "question_type": "closed_MCQ",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_1"
+      ],
+      "question_text": "Które stwierdzenie można uznać za główne założenie autora tekstu o Leonardzie da Vinci? Wybierz właściwą odpowiedź spośród podanych.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [
+        {
+          "choice_id": "A",
+          "choice_text": "Łączenie wiedzy teoretycznej z doświadczalną jest korzystne dla nauki."
+        },
+        {
+          "choice_id": "B",
+          "choice_text": "Dla rozwoju nauki nie jest istotny brak możliwości zapisu wyników eksperymentów w sformalizowany, naukowy sposób."
+        },
+        {
+          "choice_id": "C",
+          "choice_text": "Formalne wykształcenie jest wtórne względem wrodzonych zdolności."
+        },
+        {
+          "choice_id": "D",
+          "choice_text": "Najwięksi myśliciele zachodniej cywilizacji zawdzięczają Leonardowi wynalezienie metody naukowej."
+        }
+      ],
+      "answer": {
+        "correct_answer": "A",
+        "example_answers": [],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "1 pkt - odpowiedź poprawna.",
+          "evaluation_rules": null,
+          "overall_guidance_for_llm": "Odpowiedź A jest poprawna."
+        },
+        "max_points": 1,
+        "external_context_required": null,
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe. 7. Kształcenie umiejętności czytania, analizowania i interpretowania [...] tekstów kultury [...].",
+            "specific_requirements": "2. Odbiór tekstów kultury. Zdający: 1) przetwarza i hierarchizuje informacje z tekstów, np. publicystycznych, popularnonaukowych, naukowych."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q2": {
+      "question_id": "MPOP-P1-100-2203_q2",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_1"
+      ],
+      "question_text": "Rozstrzygnij, czy zmiana podejścia Leonarda da Vinci do wiedzy teoretycznej była rewolucją czy ewolucją w jego myśleniu. Uzasadnij odpowiedź.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [
+          "Zmiana podejścia Leonarda do wiedzy teoretycznej była ewolucją w jego myśleniu. Początkowo cenił on jedynie eksperymenty i obserwacje, nie dostrzegając potrzeby teorii. Jednak z czasem, poprzez studiowanie ksiąg i pracę nad zagadnieniami takimi jak perspektywa, stopniowo zaczął doceniać rolę wiedzy teoretycznej i uznał ją za niezbędny element badań naukowych."
+        ],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "1 pkt za poprawne rozstrzygnięcie wraz z uzasadnieniem.",
+          "evaluation_rules": [],
+          "overall_guidance_for_llm": "Odpowiedź musi zawierać rozstrzygnięcie (ewolucja) i uzasadnienie oparte na stopniowym dochodzeniu przez Leonarda do wniosku o konieczności łączenia teorii z praktyką."
+        },
+        "max_points": 1,
+        "external_context_required": null,
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe.",
+            "specific_requirements": "2. Odbiór tekstów kultury. Zdający: 1) przetwarza i hierarchizuje informacje z tekstów [...]. 2) analizuje strukturę tekstu: odczytuje jego sens [...]."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q3": {
+      "question_id": "MPOP-P1-100-2203_q3",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_1"
+      ],
+      "question_text": "Na przykładzie studiów Leonarda da Vinci nad perspektywą wyjaśnij, na czym polegał \"dialog między teorią a empirią\", który artysta stosował w swojej pracy.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [
+          "Dialog między teorią a empirią w pracy Leonarda nad perspektywą polegał na łączeniu praktycznych obserwacji z wiedzą teoretyczną. Prowadził systematyczne obserwacje (empiria), aby zrozumieć, jak przedmioty zmniejszają się z odległością, a jednocześnie studiował księgi poświęcone geometrii (teoria), by opracować matematyczne reguły opisujące to zjawisko."
+        ],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "1 pkt za poprawne wyjaśnienie.",
+          "evaluation_rules": [],
+          "overall_guidance_for_llm": "Odpowiedź musi wskazywać na łączenie przez Leonarda dwóch podejść: prowadzenia obserwacji (empiria) i studiowania geometrii (teoria) w celu zrozumienia zasad perspektywy."
+        },
+        "max_points": 1,
+        "external_context_required": null,
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe.",
+            "specific_requirements": "2. Odbiór tekstów kultury. Zdający: 1) przetwarza i hierarchizuje informacje z tekstów [...]. 2) analizuje strukturę tekstu: odczytuje jego sens, główną myśl [...]."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q4": {
+      "question_id": "MPOP-P1-100-2203_q4",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_1",
+        "MPOP-P1-100-2203_context_2"
+      ],
+      "question_text": "Jaki stosunek do wiedzy wynikającej z indukcji miał Leonardo da Vinci, a jaki - matematycy, o których pisze Hugo Steinhaus? Odpowiedź uzasadnij, odwołując się do obu tekstów.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [
+          "Leonardo da Vinci początkowo preferował rozumowanie indukcyjne, oparte na eksperymentach, jednak z czasem zrozumiał, że należy je łączyć z teorią. Z kolei matematycy, o których pisze Hugo Steinhaus, mieli lekceważący stosunek do wiedzy z indukcji, uznając ją za nienaukową i niewystarczająco ścisłą, co utrudniało współpracę z przyrodnikami."
+        ],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "2 pkt za poprawną odpowiedź odnoszącą się do obu tekstów. 1 pkt za poprawną odpowiedź odnoszącą się do jednego tekstu.",
+          "evaluation_rules": [
+            {
+              "rule_id": "porownanie_stosunku",
+              "description": "Porównanie stosunku do wiedzy indukcyjnej w obu tekstach.",
+              "element_max_points_contribution": 2,
+              "scoring_levels": [
+                {
+                  "condition_or_level_description": "Odpowiedź poprawna odnosząca się do obu tekstów.",
+                  "score_impact": 2
+                },
+                {
+                  "condition_or_level_description": "Odpowiedź poprawna odnosząca się do jednego tekstu.",
+                  "score_impact": 1
+                }
+              ]
+            }
+          ],
+          "overall_guidance_for_llm": null
+        },
+        "max_points": 2,
+        "external_context_required": null,
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe.",
+            "specific_requirements": "2. Odbiór tekstów kultury. Zdający: 1) przetwarza i hierarchizuje informacje z tekstów [...]; 3) [...] odczytuje informacje i przekazy jawne i ukryte [...]."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q5": {
+      "question_id": "MPOP-P1-100-2203_q5",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_2"
+      ],
+      "question_text": "Wyjaśnij, na czym polega ironia zastosowana przez Hugona Steinhausa w ostatnim zdaniu pierwszego akapitu.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [
+          "Ironia w zdaniu „my [matematycy] nie możemy się mylić, a jeżeli nasze wzory nie stosują się do rzeczywistości, to może to być tylko winą przyrodnika albo nawet samej rzeczywistości, ale nigdy - winą matematyki” polega na przedstawieniu w sposób przejaskrawiony poczucia wyższości i nieomylności matematyków. Steinhaus w ten sposób krytykuje ich arogancję i niechęć do przyznania się do błędu lub ograniczeń własnej dyscypliny."
+        ],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "1 pkt za poprawną odpowiedź.",
+          "evaluation_rules": [],
+          "overall_guidance_for_llm": "Odpowiedź powinna wskazywać na wyolbrzymienie i krytykę postawy matematyków."
+        },
+        "max_points": 1,
+        "external_context_required": null,
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe.",
+            "specific_requirements": "1. Czytanie utworów literackich. Zdający: 6) rozpoznaje w tekstach literackich: ironię [...]; rozumie [jej] wartościujący charakter. 2. Odbiór tekstów kultury. Zdający: 1) przetwarza i hierarchizuje informacje z tekstów [...]."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q6": {
+      "question_id": "MPOP-P1-100-2203_q6",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_synthesis",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_1",
+        "MPOP-P1-100-2203_context_2"
+      ],
+      "question_text": "Na podstawie obu tekstów napisz syntetyzującą notatkę na temat: działania sprzyjające rozwojowi nauki. Twoja wypowiedź powinna liczyć 60-90 wyrazów.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [
+          "Zarówno Walter Isaacson, jak i Hugo Steinhaus wskazują, że kluczowe dla rozwoju nauki jest łączenie różnych podejść. Isaacson na przykładzie Leonarda da Vinci pokazuje, jak niezbędny jest dialog między empirią a teorią. Steinhaus z kolei postuluje ścisłą, organiczną współpracę specjalistów z różnych dziedzin, np. matematyków i przyrodników. W obu ujęciach owocna okazuje się synteza praktyki z teorią oraz otwarta komunikacja, które przełamują ograniczenia wąskich specjalizacji i prowadzą do postępu. [78 wyrazów]"
+        ],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "Maksymalnie 4 punkty, w tym 3 za treść (ujęcie stanowisk obu autorów, ich zestawienie, spójność) i 1 za poprawność językową, ortograficzną i interpunkcyjną.",
+          "evaluation_rules": [
+            {
+              "rule_id": "tresc_notatki",
+              "description": "Ocena treści notatki zgodnie z kryteriami A, B, C.",
+              "element_max_points_contribution": 3,
+              "scoring_levels": []
+            },
+            {
+              "rule_id": "poprawnosc_jezykowa",
+              "description": "Ocena poprawności językowej, ortograficznej i interpunkcyjnej.",
+              "element_max_points_contribution": 1,
+              "scoring_levels": [
+                {
+                  "condition_or_level_description": "Poprawny zapis, dopuszczalne dwa błędy (językowe, ortograficzne lub interpunkcyjne).",
+                  "score_impact": 1
+                },
+                {
+                  "condition_or_level_description": "Trzy i więcej błędów (językowych, ortograficznych lub interpunkcyjnych).",
+                  "score_impact": 0
+                }
+              ]
+            }
+          ],
+          "overall_guidance_for_llm": "Jeżeli w kryterium 'Treść' przyznano 0 pkt, wówczas nie przyznaje się punktów w kryterium 'Poprawność językowa, ortograficzna i interpunkcyjna'."
+        },
+        "max_points": 4,
+        "external_context_required": null,
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe. II. Kształcenie językowe. III. Tworzenie wypowiedzi.",
+            "specific_requirements": "Zdający m.in.: przetwarza i hierarchizuje informacje z tekstów, tworzy notatkę syntetyzującą, buduje spójną wypowiedź, stosuje zasady ortografii i interpunkcji."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q7_1": {
+      "question_id": "MPOP-P1-100-2203_q7_1",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_kohelet"
+      ],
+      "question_text": "Wyjaśnij, z czego bierze się smutek mędrców, ukazany w Księdze Koheleta.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [
+          "Smutek mędrców bierze się ze świadomości, że pomimo posiadanej wiedzy i mądrości, ich los jest taki sam jak los głupców – wszystkich czeka śmierć i przemijanie. Mądrość nie chroni przed cierpieniem ani ostatecznym losem.",
+          "Smutek mędrców wynika z tego, że ich los jest taki sam jak głupców. Mądrość nie zapobiega śmierci."
+        ],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "1 pkt za poprawne wyjaśnienie.",
+          "evaluation_rules": [],
+          "overall_guidance_for_llm": null
+        },
+        "max_points": 1,
+        "external_context_required": null,
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe.",
+            "specific_requirements": "1. Czytanie utworów literackich. Zdający: 5) interpretuje treści alegoryczne i symboliczne [...]; 9) rozpoznaje tematykę i problematykę poznanych tekstów [...]."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q7_2": {
+      "question_id": "MPOP-P1-100-2203_q7_2",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_kohelet"
+      ],
+      "question_text": "Rozstrzygnij, czy w podanym fragmencie Kohelet przyjmuje postawę pesymisty czy realisty. Odpowiedź uzasadnij.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [
+          "Kohelet przyjmuje postawę realistyczną. Uzasadnienie: Zdaje sobie sprawę z nieuchronności losu, który spotyka wszystkich ludzi, i przyjmuje tę prawdę, choć jest ona bolesna. Dostrzega wyższość mądrości nad głupotą, ale jednocześnie widzi ich wspólny koniec, co jest trzeźwą oceną rzeczywistości.",
+          "Kohelet przyjmuje postawę pesymistyczną. Uzasadnienie: Ze smutkiem konstatuje, że wszystko jest marnością, a pomnażanie wiedzy prowadzi jedynie do pomnażania cierpienia. Jego refleksja nad wspólnym losem mędrca i głupca ma wydźwięk pełen rezygnacji i zniechęcenia."
+        ],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "1 pkt za poprawne rozstrzygnięcie i uzasadnienie.",
+          "evaluation_rules": [],
+          "overall_guidance_for_llm": "Akceptowane są oba rozstrzygnięcia (realista lub pesymista), o ile uzasadnienie jest logiczne i oparte na tekście."
+        },
+        "max_points": 1,
+        "external_context_required": null,
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe.",
+            "specific_requirements": "1. Czytanie utworów literackich. Zdający: 5) interpretuje treści alegoryczne i symboliczne [...]; 9) rozpoznaje tematykę i problematykę poznanych tekstów [...]."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q8": {
+      "question_id": "MPOP-P1-100-2203_q8",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_tren_x"
+      ],
+      "question_text": "Wyjaśnij, czego dotyczy i na czym polega dramat światopoglądowy wyrażony w tym trenie.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [
+          "Dramat światopoglądowy w Trenie X dotyczy kryzysu wiary i załamania się renesansowego, uporządkowanego obrazu świata po śmierci córki. Polega on na tym, że podmiot liryczny, poszukując Orszulki, odwołuje się do różnych, często sprzecznych ze sobą systemów wierzeń (chrześcijaństwo, mitologia grecka, reinkarnacja), ale w żadnym z nich nie znajduje pocieszenia ani pewności co do losu zmarłej. Wyrazem tego kryzysu jest zwątpienie wyrażone w słowach: „Gdzieśkolwiek jest, jesliś jest”."
+        ],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "1 pkt za poprawne wyjaśnienie dramatu światopoglądowego.",
+          "evaluation_rules": [],
+          "overall_guidance_for_llm": "Odpowiedź musi wskazywać na załamanie się dotychczasowego światopoglądu (opartego na filozofii i religii) i niemożność znalezienia pocieszenia w żadnym systemie wierzeń."
+        },
+        "max_points": 1,
+        "external_context_required": "Znajomość cyklu 'Treny' Jana Kochanowskiego.",
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe.",
+            "specific_requirements": "1. Czytanie utworów literackich. Zdający: 5) interpretuje treści alegoryczne i symboliczne [...]; 9) rozpoznaje tematykę i problematykę poznanych tekstów [...]; 15) wykorzystuje w interpretacji utworów [...] potrzebne konteksty [...]."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q9": {
+      "question_id": "MPOP-P1-100-2203_q9",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_wzietosc",
+        "MPOP-P1-100-2203_context_piszczkowski"
+      ],
+      "question_text": "Czy zgadzasz się z tą opinią? Odpowiedź uzasadnij, odwołując się do podanego fragmentu satyry Wziętość albo innej znanej Ci satyry Ignacego Krasickiego.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [
+          "Tak, zgadzam się z opinią Piszczkowskiego. W podanym fragmencie satyry 'Wziętość' Krasicki z dowcipem i bystrością obserwacji demaskuje wady ludzkie, takie jak karierowiczostwo i oszustwo. Przedstawia postać pana Łukasza, który zdobywa pozycję dzięki przebiegłości i niemoralnym zasadom. Użycie formy anegdoty i zwięzłego, trafnego języka sprawia, że krytyka wad ma charakter humorystyczny, co potwierdza słowa krytyka."
+        ],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "2 pkt za poprawne rozstrzygnięcie z uzasadnieniem odnoszącym się do dowcipu i ukazanych wad. 1 pkt za uzasadnienie odnoszące się tylko do jednego z tych aspektów.",
+          "evaluation_rules": [
+            {
+              "rule_id": "uzasadnienie_opinii",
+              "description": "Ocena uzasadnienia opinii Piszczkowskiego.",
+              "element_max_points_contribution": 2,
+              "scoring_levels": [
+                {
+                  "condition_or_level_description": "Poprawne rozstrzygnięcie wraz z uzasadnieniem odwołującym się do zabawnego charakteru fragmentu satyry ORAZ wad, które ukazuje.",
+                  "score_impact": 2
+                },
+                {
+                  "condition_or_level_description": "Poprawne rozstrzygnięcie wraz z uzasadnieniem odwołującym się do zabawnego charakteru fragmentu satyry ALBO wad, które ukazuje.",
+                  "score_impact": 1
+                }
+              ]
+            }
+          ],
+          "overall_guidance_for_llm": null
+        },
+        "max_points": 2,
+        "external_context_required": "Znajomość satyr Ignacego Krasickiego.",
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe.",
+            "specific_requirements": "1. Czytanie utworów literackich. Zdający: 5) interpretuje treści alegoryczne; 9) rozpoznaje tematykę i problematykę poznanych tekstów [...]; 15) wykorzystuje w interpretacji utworów [...] potrzebne konteksty [...]."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q10_1": {
+      "question_id": "MPOP-P1-100-2203_q10_1",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_piesn_v",
+        "MPOP-P1-100-2203_context_grob_agamemnona"
+      ],
+      "question_text": "Pieśń V Jana Kochanowskiego oraz Grób Agamemnona Juliusza Słowackiego reprezentują - zgodnie z terminem podanym przez Ignacego Chrzanowskiego lirykę gniewu, czyli takie utwory, które wyrażają oburzenie i potępienie. Czy przyczyna gniewu renesansowego poety jest taka sama jak powód gniewu poety romantycznego? Odpowiedź uzasadnij, odnosząc się do przytoczonych fragmentów obu utworów.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [
+          "Nie, przyczyny gniewu obu poetów są różne. Gniew Kochanowskiego jest skierowany przeciwko zewnętrznemu wrogowi (Tatarom) i bierności rodaków w obliczu tego zagrożenia. Natomiast gniew Słowackiego jest skierowany do wewnątrz – na wady narodu polskiego, takie jak naśladownictwo, pycha i bierność, które jego zdaniem doprowadziły do utraty niepodległości."
+        ],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "1 pkt za poprawne rozstrzygnięcie i uzasadnienie, odnoszące się do obu utworów.",
+          "evaluation_rules": [],
+          "overall_guidance_for_llm": "Kluczowe jest rozróżnienie między zagrożeniem zewnętrznym (Kochanowski) a wadami wewnętrznymi narodu (Słowacki) jako źródłami gniewu."
+        },
+        "max_points": 1,
+        "external_context_required": null,
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe.",
+            "specific_requirements": "1. Czytanie utworów literackich. Zdający: 5) interpretuje treści alegoryczne i symboliczne [...]; 9) rozpoznaje tematykę i problematykę poznanych tekstów [...]; 11) rozumie pojęcie motywu literackiego i toposu [...]; 15) wykorzystuje w interpretacji utworów [...] potrzebne konteksty [...]."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q10_2": {
+      "question_id": "MPOP-P1-100-2203_q10_2",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_piesn_v",
+        "MPOP-P1-100-2203_context_grob_agamemnona"
+      ],
+      "question_text": "Za pomocą których środków językowych Jan Kochanowski i Juliusz Słowacki wyrażają gniew w zacytowanych fragmentach utworów? Uzupełnij tabelę. Z każdego utworu wypisz po jednym przykładzie takiego środka językowego i podaj jego nazwę. Nazwa środka językowego nie może się powtórzyć.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [
+          {
+            "Tekst 1.": {
+              "Przykład z tekstu": "„pohaniec sprosny”",
+              "Nazwa środka językowego": "epitet wartościujący"
+            },
+            "Tekst 2.": {
+              "Przykład z tekstu": "„Przeklnij”",
+              "Nazwa środka językowego": "tryb rozkazujący"
+            }
+          },
+          {
+            "Tekst 1.": {
+              "Przykład z tekstu": "„Wsiadamy?”",
+              "Nazwa środka językowego": "pytanie retoryczne"
+            },
+            "Tekst 2.": {
+              "Przykład z tekstu": "„płachty ohydne”",
+              "Nazwa środka językowego": "metafora"
+            }
+          }
+        ],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "1 pkt za poprawne uzupełnienie tabeli (dwa przykłady i dwie różne nazwy środków).",
+          "evaluation_rules": [],
+          "overall_guidance_for_llm": "Akceptowane są różne poprawne środki stylistyczne, takie jak: epitety, słownictwo wartościujące, pytania retoryczne, wykrzyknienia, apostrofy, tryb rozkazujący, metafory, porównania. Nazwy środków nie mogą się powtarzać."
+        },
+        "max_points": 1,
+        "external_context_required": null,
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe. II. Kształcenie językowe.",
+            "specific_requirements": "I.1.4) rozpoznaje w tekście literackim środki wyrazu artystycznego [...]. II.2.1) rozpoznaje słownictwo o charakterze wartościującym [...]."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q11": {
+      "question_id": "MPOP-P1-100-2203_q11",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_raport_nowosilcowa"
+      ],
+      "question_text": "Czy zachowanie Polaków opisane w podanym fragmencie raportu Nikołaja Nowosilcowa znajduje potwierdzenie w Dziadach części III Adama Mickiewicza? Uzasadnij odpowiedź, odwołując się do treści dramatu Adama Mickiewicza. Podaj dwa przykłady ilustrujące Twoje stanowisko.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [
+          "Nie, zachowanie Polaków w Dziadach cz. III nie w pełni potwierdza raport Nowosilcowa. Choć więźniowie nie okazywali skruchy, ich postawa nie była bierna. Przykładem jest Janczewski, który zdejmując kapelusz, trzykrotnie krzyknął „Jeszcze Polska nie zginęła!”, co było jawnym aktem buntu. Innym przykładem jest postawa samego Konrada, który w celi buntuje się przeciwko Bogu w imieniu narodu, co świadczy o głębokim wewnętrznym oporze, a nie o braku reakcji."
+        ],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "2 pkt za poprawne rozstrzygnięcie i dwa przykłady z dramatu. 1 pkt za poprawne rozstrzygnięcie i jeden przykład.",
+          "evaluation_rules": [
+            {
+              "rule_id": "rozstrzygniecie_i_przykady",
+              "description": "Ocena rozstrzygnięcia i przytoczonych przykładów.",
+              "element_max_points_contribution": 2,
+              "scoring_levels": [
+                {
+                  "condition_or_level_description": "Poprawne rozstrzygnięcie wraz z przytoczeniem dwóch przykładów z dramatu.",
+                  "score_impact": 2
+                },
+                {
+                  "condition_or_level_description": "Poprawne rozstrzygnięcie wraz z przytoczeniem jednego przykładu z dramatu.",
+                  "score_impact": 1
+                }
+              ]
+            }
+          ],
+          "overall_guidance_for_llm": "Możliwe jest również rozstrzygnięcie twierdzące, jeśli uzasadnienie wskaże na bierność tłumu przyglądającego się wywózce, co kontrastuje z heroiczną postawą jednostek."
+        },
+        "max_points": 2,
+        "external_context_required": "Znajomość treści dramatu 'Dziady część III' Adama Mickiewicza.",
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe.",
+            "specific_requirements": "1. Czytanie utworów literackich. Zdający: 5) interpretuje treści alegoryczne i symboliczne [...]; 8) wykazuje się znajomością i zrozumieniem treści utworów wskazanych w podstawie programowej jako lektury obowiązkowe; 9) rozpoznaje tematykę i problematykę poznanych tekstów [...]; 15) wykorzystuje w interpretacji utworów [...] potrzebne konteksty [...]."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q12": {
+      "question_id": "MPOP-P1-100-2203_q12",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_lalka"
+      ],
+      "question_text": "Na podstawie podanego fragmentu Lalki Bolesława Prusa określ, na czym polegał konflikt wewnętrzny Stanisława Wokulskiego.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [
+          "Konflikt wewnętrzny Stanisława Wokulskiego polegał na sprzeczności między jego naturą idealisty i naukowca a rolą dorobkiewicza, którą przyjął, by zdobyć majątek dla Izabeli Łęckiej. Czuje wstręt do handlu i „ekonomicznych szulerów”, z którymi musiał współpracować, co kłóci się z jego systemem wartości. Jednocześnie odczuwa powinność, by zdobyty w ten sposób majątek przeznaczyć na cele społeczne, co jest kolejnym wymiarem jego wewnętrznego rozdarcia."
+        ],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "1 pkt za poprawną odpowiedź.",
+          "evaluation_rules": [],
+          "overall_guidance_for_llm": "Odpowiedź musi wskazywać na rozdarcie Wokulskiego między byciem idealistą/naukowcem a koniecznością działania w świecie handlu i finansów."
+        },
+        "max_points": 1,
+        "external_context_required": "Znajomość treści powieści 'Lalka' Bolesława Prusa.",
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe.",
+            "specific_requirements": "1. Czytanie utworów literackich. Zdający: 5) interpretuje treści alegoryczne i symboliczne [...]; 8) wykazuje się znajomością i zrozumieniem treści utworów wskazanych w podstawie programowej jako lektury obowiązkowe; 9) rozpoznaje tematykę i problematykę poznanych tekstów [...]."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q13": {
+      "question_id": "MPOP-P1-100-2203_q13",
+      "category": "matura_jezyk_polski",
+      "question_type": "closed_MTF",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_melodia_mgiel"
+      ],
+      "question_text": "Oceń prawdziwość podanych stwierdzeń odnoszących się do fragmentu wiersza Kazimierza Przerwy-Tetmajera. Zaznacz P, jeśli stwierdzenie jest prawdziwe, albo F - jeśli jest fałszywe.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [
+        {
+          "choice_id": "1",
+          "choice_text": "W wierszu zastosowano wyrazy dźwiękonaśladowcze."
+        },
+        {
+          "choice_id": "2",
+          "choice_text": "Podmiotem lirycznym wiersza są mgły nocne."
+        }
+      ],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [],
+        "statement_evaluations": [
+          {
+            "choice_id": "1",
+            "is_true": true
+          },
+          {
+            "choice_id": "2",
+            "is_true": true
+          }
+        ],
+        "scoring_rules": {
+          "scoring_summary": "1 pkt za zaznaczenie dwóch poprawnych odpowiedzi.",
+          "evaluation_rules": [],
+          "overall_guidance_for_llm": null
+        },
+        "max_points": 1,
+        "external_context_required": null,
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe.",
+            "specific_requirements": "1. Czytanie utworów literackich. Zdający: 5) interpretuje treści alegoryczne i symboliczne [...]; 9) rozpoznaje tematykę i problematykę poznanych tekstów [...]."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q14": {
+      "question_id": "MPOP-P1-100-2203_q14",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [
+        "MPOP-P1-100-2203_context_ludzie_ktorzy_szli"
+      ],
+      "question_text": "Z podanego fragmentu utworu wypisz dwa zdrobnienia, a następnie określ, jaką funkcję pełni zastosowanie zdrobnień w narracji opowiadania.",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": null,
+        "example_answers": [
+          "Zdrobnienia: kwiatki, lasek. Funkcja: Zastosowanie zdrobnień w opisie rzeczywistości obozowej pełni funkcję ironiczną. Zestawienie sielankowego, 'normalnego' języka z okrucieństwem miejsca (krematoria, rampa) podkreśla absurd i grozę sytuacji, w jakiej znaleźli się więźniowie, którzy próbują odtworzyć pozory normalności."
+        ],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "1 pkt za poprawne wskazanie dwóch przykładów z tekstu oraz określenie ich funkcji.",
+          "evaluation_rules": [],
+          "overall_guidance_for_llm": "Dopuszczalne zdrobnienia: dzieciarnią, flegerkami, lasek, domek, kwiatki, szlaczki, trawniczki. Funkcja musi odnosić się do kontrastu lub ironii w kontekście obozowym."
+        },
+        "max_points": 1,
+        "external_context_required": "Znajomość opowiadań Tadeusza Borowskiego.",
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe. II. Kształcenie językowe.",
+            "specific_requirements": "I.1.5) interpretuje treści alegoryczne i symboliczne [...]; I.1.9) rozpoznaje tematykę i problematykę poznanych tekstów [...]. II.1.1) wykorzystuje wiedzę z dziedziny [...] słowotwórstwa [...] w analizie i interpretacji tekstów [...]."
+          }
+        ]
+      }
+    },
+    "MPOP-P1-100-2203_q15": {
+      "question_id": "MPOP-P1-100-2203_q15",
+      "category": "matura_jezyk_polski",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2203",
+      "context_ids": [],
+      "question_text": "Każdemu z podanych fragmentów wierszy współczesnych poetów A-C przyporządkuj topos, który został w nim wykorzystany. W odpowiednie miejsce w tabeli wpisz numer toposu wybrany spośród 1-4.\n\nTopos\n1. Hioba\n2. Arkadii\n3. Ikara\n4. Narcyza\n\n| | Fragment wiersza | Numer toposu |\n|---|---|---|\n| A. | Ernest Bryll\njakby to nikłe pierze skrzydłom uronione,\nchuda chłopięca noga zadarta do nieba\n- znaczyła wszystko | |\n| B. | Konstanty Ildefons Gałczyński\nA ty mnie na wyspy szczęśliwe zawieź, [...]\nPokaż mi wody ogromne i wody ciche,\nrozmowy gwiazd na gałęziach pozwól mi\nsłyszeć zielonych | |\n| C. | Anna Kamieńska\nOtwórz usta\ni ucz mnie\njak znosić ból śmierć samotność\nstratę przyjaciół obelżywe słowa\na nade wszystko starość | |",
+      "generated_by": "Gemini Pro 2.5 Preview",
+      "generation_date": "2025-06-23T14:59:23Z",
+      "choices": [],
+      "answer": {
+        "correct_answer": {
+          "A": 3,
+          "B": 2,
+          "C": 1
+        },
+        "example_answers": [],
+        "statement_evaluations": [],
+        "scoring_rules": {
+          "scoring_summary": "1 pkt za poprawne przyporządkowanie wszystkich trzech toposów.",
+          "evaluation_rules": [],
+          "overall_guidance_for_llm": null
+        },
+        "max_points": 1,
+        "external_context_required": null,
+        "exam_requirements": [
+          {
+            "general_requirements": "I. Kształcenie literackie i kulturowe.",
+            "specific_requirements": "1. Czytanie utworów literackich. Zdający: 5) interpretuje treści alegoryczne i symboliczne [...]; 9) rozpoznaje tematykę i problematykę poznanych tekstów [...]; 11) rozumie pojęcie motywu literackiego i toposu [...]; 15) wykorzystuje w interpretacji utworów [...] potrzebne konteksty [...]."
+          }
+        ]
+      }
+    }
+  }
+}

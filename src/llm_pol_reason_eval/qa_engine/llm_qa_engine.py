@@ -33,6 +33,7 @@ class LLMQAEngine:
 
         self.prompt_manager = PromptManager(templates_dir=templates_path)
         self.results: List[ModelAnswerData] = []
+        self.prompts: Dict[str, str] = {}
         self.logger = None
 
     def generate_answers(self,
@@ -109,6 +110,7 @@ class LLMQAEngine:
                 self.results.extend(batch_results)
                 total_questions_processed += len(batch_results)
                 self._save_partial_results(output_filepath)
+                self._save_prompts(output_filepath)
                 self.logger.info(
                     f"Zapisano częściowe wyniki po batchu {i + 1}. "
                     f"Przetworzono {len(batch_results)} pytań. Łącznie: {total_questions_processed}."
@@ -140,7 +142,13 @@ class LLMQAEngine:
         generation_params, _ = self._get_generation_params_and_tokenizer_args(q_type, param_overrides)
 
         self.logger.info(f"Wysyłanie {len(final_prompts)} promptów do modelu z parametrami: {generation_params}")
+        start_time = time.perf_counter()
         raw_responses = self.inference_client.get_responses_with_batching(final_prompts, generation_params)
+        end_time = time.perf_counter()
+
+        total_duration = end_time - start_time
+        duration_per_request = total_duration / len(final_prompts) if final_prompts else 0
+        self.logger.info(f"Batch przetworzony w {total_duration:.2f}s ({duration_per_request:.2f}s na pytanie).")
 
         model_config_details = {
             "model_config": model_cfg, "prompt_composition": prompt_composition,
@@ -149,6 +157,7 @@ class LLMQAEngine:
 
         batch_model_answers = []
         for i, q_id in enumerate(q_ids_in_order):
+            self.prompts[q_id] = final_prompts[i]
             raw_response = raw_responses[i]
             parsed_answer = self._parse_single_answer(raw_response)
             self.logger.info(f"Sparsowana odpowiedź dla Q_ID {q_id}: {parsed_answer[:100]}...")
@@ -159,7 +168,8 @@ class LLMQAEngine:
                 model_answer_clean_text=parsed_answer,
                 generated_by=f"{self.model_name} ({self.model_path})",
                 generation_date=datetime.now(timezone.utc).isoformat(),
-                model_configuration=model_config_details
+                model_configuration=model_config_details,
+                generation_time=duration_per_request
             ))
         return batch_model_answers
 
@@ -182,8 +192,14 @@ class LLMQAEngine:
         prompt_string = self.tokenizer.apply_chat_template(
             messages, tokenize=False, add_generation_prompt=True, **tokenizer_args
         )
+        self.prompts[q_id] = prompt_string
 
+        start_time = time.perf_counter()
         raw_response = self.inference_client.get_response(prompt_string, generation_params)
+        end_time = time.perf_counter()
+        duration = end_time - start_time
+        self.logger.info(f"Pojedyncze zapytanie przetworzone w {duration:.2f}s.")
+
         parsed_answer = self._parse_single_answer(raw_response)
         self.logger.info(f"Sparsowana odpowiedź dla Q_ID {q_id}: {parsed_answer[:100]}...")
 
@@ -199,7 +215,8 @@ class LLMQAEngine:
             model_answer_clean_text=parsed_answer,
             generated_by=f"{self.model_name} ({self.model_path})",
             generation_date=datetime.now(timezone.utc).isoformat(),
-            model_configuration=model_config_details
+            model_configuration=model_config_details,
+            generation_time=duration
         )]
 
     def _get_generation_params_and_tokenizer_args(self, q_type: Optional[str], param_overrides: Dict) -> (Dict, Dict):
@@ -241,6 +258,14 @@ class LLMQAEngine:
 
     def _save_partial_results(self, output_filepath: str):
         self._write_results_to_json(Path(output_filepath).with_suffix('.partial.json'), self.results)
+
+    def _save_prompts(self, output_filepath: str):
+        """Zapisuje zebrane prompty do pliku JSON z dopiskiem .prompts.json."""
+        prompts_filepath = Path(output_filepath).with_name(f"{Path(output_filepath).stem}.prompts.json")
+        output_data = {"prompts": self.prompts}
+        prompts_filepath.parent.mkdir(parents=True, exist_ok=True)
+        with open(prompts_filepath, "w", encoding="utf-8") as f:
+            json.dump(output_data, f, ensure_ascii=False, indent=2)
 
     def save_final_results(self, output_filepath: str):
         output_path = Path(output_filepath)

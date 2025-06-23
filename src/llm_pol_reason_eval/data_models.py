@@ -34,4 +34,5 @@ class ModelAnswerData(TypedDict, total=False):
     model_answer_clean_text: str
     generated_by: str
     generation_date: str
+    generation_time: Optional[float]
     model_configuration: Dict[str, Any]

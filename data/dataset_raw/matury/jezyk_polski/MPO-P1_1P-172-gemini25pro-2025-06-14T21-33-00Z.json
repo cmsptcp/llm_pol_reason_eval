@@ -737,7 +737,7 @@
       "context_ids": [
         "MPO-P1_1P-172_context_4"
       ],
-      "question_text": "Temat 1. Praca – pasja czy obowiązek? Rozważ problem i uzasadnij swoje zdanie, odwołując się do fragmentu Ziemi, planety ludzi Antoine'a de Saint-Exupéry'ego oraz do wybranych tekstów kultury. Twoja praca powinna liczyć co najmniej 250 słów.",
+      "question_text": "Napisz wypracowanie na temat: Praca – pasja czy obowiązek? Rozważ problem i uzasadnij swoje zdanie, odwołując się do fragmentu Ziemi, planety ludzi Antoine'a de Saint-Exupéry'ego oraz do wybranych tekstów kultury. Twoja praca powinna liczyć co najmniej 250 słów.",
       "generated_by": "Gemini Pro 2.5 Preview",
       "generation_date": "2024-06-15T21:26:05+02:00",
       "choices": null,
@@ -937,7 +937,7 @@
       "context_ids": [
         "MPO-P1_1P-172_context_5"
       ],
-      "question_text": "Temat 2. Zinterpretuj podany utwór. Postaw tezę interpretacyjną i ją uzasadnij. Twoja praca powinna liczyć co najmniej 250 słów.",
+      "question_text": "Zinterpretuj podany utwór (wiersz Kazimierza Wierzyńskiego 'Słyszę Czas'). Postaw tezę interpretacyjną i ją uzasadnij. Twoja praca powinna liczyć co najmniej 250 słów.",
       "generated_by": "Gemini Pro 2.5 Preview",
       "generation_date": "2024-06-15T21:26:05+02:00",
       "choices": null,

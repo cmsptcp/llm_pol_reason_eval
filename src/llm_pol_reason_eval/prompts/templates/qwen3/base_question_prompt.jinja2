@@ -1,18 +1,20 @@
-{# Ta komenda zostanie dodana tylko, jeśli show_thinking_output jest false w YAML #}
-{% if template_params.show_thinking_output == false %}/no_think{% endif %}
+{# Komenda /no_think jest dodawana tylko, gdy myślenie jest jawnie wyłączone. #}
+{% if template_params.get('enable_thinking') == false %}/no_think{% endif %}
 
-{# Instrukcja dla Qwen, aby używał tagów #}
+{# 1. Składanie instrukcji w zależności od trybu #}
 {% if template_params.get('enable_thinking') %}
-Przeanalizuj poniższe zadanie krok po kroku. Najpierw przedstaw swój tok rozumowania w sekcji <thinking>, a następnie udziel ostatecznej, zwięzłej odpowiedzi w sekcji <answer>.
+{# Instrukcja dla Qwen, aby używał tagów <thinking> #}
+Przeanalizuj poniższe zadanie krok po kroku. Najpierw przedstaw swój tok rozumowania w sekcji <thinking>, a następnie udziel ostatecznej odpowiedzi.
 {% else %}
-Udziel ostatecznej, zwięzłej odpowiedzi w sekcji <answer>.
+{# Prosta instrukcja, gdy myślenie jest wyłączone #}
+Udziel odpowiedzi na poniższe zadanie.
 {% endif %}
 
-{# Dołączanie przykładów "Few-Shot", jeśli zadeklarowano i ścieżka istnieje w template_params #}
+{# 2. Dołączanie przykładów "Few-Shot" #}
 {% if 'few_shot' in components and template_params.few_shot_path %}{% include template_params.few_shot_path %}{% endif %}
 --- TERAZ TWOJA KOLEJ ---
 
-{# Renderowanie pojedynczego pytania #}
+{# 3. Renderowanie właściwego pytania #}
 ========================================
 ### ZADANIE {% if template_params.question_index %}{{ template_params.question_index }}{% else %}1{% endif %}
 
@@ -38,4 +40,5 @@ Udziel ostatecznej, zwięzłej odpowiedzi w sekcji <answer>.
 {% endif %}
 
 ### ODPOWIEDŹ
-(Pamiętaj o umieszczeniu odpowiedzi w tagach <answer>...</answer>)
+{# Dodajemy tag <thinking>, aby zainicjować proces myślenia, jeśli jest włączony #}
+{% if template_params.get('enable_thinking') %}<thinking>{% endif %}

@@ -22,16 +22,15 @@ O jakiej epoce literackiej jest mowa w tekście Grażyny Borkowskiej?
 - D: Dwudziestolecie międzywojenne
 
 ### ODPOWIEDŹ
-{# Ta sekcja renderuje się inaczej w zależności od flagi 'enable_thinking' #}
-{% if template_params.get('enable_thinking') %}
-<thinking>
+{% if template_params.get('enable_thinking') or 'chain_of_thought' in components %}
+{% if template_params.get('enable_thinking') %}<thinking>{% endif %}
 Analizuję kluczowe informacje zawarte w tekście Grażyny Borkowskiej.
 1.  **Ramy czasowe:** Tekst wskazuje na okres tuż "Po klęsce powstania styczniowego". To wydarzenie datuje się na lata 1863-1864, co jest historyczną granicą między romantyzmem a pozytywizmem w Polsce.
 2.  **Główne idee:** Autorka pisze o "intensywnej pracy na rzecz społeczeństwa", "budowie życia publicznego" i "kształtowaniu świadomości obywatelskiej". Są to hasła programowe polskiego pozytywizmu, takie jak praca organiczna i praca u podstaw.
 3.  **Stosunek do przeszłości:** Tekst wspomina o "świadomej alternatywie wobec romantycznej idei". Odrzucenie ideałów romantycznych (walki zbrojnej) na rzecz pracy było centralnym punktem programu pozytywistów.
 4.  **Dominujący gatunek:** Autorka podkreśla, że "Opowiedziano się powszechnie za powieścią". Powieść realistyczna była głównym gatunkiem literackim pozytywizmu.
 Wszystkie te cechy jednoznacznie wskazują na pozytywizm.
-</thinking>
+{% if template_params.get('enable_thinking') %}</thinking>{% endif %}
 {% endif %}
 <answer>
 B
@@ -62,15 +61,14 @@ Wskaż dominującą funkcję językową w przytoczonym fragmencie utworu.
 - E: impresywna
 
 ### ODPOWIEDŹ
-{# Ta sekcja renderuje się inaczej w zależności od flagi 'enable_thinking' #}
-{% if template_params.get('enable_thinking') %}
-<thinking>
+{% if template_params.get('enable_thinking') or 'chain_of_thought' in components %}
+{% if template_params.get('enable_thinking') %}<thinking>{% endif %}
 Analizuję cel wypowiedzi podmiotu lirycznego w podanym fragmencie "Lamentu świętokrzyskiego".
 1.  **Nadawca i jego stan:** Podmiotem lirycznym jest Matka Boska, która chce opowiedzieć o swoim cierpieniu ("Chcęć wam skorżyć krwawą głowę", "Usłyszycie moj zamętek").
 2.  **Słownictwo:** Użyte słowa bezpośrednio nazywają silne, negatywne emocje: "zamętek" (cierpienie, smutek), "krwawą głowę", "krwawe gody" (krwawe święta, męka), "ożalała" (opłakiwała w żalu).
 3.  **Cel wypowiedzi:** Głównym celem mówiącej postaci jest wyrażenie swojego bólu i żalu po stracie Syna. Cała wypowiedź jest skoncentrowana na jej uczuciach.
 4.  **Analiza funkcji:** Funkcja ekspresywna polega właśnie na wyrażaniu uczuć, emocji i stanu wewnętrznego nadawcy. Chociaż tekst ma też cechy funkcji impresywnej (wpływanie na emocje odbiorcy, np. "Pożałuj mię"), to prym wiedzie tu autoekspresja bólu. Dlatego funkcja ekspresywna jest dominująca.
-</thinking>
+{% if template_params.get('enable_thinking') %}</thinking>{% endif %}
 {% endif %}
 <answer>
 D
@@ -99,9 +97,8 @@ Jaką główną funkcję pełnią przymiotniki „niebezpieczna” i „przecię
 - D: Podkreślają naukowy i obiektywny charakter obu artykułów.
 
 ### ODPOWIEDŹ
-{# Ta sekcja renderuje się inaczej w zależności od flagi 'enable_thinking' #}
-{% if template_params.get('enable_thinking') %}
-<thinking>
+{% if template_params.get('enable_thinking') or 'chain_of_thought' in components %}
+{% if template_params.get('enable_thinking') %}<thinking>{% endif %}
 Analizuję, co wnoszą słowa "niebezpieczna" i "przeciętna" do tytułów tekstów.
 1.  **Analiza słowa "niebezpieczna":** Ten przymiotnik ma jednoznacznie negatywne konotacje. Nazywając sztuczną inteligencję "niebezpieczną", autorka od razu sygnalizuje swoje obawy i krytyczne nastawienie do tematu. To nie jest neutralna informacja, lecz ocena.
 2.  **Analiza słowa "przeciętna":** Ten przymiotnik sugeruje średniactwo, brak wyjątkowości. Użycie go w kontekście sztucznej inteligencji, która często jest postrzegana jako coś wybitnego, jest formą oceny i deprecjonowania jej możliwości. Lamża od początku ustawia swoją argumentację w kontrze do mitu o potężnej AI.
@@ -110,7 +107,7 @@ Analizuję, co wnoszą słowa "niebezpieczna" i "przeciętna" do tytułów tekst
     - Opcja C jest niepełna. Tytuły mogą przyciągać uwagę, ale ich główna funkcja jest inna – jest nią właśnie wyrażenie opinii.
     - Opcja D jest błędna, ponieważ słownictwo wartościujące jest przeciwieństwem obiektywizmu naukowego.
     - Opcja B jest najtrafniejsza. Oba przymiotniki wyrażają ocenę (wartościują) i zapowiadają ton oraz główną tezę każdego z artykułów.
-</thinking>
+{% if template_params.get('enable_thinking') %}</thinking>{% endif %}
 {% endif %}
 <answer>
 B
