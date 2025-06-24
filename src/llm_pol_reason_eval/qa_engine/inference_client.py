@@ -156,12 +156,16 @@ class VLLMClient(InferenceClient):
             raise ImportError("vLLM nie jest zainstalowany. Uruchom 'pip install vllm' aby go zainstalować.")
 
         print(f"VLLMClient: Inicjalizacja modelu {model_path}")
+        self.default_generation_params = default_generation_params if default_generation_params else {}
+
         llm_kwargs = {
             "model": model_path,
             "trust_remote_code": True,
             "gpu_memory_utilization": 0.9,
-            "enforce_eager": True,
-            "max_model_len": model_config.get('max_model_len', 8192)
+            "max_model_len": 5120,  # Znacząco zmniejszono z 8192
+            "max_num_seqs": 4,
+            "max_num_batched_tokens": 4096,
+            "swap_space": 4,  # Dodano 4 GiB przestrzeni wymiany na CPU
         }
 
         quantization_method = model_config.get("quantization")
@@ -191,22 +195,12 @@ class VLLMClient(InferenceClient):
         if generation_params_override:
             params_to_use.update(generation_params_override)
 
-        # Tłumaczenie nazwy parametru ze stylu Transformers na styl vLLM
         if 'max_new_tokens' in params_to_use:
             params_to_use['max_tokens'] = params_to_use.pop('max_new_tokens')
 
-        # --- POCZĄTEK OSTATECZNEJ ZMIANY ---
-
-        # Użyj modułu `inspect`, aby dynamicznie znaleźć wszystkie
-        # akceptowane argumenty przez konstruktor __init__ klasy SamplingParams.
-        # To jest najbardziej odporne rozwiązanie, niezależne od wersji Pydantic.
         signature = inspect.signature(SamplingParams.__init__)
         valid_sampling_keys = set(signature.parameters.keys())
 
-        # --- KONIEC ZMIANY ---
-
-        # Przefiltruj słownik `params_to_use`, aby zawierał tylko klucze,
-        # które są prawidłowymi argumentami dla SamplingParams.
         sampling_params_kwargs = {
             key: value for key, value in params_to_use.items() if key in valid_sampling_keys
         }
@@ -216,7 +210,5 @@ class VLLMClient(InferenceClient):
         print(f"VLLMClient: Generowanie dla {len(prompts)} promptów z parametrami: {sampling_params}")
         outputs = self.llm.generate(prompts, sampling_params)
 
-        # vLLM zwraca listę obiektów RequestOutput, z których wyciągamy tekst
         responses = [output.outputs[0].text.strip() for output in outputs]
         return responses
-
