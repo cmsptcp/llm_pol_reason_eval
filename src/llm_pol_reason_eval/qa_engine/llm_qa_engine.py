@@ -144,7 +144,12 @@ class LLMQAEngine:
 
         self.logger.info(f"Wysyłanie {len(final_prompts)} promptów do modelu z parametrami: {generation_params}")
         start_time = time.perf_counter()
-        raw_responses = self.inference_client.get_responses_with_batching(final_prompts, generation_params)
+
+        raw_responses = self.inference_client.get_responses_with_batching(
+            final_prompts,
+            generation_params_override=generation_params
+        )
+
         end_time = time.perf_counter()
 
         total_duration = end_time - start_time
@@ -188,15 +193,20 @@ class LLMQAEngine:
         )
 
         q_type = q_data.get('question_type', 'N/A')
-        generation_params, tokenizer_args = self._get_generation_params_and_tokenizer_args(model_cfg, q_type, param_overrides)
+        generation_params, tokenizer_args = self._get_generation_params_and_tokenizer_args(
+            model_cfg, q_type, param_overrides
+        )
 
         prompt_string = self.tokenizer.apply_chat_template(
             messages, tokenize=False, add_generation_prompt=True, **tokenizer_args
         )
         self.prompts[q_id] = prompt_string
 
+        print(f"Przetwarzanie pytania Q_ID {q_id} z typu '{q_type}' i kontekstem: {contexts_for_q.keys()}")
+        print(f"Generation parameters: {generation_params}")
+
         start_time = time.perf_counter()
-        raw_response = self.inference_client.get_response(prompt_string, generation_params)
+        raw_response = self.inference_client.get_response(prompt_string, generation_params_override=generation_params)
         end_time = time.perf_counter()
         duration = end_time - start_time
         self.logger.info(f"Pojedyncze zapytanie przetworzone w {duration:.2f}s.")
@@ -220,12 +230,36 @@ class LLMQAEngine:
             generation_time=duration
         )]
 
-    def _get_generation_params_and_tokenizer_args(self, model_cfg: Dict, q_type: Optional[str], param_overrides: Dict) -> (Dict, Dict):
+    def _get_generation_params_and_tokenizer_args(self, model_cfg: Dict, q_type: Optional[str],
+                                                  param_overrides: Dict) -> (Dict, Dict):
+        """
+        Przygotowuje finalne słowniki z parametrami dla generacji i tokenizera,
+        łącząc konfiguracje i obsługując logikę 'enable_thinking'.
+        """
+        # 1. Zacznij od bazowej konfiguracji z models.yaml
         final_gen_params = model_cfg.get('generation_params', {}).copy()
+
+        # 2. Nałóż na nią nadpisania z konfiguracji uruchomienia (run config)
         final_gen_params.update(param_overrides.get('default', {}))
         if q_type and q_type in param_overrides.get('per_type', {}):
             final_gen_params.update(param_overrides['per_type'][q_type])
-        tokenizer_args = {'enable_thinking': final_gen_params.pop('enable_thinking', False)}
+
+        # 3. Logika dla 'enable_thinking' - bez usuwania kluczy!
+        tokenizer_args = {}
+        enable_thinking_value = final_gen_params.get('enable_thinking')
+
+        if enable_thinking_value is True:
+            # Jeśli jawnie ustawione na True, włącz myślenie
+            tokenizer_args['enable_thinking'] = True
+        elif enable_thinking_value is False:
+            # Jeśli jawnie ustawione na False, wyłącz myślenie
+            tokenizer_args['enable_thinking'] = False
+
+        # 4. Usuń klucz 'enable_thinking' z parametrów generacji, jeśli tam jest,
+        # ponieważ nie jest on argumentem SamplingParams.
+        if 'enable_thinking' in final_gen_params:
+            del final_gen_params['enable_thinking']
+
         return final_gen_params, tokenizer_args
 
     def _load_dataset(self, dataset_filepath: str):

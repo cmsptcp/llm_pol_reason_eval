@@ -179,7 +179,7 @@ experiments:
 
   qwen-normal-nt-matura:
     task_name: "Qwen3 14B - Bez myślenia - Matura"
-    model: qwen3-14b-fp8
+    model: qwen3-14b-awq
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-normal-nt-matura"
     iterations: 1

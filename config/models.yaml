@@ -55,7 +55,7 @@ qwen3-1-7b:
   path: "Qwen/Qwen3-1.7B"
   family: "qwen3"
   generation_params:
-    max_new_tokens: 768
+    max_new_tokens: 1024
     temperature: 0.6
     do_sample: true
     top_p: 0.95
@@ -66,7 +66,7 @@ qwen3-4b:
   family: "qwen3"
   inference_backend: "vllm"
   generation_params:
-    max_new_tokens: 768
+    max_new_tokens: 1024
     temperature: 0.6
     do_sample: true
     top_p: 0.95
@@ -77,7 +77,7 @@ qwen3-14b:
   family: "qwen3"
   quantization: "int8"
   generation_params:
-    max_new_tokens: 768
+    max_new_tokens: 1024
     temperature: 0.6
     do_sample: true
     top_p: 0.95
@@ -89,7 +89,7 @@ qwen3-14b-awq:
   inference_backend: "vllm"
   quantization: "awq"
   generation_params:
-    max_new_tokens: 768
+    max_new_tokens: 1024
     temperature: 0.6
     do_sample: true
     top_p: 0.95
@@ -101,7 +101,7 @@ qwen3-14b-fp8:
   inference_backend: "vllm"
   quantization: "fp8"
   generation_params:
-    max_new_tokens: 768
+    max_new_tokens: 1024
     temperature: 0.6
     do_sample: true
     top_p: 0.95
