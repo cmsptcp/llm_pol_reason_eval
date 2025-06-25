@@ -50,7 +50,7 @@ experiments:
         open_poetry_interpretation: { max_new_tokens: 3072 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
-        open_text: { max_new_tokens: 1536 }
+        open_text: { max_new_tokens: 2048 }
 
   bielik-normal-fp8-simple-matura:
     task_name: "Bielik 11B FP8 - Prosty (Zero-Shot) - zbiór maturalny"
@@ -80,7 +80,7 @@ experiments:
         open_poetry_interpretation: { max_new_tokens: 3072 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
-        open_text: { max_new_tokens: 1536 }
+        open_text: { max_new_tokens: 2048 }
 
   pllum-medium-simple-matura:
     task_name: "PLLuM 8B - Prosty (Zero-Shot) - zbiór maturalny"
@@ -110,7 +110,7 @@ experiments:
         open_poetry_interpretation: { max_new_tokens: 3072 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
-        open_text: { max_new_tokens: 1536 }
+        open_text: { max_new_tokens: 2048 }
 
   pllum-normal-fp8-simple-matura:
     task_name: "PLLuM 12B FP8 - Prosty (Zero-Shot) - zbiór maturalny"
@@ -140,7 +140,7 @@ experiments:
         open_poetry_interpretation: { max_new_tokens: 3072 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
-        open_text: { max_new_tokens: 1536 }
+        open_text: { max_new_tokens: 2048 }
 
   qwen-small-simple-matura:
     task_name: "Qwen3 1.7B - Prosty (Zero-Shot, No-Thinking) - zbiór maturalny"
@@ -179,7 +179,7 @@ experiments:
         open_poetry_interpretation: { max_new_tokens: 3072 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
-        open_text: { max_new_tokens: 1536 }
+        open_text: { max_new_tokens: 2048 }
 
   qwen-medium-simple-matura:
     task_name: "Qwen3 4B - Prosty (Zero-Shot, No-Thinking) - zbiór maturalny"
@@ -211,7 +211,7 @@ experiments:
         open_poetry_interpretation: { max_new_tokens: 3072 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
-        open_text: { max_new_tokens: 1536 }
+        open_text: { max_new_tokens: 2048 }
 
   qwen-normal-fp8-simple-matura:
     task_name: "Qwen3 14B FP8 - Prosty (Zero-Shot, No-Thinking) - zbiór maturalny"
@@ -243,4 +243,4 @@ experiments:
         open_poetry_interpretation: { max_new_tokens: 3072 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
-        open_text: { max_new_tokens: 1536 }
+        open_text: { max_new_tokens: 2048 }
