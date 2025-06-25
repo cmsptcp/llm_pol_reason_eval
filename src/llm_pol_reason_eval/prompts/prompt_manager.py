@@ -43,12 +43,12 @@ class PromptManager:
         for i, example in enumerate(few_shot_examples):
             params_for_example = {**template_params, 'question_index': i + 1}
             user_turn = self._render_turn(
-                "default/user_turn_prompt.jinja2",
+                "default/user_turn.jinja2",
                 {"question": example['question'], "contexts": example['contexts'],
                  "template_params": params_for_example}
             )
             assistant_turn = self._render_turn(
-                "default/assistant_turn_prompt.jinja2",
+                "default/assistant_turn.jinja2",
                 {"question": example['question'], "template_params": params_for_example}
             )
             chat_history.extend(
@@ -56,7 +56,7 @@ class PromptManager:
 
         final_question_params = {**template_params, 'question_index': len(few_shot_examples) + 1}
         final_user_turn = self._render_turn(
-            "default/user_turn_prompt.jinja2",
+            "default/user_turn.jinja2",
             {"question": question_data, "contexts": contexts, "template_params": final_question_params}
         )
         chat_history.append({"role": "user", "content": final_user_turn})

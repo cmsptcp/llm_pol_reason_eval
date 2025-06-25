@@ -1,19 +1,20 @@
 python-dotenv~=1.1.0
-sortedcontainers
+sortedcontainers~=2.4.0
 kaggle~=1.7.4.2
 transformers~=4.51.3
-bitsandbytes
 jupyterlab
 ipywidgets
 pandas
-numpy
+numpy~=2.0.2
 # torch~=2.5.1+cu121
-transformers
-accelerate
-bitsandbytes
-sentencepiece
-jinja2
+# torch~=2.7.0+cu121
+transformers~=4.51.3
+accelerate~=1.7.0
+bitsandbytes~=0.46.0
+sentencepiece~=0.2.0
+jinja2~=3.1.6
 huggingface_hub[hf_xet]
+transformers~=4.51.3
 
 # manually install torch for your CUDA version
 # pip uninstall torch torchvision torchaudio
@@ -25,7 +26,7 @@ dotenv~=0.9.9
 pytest-mock
 
 # vllm for inference
-vllm
+vllm~=0.9.1
 
 # Opcjonalne: Klient OpenAI. Potrzebny tylko, jeśli chcesz się łączyć
 # z serwerem vLLM uruchomionym w trybie API zgodnym z OpenAI.
