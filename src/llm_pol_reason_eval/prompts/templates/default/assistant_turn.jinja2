@@ -1,0 +1,14 @@
+{# Sprawdzamy, czy mamy pokazać proces myślenia w tym przykładzie, jeżeli to Qwen z enable_thinking to wyświetlmy dodatkowe tagi#}
+{% if 'chain_of_thought' in template_params.components and question.answer.get('thinking') %}
+{% if template_params.get('enable_thinking') %}
+<thinking>
+{{- question.answer.thinking | trim -}}
+</thinking>
+{% else %}
+{{- question.answer.thinking | trim -}}
+{% endif %}
+{% endif %}
+{# Zawsze na końcu dodajemy finalną odpowiedź w tagach <answer> #}
+<answer>
+{{- question.answer.final_answer | trim -}}
+</answer>

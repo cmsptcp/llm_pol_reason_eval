@@ -1,54 +1,36 @@
-# Domyślne konfiguracje modeli dla aplikacji
 bielik-1-5b-v3-instruct:
   name: "bielik-1-5b-v3-instruct"
-  path: "speakleash/Bielik-1.5B-v3.0-Instruct"
+  path: "speakleash/Bielik-1.5B-v3-Instruct"
   family: "bielik"
   generation_params:
     max_new_tokens: 512
-    temperature: 0.3
+    temperature: 0.6
     do_sample: true
+    top_p: 0.95
 
 bielik-4-5b-v3-instruct:
   name: "bielik-4-5b-v3-instruct"
-  path: "speakleash/Bielik-4.5B-v3.0-Instruct"
+  path: "speakleash/Bielik-4.5B-v3-Instruct"
   family: "bielik"
   inference_backend: "vllm"
+  quantization: "awq" # AWQ jest dobrą opcją dla vLLM
   generation_params:
     max_new_tokens: 1024
-    temperature: 0.3
+    temperature: 0.6
     do_sample: true
-
-bielik-11b-v26-instruct:
-  name: "bielik-11b-v26-instruct"
-  path: "speakleash/Bielik-11B-v2.6-Instruct"
-  family: "bielik"
-  quantization: "int8"
-  generation_params:
-    max_new_tokens: 1024
-    temperature: 0.3
-    do_sample: true
-
-bielik-11b-v26-instruct-awq:
-  name: "bielik-11b-v26-instruct-awq"
-  path: "speakleash/Bielik-11B-v2.6-Instruct-AWQ"
-  family: "bielik"
-  quantization: "awq"
-  inference_backend: "vllm"
-  generation_params:
-    max_new_tokens: 1024
-    temperature: 0.3
-    do_sample: true
+    top_p: 0.95
 
 bielik-11b-v26-instruct-fp8-dynamic:
   name: "bielik-11b-v26-instruct-fp8-dynamic"
-  path: "speakleash/Bielik-11B-v2.6-Instruct-FP8-Dynamic"
+  path: "speakleash/Bielik-11B-v2.6-Instruct"
   family: "bielik"
-  quantization: "fp8-dynamic"
   inference_backend: "vllm"
+  quantization: "fp8-dynamic"
   generation_params:
     max_new_tokens: 1024
-    temperature: 0.3
+    temperature: 0.6
     do_sample: true
+    top_p: 0.95
 
 qwen3-1-7b:
   name: "qwen3-1-7b"
@@ -75,20 +57,6 @@ qwen3-4b:
   prompt_template_params:
     enable_thinking: true
 
-qwen3-14b-awq:
-  name: "qwen3-14b-awq"
-  path: "Qwen/Qwen1.5-14B-Chat-AWQ"
-  family: "qwen3"
-  inference_backend: "vllm"
-  quantization: "awq"
-  generation_params:
-    max_new_tokens: 1024
-    temperature: 0.6
-    do_sample: true
-    top_p: 0.95
-  prompt_template_params:
-    enable_thinking: true
-
 qwen3-14b-fp8:
   name: "qwen3-14b-fp8"
   path: "Qwen/Qwen3-14B-FP8"
@@ -103,37 +71,25 @@ qwen3-14b-fp8:
   prompt_template_params:
     enable_thinking: true
 
-
-pllum-12b-instruct:
-  name: "pllum-12b-instruct"
-  path: "CYFRAGOVPL/PLLuM-12B-instruct"
-  family: "pllum"
-  quantization: "int8"
-  generation_params:
-    max_new_tokens: 1024
-    temperature: 0.7
-    do_sample: true
-    top_p: 0.9
-
-pllum-12b-instruct-awq:
-  name: "pllum-12b-instruct"
-  path: "CYFRAGOVPL/PLLuM-12B-instruct"
-  family: "pllum"
-  inference_backend: "vllm"
-  quantization: "awq"
-  generation_params:
-    max_new_tokens: 1024
-    temperature: 0.7
-    do_sample: true
-    top_p: 0.9
-
-llama-pllum-8b-instruct:
-  name: "llama-pllum-8b-instruct"
+pllum-8b-instruct:
+  name: "pllum-8b-instruct"
   path: "CYFRAGOVPL/Llama-PLLuM-8B-instruct"
   family: "pllum"
   inference_backend: "vllm"
   generation_params:
     max_new_tokens: 1024
-    temperature: 0.7
+    temperature: 0.6
     do_sample: true
-    top_p: 0.9
+    top_p: 0.95
+
+pllum-12b-instruct:
+  name: "pllum-12b-instruct"
+  path: "CYFRAGOVPL/PLLuM-12B-instruct"
+  family: "pllum"
+  inference_backend: "vllm"
+  quantization: "fp8"
+  generation_params:
+    max_new_tokens: 2048
+    temperature: 0.6
+    do_sample: true
+    top_p: 0.95

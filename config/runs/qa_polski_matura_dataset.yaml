@@ -1,75 +1,148 @@
 experiments:
-  bielik-small-matura:
-    task_name: "Bielik 1.5B - Domyślne ustawienia - Matura"
+  bielik-small-simple-matura:
+    task_name: "Bielik 1.5B - Prosty (Zero-Shot) - zbiór maturalny"
     model: bielik-1-5b-v3-instruct
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/bielik-small-matura"
+    output_dir: "results/bielik-small-simple-matura"
     iterations: 1
     prompt_composition:
-      main_template: "base_question_prompt.jinja2"
       components: []
     param_overrides: {}
 
-  bielik-small-fs-cot-matura:
-    task_name: "Bielik 1.5B - Few-Shot & CoT - Matura"
+  bielik-small-full-matura:
+    task_name: "Bielik 1.5B - Pełny (Few-Shot + CoT) - zbiór maturalny"
     model: bielik-1-5b-v3-instruct
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/bielik-small-fs-cot-matura"
+    output_dir: "results/bielik-small-full-matura"
     iterations: 1
     prompt_composition:
-      main_template: "base_question_prompt.jinja2"
       components: ["few_shot", "chain_of_thought"]
-    param_overrides: {}
+    param_overrides:
+      per_type:
+        open_essay: { max_new_tokens: 2048 }
+        open_poetry_interpretation: { max_new_tokens: 2048 }
 
-  bielik-medium-matura:
-    task_name: "Bielik 4.5B - Domyślne ustawienia - Matura"
+  bielik-medium-simple-matura:
+    task_name: "Bielik 4.5B - Prosty (Zero-Shot) - zbiór maturalny"
     model: bielik-4-5b-v3-instruct
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/bielik-medium-matura"
+    output_dir: "results/bielik-medium-simple-matura"
     iterations: 1
     prompt_composition:
-      main_template: "base_question_prompt.jinja2"
       components: []
-    param_overrides: {}
+    param_overrides:
+      per_type:
+        open_essay: { max_new_tokens: 2048 }
+        open_poetry_interpretation: { max_new_tokens: 2048 }
 
-  bielik-medium-fs-cot-matura:
-    task_name: "Bielik 4.5B - Few-Shot & CoT - Matura"
+  bielik-medium-full-matura:
+    task_name: "Bielik 4.5B - Pełny (Few-Shot + CoT) - zbiór maturalny"
     model: bielik-4-5b-v3-instruct
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/bielik-medium-fs-cot-matura"
+    output_dir: "results/bielik-medium-full-matura"
     iterations: 1
     prompt_composition:
-      main_template: "base_question_prompt.jinja2"
       components: ["few_shot", "chain_of_thought"]
-    param_overrides: {}
+      template_params: { num_few_shot: 2 }
+    param_overrides:
+      per_type:
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_summary: { max_new_tokens: 2048 }
+        open_synthesis: { max_new_tokens: 2048 }
+        open_text: { max_new_tokens: 1536 }
 
-  bielik-normal-matura:
-    task_name: "Bielik 11B - Domyślne ustawienia - Matura"
+  bielik-normal-fp8-simple-matura:
+    task_name: "Bielik 11B FP8 - Prosty (Zero-Shot) - zbiór maturalny"
     model: bielik-11b-v26-instruct-fp8-dynamic
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/bielik-normal-matura"
+    output_dir: "results/bielik-normal-fp8-simple-matura"
     iterations: 1
     prompt_composition:
-      main_template: "base_question_prompt.jinja2"
       components: []
-    param_overrides: {}
+    param_overrides:
+      per_type:
+        open_essay: { max_new_tokens: 2048 }
+        open_poetry_interpretation: { max_new_tokens: 2048 }
 
-  bielik-normal-fs-cot-matura:
-    task_name: "Bielik 11B - Few-Shot & CoT - Matura"
+  bielik-normal-fp8-full-matura:
+    task_name: "Bielik 11B FP8 - Pełny (Few-Shot + CoT) - zbiór maturalny"
     model: bielik-11b-v26-instruct-fp8-dynamic
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/bielik-normal-fs-cot-matura"
+    output_dir: "results/bielik-normal-fp8-full-matura"
     iterations: 1
     prompt_composition:
-      main_template: "base_question_prompt.jinja2"
       components: ["few_shot", "chain_of_thought"]
-    param_overrides: {}
+      template_params: { num_few_shot: 2 }
+    param_overrides:
+      per_type:
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_summary: { max_new_tokens: 2048 }
+        open_synthesis: { max_new_tokens: 2048 }
+        open_text: { max_new_tokens: 1536 }
 
-  qwen-small-nt-matura:
-    task_name: "Qwen3 1.7B - Bez myślenia - Matura"
+  pllum-medium-simple-matura:
+    task_name: "PLLuM 8B - Prosty (Zero-Shot) - zbiór maturalny"
+    model: pllum-8b-instruct
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
+    output_dir: "results/pllum-medium-simple-matura"
+    prompt_composition:
+      components: []
+    param_overrides:
+      per_type:
+        open_essay: { max_new_tokens: 2048 }
+        open_poetry_interpretation: { max_new_tokens: 2048 }
+
+  pllum-medium-full-matura:
+    task_name: "PLLuM 8B - Pełny (Few-Shot + CoT) - zbiór maturalny"
+    model: pllum-8b-instruct
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
+    output_dir: "results/pllum-medium-full-matura"
+    prompt_composition:
+      components: ["few_shot", "chain_of_thought"]
+      template_params: { num_few_shot: 2 }
+    param_overrides:
+      per_type:
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_summary: { max_new_tokens: 2048 }
+        open_synthesis: { max_new_tokens: 2048 }
+        open_text: { max_new_tokens: 1536 }
+
+  pllum-normal-fp8-simple-matura:
+    task_name: "PLLuM 12B FP8 - Prosty (Zero-Shot) - zbiór maturalny"
+    model: pllum-12b-instruct-fp8
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
+    output_dir: "results/pllum-normal-fp8-simple-matura"
+    prompt_composition:
+      components: []
+    param_overrides:
+      per_type:
+        open_essay: { max_new_tokens: 2048 }
+        open_poetry_interpretation: { max_new_tokens: 2048 }
+
+  pllum-normal-fp8-full-matura:
+    task_name: "PLLuM 12B FP8 - Pełny (Few-Shot + CoT) - zbiór maturalny"
+    model: pllum-12b-instruct-fp8
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
+    output_dir: "results/pllum-normal-fp8-full-matura"
+    prompt_composition:
+      components: ["few_shot", "chain_of_thought"]
+      template_params: { num_few_shot: 2 }
+    param_overrides:
+      per_type:
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_summary: { max_new_tokens: 2048 }
+        open_synthesis: { max_new_tokens: 2048 }
+        open_text: { max_new_tokens: 1536 }
+
+  qwen-small-simple-matura:
+    task_name: "Qwen3 1.7B - Prosty (Zero-Shot, No-Thinking) - zbiór maturalny"
     model: qwen3-1-7b
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/qwen-small-nt-matura"
+    output_dir: "results/qwen-small-simple-matura"
     iterations: 1
     prompt_composition:
       main_template: "base_question_prompt.jinja2"
@@ -83,11 +156,11 @@ experiments:
         open_poetry_interpretation:
           max_new_tokens: 2048
 
-  qwen-small-th-fs-cot-matura:
-    task_name: "Qwen3 1.7B - Z myśleniem, Few-Shot & CoT - Matura"
+  qwen-small-full-matura:
+    task_name: "Qwen3 1.7B - Pełny (Few-Shot + CoT + Thinking) - zbiór maturalny"
     model: qwen3-1-7b
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/qwen-small-th-fs-cot-matura"
+    output_dir: "results/qwen-small-full-matura"
     iterations: 1
     prompt_composition:
       main_template: "base_question_prompt.jinja2"
@@ -98,95 +171,68 @@ experiments:
       default:
         enable_thinking: true
       per_type:
-        open_essay:
-          max_new_tokens: 2048
-        open_poetry_interpretation:
-          max_new_tokens: 2048
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_summary: { max_new_tokens: 2048 }
+        open_synthesis: { max_new_tokens: 2048 }
+        open_text: { max_new_tokens: 1536 }
 
-  qwen-medium-nt-matura:
-    task_name: "Qwen3 4B - Bez myślenia - Matura"
+  qwen-medium-simple-matura:
+    task_name: "Qwen3 4B - Prosty (Zero-Shot, No-Thinking) - zbiór maturalny"
     model: qwen3-4b
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/qwen-medium-nt-matura"
-    iterations: 1
+    output_dir: "results/qwen-4b-fp8-simple"
     prompt_composition:
-      main_template: "base_question_prompt.jinja2"
       components: []
     param_overrides:
-      default:
-        enable_thinking: false
+      default: { enable_thinking: false }
       per_type:
-        open_essay:
-          max_new_tokens: 2048
-        open_poetry_interpretation:
-          max_new_tokens: 2048
+        open_essay: { max_new_tokens: 2048 }
+        open_poetry_interpretation: { max_new_tokens: 2048 }
 
-  qwen-medium-th-fs-cot-matura:
-    task_name: "Qwen3 4B - Z myśleniem, Few-Shot & CoT - Matura"
+  qwen-medium-full-matura:
+    task_name: "Qwen3 4B - Pełny (Few-Shot + CoT + Thinking) - zbiór maturalny"
     model: qwen3-4b
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/qwen-medium-th-fs-cot-matura"
-    iterations: 1
+    output_dir: "results/qwen-medium-full-matura"
     prompt_composition:
-      main_template: "base_question_prompt.jinja2"
       components: ["few_shot", "chain_of_thought"]
-      template_params:
-        show_thinking_output: true
+      template_params: { num_few_shot: 2 }
     param_overrides:
-      default:
-        enable_thinking: true
+      default: { enable_thinking: true }
       per_type:
-        open_essay:
-          max_new_tokens: 3072
-        open_poetry_interpretation:
-          max_new_tokens: 3072
-        open_summary:
-          max_new_tokens: 2048
-        open_synthesis:
-          max_new_tokens: 2048
-        open_text:
-          max_new_tokens: 1536
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_summary: { max_new_tokens: 2048 }
+        open_synthesis: { max_new_tokens: 2048 }
+        open_text: { max_new_tokens: 1536 }
 
-  qwen-normal-nt-matura:
-    task_name: "Qwen3 14B - Bez myślenia - Matura"
+  qwen-normal-fp8-simple-matura:
+    task_name: "Qwen3 14B FP8 - Prosty (Zero-Shot, No-Thinking) - zbiór maturalny"
     model: qwen3-14b-fp8
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/qwen-normal-nt-matura"
-    iterations: 1
+    output_dir: "results/qwen-normal-fp8-simple-matura"
     prompt_composition:
-      main_template: "base_question_prompt.jinja2"
       components: []
     param_overrides:
-      default:
-        enable_thinking: false
+      default: { enable_thinking: false }
       per_type:
-        open_essay:
-          max_new_tokens: 2048
-        open_poetry_interpretation:
-          max_new_tokens: 2048
+        open_essay: { max_new_tokens: 2048 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
 
-  qwen-normal-th-fs-cot-matura:
-    task_name: "Qwen3 14B - Z myśleniem, Few-Shot & CoT - Matura"
+  qwen-normal-fp8-full-matura:
+    task_name: "Qwen3 14B FP8 - Pełny (Few-Shot + CoT + Thinking) - zbiór maturalny"
     model: qwen3-14b-fp8
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/qwen-normal-th-fs-cot-matura"
-    iterations: 1
+    output_dir: "results/qwen-normal-fp8-full-matura"
     prompt_composition:
-      main_template: "base_question_prompt.jinja2"
       components: ["few_shot", "chain_of_thought"]
-      template_params:
-        show_thinking_output: true
+      template_params: { num_few_shot: 2 }
     param_overrides:
-      default:
-        enable_thinking: true
+      default: { enable_thinking: true }
       per_type:
-        open_essay:
-          max_new_tokens: 3072
-        open_poetry_interpretation:
-          max_new_tokens: 3072
-        open_summary:
-          max_new_tokens: 2048
-        open_synthesis:
-          max_new_tokens: 2048
-        open_text:
-          max_new_tokens: 1536
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_summary: { max_new_tokens: 2048 }
+        open_synthesis: { max_new_tokens: 2048 }
+        open_text: { max_new_tokens: 1536 }

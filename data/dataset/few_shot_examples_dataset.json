@@ -1,0 +1,583 @@
+{
+  "contexts": {
+    "FEW_SHOT_EXAMPLES_kontekst_borkowska_pozytywizm": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_borkowska_pozytywizm",
+      "origin_source_id": "Grażyna Borkowska, Pozytywiści i inni, Warszawa 1999.",
+      "context_content": "Ta epoka ma swój porządek. Po klęsce powstania styczniowego wyczerpały się\nmarzenia o szybkim odzyskaniu niepodległości. [Pisarze] proponowali, by czas niewoli\nzamienić w okres intensywnej pracy na rzecz społeczeństwa. Banał? Niezupełnie. Program\n[…] był świadomą alternatywą wobec romantycznej idei „ojczyzny intymnej”. Mówił\no potrzebie budowy życia publicznego, o kształtowaniu świadomości obywatelskiej,\no pożytkach krytycznego stosunku wobec przeszłości. Kierując się podobnymi zasadami, [artyści] dokonywali wyboru nie tylko tematów, ale\ni form. Opowiedziano się powszechnie za powieścią jako gatunkiem najodpowiedniejszym\ndla opisu otaczającego świata."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_lament_swietokrzyski": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_lament_swietokrzyski",
+      "origin_source_id": "Poezja polska od średniowiecza do współczesności, Warszawa 2000.",
+      "context_content": "[Posłuchajcie, bracia miła]\nPosłuchajcie, bracia miła!\nChcęć wam skorżyć krwawą głowę;\nUsłyszycie moj zamętek,\nJen mi się zstał w Wielki Piątek.\nPożałuj mię, stary, młody,\nBoć mi przyszły krwawe gody;\nJednegociem Syna miała\nI tegociem ożalała."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_stanislawska_si": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_stanislawska_si",
+      "origin_source_id": "Aleksandra Stanisławska, Niebezpieczna sztuczna inteligencja",
+      "context_content": "Tekst 1.\nAleksandra Stanisławska\nNiebezpieczna sztuczna inteligencja\nBrązowy olbrzym Talos z Krety. Gliniany golem z Pragi. Komputer HAL z Odysei kosmicznej. Każdy z tych fikcyjnych tworów miał być zaprojektowany przez człowieka i obdarzony inteligencją podobną do naszej. Ten mit ma się do dziś znakomicie. [...]"
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_lamza_si": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_lamza_si",
+      "origin_source_id": "Łukasz Lamża, Sztuczna przeciętność",
+      "context_content": "Tekst 2.\nŁukasz Lamża\nSztuczna przeciętność\nGdy czyta się i ogląda science fiction sprzed 50-100 lat, sztuczna inteligencja (Al) pojawia się głównie w roli potężnej, budzącej respekt siły - czasem nam sprzyjającej, zwykle jednak stanowiącej mniej czy bardziej zawoalowane zagrożenie. [...] Dziś problemy te, jak i sam język, którym zostały wyrażone, po prostu trącą myszką."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_skapiec": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_skapiec",
+      "origin_source_id": "EPOP-P1-P2-100-A-2406",
+      "context_content": "Molier\n\nSkąpiec\n\nAKT CZWARTY\n\nSCENA VII\n\nHARPAGON\n\nsam, krzycząc jeszcze w ogrodzie, wpada bez kapelusza\n\nZłodziej! złodziej! rozbójnik! morderca! Ratunku! Kto w Boga wierzy! Jestem zgubiony, zamordowany! Gardło mi poderżnęli: wykradli mi pieniądze! Kto to być może? Co się z nim stało? Gdzie uciekł? Gdzie się ukrywa? Jak go znaleźć? Gdzie pędzić? Gdzie go szukać? Może tu! Może tam? Kto to taki? Trzymaj!\n\nChwytając siebie za ramię\n\nOddaj pieniądze, łotrze!... Ha, to ja sam! Zmysły tracę, nie wiem, gdzie jestem, kto jestem, co robię. Och, moje kochane złoto! moje biedne złoto! mój drogi przyjacielu! Wydarto mi ciebie; odkąd mi ciebie wydarto, straciłem mą podporę, pociechę, radość: wszystko skończone dla mnie, nie mam co robić na świecie. Bez ciebie żyć mi niepodobna. Stało się; już nie mogę; umieram; już umarłem; pogrzebano mnie!"
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_dyczewski_pamiec": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_dyczewski_pamiec",
+      "origin_source_id": "EPOP-P1-100-2306",
+      "context_content": "Leon Dyczewski\n\n[Pamięć przeszłości]\n\nWydobywanie z przeszłości i odsyłanie w niepamięć wydarzeń i osób, nawet znaczących, jest procesem sterowanym, świadomie podejmowanym przez określone gremia, ale także jest to proces spontaniczny i potrzebny, zwłaszcza dzisiaj, kiedy tak wiele się dzieje, kiedy tempo zmian jest wyjątkowo szybkie. Nie da się wszystkiego pamiętać i nie warto wszystkiego z przeszłości przywoływać do teraźniejszości. Zarówno pamięć, jak i niepamięć są konieczne, by zachować ciągłość i tożsamość, porządkować, systematyzować i lepiej rozumieć rzeczywistość."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_pilat_kultura": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_pilat_kultura",
+      "origin_source_id": "EPOP-P1-100-2205",
+      "context_content": "Robert Pilat\n\nKultura i kształtowanie samego siebie\n\nWłasnością kultury popularnej jest powielanie. Książka, komiks, film czy piosenka – jeśli tylko zadomowią się w kulturze popularnej, to pojawią się w postaci mnóstwa kopii, naśladownictw, podobnych wersji. Ta własność wynika z zakorzenienia kultury popularnej w ludzkich potrzebach. Podobnie jak potrzebujemy jeść i pić, tak samo potrzebujemy form wyrażania uczuć, obcowania z własną pamięcią, rozumienia zakresu i mocy więzi z innymi, przedstawiania sobie własnego życia jako całości, a wreszcie zdolności do rozwiązywania problemów moralnych i siły w opieraniu się złu i nieszczęściu. Tych form dostarcza nam kultura popularna."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_wesele": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_wesele",
+      "origin_source_id": "EPOP-P1-100-2305",
+      "context_content": "Stanisław Wyspiański\nWesele\n\nAKT III\nSCENA 19\n[...]\nPAN MŁODY\nGębą toście bardzo harny¹.\n\nCZEPIEC\nKręć pon ino próżne żarna²,\npoezyje, wirse, książki,\npodobają ci się wstążki,\nstroisz się w te karazyje³,\na jak trza się mirzać⁴ z czego,\nto pon w sobie szyćko skryje.\n[...]\nPon ino widzisz pchły,\nPchły, świecidła, rosę, ćmy,\na nie chcesz znać, co som my:\nże w nas dnieje, dusa świci,\nże zarucko⁵ kur zapieje,\nże na nas czekają w mieście,\nże nas tu jest ze dwadzieścia\nz kosom, cepem, żelaziwem\ni że to, to nie som sny.\n\nStanisław Wyspiański, Wesele, Wrocław 1977.\n¹ Harny - dumny, zuchwały.\n² Kręć pon ino próżne żarna - tu: wykonuj pracę nieefektywną.\n³ Karazyje - karazja, gruby wełniany materiał, z którego szyto chłopskie okrycia wierzchnie.\n⁴ Mirzać się - tu: wykazać się, wziąć się do czegoś realnego.\n⁵ Zarucko - zaraz."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_pilat_kultura_2": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_pilat_kultura_2",
+      "origin_source_id": "EPOP-P1-100-2205",
+      "context_content": "Robert Pilat\n\nKultura i kształtowanie samego siebie\n\nPosługujemy się wyrażeniem „kultura wysoka\", choć unikamy na ogół wyrażenia „kultura niska\" - zamiast tego mówimy „kultura popularna\". Wyrażenie „kultura popularna\" jest opisowe - odwołuje się do cech funkcjonalnych kultury, takich jak rozpowszechnienie i dostępność. W kulturze popularnej ma się uczestniczyć bez przygotowania, jedynie na mocy rozumienia języka i kodów występujących w danym społeczeństwie. [...] Własnością kultury popularnej jest powielanie."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_dyczewski_limon_pamiec": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_dyczewski_limon_pamiec",
+      "origin_source_id": "EPOP-P1-100-2105",
+      "context_content": "Leon Dyczewski\n\n[Pamięć przeszłości]\n\nPamięć łączy się nierozerwalnie z czasem i odnosi się do osób, wydarzeń, myśli i przeżyć, zachowań, wytworów użytkowych i symbolicznych, elementów natury, które istniały w określonym czasie uprzednio w stosunku do czasu obecnego.\n\nJerzy Limon\n\nW stronę pamięci\n\nLudzka pamięć - proces biochemiczny - nie jest zapisem komputerowym, tylko rejestracją poddaną montażowi, na dodatek nie do końca przez nas kontrolowanemu."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_lalka_filantropia": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_lalka_filantropia",
+      "origin_source_id": "EPOP-P2-100-A-2105",
+      "context_content": "Bolesław Prus\n\nLalka\n\nRzecz dziwna! przecie miał już ustaloną opinię hojnego filantropa. [...] Ale Wokulskiemu rzeczy te nie sprawiały żadnej przyjemności [...]. Rzucał tysiące rubli do kas urzędowych dobroczyńców, ażeby kupić za to rozgłos [...]. I dopiero dziś, kiedy dziesięcioma rublami wydobył człowieka z niedoli, [...] dopiero dziś poznał: co to jest ofiara. [...] I dopiero gdy wielki ból osobisty zaorał mu i zbronował duszę, na tym gruncie [...] wyrosła osobliwa roślina: współczucie powszechne, ogarniające wszystko [...]."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_przedwiosnie_pamietnik": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_przedwiosnie_pamietnik",
+      "origin_source_id": "EPOP-P2-100-A-2305",
+      "context_content": "Stefan Żeromski\nPrzedwiośnie\n\nWśród tomów [...] leżał pewien tomik niepokaźny, specjalnie pielęgnowany niczym w skarbcu klejnot najdroższy. Był to pamiętniczek z wojny 1831 roku [...]. Sucha notatka w rzadkiej broszurce bezimiennego autora stała się niejako wrzecionem, na które się nawijała pełna tajemnicy cienka i drogocenna nić wiary ubogich potomków. Wierzyli w jakąś swą wyższość, która ich w dumę wzbijała. Ojciec Seweryna pod tytułem broszury wypisał wielkimi literami [...] „Pilnować jak oka w głowie!”. W istocie, Seweryn Baryka pilnował owej książeczki jak oka w głowie. [...] Nie można powiedzieć, żeby treść historycznego raptularzyka miała jakiś szczególnie głęboki związek z życiem duchowym Seweryna Baryki. Była ona jednak w tym życiu czymś dalekim, sennym, nęcącym."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_twardowski_bliscy": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_twardowski_bliscy",
+      "origin_source_id": "Jan Twardowski, Nie przyszedłem pana nawracać. Wiersze 1945-2006, Poznań 2009.",
+      "context_content": "Jan Twardowski\n\nBliscy i oddaleni\n\nBo widzisz tu są tacy którzy się kochają\ni muszą się spotykać aby się ominąć\nbliscy i oddaleni jakby stali w lustrze\npiszą do siebie listy gorące i zimne\nrozchodzą się jak w śmiechu porzucone kwiaty\nby nie wiedzieć do końca czemu się tak stało\nsą inni co się nawet po ciemku odnajdą\nlecz przejdą obok siebie bo nie śmią się spotkać\ntak czyści i spokojni jakby śnieg się zaczął\nbyliby doskonali lecz wad im zabrakło\n\nbliscy boją się być blisko żeby nie być dalej\nniektórzy umierają – to znaczy już wiedzą\nmiłości się nie szuka jest albo jej nie ma\nnikt z nas nie jest samotny tylko przez przypadek\nsą i tacy co się na zawsze kochają\ni dopiero dlatego nie mogą być razem\njak bażanty co nigdy nie chodzą parami\n\nmożna nawet zabłądzić lecz po drugiej stronie\nnasze drogi pocięte schodzą się z powrotem"
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_pawlikowska_milosc": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_pawlikowska_milosc",
+      "origin_source_id": "Maria Pawlikowska-Jasnorzewska, Poezje, t. I, Warszawa 1974.",
+      "context_content": "Maria Pawlikowska-Jasnorzewska\n\nMiłość\n\nNie widziałam cię już od miesiąca.\nI nic. Jestem może bledsza,\ntrochę śpiąca, trochę bardziej milcząca,\nlecz widać można żyć bez powietrza!"
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_maciolek_slowa": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_maciolek_slowa",
+      "origin_source_id": "EPOP-P1-P2-100-A-2406",
+      "context_content": "Marcin Maciołek\n\nU źródeł słów\n\nMyślimy słowami. Mówimy, używając słów. Słowa porządkują nasz świat, pozwalają wyrażać nasze odczucia, doznania, emocje. Dzięki słowom swobodnie możemy się poruszać w otaczającej nas rzeczywistości i wyznaczać jej granice. Słowa dają nam poczucie bezpieczeństwa, są niczym morska boja - orientują nas w rejsie po morzu zdarzeń i zjawisk. Wyraz 'słowo' ma różne znaczenia. Bywa rozumiane zarówno jako 'ciąg liter i głosek stanowiący względnie samodzielny element języka i mający własne znaczenie', jak i 'wypowiadanie się w mowie lub na piśmie'. 'Słowo' to zatem nie tylko pojedynczy leksem, jest ono również synonimem mówienia i samego języka. Kiedy mówimy lub piszemy, posługujemy się właśnie słowami.\n\nPraca nad językiem to głównie praca nad słowem. Aby zadbać o dokładność, precyzję swoich wypowiedzi, dobieramy słowa. Mówiąc czy pisząc, zastanawiamy się nieraz nad wyborem właściwych wyrazów, najlepiej oddających istotę opisywanego zjawiska. Cierpimy więc, gdy nie potrafimy w pełni wyrazić tego, co w danym momencie myślimy, odczuwamy. Ze wzgardą odnosimy się też do osób, które używają wyrazów wulgarnych, bo takie słowa nas ranią.\n\nSłowa są narzędziem poznania. Służą procesowi nominacji, czyli nazywają różne elementy otaczającej nas rzeczywistości oraz nasze stany wewnętrzne, dzięki czemu umożliwiają nam sprawne funkcjonowanie i odnajdywanie się w przestrzeni, w której żyjemy. Poznawanie nowych słów i zastanawianie się nad ich znaczeniem jest więc jednocześnie poznawaniem świata. Gdy dotrzemy do sensu nowo poznanych słów, poszerzymy również wiedzę o nas samych. W ten sposób pomnażamy własne człowieczeństwo, wszak praca nad słowem ma sens głęboko humanistyczny. Sprawna, udana komunikacja, zakładająca troskę o wzajemne zrozumienie oraz szacunek względem rozmówcy, polega na umiejętnym, właściwym, trafnym posługiwaniu się słowem."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_steinhaus_matematyka": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_steinhaus_matematyka",
+      "origin_source_id": "MPOP-P1-100-2305",
+      "context_content": "Hugo Steinhaus\n\nDrogi matematyki stosowanej\n\nUczono nas za młodu, że współpraca matematyka z przyrodnikiem ma się odbywać według takiego schematu: przyrodnik napotyka zagadnienie matematyczne w postaci równania algebraicznego lub różniczkowego i przynosi je matematykowi. Ten rozwiązuje je i oddaje w ręce przyrodnika gotowe rozwiązanie w formie wzorów. Matematyk nie powinien się troszczyć, skąd się wzięło zagadnienie ani do czego ma służyć rozwiązanie; nie powinien też zaglądać do protokołów, w których spisane są wyniki doświadczeń. Przeświadczenie, że specjalizacja nauk jest tak daleko posunięta, iż tylko ludzie tego samego cechu mogą się wzajemnie zrozumieć, z góry skazywało takie próby na niepowodzenie. Mówiono nam też, że w naukach przyrodniczych nie ma ani ścisłych definicyj, ani twierdzeń udowodnionych - już to samo wzbudzało w matematyku naszej generacji lekceważenie. Radzono nam przyjąć stan faktyczny podany przez przyrodnika za układ pewników, przerzucając odpowiedzialność na niego: my, oczywiście, nie możemy się mylić, a jeżeli nasze wzory nie stosują się do rzeczywistości, to może to być tylko winą przyrodnika albo nawet samej rzeczywistości, ale nigdy - winą matematyki.\nTen sposób współpracy rzadko kiedy prowadził do pozytywnych wyników. Wywołał on u wielu przyrodników przeświadczenie, że współpraca z matematykami jest niemożliwa, a u matematyków - że nauki przyrodnicze są zbiorem luźnych faktów empirycznych, a tak zwane prawa przyrody - wnioskami opartymi na indukcji przyrodniczej, niezasługującymi na miano prawd naukowych."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_isaacson_leonardo": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_isaacson_leonardo",
+      "origin_source_id": "MPOP-P1-100-2306",
+      "context_content": "Tekst 1.\nWalter Isaacson, Leonardo da Vinci\n\nW rezultacie Leonardo stał się - na ponad sto lat przed Galileuszem - jednym z najważniejszych myślicieli Zachodu, prowadzącym ciągły, bezpośredni dialog między teorią a empirią. Zapoczątkował drogę, której zwieńczeniem jest współczesna rewolucja naukowa. Niezwykła zdolność naszego bohatera do łączenia doświadczenia i teorii sprawiła, że jego naukowy dorobek stanowi do dziś doskonały przykład, jak uważna obserwacja świata, nieposkromiona ciekawość, gotowość do eksperymentowania i kwestionowania dogmatów, a także umiejętność dostrzegania podobieństw między odkryciami z różnych dyscyplin nauki, prowadzą do pomnożenia ludzkiej wiedzy."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_steinhaus_wspolpraca": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_steinhaus_wspolpraca",
+      "origin_source_id": "MPOP-P1-100-2306",
+      "context_content": "Tekst 2.\nHugo Steinhaus, Drogi matematyki stosowanej\n\nJak powinna zatem wyglądać współpraca matematyki z innymi dyscyplinami? Najlepiej wyjaśni to porównanie wzięte z historii obu wojen światowych. W jednej i w drugiej współpracowały sztaby generalne z ekspertami cywilnymi. Tu wojskowi byli przyrodnikami, a eksperci grali rolę matematyków. Podczas pierwszej wojny światowej współpraca obu grup układała się według przestarzałego schematu: nie wtajemniczano ekspertów, do czego potrzebny był taki lub inny aparat, ale żądano skonstruowania. Jak wiadomo, podczas pierwszych lat drugiej wojny światowej, [...] wprowadzono współpracę na zasadzie organicznej, to znaczy dopuszczenia ekspertów do dyskusji nad genezą, sensem i ważnością zagadnienia. [...] Mamy więc postulat: nie należy rozpoczynać współpracy, gdy zagadnienie jest gotowe, lecz - znacznie wcześniej."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_dziady_iii": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_dziady_iii",
+      "origin_source_id": "EPOP-P1-100-2105",
+      "context_content": "Tekst 1.\nAdam Mickiewicz, Dziady cz. III\n\nKONRAD\n(po długim milczeniu)\n\nNieszczęsny, kto dla ludzi głos i język trudzi:\nJęzyk kłamie głosowi, a głos myślom kłamie;\nMyśl z duszy leci bystro, nim się w słowach złamie,\nA słowa myśl pochłoną [...]."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_maciolek_slowa_2": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_maciolek_slowa_2",
+      "origin_source_id": "EPOP-P1-P2-100-A-2406",
+      "context_content": "Tekst 2.\nMarcin Maciołek, U źródeł słów\n\nPraca nad językiem to głównie praca nad słowem. Aby zadbać o dokładność, precyzję swoich wypowiedzi, dobieramy słowa. Mówiąc czy pisząc, zastanawiamy się nieraz nad wyborem właściwych wyrazów, najlepiej oddających istotę opisywanego zjawiska. Cierpimy więc, gdy nie potrafimy w pełni wyrazić tego, co w danym momencie myślimy, odczuwamy."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_lalka_wokulski_konflikt": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_lalka_wokulski_konflikt",
+      "origin_source_id": "EPOP-P1-100-2305",
+      "context_content": "Bolesław Prus\n\nLalka\n\nWobec tego poczuł taki wstręt do handlu, spółek i wszystkich zysków, że dziwił się samemu sobie: jakim sposobem on mógł, prawie przez dwa lata, mięszać się do podobnych rzeczy? „Zdobywałem majątek dla niej!... - pomyślał. - Handel... ja i handel!... [...] Ja idealista, ja - uczony, ja, który przecie rozumiem, że pół miliona rubli człowiek nie mógłby wypracować przez całe życie [...]. A jedyną pociechą, jaką jeszcze wyniosłem z tej szulerki, jest pewność, żem nie kradł i nie oszukiwał...\"."
+    },
+    "FEW_SHOT_EXAMPLES_kontekst_skarga_kazania": {
+      "context_id": "FEW_SHOT_EXAMPLES_kontekst_skarga_kazania",
+      "origin_source_id": "MPOP-P1-100-2306",
+      "context_content": "Piotr Skarga\nKazanie wtóre\n\nJako namilejszej matki swej miłować i onej czcić nie macie, która was urodziła i wychowała, nadała, wyniosła? Bóg matkę czcić rozkazał. Przeklęty, kto zasmuca matkę swoję. A która jest pierwsza i zasłużeńsza matka jako ojczyzna, od której imię macie i wszystko, co macie, od niej jest? Która gniazdem jest matek wszytkich i powinowactw wszytkich, i komorą dóbr waszych wszytkich."
+    }
+  },
+  "questions": {
+    "FEW_SHOT_EXAMPLES_zadanie_mcq_1": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_mcq_1",
+      "category": "matura_2022",
+      "question_type": "closed_MCQ",
+      "origin_source_id": "EPOP-P1-100-2205",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_borkowska_pozytywizm"
+      ],
+      "question_text": "O jakiej epoce literackiej jest mowa w tekście Grażyny Borkowskiej?",
+      "choices": [
+        {
+          "choice_id": "A",
+          "choice_text": "Romantyzm"
+        },
+        {
+          "choice_id": "B",
+          "choice_text": "Pozytywizm"
+        },
+        {
+          "choice_id": "C",
+          "choice_text": "Młoda Polska"
+        },
+        {
+          "choice_id": "D",
+          "choice_text": "Dwudziestolecie międzywojenne"
+        }
+      ],
+      "answer": {
+        "thinking": "Analizuję kluczowe informacje zawarte w tekście Grażyny Borkowskiej.\n1.  **Ramy czasowe:** Tekst wskazuje na okres tuż \"Po klęsce powstania styczniowego\". To wydarzenie datuje się na lata 1863-1864, co jest historyczną granicą między romantyzmem a pozytywizmem w Polsce.\n2.  **Główne idee:** Autorka pisze o \"intensywnej pracy na rzecz społeczeństwa\", \"budowie życia publicznego\" i \"kształtowaniu świadomości obywatelskiej\". Są to hasła programowe polskiego pozytywizmu, takie jak praca organiczna i praca u podstaw.\n3.  **Stosunek do przeszłości:** Tekst wspomina o \"świadomej alternatywie wobec romantycznej idei\". Odrzucenie ideałów romantycznych (walki zbrojnej) na rzecz pracy było centralnym punktem programu pozytywistów.\n4.  **Dominujący gatunek:** Autorka podkreśla, że \"Opowiedziano się powszechnie za powieścią\". Powieść realistyczna była głównym gatunkiem literackim pozytywizmu.\nWszystkie te cechy jednoznacznie wskazują na pozytywizm.",
+        "final_answer": "B"
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_mcq_2": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_mcq_2",
+      "category": "matura_2023",
+      "question_type": "closed_MCQ",
+      "origin_source_id": "EPOP-P1-100-2305",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_lament_swietokrzyski"
+      ],
+      "question_text": "Wskaż dominującą funkcję językową w przytoczonym fragmencie utworu.",
+      "choices": [
+        {
+          "choice_id": "A",
+          "choice_text": "informatywna"
+        },
+        {
+          "choice_id": "B",
+          "choice_text": "poetycka"
+        },
+        {
+          "choice_id": "C",
+          "choice_text": "perswazyjna"
+        },
+        {
+          "choice_id": "D",
+          "choice_text": "ekspresywna"
+        },
+        {
+          "choice_id": "E",
+          "choice_text": "impresywna"
+        }
+      ],
+      "answer": {
+        "thinking": "Analizuję cel wypowiedzi podmiotu lirycznego w podanym fragmencie \"Lamentu świętokrzyskiego\".\n1.  **Nadawca i jego stan:** Podmiotem lirycznym jest Matka Boska, która chce opowiedzieć o swoim cierpieniu (\"Chcęć wam skorżyć krwawą głowę\", \"Usłyszycie moj zamętek\").\n2.  **Słownictwo:** Użyte słowa bezpośrednio nazywają silne, negatywne emocje: \"zamętek\" (cierpienie, smutek), \"krwawą głowę\", \"krwawe gody\" (krwawe święta, męka), \"ożalała\" (opłakiwała w żalu).\n3.  **Cel wypowiedzi:** Głównym celem mówiącej postaci jest wyrażenie swojego bólu i żalu po stracie Syna. Cała wypowiedź jest skoncentrowana na jej uczuciach.\n4.  **Analiza funkcji:** Funkcja ekspresywna polega właśnie na wyrażaniu uczuć, emocji i stanu wewnętrznego nadawcy. Chociaż tekst ma też cechy funkcji impresywnej (wpływanie na emocje odbiorcy, np. \"Pożałuj mię\"), to prym wiedzie tu autoekspresja bólu. Dlatego funkcja ekspresywna jest dominująca.",
+        "final_answer": "D"
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_mcq_3": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_mcq_3",
+      "category": "matura_2023",
+      "question_type": "closed_MCQ",
+      "origin_source_id": "EPOP-P1-100-2306",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_stanislawska_si",
+        "FEW_SHOT_EXAMPLES_kontekst_lamza_si"
+      ],
+      "question_text": "Jaką główną funkcję pełnią przymiotniki „niebezpieczna” i „przeciętna” w tytułach obu artykułów?",
+      "choices": [
+        {
+          "choice_id": "A",
+          "choice_text": "Informują o tematyce tekstów w sposób neutralny."
+        },
+        {
+          "choice_id": "B",
+          "choice_text": "Ujawniają i zapowiadają wartościujący stosunek autorów do omawianego zjawiska."
+        },
+        {
+          "choice_id": "C",
+          "choice_text": "Mają na celu jedynie przyciągnięcie uwagi czytelnika sensacyjnym sformułowaniem."
+        },
+        {
+          "choice_id": "D",
+          "choice_text": "Podkreślają naukowy i obiektywny charakter obu artykułów."
+        }
+      ],
+      "answer": {
+        "thinking": "Analizuję, co wnoszą słowa \"niebezpieczna\" i \"przeciętna\" do tytułów tekstów.\n1.  **Analiza słowa \"niebezpieczna\":** Ten przymiotnik ma jednoznacznie negatywne konotacje. Nazywając sztuczną inteligencję \"niebezpieczną\", autorka od razu sygnalizuje swoje obawy i krytyczne nastawienie do tematu. To nie jest neutralna informacja, lecz ocena.\n2.  **Analiza słowa \"przeciętna\":** Ten przymiotnik sugeruje średniactwo, brak wyjątkowości. Użycie go w kontekście sztucznej inteligencji, która często jest postrzegana jako coś wybitnego, jest formą oceny i deprecjonowania jej możliwości. Lamża od początku ustawia swoją argumentację w kontrze do mitu o potężnej AI.\n3.  **Ocena opcji:**\n    - Opcja A jest błędna, bo oba słowa są nacechowane emocjonalnie i oceniająco, a nie neutralne.\n    - Opcja C jest niepełna. Tytuły mogą przyciągać uwagę, ale ich główna funkcja jest inna – jest nią właśnie wyrażenie opinii.\n    - Opcja D jest błędna, ponieważ słownictwo wartościujące jest przeciwieństwem obiektywizmu naukowego.\n    - Opcja B jest najtrafniejsza. Oba przymiotniki wyrażają ocenę (wartościują) i zapowiadają ton oraz główną tezę każdego z artykułów.",
+        "final_answer": "B"
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_mrq_1": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_mrq_1",
+      "category": "matura_2024",
+      "question_type": "closed_MRQ",
+      "origin_source_id": "EPOP-P1-P2-100-A-2406",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_skapiec"
+      ],
+      "question_text": "Które środki stylistyczne w podanym fragmencie podkreślają gwałtowne usposobienie Harpagona? Zaznacz trzy właściwe odpowiedzi.",
+      "choices": [
+        {
+          "choice_id": "A",
+          "choice_text": "Wykrzyknienia."
+        },
+        {
+          "choice_id": "B",
+          "choice_text": "Porównania."
+        },
+        {
+          "choice_id": "C",
+          "choice_text": "Wyliczenia."
+        },
+        {
+          "choice_id": "D",
+          "choice_text": "Hiperbole."
+        },
+        {
+          "choice_id": "E",
+          "choice_text": "Antytezy."
+        }
+      ],
+      "answer": {
+        "thinking": "Analizuję fragment monologu Harpagona pod kątem środków stylistycznych wyrażających gwałtowność.\n1.  **Analiza opcji A (Wykrzyknienia):** Tekst jest pełen wykrzyknień, które podkreślają panikę i gniew Harpagona, np. \"Złodziej! złodziej! rozbójnik! morderca! Ratunku!\", \"Oddaj pieniądze, łotrze!...\". To jest poprawna odpowiedź.\n2.  **Analiza opcji B (Porównania):** W podanym fragmencie nie występują porównania (konstrukcje z \"jak\", \"jako\", \"niby\" itp.).\n3.  **Analiza opcji C (Wyliczenia):** Harpagon wielokrotnie używa wyliczeń, aby oddać swoją panikę i natłok myśli. Na przykład: \"Złodziej! złodziej! rozbójnik! morderca!\" oraz seria pytań: \"Kto to być może? Co się z nim stało? Gdzie uciekł? Gdzie się ukrywa? Jak go znaleźć? Gdzie pędzić? Gdzie go szukać?\". To jest poprawna odpowiedź.\n4.  **Analiza opcji D (Hiperbole):** Harpagon stosuje liczne hiperbole (wyolbrzymienia), aby ukazać ogrom swojej straty i rozpaczy. Mówi: \"Gardło mi poderżnęli\" (choć ukradziono mu tylko pieniądze), a także \"umieram; już umarłem; pogrzebano mnie!\". To jest poprawna odpowiedź.\n5.  **Analiza opcji E (Antytezy):** W tekście nie ma antytez (zestawień o przeciwstawnym znaczeniu).\nWybieram opcje A, C i D jako poprawne.",
+        "final_answer": "A, C, D"
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_mrq_2": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_mrq_2",
+      "category": "matura_2023",
+      "question_type": "closed_MRQ",
+      "origin_source_id": "EPOP-P1-100-2306",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_dyczewski_pamiec"
+      ],
+      "question_text": "Na podstawie tekstu Leona Dyczewskiego wskaż, jakie funkcje pełni zapominanie (niepamięć). Zaznacz dwie właściwe odpowiedzi.",
+      "choices": [
+        {
+          "choice_id": "A",
+          "choice_text": "Pozwala zachować tożsamość."
+        },
+        {
+          "choice_id": "B",
+          "choice_text": "Umożliwia konfrontację z przeszłością."
+        },
+        {
+          "choice_id": "C",
+          "choice_text": "Pomaga w porządkowaniu rzeczywistości."
+        },
+        {
+          "choice_id": "D",
+          "choice_text": "Jest podstawą do tworzenia nowych tradycji."
+        },
+        {
+          "choice_id": "E",
+          "choice_text": "Ogranicza nadmiar informacji w świadomości."
+        }
+      ],
+      "answer": {
+        "thinking": "Analizuję fragment tekstu Leona Dyczewskiego, aby zidentyfikować wymienione w nim funkcje zapominania.\n1.  **Kluczowe zdanie:** Autor stwierdza, że \"Zarówno pamięć, jak i niepamięć są konieczne, by zachować ciągłość i tożsamość, porządkować, systematyzować i lepiej rozumieć rzeczywistość\".\n2.  **Analiza opcji:**\n    * A: Tekst wprost mówi, że niepamięć jest konieczna, by \"zachować ciągłość i tożsamość\". Ta odpowiedź jest poprawna.\n    * B: Tekst nie wspomina o funkcji konfrontacji z przeszłością w kontekście zapominania.\n    * C: Tekst stwierdza, że niepamięć jest konieczna, aby \"porządkować, systematyzować i lepiej rozumieć rzeczywistość\". Ta odpowiedź jest poprawna.\n    * D: We fragmencie nie ma mowy o tworzeniu nowych tradycji dzięki zapominaniu.\n    * E: Choć tekst mówi \"Nie da się wszystkiego pamiętać\", co sugeruje ograniczenie informacji, to opcje C i A są bardziej bezpośrednio wymienionymi funkcjami niepamięci w kluczowym zdaniu. Szukam dwóch najtrafniejszych odpowiedzi. Opcje A i C są wprost wymienione jako funkcje niepamięci.\nWybieram opcje A i C jako poprawne.",
+        "final_answer": "A, C"
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_mrq_3": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_mrq_3",
+      "category": "matura_2022",
+      "question_type": "closed_MRQ",
+      "origin_source_id": "EPOP-P1-100-2205",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_pilat_kultura"
+      ],
+      "question_text": "Jakie potrzeby człowieka, według Roberta Piłata, zaspokaja kultura popularna? Zaznacz trzy właściwe odpowiedzi.",
+      "choices": [
+        {
+          "choice_id": "A",
+          "choice_text": "Potrzebę wyrażania uczuć."
+        },
+        {
+          "choice_id": "B",
+          "choice_text": "Potrzebę kontaktu z naturą."
+        },
+        {
+          "choice_id": "C",
+          "choice_text": "Potrzebę obcowania z własną pamięcią."
+        },
+        {
+          "choice_id": "D",
+          "choice_text": "Potrzebę obrony przed złem i nieszczęściem."
+        },
+        {
+          "choice_id": "E",
+          "choice_text": "Potrzebę samodoskonalenia i edukacji."
+        }
+      ],
+      "answer": {
+        "thinking": "Analizuję fragment tekstu Roberta Piłata w poszukiwaniu wymienionych potrzeb zaspokajanych przez kulturę popularną.\n1.  **Wyszukanie w tekście:** Autor wylicza: \"potrzebujemy form wyrażania uczuć, obcowania z własną pamięcią, rozumienia zakresu i mocy więzi z innymi, przedstawiania sobie własnego życia jako całości, a wreszcie zdolności do rozwiązywania problemów moralnych i siły w opieraniu się złu i nieszczęściu\". Stwierdza też, że tych form \"dostarcza nam kultura popularna\".\n2.  **Analiza opcji:**\n    * A: Tekst wprost wymienia potrzebę \"form wyrażania uczuć\". Ta odpowiedź jest poprawna.\n    * B: Tekst nie wspomina o potrzebie kontaktu z naturą.\n    * C: Tekst wprost wymienia potrzebę \"obcowania z własną pamięcią\". Ta odpowiedź jest poprawna.\n    * D: Tekst wprost wymienia potrzebę \"siły w opieraniu się złu i nieszczęściu\". Ta odpowiedź jest poprawna.\n    * E: Potrzeba samodoskonalenia i edukacji jest w dalszej części artykułu (niezałączonej w tym kontekście) przypisywana kulturze wysokiej, a nie popularnej.\nWybieram opcje A, C i D jako poprawne.",
+        "final_answer": "A, C, D"
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_mtf_1": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_mtf_1",
+      "category": "matura_2023",
+      "question_type": "closed_MTF",
+      "origin_source_id": "EPOP-P1-100-2305",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_wesele"
+      ],
+      "question_text": "Oceń prawdziwość podanych stwierdzeń odnoszących się do fragmentu Wesela Stanisława Wyspiańskiego. Zaznacz P, jeśli stwierdzenie jest prawdziwe, albo F - jeśli jest fałszywe.",
+      "choices": [
+        {
+          "choice_id": "1",
+          "choice_text": "Czepiec docenia Pana Młodego za jego twórczość poetycką."
+        },
+        {
+          "choice_id": "2",
+          "choice_text": "Z wypowiedzi Czepca wynika, że chłopi są gotowi do walki."
+        },
+        {
+          "choice_id": "3",
+          "choice_text": "Czepiec krytykuje Pana Młodego za brak zainteresowania prawdziwymi potrzebami chłopów."
+        }
+      ],
+      "answer": {
+        "thinking": "Analizuję każde stwierdzenie w odniesieniu do wypowiedzi Czepca.\n1.  **Stwierdzenie 1:** \"Czepiec docenia Pana Młodego za jego twórczość poetycką.\" - Czepiec mówi: \"Kręć pon ino próżne żarna, poezyje, wirse, książki\", co oznacza, że uważa poezję za bezużyteczną, jałową pracę. To jest krytyka, a nie docenienie. Zatem stwierdzenie jest fałszywe.\n2.  **Stwierdzenie 2:** \"Z wypowiedzi Czepca wynika, że chłopi są gotowi do walki.\" - Czepiec mówi: \"że na nas czekają w mieście, że nas tu jest ze dwadzieścia z kosom, cepem, żelaziwem i że to, to nie som sny\". Wymienienie kos, cepów i żelaziwa jako narzędzi, z którymi chłopi czekają, jest jednoznaczną aluzją do gotowości do zbrojnego czynu. Zatem stwierdzenie jest prawdziwe.\n3.  **Stwierdzenie 3:** \"Czepiec krytykuje Pana Młodego za brak zainteresowania prawdziwymi potrzebami chłopów.\" - Czepiec zarzuca Panu Młodemu: \"Pon ino widzisz pchły, Pchły, świecidła, rosę, ćmy, a nie chcesz znać, co som my\". Wskazuje, że Pan Młody interesuje się powierzchownymi, błahymi aspektami wsi (chłopomania), a ignoruje prawdziwą siłę i duszę chłopów (\"że w nas dnieje, dusa świci\"). To jest krytyka braku głębszego zrozumienia i zainteresowania. Zatem stwierdzenie jest prawdziwe.",
+        "final_answer": "1. F\n2. P\n3. P"
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_mtf_2": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_mtf_2",
+      "category": "matura_2022",
+      "question_type": "closed_MTF",
+      "origin_source_id": "EPOP-P1-100-2205",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_pilat_kultura_2"
+      ],
+      "question_text": "Oceń prawdziwość podanych stwierdzeń odnoszących się do tekstu Roberta Piłata. Zaznacz P, jeśli stwierdzenie jest prawdziwe, albo F - jeśli jest fałszywe.",
+      "choices": [
+        {
+          "choice_id": "1",
+          "choice_text": "Sformułowania ujęte w nawias wprowadzają nowy wątek rozważań."
+        },
+        {
+          "choice_id": "2",
+          "choice_text": "Sformułowania: Zakłada jednak..., Podobnie..., zwiększają spójność tekstu."
+        }
+      ],
+      "answer": {
+        "thinking": "Analizuję każde stwierdzenie na podstawie dostarczonego fragmentu tekstu Roberta Piłata.\n1.  **Stwierdzenie 1:** \"Znajomość języka danej społeczności wystarczy do zrozumienia wytworów kultury wysokiej.\" - Tekst mówi, że w *kulturze popularnej* można uczestniczyć \"jedynie na mocy rozumienia języka i kodów\". Nie ma tu informacji, że to samo dotyczy kultury wysokiej. Logika tekstu, który rozróżnia oba pojęcia, sugeruje, że dla kultury wysokiej to nie wystarczy. Na podstawie fragmentu nie można potwierdzić tego stwierdzenia, a wręcz można wnioskować przeciwnie. Zatem stwierdzenie jest fałszywe.\n2.  **Stwierdzenie 2:** \"Podstawą kultury popularnej i kultury wysokiej jest kopiowanie.\" - Tekst wyraźnie stwierdza: \"Własnością kultury popularnej jest powielanie\". Nie ma tu mowy o tym, że dotyczy to również kultury wysokiej. Zatem stwierdzenie jest fałszywe.\n3.  **Stwierdzenie 3:** \"Wytwory kultury popularnej są zrozumiałe dla szerokiego grona odbiorców.\" - Tekst podaje, że cechy kultury popularnej to \"rozpowszechnienie i dostępność\" oraz że uczestniczy się w niej \"bez przygotowania\". To wprost oznacza, że jest ona zrozumiała dla szerokiego grona odbiorców. Zatem stwierdzenie jest prawdziwe.",
+        "final_answer": "1. F\n2. F\n3. P"
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_mtf_3": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_mtf_3",
+      "category": "matura_2021",
+      "question_type": "closed_MTF",
+      "origin_source_id": "EPOP-P1-100-2105",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_dyczewski_limon_pamiec"
+      ],
+      "question_text": "Oceń prawdziwość podanych stwierdzeń odnoszących się do tekstu Leona Dyczewskiego oraz do tekstu Jerzego Limona. Zaznacz P, jeśli stwierdzenie jest prawdziwe, albo F - jeśli jest fałszywe.",
+      "choices": [
+        {
+          "choice_id": "1",
+          "choice_text": "Z każdego z tekstów wynika, że pamięć jest wiernym zapisem przeszłości."
+        },
+        {
+          "choice_id": "2",
+          "choice_text": "W każdym z tekstów wyjaśniono, dlaczego kształtowanie pamięci danej zbiorowości jest ważne."
+        }
+      ],
+      "answer": {
+        "thinking": "Analizuję oba stwierdzenia w kontekście obu podanych fragmentów.\n1.  **Stwierdzenie 1:** \"Z każdego z tekstów wynika, że pamięć jest wiernym zapisem przeszłości.\"\n    * Tekst Dyczewskiego mówi, że pamięć odnosi się do przeszłości, ale nie określa jej jako \"wierny zapis\".\n    * Tekst Limona mówi wprost przeciwnie: \"nie jest zapisem komputerowym, tylko rejestracją poddaną montażowi\". Oznacza to, że pamięć nie jest wierna.\n    * Skoro tekst Limona przeczy stwierdzeniu, jest ono fałszywe.\n2.  **Stwierdzenie 2:** \"W każdym z tekstów wyjaśniono, dlaczego kształtowanie pamięci danej zbiorowości jest ważne.\"\n    * Tekst Dyczewskiego porusza temat pamięci zbiorowości.\n    * Tekst Limona skupia się na \"ludzkiej pamięci\" jako procesie biochemicznym jednostki, a nie pamięci zbiorowej.\n    * Skoro tekst Limona nie porusza tematu pamięci zbiorowości, stwierdzenie nie może być prawdziwe dla \"każdego z tekstów\". Zatem jest ono fałszywe.",
+        "final_answer": "1. F\n2. F"
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_essay_1": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_essay_1",
+      "category": "matura_2021",
+      "question_type": "open_essay",
+      "origin_source_id": "EPOP-P2-100-A-2105",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_lalka_filantropia"
+      ],
+      "question_text": "Napisz wypracowanie na temat: Co motywuje człowieka do podejmowania działań dla dobra innych ludzi? Rozważ problem i uzasadnij swoje zdanie, odwołując się do fragmentu Lalki, całej powieści Bolesława Prusa oraz do wybranego tekstu kultury. Twoja praca powinna liczyć co najmniej 250 wyrazów.",
+      "choices": null,
+      "answer": {
+        "thinking": "Plan wypracowania:\n1.  **Teza:** Motywacje do pomocy są złożone - od egoizmu i wyrachowania, po autentyczną empatię, zrodzoną z cierpienia lub moralnego obowiązku.\n2.  **Argumenty:**\n    - **Lalka (fragment i całość):** Ukazanie przemiany Wokulskiego od filantropii na pokaz (dla rozgłosu i zdobycia Izabeli) do autentycznej empatii (pomoc Wysockiemu), która narodziła się z jego osobistego bólu.\n    - **Dżuma (inny tekst):** Przedstawienie postawy doktora Rieux jako przykładu pomocy wynikającej z poczucia ludzkiej przyzwoitości i moralnego obowiązku walki ze złem.\n3.  **Wymóg formalny:** Praca musi liczyć co najmniej 250 słów. Celem jest zwięzła odpowiedź, w przybliżeniu 300 słów.",
+        "final_answer": "Co motywuje człowieka do działania dla dobra innych? Literatura udowadnia, że pobudki te rzadko są jednorodne. Rozciągają się one od egoistycznej chęci zysku i poprawy wizerunku, po autentyczną empatię, która często rodzi się z osobistego cierpienia lub głębokiego poczucia moralnego obowiązku.\n\nDoskonałym przykładem tej złożoności jest Stanisław Wokulski, bohater \"Lalki\" Bolesława Prusa. Jego działalność filantropijna jest wielowymiarowa. Początkowo rzuca tysiące rubli, by \"kupić za to rozgłos\" i zaimponować arystokracji, a przede wszystkim Izabeli Łęckiej. To motywacja instrumentalna. Jednak, jak ukazuje załączony fragment, głęboki \"ból osobisty\" po zawodzie miłosnym staje się katalizatorem przemiany. Bezinteresowna pomoc furmanowi Wysockiemu, dokonana bez świadków, pozwala mu odkryć sens prawdziwej \"ofiary\" i budzi w nim \"współczucie powszechne\". Prus pokazuje, że droga do autentycznego altruizmu może wieść przez własne cierpienie.\n\nZgoła inną, lecz równie silną motywację, reprezentuje doktor Rieux z \"Dżumy\" Alberta Camusa. W obliczu absurdalnej zarazy nie kieruje się on wiarą ani chęcią zyskania sławy. Jego walka z chorobą wynika z poczucia ludzkiej przyzwoitości i zawodowego obowiązku. Dla Rieux pomaganie jest formą buntu przeciwko złu i wyrazem solidarności z cierpiącymi. To postawa oparta na uniwersalnym humanizmie, pozbawiona egoistycznych pobudek.\n\nZestawienie tych postaci dowodzi, że motywacje do czynienia dobra są niezwykle zróżnicowane. Od skomplikowanej psychiki Wokulskiego, w której mieszają się próżność i empatia, po pryncypialny humanizm Rieux – literatura ukazuje, że w geście pomocy innym człowiek wyraża całą złożoność swojej natury."
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_essay_2": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_essay_2",
+      "category": "matura_2023",
+      "question_type": "open_essay",
+      "origin_source_id": "EPOP-P2-100-A-2305",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_przedwiosnie_pamietnik"
+      ],
+      "question_text": "Czym dla człowieka jest pamięć o minionych wydarzeniach? Rozważ problem i uzasadnij swoje zdanie, odwołując się do podanego fragmentu Przedwiośnia Stefana Żeromskiego oraz do wybranych tekstów kultury. Twoja praca powinna liczyć co najmniej 250 wyrazów.",
+      "choices": null,
+      "answer": {
+        "thinking": "Plan wypracowania:\n1.  **Teza:** Pamięć o przeszłości jest fundamentem tożsamości, który może być źródłem dumy i siły, ale też moralną przestrogą.\n2.  **Argumenty:**\n    - **\"Przedwiośnie\" (fragment):** Pamięć jako mit rodowy, budujący poczucie dumy i wartości, nawet bez intelektualnego zrozumienia historii.\n    - **\"Pan Tadeusz\" (inny tekst):** Pamięć jako skarbnica tradycji narodowej, spoiwo wspólnoty i źródło nadziei w czasach niewoli.\n    - **\"Dżuma\" (inny tekst):** Pamięć o tragedii jako moralny obowiązek i przestroga dla przyszłych pokoleń.\n3.  **Wymóg formalny:** Praca musi liczyć co najmniej 250 słów; cel: ok. 300 słów.",
+        "final_answer": "Pamięć o minionych wydarzeniach to nie tylko zbiór faktów, ale żywa siła kształtująca ludzką egzystencję. Jest ona kluczowym fundamentem tożsamości, który może być źródłem dumy i siły dla jednostki i wspólnoty, ale też pełnić funkcję uniwersalnej, moralnej przestrogi.\n\nFragment \"Przedwiośnia\" Stefana Żeromskiego ilustruje rolę pamięci w budowaniu tożsamości rodowej. Pamiątka po przodku-powstańcu, choć jej treść nie jest w pełni rozumiana przez Seweryna Barykę, staje się rodzinną relikwią. Pamięć ta ma charakter mityczny, przeradza się w \"klechdę\", która \"wzbijała w dumę\" i dawała poczucie wyjątkowości. To właśnie ta zmitologizowana przeszłość stanowiła dla Baryków kotwicę, która nadawała im poczucie wartości i odrębności.\n\nPamięć jako spoiwo wspólnoty narodowej jest z kolei centralnym tematem \"Pana Tadeusza\" Adama Mickiewicza. W rzeczywistości naznaczonej niewolą, pielęgnowanie wspomnień o dawnej chwale Rzeczypospolitej i kultywowanie obyczajów staje się aktem patriotyzmu. Koncert Jankiela, będący muzyczną opowieścią o losach ojczyzny, jednoczy szlachtę i podtrzymuje nadzieję na odzyskanie niepodległości. Pamięć jest tu siłą integrującą, która daje wspólnocie siłę do przetrwania.\n\nZupełnie inną funkcję pamięci ukazuje Albert Camus w \"Dżumie\". Dla doktora Rieux spisanie kroniki wydarzeń jest moralnym obowiązkiem. Pamięć o cierpieniu i złu staje się przestrogą dla przyszłości, przypomnieniem, że \"bakcyl dżumy nigdy nie umiera\". To pamięć, która nie buduje dumy, lecz uczy odpowiedzialności i ludzkiej solidarności w obliczu uniwersalnego zagrożenia.\n\nJak dowodzą przywołane przykłady, pamięć jest siłą wielowymiarową. Może być mitycznym źródłem dumy, patriotycznym spoiwem narodu, a także uniwersalną lekcją moralną. W każdym z tych ujęć pozostaje jednak niezbywalnym elementem, który definiuje to, kim jesteśmy."
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_poetry_1": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_poetry_1",
+      "category": "matura_2021",
+      "question_type": "open_poetry_interpretation",
+      "origin_source_id": "EPOP-P2-100-A-2105",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_twardowski_bliscy"
+      ],
+      "question_text": "Zinterpretuj podany utwór (wiersz Jana Twardowskiego 'Bliscy i oddaleni'). Postaw tezę interpretacyjną i ją uzasadnij. Twoja praca powinna liczyć co najmniej 250 wyrazów.",
+      "choices": null,
+      "answer": {
+        "thinking": "Plan interpretacji:\n1.  **Teza interpretacyjna:** Wiersz Twardowskiego jest refleksją nad paradoksami międzyludzkiej bliskości. Teza: Utwór \"Bliscy i oddaleni\" to liryczny traktat o paradoksalnej naturze miłości, która w świecie ułomnych ludzi pełna jest sprzeczności i lęku, a jej ostateczne spełnienie jest możliwe dopiero w wymiarze metafizycznym.\n2.  **Argumentacja:**\n    - Analiza paradoksu pozornej bliskości (spotykanie się, by się ominąć; metafora lustra).\n    - Analiza lęku przed zranieniem i tezy o miłości jako darze (\"bliscy boją się być blisko\", \"miłości się nie szuka\").\n    - Interpretacja ostatniego dwuwersu jako obietnicy eschatologicznego spełnienia.\n3.  **Kontekst:** Krótkie odwołanie do Twardowskiego jako księdza-poety, łączącego refleksję nad ludzkimi uczuciami z perspektywą wiary.\n4.  **Wymóg formalny:** Praca musi liczyć co najmniej 250 słów. Celem jest zwięzła odpowiedź, zbliżona do 300 słów.",
+        "final_answer": "Poezja Jana Twardowskiego, kapłana z niezwykłą wrażliwością przyglądającego się ludzkiej kondycji, często dotyka najbardziej skomplikowanych aspektów naszych relacji. Wiersz \"Bliscy i oddaleni\" jest tego doskonałym przykładem, stanowiąc filozoficzny traktat o paradoksalnej naturze miłości. Tezą niniejszej interpretacji jest stwierdzenie, że utwór ten ukazuje miłość jako sferę pełną sprzeczności, lęku i pozornych spotkań, której ostateczne spełnienie jest możliwe dopiero w wymiarze metafizycznym.\n\n     Już pierwsza strofa wprowadza nas w świat relacji opartych na paradoksie. Osoba mówiąca opisuje \"tych którzy się kochają / i muszą się spotykać aby się ominąć\". Ich bliskość jest iluzoryczna, co podkreśla metafora lustra – widzą się, lecz dzieli ich nieprzekraczalna bariera. Komunikacja, symbolizowana przez \"listy gorące i zimne\", jest niestabilna. Twardowski sugeruje nawet, że to właśnie ludzka niedoskonałość jest warunkiem relacji, gdyż ci \"doskonali\" \"nie śmią się spotkać\", bo \"wad im zabrakło\".\n\n     Druga strofa, złożona z aforyzmów, pogłębia analizę lęków wpisanych w miłość. Słowa \"bliscy boją się być blisko żeby nie być dalej\" demaskują uniwersalny lęk przed zranieniem – im głębsze zaangażowanie, tym boleśniejsza może być ewentualna strata. Poeta przedstawia miłość jako dar, a nie zdobycz – \"jest albo jej nie ma\". Jej transcendentny charakter zostaje wzmocniony kolejnym paradoksem: idealna miłość uniemożliwia bycie razem w niedoskonałym świecie, co symbolizuje obraz bażantów, które \"nigdy nie chodzą parami\".\n\n     Nadzieję i ostateczne rozwiązanie tych ziemskich sprzeczności przynosi dopiero ostatni dwuwers. Przenosi on refleksję w wymiar eschatologiczny. Obietnica, że \"nasze drogi pocięte schodzą się z powrotem\", jest wyrazem chrześcijańskiej nadziei na ostateczne pojednanie. Twardowski, jako ksiądz-poeta, sugeruje, że ziemskie niespełnienie nie jest końcem. Pełnia miłości, wolna od lęków i pozorów, jest możliwa, ale dopiero \"po drugiej stronie\", nadając ludzkim zmaganiom głębszy sens."
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_poetry_2": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_poetry_2",
+      "category": "matura_2022",
+      "question_type": "open_poetry_interpretation",
+      "origin_source_id": "EPOP-P2-100-A-2205",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_pawlikowska_milosc"
+      ],
+      "question_text": "Zinterpretuj podany utwór (wiersz Marii Pawlikowskiej-Jasnorzewskiej 'Miłość'). Postaw tezę interpretacyjną i ją uzasadnij. Twoja praca powinna liczyć co najmniej 250 wyrazów.",
+      "answer": {
+        "thinking": "Plan interpretacji:\n1.  **Teza interpretacyjna:** Wiersz \"Miłość\" to ironiczny i gorzki zapis doświadczenia po rozstaniu. Teza: Pod pozorami obojętności i siły, miniatura poetycka Marii Pawlikowskiej-Jasnorzewskiej demaskuje głęboką rozpacz po utracie miłości, która dla podmiotu lirycznego była warunkiem istnienia.\n2.  **Argumentacja:**\n    - Analiza sytuacji lirycznej i pozornego spokoju (\"I nic\") jako maski i mechanizmu obronnego.\n    - Interpretacja gradacji objawów (\"może bledsza, trochę śpiąca...\") jako próby bagatelizowania cierpienia.\n    - Analiza paradoksalnej i ironicznej puenty (\"lecz widać można żyć bez powietrza!\"). Porównanie miłości do powietrza demaskuje jej fundamentalne znaczenie.\n3.  **Kontekst:** Krótkie odwołanie do poetyki Skamandra i typowej dla Pawlikowskiej-Jasnorzewskiej sztuki miniatury poetyckiej, skupionej na psychologicznej precyzji.\n4.  **Wymóg formalny:** Praca musi liczyć co najmniej 250 słów. Celem jest zwięzła odpowiedź, zbliżona do 300 słów.",
+        "final_answer": "Maria Pawlikowska-Jasnorzewska, czołowa poetka grupy Skamandra, była mistrzynią poetyckiej miniatury, w której potrafiła zawrzeć ogrom psychologicznej prawdy. Jej wiersz \"Miłość\" jest tego doskonałym przykładem. Utwór, pozornie będący chłodną konstatacją o przetrwaniu rozstania, w rzeczywistości stanowi gorzką i ironiczną refleksję nad cierpieniem po stracie. Tezą niniejszej interpretacji jest stwierdzenie, że pozorna obojętność podmiotu lirycznego jest jedynie maską, pod którą kryje się głęboka rozpacz i poczucie pustki.\n\n     Sytuacja liryczna jest zarysowana niezwykle oszczędnie. Kobieta, po miesiącu od rozstania, zdaje sobie relację ze swojego stanu. Jej opis jest z pozoru beznamiętny, co podkreśla lakoniczne stwierdzenie: \"I nic.\". Użycie słowa \"może\" w wersie \"Jestem może bledsza\" oraz gradacja objawów – \"trochę śpiąca, trochę bardziej milcząca\" – to próba zbagatelizowania własnego cierpienia. To nie jest krzyk rozpaczy, lecz psychologiczny mechanizm obronny, próba wmówienia sobie i światu, że strata nie odcisnęła na niej wielkiego piętna, a życie toczy się dalej bez większych zmian.\n\n     Kluczem do zrozumienia wiersza jest jego paradoksalna puenta: \"lecz widać można żyć bez powietrza!\". Wykrzyknik na końcu zdania nasycony jest dotkliwą ironią. Porównując miłość do powietrza – substancji absolutnie niezbędnej do biologicznego przetrwania – osoba mówiąca tak naprawdę demaskuje swoje prawdziwe uczucia. Stwierdzenie, że \"można żyć bez powietrza\", jest w swojej istocie absurdalne i sprzeczne z logiką. Ta niemożliwa do spełnienia konstatacja podkreśla, jak fundamentalną wartością była dla niej utracona miłość. Życie bez niej jest jedynie wegetacją, \"życiem\" tylko z nazwy, pozbawionym najważniejszego, ożywczego elementu.\n\n     Podsumowując, wiersz Pawlikowskiej-Jasnorzewskiej to majstersztyk psychologicznej subtelności. Pod płaszczem obojętności i pozornej siły kryje się dramat kobiety, dla której miłość była jak powietrze. Utwór nie opowiada o tym, że można żyć bez miłości, lecz o tym, jak wygląda egzystencja, która jest jedynie namiastką prawdziwego życia. To niezwykle zwięzła, a zarazem przejmująca refleksja nad pustką, jaka pozostaje po wielkim uczuciu."
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_summary_1": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_summary_1",
+      "category": "matura_2024",
+      "question_type": "open_summary",
+      "origin_source_id": "EPOP-P1-P2-100-A-2406",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_maciolek_slowa"
+      ],
+      "question_text": "Napisz streszczenie tekstu Marcina Maciołka *U źródeł słów*, liczące 40-60 wyrazów.",
+      "choices": null,
+      "answer": {
+        "thinking": "Plan streszczenia:\n1.  **Temat:** Rola słów w ludzkim życiu.\n2.  **Kluczowe tezy autora:** Słowa porządkują świat, pozwalają wyrażać emocje i są narzędziem poznania rzeczywistości oraz samego siebie. Bogate słownictwo ułatwia precyzyjną komunikację i rozwój.\n3.  **Cel streszczenia:** Ująć najważniejsze punkty (funkcja porządkująca, poznawcza i komunikacyjna słów) w wymaganym limicie słów.\n4.  **Wymóg formalny:** Sprawdzenie, czy streszczenie mieści się w limicie 40-60 słów.",
+        "final_answer": "Marcin Maciołek w swoim tekście mówi o wpływie słów na ludzkie życie. Podkreśla, że słowa pozwalają nazywać różne elementy rzeczywistości, a także precyzyjnie określać stany emocjonalne, dzięki czemu człowiek lepiej rozumie świat i siebie. Zatem im więcej człowiek zna słów, tym bardziej pogłębia własną wiedzę i łatwiej mu komunikować się z innymi ludźmi."
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_summary_2": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_summary_2",
+      "category": "matura_2023",
+      "question_type": "open_summary",
+      "origin_source_id": "MPOP-P1-100-2305",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_steinhaus_matematyka"
+      ],
+      "question_text": "Napisz streszczenie tekstu Hugona Steinhausa, liczące 40-60 wyrazów.",
+      "choices": null,
+      "answer": {
+        "thinking": "Plan streszczenia:\n1.  **Temat:** Problematyczny model współpracy między matematykami a przyrodnikami.\n2.  **Kluczowe tezy autora:** Steinhaus krytykuje model, w którym matematyk jest tylko technikiem rozwiązującym równania bez zrozumienia kontekstu. Taka izolacja prowadzi do wzajemnego lekceważenia i braku efektywnych wyników.\n3.  **Cel streszczenia:** Przedstawić opisaną przez autora dysfunkcyjną relację między naukowcami i jej negatywne skutki.\n4.  **Wymóg formalny:** Sprawdzić, czy streszczenie mieści się w limicie 40-60 słów.",
+        "final_answer": "Hugo Steinhaus opisuje wadliwy model współpracy naukowców, w którym matematycy, traktowani jak techniczni wykonawcy, mieli rozwiązywać problemy przyrodników bez znajomości ich kontekstu. Taka izolacja, według autora, prowadziła do niepowodzeń. Rodziła też wzajemną niechęć: matematycy lekceważyli przyrodników za brak rygoru, a przyrodnicy uważali współpracę za niemożliwą."
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_synthesis_1": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_synthesis_1",
+      "category": "matura_2023",
+      "question_type": "open_synthesis",
+      "origin_source_id": "MPOP-P1-100-2306",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_isaacson_leonardo",
+        "FEW_SHOT_EXAMPLES_kontekst_steinhaus_wspolpraca"
+      ],
+      "question_text": "Na podstawie obu tekstów napisz syntetyzującą notatkę na temat: działania sprzyjające rozwojowi nauki. Twoja wypowiedź powinna liczyć 60-90 wyrazów.",
+      "choices": null,
+      "answer": {
+        "thinking": "Celem jest napisanie notatki syntetyzującej (60-90 słów) na temat działań sprzyjających rozwojowi nauki. Identyfikuję stanowiska autorów: Isaacson podkreśla konieczność łączenia teorii z praktyką na przykładzie Leonarda. Steinhaus postuluje wczesną i \"organiczną\" współpracę między specjalistami różnych dziedzin. Synteza: Obaj autorzy widzą postęp w przełamywaniu izolacji – metodologicznej (teoria-praktyka) i personalnej (między naukowcami).",
+        "final_answer": "Walter Isaacson na przykładzie Leonarda da Vinci ukazuje, że postęp naukowy wymaga łączenia teorii z doświadczeniem. Z kolei Hugo Steinhaus postuluje konieczność ścisłej i wczesnej współpracy między specjalistami z różnych dziedzin, na przykład matematykami i przyrodnikami. Z obu tekstów wynika zatem, że kluczem do rozwoju nauki jest przełamywanie izolacji – zarówno metodologicznej, jak i personalnej."
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_synthesis_2": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_synthesis_2",
+      "category": "matura_2021",
+      "question_type": "open_synthesis",
+      "origin_source_id": "EPOP-P1-100-2105",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_dyczewski_pamiec",
+        "FEW_SHOT_EXAMPLES_kontekst_dyczewski_limon_pamiec"
+      ],
+      "question_text": "Na podstawie obu tekstów napisz notatkę syntetyzującą na temat: sposób funkcjonowania pamięci. Twoja wypowiedź powinna liczyć 60-90 wyrazów.",
+      "choices": null,
+      "answer": {
+        "thinking": "Celem jest napisanie notatki syntetyzującej (60-90 słów) o funkcjonowaniu pamięci. Stanowisko Dyczewskiego: pamięć zbiorowa jest procesem sterowanym i koniecznym dla tożsamości. Stanowisko Limona: pamięć indywidualna to subiektywny, niekontrolowany proces biochemiczny. Punkt wspólny: obaj autorzy zgadzają się, że pamięć nie jest wiernym zapisem i podlega modyfikacjom. Różnica: Dyczewski mówi o pamięci zbiorowej i sterowanej, a Limon o indywidualnej i niekontrolowanej.",
+        "final_answer": "Zarówno Leon Dyczewski, jak i Jerzy Limon zgadzają się, że pamięć nie jest wiernym zapisem przeszłości i podlega modyfikacjom. Dyczewski opisuje ten proces w kontekście pamięci zbiorowej, która bywa świadomie kształtowana przez społeczeństwo w celu budowania tożsamości. Z kolei Limon przedstawia pamięć indywidualną jako subiektywny i nie w pełni kontrolowany proces biochemiczny, przypominający raczej montaż niż rejestrację faktów."
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_open_text_1": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_open_text_1",
+      "category": "matura_2021",
+      "question_type": "open_text",
+      "origin_source_id": "EPOP-P1-100-2105",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_dziady_iii",
+        "FEW_SHOT_EXAMPLES_kontekst_maciolek_slowa_2"
+      ],
+      "question_text": "Czy problem w posługiwaniu się słowami, o którym mówi Konrad, jest wyrażony również w tekście Marcina Maciołka? W uzasadnieniu odpowiedzi odwołaj się do obu fragmentów.",
+      "choices": null,
+      "answer": {
+        "thinking": "Celem jest porównanie obu tekstów pod kątem problemu niewystarczalności języka. Konrad twierdzi, że język \"kłamie\" myślom, zniekształcając je. Maciołek pisze o \"cierpieniu\", gdy nie można w pełni wyrazić myśli. Obaj wskazują na ten sam problem: niedoskonałość słowa jako nośnika idei. Odpowiedź musi to potwierdzić i krótko uzasadnić, odwołując się do obu tekstów.",
+        "final_answer": "Tak, oba teksty poruszają problem niewystarczalności języka. Konrad w *Dziadach cz. III* postrzega słowo jako narzędzie, które \"kłamie\" myślom i zniekształca ich pierwotny sens. Marcin Maciołek opisuje to samo zjawisko z perspektywy psychologicznej, mówiąc o \"cierpieniu\", które wynika z niemożności precyzyjnego wyrażenia myśli i uczuć."
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_open_text_2": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_open_text_2",
+      "category": "matura_2023",
+      "question_type": "open_text",
+      "origin_source_id": "EPOP-P1-100-2305",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_lalka_wokulski_konflikt"
+      ],
+      "question_text": "Na podstawie podanego fragmentu *Lalki* Bolesława Prusa określ, na czym polegał konflikt wewnętrzny Stanisława Wokulskiego.",
+      "choices": null,
+      "answer": {
+        "thinking": "Analizuję fragment pod kątem wewnętrznych sprzeczności Wokulskiego.\n1.  **Identyfikacja konfliktu:** Tekst ukazuje sprzeczność między tożsamością Wokulskiego a jego działaniami.\n2.  **Dwie strony konfliktu:**\n    - **Prawdziwa natura:** Wokulski postrzega siebie jako \"idealistę\" i \"uczonego\".\n    - **Narzucona rola:** Angażuje się w \"handel\", który nazywa \"szulerką\" i do którego czuje \"wstręt\".\n3.  **Przyczyna konfliktu:** Motywacją do podjęcia działań sprzecznych z jego naturą była chęć zdobycia majątku dla kobiety (\"Zdobywałem majątek dla niej!...\").\n4.  **Sformułowanie odpowiedzi:** Odpowiedź powinna jasno przedstawić te dwie przeciwstawne strony osobowości bohatera.",
+        "final_answer": "Konflikt wewnętrzny Stanisława Wokulskiego, ukazany w tym fragmencie, polega na głębokiej sprzeczności między jego prawdziwą naturą a rolą, którą przyjął. Wokulski postrzega siebie jako idealistę i uczonego, a jednocześnie zmusza się do działalności handlowej, którą pogardliwie nazywa \"szulerką\" i do której czuje wstręt. Rozdarcie to wynika z faktu, że porzucił swoje ideały na rzecz zdobywania majątku dla Izabeli Łęckiej."
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_open_text_3": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_open_text_3",
+      "category": "matura_2022",
+      "question_type": "open_text",
+      "origin_source_id": "EPOP-P2-100-A-2205",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_pawlikowska_milosc"
+      ],
+      "question_text": "Wyjaśnij, na czym polega paradoks sytuacji podmiotu lirycznego wiersza *Miłość*.",
+      "choices": null,
+      "answer": {
+        "thinking": "Analizuję treść wiersza w celu znalezienia paradoksu.\n1.  **Identyfikacja sytuacji:** Podmiot liryczny opisuje swój stan po rozstaniu z ukochaną osobą.\n2.  **Zestawienie sprzeczności:** Z jednej strony miłość jest porównana do \"powietrza\" (warunek życia), z drugiej podmiot konstatuje, że bez niej wciąż żyje.\n3.  **Istota paradoksu:** Polega on na logicznej sprzeczności między tezą o niemożności życia bez miłości a faktem dalszej egzystencji. Ta sprzeczność ironicznie podkreśla ogrom straty.\n4.  **Sformułowanie odpowiedzi:** Odpowiedź musi być maksymalnie zwięzła, oddając istotę paradoksu w jednym lub dwóch zdaniach.",
+        "final_answer": "Paradoks polega na tym, że podmiot liryczny z ironicznym zdziwieniem konstatuje, iż potrafi żyć, chociaż utracił miłość, którą postrzegał jako warunek niezbędny do egzystencji – jak powietrze."
+      }
+    },
+    "FEW_SHOT_EXAMPLES_zadanie_open_text_4": {
+      "question_id": "FEW_SHOT_EXAMPLES_zadanie_open_text_4",
+      "category": "matura_2023",
+      "question_type": "open_text",
+      "origin_source_id": "MPOP-P1-100-2306",
+      "context_ids": [
+        "FEW_SHOT_EXAMPLES_kontekst_skarga_kazania"
+      ],
+      "question_text": "Wyjaśnij, czemu służy porównanie ojczyzny do matki w powyższym fragmencie Kazań sejmowych Piotra Skargi.",
+      "choices": null,
+      "answer": {
+        "thinking": "Analizuję fragment tekstu, aby zrozumieć funkcję porównania.\n1.  **Elementy porównania:** Ojczyzna jest porównana do matki.\n2.  **Cechy matki:** Matka to ta, która \"urodziła i wychowała, nadała, wyniosła\". Bóg nakazał ją czcić.\n3.  **Przeniesienie cech:** Skarga przenosi te atrybuty i obowiązki na ojczyznę, nazywając ją \"pierwszą i zasłużżeńszą matką\".\n4.  **Cel (funkcja):** Celem jest wzbudzenie w odbiorcach (szlachcie) uczuć synowskiej miłości, szacunku i wdzięczności wobec ojczyzny. Ma to ich skłonić do troski o jej los, tak jak troszczą się o własną matkę.",
+        "final_answer": "Porównanie ojczyzny do matki służy wzbudzeniu u odbiorców silnych emocji i uczuć patriotycznych. Poprzez przywołanie obrazu matki, której należą się miłość, cześć i wdzięczność, Skarga nadaje ojczyźnie najwyższą rangę i podkreśla obowiązek troski o nią, podobny do obowiązku wobec rodzicielki."
+      }
+    }
+  }
+}

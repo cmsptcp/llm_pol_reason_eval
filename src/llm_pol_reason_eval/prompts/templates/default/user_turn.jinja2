@@ -1,0 +1,21 @@
+========================================
+### ZADANIE {{ template_params.get('question_index', 1) }}
+
+{% if question.get("context_ids") and contexts %}
+### KONTEKST(Y)
+{% for cid in question.get("context_ids", []) %}{% if contexts.get(cid) %}
+---
+{{ contexts[cid].context_content }}
+---
+{% endif %}{% endfor %}
+{% endif %}
+
+### POLECENIE
+{{ question.question_text }}
+
+{% if question.get("choices") %}
+### OPCJE WYBORU
+{% for choice in question.get("choices", []) %}
+- {{ choice.choice_id }}: {{ choice.choice_text }}
+{% endfor %}
+{% endif %}
