@@ -13,7 +13,6 @@ bielik-4-5b-v3-instruct:
   path: "speakleash/Bielik-4.5B-v3-Instruct"
   family: "bielik"
   inference_backend: "vllm"
-  quantization: "awq" # AWQ jest dobrą opcją dla vLLM
   generation_params:
     max_new_tokens: 1024
     temperature: 0.6

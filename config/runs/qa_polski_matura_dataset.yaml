@@ -43,7 +43,7 @@ experiments:
     iterations: 1
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
-      template_params: { num_few_shot: 2 }
+      template_params: { num_few_shot: 3 }
     param_overrides:
       per_type:
         open_essay: { max_new_tokens: 3072 }
@@ -73,7 +73,7 @@ experiments:
     iterations: 1
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
-      template_params: { num_few_shot: 2 }
+      template_params: { num_few_shot: 3 }
     param_overrides:
       per_type:
         open_essay: { max_new_tokens: 3072 }
@@ -103,7 +103,7 @@ experiments:
     iterations: 1
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
-      template_params: { num_few_shot: 2 }
+      template_params: { num_few_shot: 3 }
     param_overrides:
       per_type:
         open_essay: { max_new_tokens: 3072 }
@@ -133,7 +133,7 @@ experiments:
     iterations: 1
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
-      template_params: { num_few_shot: 2 }
+      template_params: { num_few_shot: 3 }
     param_overrides:
       per_type:
         open_essay: { max_new_tokens: 3072 }
@@ -203,7 +203,7 @@ experiments:
     iterations: 1
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
-      template_params: { num_few_shot: 2 }
+      template_params: { num_few_shot: 3 }
     param_overrides:
       default: { enable_thinking: true }
       per_type:
@@ -235,7 +235,7 @@ experiments:
     iterations: 1
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
-      template_params: { num_few_shot: 2 }
+      template_params: { num_few_shot: 3 }
     param_overrides:
       default: { enable_thinking: true }
       per_type:
