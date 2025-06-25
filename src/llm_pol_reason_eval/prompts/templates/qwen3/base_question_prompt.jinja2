@@ -1,20 +1,26 @@
-{# Komenda /no_think jest dodawana tylko, gdy myślenie jest jawnie wyłączone. #}
-{% if template_params.get('enable_thinking') == false %}/no_think{% endif %}
+{# Poprawiona wersja szablonu base_question_prompt.jinja2 dla rodziny qwen3 #}
 
-{# 1. Składanie instrukcji w zależności od trybu #}
+{# 1. Najpierw jasno definiujemy instrukcję, która będzie na samej górze. #}
 {% if template_params.get('enable_thinking') %}
-{# Instrukcja dla Qwen, aby używał tagów <thinking> #}
-Przeanalizuj poniższe zadanie krok po kroku. Najpierw przedstaw swój tok rozumowania w sekcji <thinking>, a następnie udziel ostatecznej odpowiedzi.
+{# Instrukcja dla trybu z myśleniem #}
+Przeanalizuj poniższe zadanie krok po kroku, opierając się na załączonych tekstach. Swój tok rozumowania przedstaw w sekcji <thinking>, a następnie sformułuj ostateczną odpowiedź w sekcji <answer>.
 {% else %}
-{# Prosta instrukcja, gdy myślenie jest wyłączone #}
-Udziel odpowiedzi na poniższe zadanie.
+{# Instrukcja dla trybu bez myślenia #}
+Udziel odpowiedzi na poniższe zadanie, opierając się na załączonych tekstach.
 {% endif %}
 
-{# 2. Dołączanie przykładów "Few-Shot" #}
-{% if 'few_shot' in components and template_params.few_shot_path %}{% include template_params.few_shot_path %}{% endif %}
---- TERAZ TWOJA KOLEJ ---
+{# 2. Dołączamy przykłady "Few-Shot", jeśli są wymagane. #}
+{% if 'few_shot' in components and template_params.few_shot_path %}
+{% include template_params.few_shot_path %}
+{% endif %}
 
-{# 3. Renderowanie właściwego pytania #}
+{# 3. Dodajemy bardzo silny i jednoznaczny separator, który mówi modelowi "przykłady się skończyły". #}
+---
+### ZADANIE DO WYKONANIA
+---
+Teraz, na podstawie PONIŻSZYCH DANYCH, rozwiąż następujące zadanie:
+
+{# 4. Renderujemy właściwe pytanie, kontekst i polecenie. #}
 ========================================
 ### ZADANIE {% if template_params.question_index %}{{ template_params.question_index }}{% else %}1{% endif %}
 
@@ -40,5 +46,4 @@ Udziel odpowiedzi na poniższe zadanie.
 {% endif %}
 
 ### ODPOWIEDŹ
-{# Dodajemy tag <thinking>, aby zainicjować proces myślenia, jeśli jest włączony #}
 {% if template_params.get('enable_thinking') %}<thinking>{% endif %}

@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Callable
 import re
+import sys
 import time
 
 from transformers import AutoTokenizer
@@ -23,14 +24,12 @@ class LLMQAEngine:
         self.dataset_manager = DatasetManager()
 
         project_root = Path(__file__).resolve().parents[2]
-        templates_path = project_root / "llm_pol_reason_eval/prompts/templates"
-
+        templates_path = project_root / "src/llm_pol_reason_eval/prompts/templates"
         if not templates_path.is_dir():
-            alt_templates_path = project_root / "src/llm_pol_reason_eval/prompts/templates"
-            if not alt_templates_path.is_dir():
+            templates_path = project_root / "llm_pol_reason_eval/prompts/templates"
+            if not templates_path.is_dir():
                 raise FileNotFoundError(
-                    f"Nie znaleziono katalogu szablonów w '{templates_path}' ani '{alt_templates_path}'")
-            templates_path = alt_templates_path
+                    f"Nie znaleziono katalogu szablonów w '{templates_path}' ani w alternatywnej ścieżce.")
 
         self.prompt_manager = PromptManager(templates_dir=templates_path)
         self.results: List[ModelAnswerData] = []
@@ -42,11 +41,12 @@ class LLMQAEngine:
                          output_filepath: str,
                          model_cfg: Dict,
                          prompt_composition: Dict,
-                         batch_size: int = 10,
+                         batch_size: int = 1,
                          query: Optional[Callable[[dict], bool]] = None,
                          param_overrides: Optional[Dict[str, Any]] = None,
                          skip_questions: int = 0, max_questions: Optional[int] = None,
                          ) -> List[ModelAnswerData]:
+        total_start_time = time.perf_counter()
         self._setup_logger_and_reset_results(dataset_filepath, output_filepath)
         self._load_dataset(dataset_filepath)
         batch_generator = self._create_question_batch_iterator(batch_size, query)
@@ -60,7 +60,32 @@ class LLMQAEngine:
             max_questions
         )
         self.save_final_results(output_filepath)
+
+        total_end_time = time.perf_counter()
+        total_duration = total_end_time - total_start_time
+        self.logger.info(f"=== ZAKOŃCZONO WSZYSTKIE ZADANIA ===")
+        self.logger.info(f"Całkowity czas przetwarzania: {total_duration:.2f} sekund.")
+
         return self.results
+
+    def _prepare_final_configs(self, model_cfg: Dict, prompt_composition: Dict, param_overrides: Dict,
+                               q_type: Optional[str]) -> (Dict, Dict):
+        """Centralna funkcja do łączenia wszystkich konfiguracji."""
+
+        # 1. Połącz parametry generacji (zawsze zaczynaj od kopii, by nie modyfikować oryginału)
+        final_gen_params = model_cfg.get('generation_params', {}).copy()
+        final_gen_params.update(param_overrides.get('default', {}))
+        if q_type and q_type in param_overrides.get('per_type', {}):
+            final_gen_params.update(param_overrides['per_type'][q_type])
+
+        # 2. Połącz parametry szablonu
+        final_composition = prompt_composition.copy()
+        final_composition['template_params'] = final_composition.get('template_params', {}).copy()
+
+        # Przekaż wszystkie parametry generacji do szablonu, aby miał do nich dostęp
+        final_composition['template_params'].update(final_gen_params)
+
+        return final_gen_params, final_composition
 
     def _process_batches(self, batch_generator, model_cfg: Dict, prompt_composition: Dict,
                          param_overrides: Dict, output_filepath: str,
@@ -73,6 +98,7 @@ class LLMQAEngine:
             if not questions_in_batch:
                 continue
 
+            # Logika skip i max questions pozostaje bez zmian
             if questions_skipped < skip_questions:
                 to_skip = min(skip_questions - questions_skipped, len(questions_in_batch))
                 questions_in_batch = questions_in_batch[to_skip:]
@@ -89,23 +115,14 @@ class LLMQAEngine:
             batch_data['questions'] = dict(questions_in_batch)
             self.logger.info(f"Przetwarzanie batcha {i + 1} z {len(questions_in_batch)} pytaniami.")
 
-            # Logika dyspozytorska: wybór trybu przetwarzania
-            if len(questions_in_batch) > 1:
-                batch_results = self._handle_batched_inference(
-                    batch_data=batch_data,
-                    model_cfg=model_cfg,
-                    prompt_composition=prompt_composition,
-                    param_overrides=param_overrides,
-                    batch_index=i
-                )
-            else:
-                batch_results = self._handle_serial_processing(
-                    batch_data=batch_data,
-                    model_cfg=model_cfg,
-                    prompt_composition=prompt_composition,
-                    param_overrides=param_overrides,
-                    batch_index=i
-                )
+            # Używamy ujednoliconej logiki dla obu przypadków
+            batch_results = self._handle_inference(
+                batch_data=batch_data,
+                model_cfg=model_cfg,
+                prompt_composition=prompt_composition,
+                param_overrides=param_overrides,
+                batch_index=i
+            )
 
             if batch_results:
                 self.results.extend(batch_results)
@@ -123,33 +140,52 @@ class LLMQAEngine:
 
         self.logger.info(f"Zakończono. Łącznie przetworzono {total_questions_processed} pytań.")
 
-    def _handle_batched_inference(self, batch_data: Dict, model_cfg: Dict, prompt_composition: Dict,
-                                  param_overrides: Dict, batch_index: int) -> List[ModelAnswerData]:
-        """Przetwarza cały batch pytań za jednym razem, wykorzystując `get_responses_with_batching`."""
-        self.logger.info(f"--- Batch {batch_index + 1}: tryb wsadowy ---")
-
+    def _handle_inference(self, batch_data: Dict, model_cfg: Dict, prompt_composition: Dict,
+                          param_overrides: Dict, batch_index: int) -> List[ModelAnswerData]:
+        """Ujednolicona metoda do obsługi inferencji dla batcha (dowolnego rozmiaru)."""
         questions_map = batch_data.get('questions', {})
         q_ids_in_order = list(questions_map.keys())
 
-        all_chatml_prompts = self.prompt_manager.prepare_question_chatml_prompt_batch(
-            model_cfg, batch_data, prompt_composition
-        )
+        all_prompts_chatml = []
+        all_final_gen_params = []
+
+        # Ta pętla jest potrzebna, bo każde pytanie może mieć inny `q_type` i inne parametry
+        for q_id in q_ids_in_order:
+            q_data = questions_map[q_id]
+            q_type = q_data.get('question_type', 'N/A')
+            contexts_for_q = {cid: batch_data['contexts'][cid] for cid in q_data.get("context_ids", []) if
+                              cid in batch_data['contexts']}
+
+            # Używamy nowej, scentralizowanej funkcji do przygotowania konfiguracji
+            final_gen_params, final_composition = self._prepare_final_configs(model_cfg, prompt_composition,
+                                                                              param_overrides, q_type)
+
+            messages = self.prompt_manager.prepare_question_chatml_prompt(
+                model_cfg, q_data, contexts_for_q, final_composition
+            )
+
+            all_prompts_chatml.append(messages)
+            all_final_gen_params.append(final_gen_params)
+
+        # Na potrzeby `apply_chat_template` potrzebujemy też argumentu `enable_thinking`
+        tokenizer_args = {}
+        if final_gen_params.get('enable_thinking') is not None:
+            tokenizer_args['enable_thinking'] = final_gen_params['enable_thinking']
+
         final_prompts = [
-            self.tokenizer.apply_chat_template(chatml, tokenize=False, add_generation_prompt=True)
-            for chatml in all_chatml_prompts
+            self.tokenizer.apply_chat_template(chatml, tokenize=False, add_generation_prompt=True, **tokenizer_args)
+            for chatml in all_prompts_chatml
         ]
 
-        q_type = list(questions_map.values())[0].get('question_type', 'N/A')
-        generation_params, _ = self._get_generation_params_and_tokenizer_args(model_cfg, q_type, param_overrides)
+        # Zakładamy, że dla jednego batcha parametry generacji są takie same (bierzemy pierwsze)
+        # To uproszczenie, które w Twoim obecnym przypadku jest prawdziwe.
+        final_generation_params_for_batch = all_final_gen_params[0]
 
-        self.logger.info(f"Wysyłanie {len(final_prompts)} promptów do modelu z parametrami: {generation_params}")
         start_time = time.perf_counter()
-
         raw_responses = self.inference_client.get_responses_with_batching(
             final_prompts,
-            generation_params_override=generation_params
+            generation_params_override=final_generation_params_for_batch
         )
-
         end_time = time.perf_counter()
 
         total_duration = end_time - start_time
@@ -157,8 +193,9 @@ class LLMQAEngine:
         self.logger.info(f"Batch przetworzony w {total_duration:.2f}s ({duration_per_request:.2f}s na pytanie).")
 
         model_config_details = {
-            "model_config": model_cfg, "prompt_composition": prompt_composition,
-            "generation_parameters": generation_params
+            "model_config": model_cfg,
+            "prompt_composition": prompt_composition,
+            "generation_parameters": final_generation_params_for_batch
         }
 
         batch_model_answers = []
@@ -166,7 +203,8 @@ class LLMQAEngine:
             self.prompts[q_id] = final_prompts[i]
             raw_response = raw_responses[i]
             parsed_answer = self._parse_single_answer(raw_response)
-            self.logger.info(f"Sparsowana odpowiedź dla Q_ID {q_id}: {parsed_answer[:100]}...")
+            self.logger.info(f"Sparsowana odpowiedź dla Q_ID {q_id}: {parsed_answer[:100].replace(chr(10), ' ')}...")
+
             batch_model_answers.append(ModelAnswerData(
                 model_answer_id=f"ans_{uuid.uuid4()}",
                 question_id=q_id,
@@ -179,89 +217,7 @@ class LLMQAEngine:
             ))
         return batch_model_answers
 
-    def _handle_serial_processing(self, batch_data: Dict, model_cfg: Dict, prompt_composition: Dict,
-                                  param_overrides: Dict, batch_index: int) -> List[ModelAnswerData]:
-        """Przetwarza pytania jedno po drugim (dla batch_size=1)."""
-        self.logger.info(f"--- Batch {batch_index + 1}: tryb seryjny ---")
-
-        q_id, q_data = list(batch_data.get('questions', {}).items())[0]
-        all_contexts = batch_data.get('contexts', {})
-        contexts_for_q = {cid: all_contexts[cid] for cid in q_data.get("context_ids", []) if cid in all_contexts}
-
-        messages = self.prompt_manager.prepare_question_chatml_prompt(
-            model_cfg, q_data, contexts_for_q, prompt_composition
-        )
-
-        q_type = q_data.get('question_type', 'N/A')
-        generation_params, tokenizer_args = self._get_generation_params_and_tokenizer_args(
-            model_cfg, q_type, param_overrides
-        )
-
-        prompt_string = self.tokenizer.apply_chat_template(
-            messages, tokenize=False, add_generation_prompt=True, **tokenizer_args
-        )
-        self.prompts[q_id] = prompt_string
-
-        print(f"Przetwarzanie pytania Q_ID {q_id} z typu '{q_type}' i kontekstem: {contexts_for_q.keys()}")
-        print(f"Generation parameters: {generation_params}")
-
-        start_time = time.perf_counter()
-        raw_response = self.inference_client.get_response(prompt_string, generation_params_override=generation_params)
-        end_time = time.perf_counter()
-        duration = end_time - start_time
-        self.logger.info(f"Pojedyncze zapytanie przetworzone w {duration:.2f}s.")
-
-        parsed_answer = self._parse_single_answer(raw_response)
-        self.logger.info(f"Sparsowana odpowiedź dla Q_ID {q_id}: {parsed_answer[:100]}...")
-
-        model_config_details = {
-            "model_config": model_cfg, "prompt_composition": prompt_composition,
-            "generation_parameters": generation_params, "tokenizer_arguments": tokenizer_args
-        }
-
-        return [ModelAnswerData(
-            model_answer_id=f"ans_{uuid.uuid4()}",
-            question_id=q_id,
-            model_answer_raw_text=raw_response,
-            model_answer_clean_text=parsed_answer,
-            generated_by=f"{self.model_name} ({self.model_path})",
-            generation_date=datetime.now(timezone.utc).isoformat(),
-            model_configuration=model_config_details,
-            generation_time=duration
-        )]
-
-    def _get_generation_params_and_tokenizer_args(self, model_cfg: Dict, q_type: Optional[str],
-                                                  param_overrides: Dict) -> (Dict, Dict):
-        """
-        Przygotowuje finalne słowniki z parametrami dla generacji i tokenizera,
-        łącząc konfiguracje i obsługując logikę 'enable_thinking'.
-        """
-        # 1. Zacznij od bazowej konfiguracji z models.yaml
-        final_gen_params = model_cfg.get('generation_params', {}).copy()
-
-        # 2. Nałóż na nią nadpisania z konfiguracji uruchomienia (run config)
-        final_gen_params.update(param_overrides.get('default', {}))
-        if q_type and q_type in param_overrides.get('per_type', {}):
-            final_gen_params.update(param_overrides['per_type'][q_type])
-
-        # 3. Logika dla 'enable_thinking' - bez usuwania kluczy!
-        tokenizer_args = {}
-        enable_thinking_value = final_gen_params.get('enable_thinking')
-
-        if enable_thinking_value is True:
-            # Jeśli jawnie ustawione na True, włącz myślenie
-            tokenizer_args['enable_thinking'] = True
-        elif enable_thinking_value is False:
-            # Jeśli jawnie ustawione na False, wyłącz myślenie
-            tokenizer_args['enable_thinking'] = False
-
-        # 4. Usuń klucz 'enable_thinking' z parametrów generacji, jeśli tam jest,
-        # ponieważ nie jest on argumentem SamplingParams.
-        if 'enable_thinking' in final_gen_params:
-            del final_gen_params['enable_thinking']
-
-        return final_gen_params, tokenizer_args
-
+    # Metody pomocnicze (bez zmian)
     def _load_dataset(self, dataset_filepath: str):
         self.logger.info(f"Ładowanie datasetu z: {dataset_filepath}")
         self.dataset_manager.add_data_from_json_file(dataset_filepath)
@@ -274,16 +230,29 @@ class LLMQAEngine:
         )
 
     def _parse_single_answer(self, raw_answer_text: str) -> str:
-        match = re.search(r'<answer>(.*?)</answer>', raw_answer_text, re.DOTALL | re.IGNORECASE)
-        if match:
-            return match.group(1).strip()
-        self.logger.warning(f"Nie znaleziono tagu <answer> w odpowiedzi: '{raw_answer_text[:100]}...'")
+        # Spróbuj wyciągnąć pełną odpowiedź w znacznikach <answer>...</answer>
+        match_ans = re.search(r'<answer>(.*?)</answer>', raw_answer_text, re.DOTALL | re.IGNORECASE)
+        if match_ans:
+            return match_ans.group(1).strip()
+
+        # Jeżeli brak zamykającego </answer>, przetwarzaj wszystko po otwarciu <answer>
+        match_open = re.search(r'<answer>(.*)', raw_answer_text, re.DOTALL | re.IGNORECASE)
+        if match_open:
+            return match_open.group(1).strip()
+
+        # Obsłuż różne "tagi myślenia"
+        thinking_tags = [r'</thinking>', r'</think>', r'</inner_monologue>']
+        for tag in thinking_tags:
+            match_think = re.search(tag + r'(.*)', raw_answer_text, re.DOTALL | re.IGNORECASE)
+            if match_think:
+                return match_think.group(1).strip()
+
+        self.logger.warning(f"Nie odnaleziono znacznika <answer>; zwracam całość.")
         return raw_answer_text.strip()
 
     def _setup_logger_and_reset_results(self, dataset_filepath: str, output_filepath: str):
         log_prefix = Path(dataset_filepath).stem
         self.logger = self._create_simple_logger(log_prefix, output_filepath)
-        self.logger.info("Logger uruchomiony.")
         self.results = []
         self.prompts = {}
 
@@ -297,7 +266,6 @@ class LLMQAEngine:
         self._write_results_to_json(Path(output_filepath).with_suffix('.partial.json'), self.results)
 
     def _save_prompts(self, output_filepath: str):
-        """Zapisuje zebrane prompty do pliku JSON z dopiskiem .prompts.json."""
         prompts_filepath = Path(output_filepath).with_name(f"{Path(output_filepath).stem}.prompts.json")
         output_data = {"prompts": self.prompts}
         prompts_filepath.parent.mkdir(parents=True, exist_ok=True)
@@ -338,13 +306,13 @@ class SimpleFileLogger:
 
     def _log(self, level: str, message: str):
         log_entry = f"{datetime.now(timezone.utc).isoformat()} {level}: {message}\n"
-        print(log_entry.strip())
+        print(log_entry.strip(), file=sys.stderr)
         try:
             with open(self.filepath, 'a', encoding='utf-8') as f:
                 f.write(log_entry)
                 f.flush()
         except Exception as e:
-            print(f"KRYTYCZNY BŁĄD LOGOWANIA do {self.filepath}: {e}")
+            print(f"KRYTYCZNY BŁĄD LOGOWANIA do {self.filepath}: {e}", file=sys.stderr)
 
     def info(self, message: str):
         self._log("INFO", message)

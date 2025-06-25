@@ -59,6 +59,8 @@ qwen3-1-7b:
     temperature: 0.6
     do_sample: true
     top_p: 0.95
+  prompt_template_params:
+    enable_thinking: true
 
 qwen3-4b:
   name: "qwen3-4b"
@@ -70,17 +72,8 @@ qwen3-4b:
     temperature: 0.6
     do_sample: true
     top_p: 0.95
-
-qwen3-14b:
-  name: "qwen3-14b"
-  path: "Qwen/Qwen3-14B"
-  family: "qwen3"
-  quantization: "int8"
-  generation_params:
-    max_new_tokens: 1024
-    temperature: 0.6
-    do_sample: true
-    top_p: 0.95
+  prompt_template_params:
+    enable_thinking: true
 
 qwen3-14b-awq:
   name: "qwen3-14b-awq"
@@ -93,6 +86,8 @@ qwen3-14b-awq:
     temperature: 0.6
     do_sample: true
     top_p: 0.95
+  prompt_template_params:
+    enable_thinking: true
 
 qwen3-14b-fp8:
   name: "qwen3-14b-fp8"
@@ -105,6 +100,9 @@ qwen3-14b-fp8:
     temperature: 0.6
     do_sample: true
     top_p: 0.95
+  prompt_template_params:
+    enable_thinking: true
+
 
 pllum-12b-instruct:
   name: "pllum-12b-instruct"

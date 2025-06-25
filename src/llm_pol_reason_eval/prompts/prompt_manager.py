@@ -86,20 +86,26 @@ class PromptManager:
         questions_dict = batch_data.get('questions', {})
         all_contexts_dict = batch_data.get('contexts', {})
 
+        base_template_params = model_cfg.get('prompt_template_params', {})
+        run_template_params = composition.get('template_params', {})
+
+        final_template_params = {**base_template_params, **run_template_params}
+
+        final_composition = composition.copy()
+        final_composition['template_params'] = final_template_params
+
         for i, (q_id, q_data) in enumerate(questions_dict.items()):
             contexts_for_this_question = {
                 cid: all_contexts_dict[cid]
                 for cid in q_data.get("context_ids", [])
                 if cid in all_contexts_dict
             }
-            current_composition = composition.copy()
-            current_composition['template_params'] = current_composition.get('template_params', {}).copy()
 
             chatml_prompt = self.prepare_question_chatml_prompt(
                 model_cfg,
                 q_data,
                 contexts_for_this_question,
-                current_composition
+                final_composition
             )
             all_prompts_chatml.append(chatml_prompt)
         return all_prompts_chatml

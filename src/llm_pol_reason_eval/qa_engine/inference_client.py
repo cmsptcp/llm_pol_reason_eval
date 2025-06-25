@@ -169,7 +169,7 @@ class VLLMClient(InferenceClient):
             "trust_remote_code": True,
             "gpu_memory_utilization": 0.85,
             "max_model_len": 8192,
-            "max_num_seqs": 2,
+            "max_num_seqs": 256,
             "max_num_batched_tokens": 10240,
             "swap_space": 16,
         }
@@ -200,8 +200,6 @@ class VLLMClient(InferenceClient):
     def get_responses_with_batching(self, prompts: List[str],
                                     generation_params_override: Optional[Dict[str, Any]] = None) -> List[str]:
 
-        # --- POCZĄTEK FINALNEJ WERSJI LOGIKI ---
-
         # 1. Łączymy parametry: domyślne z modelu i te z konkretnego uruchomienia
         params_to_use = self.default_generation_params.copy()
         if generation_params_override:
@@ -220,7 +218,7 @@ class VLLMClient(InferenceClient):
         stop_tokens.update(["[[---KONIEC ODPOWIEDZI---]]", "<|im_end|>"])
         params_to_use["stop"] = list(stop_tokens)
 
-        # 5. RĘCZNE I BEZPIECZNE FILTROWANIE PARAMETRÓW
+        # 5. RĘCZNE FILTROWANIE PARAMETRÓW
         # Tworzymy listę kluczy, które SĄ akceptowane przez SamplingParams vLLM 0.9.1
         # Źródło: https://github.com/vllm-project/vllm/blob/main/vllm/sampling_params.py
         valid_keys_for_sampling = {
@@ -239,8 +237,6 @@ class VLLMClient(InferenceClient):
 
         # 6. Inicjalizujemy SamplingParams, mając pewność, że nie ma w nim niechcianych kluczy
         sampling_params = SamplingParams(**sampling_params_kwargs)
-
-        # --- KONIEC FINALNEJ WERSJI LOGIKI ---
 
         print(f"VLLMClient: Finalne, przefiltrowane parametry wysyłane do vLLM: {sampling_params}")
         outputs = self.llm.generate(prompts, sampling_params)

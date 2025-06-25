@@ -21,62 +21,6 @@ experiments:
       components: ["few_shot", "chain_of_thought"]
     param_overrides: {}
 
-  qwen-small-nt-matura:
-    task_name: "Qwen3 1.7B - Bez myślenia - Matura"
-    model: qwen3-1-7b
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/qwen-small-nt-matura"
-    iterations: 1
-    prompt_composition:
-      main_template: "base_question_prompt.jinja2"
-      components: []
-    param_overrides:
-      default:
-        enable_thinking: false
-
-  qwen-small-nt-fs-cot-matura:
-    task_name: "Qwen3 1.7B - Bez myślenia, Few-Shot & CoT - Matura"
-    model: qwen3-1-7b
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/qwen-small-nt-fs-cot-matura"
-    iterations: 1
-    prompt_composition:
-      main_template: "base_question_prompt.jinja2"
-      components: ["few_shot", "chain_of_thought"]
-    param_overrides:
-      default:
-        enable_thinking: false
-
-  qwen-small-th-matura:
-    task_name: "Qwen3 1.7B - Z myśleniem - Matura"
-    model: qwen3-1-7b
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/qwen-small-th-matura"
-    iterations: 1
-    prompt_composition:
-      main_template: "base_question_prompt.jinja2"
-      components: []
-      template_params:
-        show_thinking_output: true
-    param_overrides:
-      default:
-        enable_thinking: true
-
-  qwen-small-th-fs-cot-matura:
-    task_name: "Qwen3 1.7B - Z myśleniem, Few-Shot & CoT - Matura"
-    model: qwen3-1-7b
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/qwen-small-th-fs-cot-matura"
-    iterations: 1
-    prompt_composition:
-      main_template: "base_question_prompt.jinja2"
-      components: ["few_shot", "chain_of_thought"]
-      template_params:
-        show_thinking_output: true
-    param_overrides:
-      default:
-        enable_thinking: true
-
   bielik-medium-matura:
     task_name: "Bielik 4.5B - Domyślne ustawienia - Matura"
     model: bielik-4-5b-v3-instruct
@@ -121,6 +65,44 @@ experiments:
       components: ["few_shot", "chain_of_thought"]
     param_overrides: {}
 
+  qwen-small-nt-matura:
+    task_name: "Qwen3 1.7B - Bez myślenia - Matura"
+    model: qwen3-1-7b
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
+    output_dir: "results/qwen-small-nt-matura"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: []
+    param_overrides:
+      default:
+        enable_thinking: false
+      per_type:
+        open_essay:
+          max_new_tokens: 2048
+        open_poetry_interpretation:
+          max_new_tokens: 2048
+
+  qwen-small-th-fs-cot-matura:
+    task_name: "Qwen3 1.7B - Z myśleniem, Few-Shot & CoT - Matura"
+    model: qwen3-1-7b
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
+    output_dir: "results/qwen-small-th-fs-cot-matura"
+    iterations: 1
+    prompt_composition:
+      main_template: "base_question_prompt.jinja2"
+      components: ["few_shot", "chain_of_thought"]
+      template_params:
+        show_thinking_output: true
+    param_overrides:
+      default:
+        enable_thinking: true
+      per_type:
+        open_essay:
+          max_new_tokens: 2048
+        open_poetry_interpretation:
+          max_new_tokens: 2048
+
   qwen-medium-nt-matura:
     task_name: "Qwen3 4B - Bez myślenia - Matura"
     model: qwen3-4b
@@ -133,34 +115,11 @@ experiments:
     param_overrides:
       default:
         enable_thinking: false
-
-  qwen-medium-nt-fs-cot-matura:
-    task_name: "Qwen3 4B - Bez myślenia, Few-Shot & CoT - Matura"
-    model: qwen3-4b
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/qwen-medium-nt-fs-cot-matura"
-    iterations: 1
-    prompt_composition:
-      main_template: "base_question_prompt.jinja2"
-      components: ["few_shot", "chain_of_thought"]
-    param_overrides:
-      default:
-        enable_thinking: false
-
-  qwen-medium-th-matura:
-    task_name: "Qwen3 4B - Z myśleniem - Matura"
-    model: qwen3-4b
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/qwen-medium-th-matura"
-    iterations: 1
-    prompt_composition:
-      main_template: "base_question_prompt.jinja2"
-      components: []
-      template_params:
-        show_thinking_output: true
-    param_overrides:
-      default:
-        enable_thinking: true
+      per_type:
+        open_essay:
+          max_new_tokens: 2048
+        open_poetry_interpretation:
+          max_new_tokens: 2048
 
   qwen-medium-th-fs-cot-matura:
     task_name: "Qwen3 4B - Z myśleniem, Few-Shot & CoT - Matura"
@@ -176,10 +135,21 @@ experiments:
     param_overrides:
       default:
         enable_thinking: true
+      per_type:
+        open_essay:
+          max_new_tokens: 3072
+        open_poetry_interpretation:
+          max_new_tokens: 3072
+        open_summary:
+          max_new_tokens: 2048
+        open_synthesis:
+          max_new_tokens: 2048
+        open_text:
+          max_new_tokens: 1536
 
   qwen-normal-nt-matura:
     task_name: "Qwen3 14B - Bez myślenia - Matura"
-    model: qwen3-14b-awq
+    model: qwen3-14b-fp8
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-normal-nt-matura"
     iterations: 1
@@ -189,34 +159,11 @@ experiments:
     param_overrides:
       default:
         enable_thinking: false
-
-  qwen-normal-nt-fs-cot-matura:
-    task_name: "Qwen3 14B - Bez myślenia, Few-Shot & CoT - Matura"
-    model: qwen3-14b-fp8
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/qwen-normal-nt-fs-cot-matura"
-    iterations: 1
-    prompt_composition:
-      main_template: "base_question_prompt.jinja2"
-      components: ["few_shot", "chain_of_thought"]
-    param_overrides:
-      default:
-        enable_thinking: false
-
-  qwen-normal-th-matura:
-    task_name: "Qwen3 14B - Z myśleniem - Matura"
-    model: qwen3-14b-fp8
-    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
-    output_dir: "results/qwen-normal-th-matura"
-    iterations: 1
-    prompt_composition:
-      main_template: "base_question_prompt.jinja2"
-      components: []
-      template_params:
-        show_thinking_output: true
-    param_overrides:
-      default:
-        enable_thinking: true
+      per_type:
+        open_essay:
+          max_new_tokens: 2048
+        open_poetry_interpretation:
+          max_new_tokens: 2048
 
   qwen-normal-th-fs-cot-matura:
     task_name: "Qwen3 14B - Z myśleniem, Few-Shot & CoT - Matura"
@@ -232,3 +179,14 @@ experiments:
     param_overrides:
       default:
         enable_thinking: true
+      per_type:
+        open_essay:
+          max_new_tokens: 3072
+        open_poetry_interpretation:
+          max_new_tokens: 3072
+        open_summary:
+          max_new_tokens: 2048
+        open_synthesis:
+          max_new_tokens: 2048
+        open_text:
+          max_new_tokens: 1536
