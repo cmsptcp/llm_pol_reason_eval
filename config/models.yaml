@@ -21,10 +21,22 @@ bielik-4-5b-v3-instruct:
 
 bielik-11b-v26-instruct-fp8-dynamic:
   name: "bielik-11b-v26-instruct-fp8-dynamic"
-  path: "speakleash/Bielik-11B-v2.6-Instruct"
+  path: "speakleash/Bielik-11B-v2.6-Instruct-FP8-Dynamic"
   family: "bielik"
   inference_backend: "vllm"
   quantization: "fp8-dynamic"
+  generation_params:
+    max_new_tokens: 1536
+    temperature: 0.6
+    do_sample: true
+    top_p: 0.95
+
+bielik-11b-v26-instruct-awq:
+  name: "bielik-11b-v26-instruct-awq"
+  path: "speakleash/Bielik-11B-v2.6-Instruct-AWQ"
+  family: "bielik"
+  inference_backend: "vllm"
+  quantization: "awq"
   generation_params:
     max_new_tokens: 1536
     temperature: 0.6
@@ -81,12 +93,24 @@ pllum-8b-instruct:
     do_sample: true
     top_p: 0.95
 
-pllum-12b-instruct:
+pllum-12b-instruct-fp8:
   name: "pllum-12b-instruct"
   path: "CYFRAGOVPL/PLLuM-12B-instruct"
   family: "pllum"
   inference_backend: "vllm"
   quantization: "fp8"
+  generation_params:
+    max_new_tokens: 1536
+    temperature: 0.6
+    do_sample: true
+    top_p: 0.95
+
+pllum-12b-instruct-awq:
+  name: "pllum-12b-instruct"
+  path: "CYFRAGOVPL/PLLuM-12B-instruct"
+  family: "pllum"
+  inference_backend: "vllm"
+  quantization: "awq"
   generation_params:
     max_new_tokens: 1536
     temperature: 0.6
