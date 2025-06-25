@@ -124,12 +124,10 @@ class LLMQAEngine:
             few_shot_examples = []
             if "few_shot" in final_composition.get("components", []):
                 num_examples = final_composition.get('template_params', {}).get('num_few_shot', 2)
-                self.logger.info(f"Wyszukiwanie do {num_examples} przykładów few-shot dla typu: '{q_type}'")
                 few_shot_examples = self.examples_manager.get_few_shot_examples(
                     question_type=q_type,
                     num_examples=num_examples
                 )
-                self.logger.info(f"Znaleziono {len(few_shot_examples)} przykłady.")
 
             messages = self.prompt_manager.prepare_conversation_prompt(
                 model_cfg, q_data, contexts_for_q, final_composition, few_shot_examples
@@ -163,13 +161,21 @@ class LLMQAEngine:
         return batch_model_answers
 
     def _parse_single_answer(self, raw_answer_text: str) -> str:
-        match = re.search(r'<answer>(.*?)</answer>', raw_answer_text, re.DOTALL | re.IGNORECASE)
-        if match: return match.group(1).strip()
-        match_think = re.search(r'</thinking>(.*)', raw_answer_text, re.DOTALL | re.IGNORECASE)
-        if match_think: return match_think.group(1).strip()
-        self.logger.warning(
-            f"Nie znaleziono tagu <answer> w odpowiedzi: '{raw_answer_text[:100].replace(chr(10), ' ')}...'")
-        return raw_answer_text.strip()
+        matches = re.findall(r'<answer>(.*?)</answer>', raw_answer_text, re.DOTALL | re.IGNORECASE)
+        if matches:
+            return matches[-1].strip()
+
+        thinking_tags = [r'</thinking>', r'</think>', r'</inner_monologue>']
+        last_content = None
+        last_index = -1
+
+        for tag in thinking_tags:
+            for m in re.finditer(tag + r'(.*)', raw_answer_text, re.DOTALL | re.IGNORECASE):
+                if m.start() > last_index:
+                    last_index = m.start()
+                    last_content = m.group(1)
+
+        return last_content.strip() if last_content else raw_answer_text.strip()
 
     def _setup_logger_and_reset_results(self, dataset_filepath: str, output_filepath: str):
         log_prefix = Path(dataset_filepath).stem
