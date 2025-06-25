@@ -87,6 +87,7 @@ experiments:
     model: pllum-8b-instruct
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/pllum-medium-simple-matura"
+    iterations: 1
     prompt_composition:
       components: []
     param_overrides:
@@ -99,6 +100,7 @@ experiments:
     model: pllum-8b-instruct
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/pllum-medium-full-matura"
+    iterations: 1
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
       template_params: { num_few_shot: 2 }
@@ -115,6 +117,7 @@ experiments:
     model: pllum-12b-instruct-fp8
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/pllum-normal-fp8-simple-matura"
+    iterations: 1
     prompt_composition:
       components: []
     param_overrides:
@@ -127,6 +130,7 @@ experiments:
     model: pllum-12b-instruct-fp8
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/pllum-normal-fp8-full-matura"
+    iterations: 1
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
       template_params: { num_few_shot: 2 }
@@ -182,6 +186,7 @@ experiments:
     model: qwen3-4b
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-4b-fp8-simple"
+    iterations: 1
     prompt_composition:
       components: []
     param_overrides:
@@ -195,6 +200,7 @@ experiments:
     model: qwen3-4b
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-medium-full-matura"
+    iterations: 1
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
       template_params: { num_few_shot: 2 }
@@ -212,6 +218,7 @@ experiments:
     model: qwen3-14b-fp8
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-normal-fp8-simple-matura"
+    iterations: 1
     prompt_composition:
       components: []
     param_overrides:
@@ -225,6 +232,7 @@ experiments:
     model: qwen3-14b-fp8
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-normal-fp8-full-matura"
+    iterations: 1
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
       template_params: { num_few_shot: 2 }

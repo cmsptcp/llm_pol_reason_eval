@@ -14,15 +14,27 @@ from llm_pol_reason_eval.qa_engine.inference_client import InferenceClient
 
 
 class LLMQAEngine:
-    def __init__(self, model_name: str, inference_client: InferenceClient):
+    def __init__(self, model_name: str, inference_client: InferenceClient, project_root: Optional[Path] = None):
         self.model_name = model_name
         self.inference_client = inference_client
         self.tokenizer = self.inference_client.tokenizer
         self.dataset_manager = DatasetManager()
         self.examples_manager = DatasetManager()
 
-        project_root = Path(__file__).resolve().parents[2]
-        templates_path = project_root / "src/llm_pol_reason_eval/prompts/templates"
+        if project_root is None:
+            project_root = Path(__file__).resolve().parents[2]
+
+        if project_root is None:
+            project_root = Path(__file__).resolve().parents[2]
+
+        templates_path = project_root / "llm_pol_reason_eval/prompts/templates"
+        if not templates_path.is_dir():
+            alt_templates_path = project_root / "src/llm_pol_reason_eval/prompts/templates"
+            if not alt_templates_path.is_dir():
+                raise FileNotFoundError(
+                    f"Nie znaleziono katalogu szablonów w '{templates_path}' ani '{alt_templates_path}'")
+            templates_path = alt_templates_path
+
         self.prompt_manager = PromptManager(templates_dir=templates_path)
 
         self.results: List[ModelAnswerData] = []

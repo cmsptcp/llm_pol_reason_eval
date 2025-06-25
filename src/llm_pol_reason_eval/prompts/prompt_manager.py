@@ -6,9 +6,14 @@ import jinja2
 class PromptManager:
     def __init__(self, templates_dir: Union[str, Path]):
         self.templates_dir = Path(templates_dir)
+        if not self.templates_dir.is_dir():
+            raise FileNotFoundError(f"Katalog szablonów nie istnieje: {self.templates_dir}")
+
         self.jinja2_env = jinja2.Environment(
-            loader=jinja2.FileSystemLoader(str(self.templates_dir)),
-            autoescape=False, trim_blocks=True, lstrip_blocks=True
+            loader=jinja2.FileSystemLoader(self.templates_dir.as_posix()),
+            autoescape=False,
+            trim_blocks=True,
+            lstrip_blocks=True
         )
 
     def _render_turn(self, template_name: str, context: Dict) -> str:
@@ -21,7 +26,7 @@ class PromptManager:
                            Path('default') / template_name]
         for path in filter(None, potential_paths):
             if (self.templates_dir / path).exists():
-                return str(path)
+                return path.as_posix()
         raise FileNotFoundError(f"Nie znaleziono szablonu '{template_name}'.")
 
     def prepare_conversation_prompt(self, model_cfg: Dict, question_data: Dict, contexts: Dict,
