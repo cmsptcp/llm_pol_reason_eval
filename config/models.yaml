@@ -19,12 +19,12 @@ bielik-4-5b-v3-instruct:
     do_sample: true
     top_p: 0.95
 
-bielik-11b-v26-instruct-fp8-dynamic:
-  name: "bielik-11b-v26-instruct-fp8-dynamic"
-  path: "speakleash/Bielik-11B-v2.6-Instruct-FP8-Dynamic"
+bielik-11b-v26-instruct-fp8:
+  name: "bielik-11b-v26-instruct-fp8"
+  path: "cmsptcp/Bielik-11B-v2.6-Instruct-FP8"
   family: "bielik"
   inference_backend: "vllm"
-  quantization: "fp8-dynamic"
+  quantization: "fp8"
   generation_params:
     max_new_tokens: 1536
     temperature: 0.6
@@ -95,7 +95,7 @@ pllum-8b-instruct:
 
 pllum-12b-instruct-fp8:
   name: "pllum-12b-instruct"
-  path: "CYFRAGOVPL/PLLuM-12B-instruct"
+  path: "cmsptcp/PLLuM-12B-instruct-FP8"
   family: "pllum"
   inference_backend: "vllm"
   quantization: "fp8"

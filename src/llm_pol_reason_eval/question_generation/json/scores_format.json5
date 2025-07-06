@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    // Unikalny identyfikator zadania ewaluacyjnego
+    "task_id": "string",
+    // Data utworzenia zadania (ISO 8601)
+    "creation_date": "string",
+    // Nazwa konfiguracji modelu, zgodnie z prośbą
+    "model_config_name": "string"
+  },
+  // Główna tablica zawierająca poszczególne oceny
+  "evaluations": [
+    {
+      // Unikalny identyfikator oceny
+      "evaluation_id": "string_eval_id_1",
+      // ID odpowiedzi modelu, którą oceniamy
+      "model_answer_id": "string_answer_id_1",
+      // ID pytania, którego dotyczy odpowiedź
+      "question_id": "string_question_id_1",
+      // Identyfikator osoby oceniającej
+      "judge_id": "string",
+      // Data dokonania oceny (ISO 8601)
+      "evaluation_date": "string",
+      // Sumaryczna liczba punktów
+      "total_score": "number",
+
+      // Pole na ogólne uzasadnienie/komentarz do oceny
+      "overall_justification": "string | null",
+
+      // Obiekt przechowujący wyniki dla poszczególnych kryteriów
+      "detailed_scores": {
+        // Kluczem jest stały identyfikator kryterium (np. 'A', 'B', 'C')
+        "A": {
+          // Punkty przyznane za to kryterium
+          "score_awarded": "number",
+          // Opcjonalny komentarz do oceny danego kryterium
+          "comment": "string | null"
+        },
+        "B": {
+          "score_awarded": "number",
+          "comment": "string | null"
+        },
+        // ... i tak dalej dla pozostałych kryteriów (C, D, E, F, G, H)
+      }
+    },
+    {
+      // Kolejny obiekt oceny
+      "evaluation_id": "string_eval_id_2",
+      // ... pozostałe pola analogicznie
+    }
+    // ...
+  ]
+}
