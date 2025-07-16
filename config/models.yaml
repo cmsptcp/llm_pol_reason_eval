@@ -14,7 +14,7 @@ bielik-4-5b-v3-instruct:
   family: "bielik"
   inference_backend: "vllm"
   generation_params:
-    max_new_tokens: 1536
+    max_new_tokens: 2048
     temperature: 0.6
     do_sample: true
     top_p: 0.95
@@ -26,7 +26,7 @@ bielik-11b-v26-instruct-fp8:
   inference_backend: "vllm"
   quantization: "compressed-tensors"
   generation_params:
-    max_new_tokens: 1536
+    max_new_tokens: 2048
     temperature: 0.6
     do_sample: true
     top_p: 0.95
@@ -38,7 +38,7 @@ bielik-11b-v26-instruct-awq:
   inference_backend: "vllm"
   quantization: "awq"
   generation_params:
-    max_new_tokens: 1536
+    max_new_tokens: 2048
     temperature: 0.6
     do_sample: true
     top_p: 0.95
@@ -61,7 +61,7 @@ qwen3-4b:
   family: "qwen3"
   inference_backend: "vllm"
   generation_params:
-    max_new_tokens: 1536
+    max_new_tokens: 2048
     temperature: 0.6
     do_sample: true
     top_p: 0.95
@@ -75,7 +75,7 @@ qwen3-14b-fp8:
   inference_backend: "vllm"
   quantization: "fp8"
   generation_params:
-    max_new_tokens: 1536
+    max_new_tokens: 2048
     temperature: 0.6
     do_sample: true
     top_p: 0.95
@@ -88,7 +88,7 @@ pllum-8b-instruct:
   family: "pllum"
   inference_backend: "vllm"
   generation_params:
-    max_new_tokens: 1536
+    max_new_tokens: 2048
     temperature: 0.6
     do_sample: true
     top_p: 0.95
@@ -100,7 +100,7 @@ pllum-12b-instruct-fp8:
   inference_backend: "vllm"
   quantization: "compressed-tensors"
   generation_params:
-    max_new_tokens: 1536
+    max_new_tokens: 2048
     temperature: 0.6
     do_sample: true
     top_p: 0.95
@@ -112,7 +112,7 @@ pllum-12b-instruct-awq:
   inference_backend: "vllm"
   quantization: "awq"
   generation_params:
-    max_new_tokens: 1536
+    max_new_tokens: 2048
     temperature: 0.6
     do_sample: true
     top_p: 0.95
