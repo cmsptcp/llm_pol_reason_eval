@@ -19,3 +19,13 @@
 - {{ choice.choice_id }}: {{ choice.choice_text }}
 {% endfor %}
 {% endif %}
+{%- if template_params.get('final_question') %}
+
+{% if 'chain_of_thought' in template_params.get('components', []) %}
+### TWOJA ODPOWIEDŹ
+Pamiętaj, aby przedstawić swoją analizę, a na samym końcu umieścić ostateczną odpowiedź w znacznikach <answer> i </answer>.
+{% else %}
+### TWOJA ODPOWIEDŹ
+Pamiętaj, aby umieścić swoją ostateczną, zwięzłą odpowiedź w znacznikach <answer> i </answer>.
+{% endif %}
+{% endif %}

@@ -54,7 +54,11 @@ class PromptManager:
             chat_history.extend(
                 [{"role": "user", "content": user_turn}, {"role": "assistant", "content": assistant_turn}])
 
-        final_question_params = {**template_params, 'question_index': len(few_shot_examples) + 1}
+        final_question_params = {
+            **template_params,
+            'question_index': len(few_shot_examples) + 1,
+            'final_question': True
+        }
         final_user_turn = self._render_turn(
             "default/user_turn.jinja2",
             {"question": question_data, "contexts": contexts, "template_params": final_question_params}
