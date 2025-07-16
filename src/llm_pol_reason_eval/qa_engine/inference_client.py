@@ -195,7 +195,6 @@ class VLLMClient(InferenceClient):
     def get_response(self, prompt: str, generation_params_override: Optional[Dict[str, Any]] = None) -> str:
         return self.get_responses_with_batching([prompt], generation_params_override)[0]
 
-    # w pliku: inference_client.py, w klasie VLLMClient
 
     def get_responses_with_batching(self, prompts: List[str],
                                     generation_params_override: Optional[Dict[str, Any]] = None) -> List[str]:
@@ -215,7 +214,7 @@ class VLLMClient(InferenceClient):
 
         # 4. Ustawiamy tokeny stopu
         stop_tokens = set(params_to_use.get("stop", []))
-        stop_tokens.update(["[[---KONIEC ODPOWIEDZI---]]", "<|im_end|>"])
+        stop_tokens.update(["</answer>", "[[---KONIEC ODPOWIEDZI---]]", "<|im_end|>"])
         params_to_use["stop"] = list(stop_tokens)
 
         # 5. RĘCZNE FILTROWANIE PARAMETRÓW

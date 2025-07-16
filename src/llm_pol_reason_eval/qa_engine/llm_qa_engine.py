@@ -165,6 +165,10 @@ class LLMQAEngine:
         if matches:
             return matches[-1].strip()
 
+        open_tag_match = re.search(r'<answer>(.*)', raw_answer_text, re.DOTALL | re.IGNORECASE)
+        if open_tag_match:
+            return open_tag_match.group(1).strip()
+
         thinking_tags = [r'</thinking>', r'</think>', r'</inner_monologue>']
         last_content = None
         last_index = -1

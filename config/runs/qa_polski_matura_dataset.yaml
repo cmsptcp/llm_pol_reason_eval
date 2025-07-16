@@ -32,8 +32,8 @@ experiments:
       components: []
     param_overrides:
       per_type:
-        open_essay: { max_new_tokens: 2048 }
-        open_poetry_interpretation: { max_new_tokens: 2048 }
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
 
   bielik-medium-full-matura:
     task_name: "Bielik 4.5B - Pełny (Few-Shot + CoT) - zbiór maturalny"
@@ -46,8 +46,8 @@ experiments:
       template_params: { num_few_shot: 3 }
     param_overrides:
       per_type:
-        open_essay: { max_new_tokens: 3072 }
-        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_essay: { max_new_tokens: 3584 }
+        open_poetry_interpretation: { max_new_tokens: 3584 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
         open_text: { max_new_tokens: 2048 }
@@ -62,8 +62,8 @@ experiments:
       components: []
     param_overrides:
       per_type:
-        open_essay: { max_new_tokens: 2048 }
-        open_poetry_interpretation: { max_new_tokens: 2048 }
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
 
   bielik-normal-fp8-full-matura:
     task_name: "Bielik 11B FP8 - Pełny (Few-Shot + CoT) - zbiór maturalny"
@@ -76,8 +76,8 @@ experiments:
       template_params: { num_few_shot: 3 }
     param_overrides:
       per_type:
-        open_essay: { max_new_tokens: 3072 }
-        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_essay: { max_new_tokens: 3584 }
+        open_poetry_interpretation: { max_new_tokens: 3584 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
         open_text: { max_new_tokens: 2048 }
@@ -92,8 +92,8 @@ experiments:
       components: []
     param_overrides:
       per_type:
-        open_essay: { max_new_tokens: 2048 }
-        open_poetry_interpretation: { max_new_tokens: 2048 }
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
 
   bielik-normal-awq-full-matura:
     task_name: "Bielik 11B AWQ - Pełny (Few-Shot + CoT) - zbiór maturalny"
@@ -106,8 +106,8 @@ experiments:
       template_params: { num_few_shot: 3 }
     param_overrides:
       per_type:
-        open_essay: { max_new_tokens: 3072 }
-        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_essay: { max_new_tokens: 3584 }
+        open_poetry_interpretation: { max_new_tokens: 3584 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
         open_text: { max_new_tokens: 2048 }
@@ -122,8 +122,8 @@ experiments:
       components: []
     param_overrides:
       per_type:
-        open_essay: { max_new_tokens: 2048 }
-        open_poetry_interpretation: { max_new_tokens: 2048 }
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
 
   pllum-medium-full-matura:
     task_name: "PLLuM 8B - Pełny (Few-Shot + CoT) - zbiór maturalny"
@@ -136,8 +136,8 @@ experiments:
       template_params: { num_few_shot: 3 }
     param_overrides:
       per_type:
-        open_essay: { max_new_tokens: 3072 }
-        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_essay: { max_new_tokens: 3584 }
+        open_poetry_interpretation: { max_new_tokens: 3584 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
         open_text: { max_new_tokens: 2048 }
@@ -152,8 +152,8 @@ experiments:
       components: []
     param_overrides:
       per_type:
-        open_essay: { max_new_tokens: 2048 }
-        open_poetry_interpretation: { max_new_tokens: 2048 }
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
 
   pllum-normal-fp8-full-matura:
     task_name: "PLLuM 12B FP8 - Pełny (Few-Shot + CoT) - zbiór maturalny"
@@ -166,8 +166,8 @@ experiments:
       template_params: { num_few_shot: 3 }
     param_overrides:
       per_type:
-        open_essay: { max_new_tokens: 3072 }
-        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_essay: { max_new_tokens: 3584 }
+        open_poetry_interpretation: { max_new_tokens: 3584 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
         open_text: { max_new_tokens: 2048 }
@@ -196,8 +196,8 @@ experiments:
       template_params: { num_few_shot: 3 }
     param_overrides:
       per_type:
-        open_essay: { max_new_tokens: 3072 }
-        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_essay: { max_new_tokens: 3584 }
+        open_poetry_interpretation: { max_new_tokens: 3584 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
         open_text: { max_new_tokens: 2048 }
@@ -216,9 +216,9 @@ experiments:
         enable_thinking: false
       per_type:
         open_essay:
-          max_new_tokens: 2048
+          max_new_tokens: 3072
         open_poetry_interpretation:
-          max_new_tokens: 2048
+          max_new_tokens: 3072
 
   qwen-small-full-matura:
     task_name: "Qwen3 1.7B - Pełny (Few-Shot + CoT + Thinking) - zbiór maturalny"
@@ -235,8 +235,8 @@ experiments:
       default:
         enable_thinking: true
       per_type:
-        open_essay: { max_new_tokens: 3072 }
-        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_essay: { max_new_tokens: 3584 }
+        open_poetry_interpretation: { max_new_tokens: 3584 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
         open_text: { max_new_tokens: 2048 }
@@ -252,8 +252,8 @@ experiments:
     param_overrides:
       default: { enable_thinking: false }
       per_type:
-        open_essay: { max_new_tokens: 2048 }
-        open_poetry_interpretation: { max_new_tokens: 2048 }
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
 
   qwen-medium-full-matura:
     task_name: "Qwen3 4B - Pełny (Few-Shot + CoT + Thinking) - zbiór maturalny"
@@ -267,8 +267,8 @@ experiments:
     param_overrides:
       default: { enable_thinking: true }
       per_type:
-        open_essay: { max_new_tokens: 3072 }
-        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_essay: { max_new_tokens: 3584 }
+        open_poetry_interpretation: { max_new_tokens: 3584 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
         open_text: { max_new_tokens: 2048 }
@@ -284,7 +284,7 @@ experiments:
     param_overrides:
       default: { enable_thinking: false }
       per_type:
-        open_essay: { max_new_tokens: 2048 }
+        open_essay: { max_new_tokens: 3072 }
         open_poetry_interpretation: { max_new_tokens: 3072 }
 
   qwen-normal-fp8-full-matura:
@@ -299,8 +299,8 @@ experiments:
     param_overrides:
       default: { enable_thinking: true }
       per_type:
-        open_essay: { max_new_tokens: 3072 }
-        open_poetry_interpretation: { max_new_tokens: 3072 }
+        open_essay: { max_new_tokens: 3584 }
+        open_poetry_interpretation: { max_new_tokens: 3584 }
         open_summary: { max_new_tokens: 2048 }
         open_synthesis: { max_new_tokens: 2048 }
         open_text: { max_new_tokens: 2048 }

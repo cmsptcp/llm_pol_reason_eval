@@ -40,29 +40,50 @@ class PromptManager:
         system_content = self.jinja2_env.get_template(system_template_path).render(template_params=template_params)
         chat_history.append({"role": "system", "content": system_content})
 
-        for i, example in enumerate(few_shot_examples):
-            params_for_example = {**template_params, 'question_index': i + 1}
-            user_turn = self._render_turn(
-                "default/user_turn.jinja2",
-                {"question": example['question'], "contexts": example['contexts'],
-                 "template_params": params_for_example}
-            )
-            assistant_turn = self._render_turn(
-                "default/assistant_turn.jinja2",
-                {"question": example['question'], "template_params": params_for_example}
-            )
-            chat_history.extend(
-                [{"role": "user", "content": user_turn}, {"role": "assistant", "content": assistant_turn}])
+        final_task_intro = ""
+        if few_shot_examples:
+            chat_history.append({"role": "user", "content": "Oto kilka przykładów, jak należy odpowiadać na zadania:"})
+            chat_history.append({"role": "assistant",
+                                 "content": "Zrozumiałem. Przeanalizuję przykłady i odpowiem na finałowe zadanie zgodnie z podanym schematem."})
 
-        final_question_params = {
-            **template_params,
-            'question_index': len(few_shot_examples) + 1,
-            'final_question': True
-        }
-        final_user_turn = self._render_turn(
+            for i, example in enumerate(few_shot_examples):
+                params_for_example = {**template_params, 'question_index': i + 1}
+
+                user_turn = self._render_turn(
+                    "default/user_turn.jinja2",
+                    {
+                        "question": example['question'],
+                        "contexts": example['contexts'],
+                        "template_params": params_for_example
+                    }
+                )
+                assistant_turn = self._render_turn(
+                    "default/assistant_turn.jinja2",
+                    {
+                        "question": example['question'],
+                        "template_params": params_for_example
+                    }
+                )
+                chat_history.extend(
+                    [{"role": "user", "content": user_turn}, {"role": "assistant", "content": assistant_turn}])
+
+            final_task_intro = "========================================\n"
+            final_task_intro += "A TERAZ ROZWIĄŻ PONIŻSZE ZADANIE, STOSUJĄC SIĘ DO WSZYSTKICH INSTRUKCJI I PRZYKŁADÓW.\n\n"
+
+        # Ta część kodu jest już poprawna.
+        final_question_params = {**template_params, 'question_index': len(few_shot_examples) + 1}
+        final_user_turn_content = self._render_turn(
             "default/user_turn.jinja2",
             {"question": question_data, "contexts": contexts, "template_params": final_question_params}
         )
-        chat_history.append({"role": "user", "content": final_user_turn})
+
+        combined_final_turn = final_task_intro + final_user_turn_content
+        chat_history.append({"role": "user", "content": combined_final_turn})
+
+        # if 'priming' in composition.get('components', []):
+        #     if 'chain_of_thought' in composition.get('components', []):
+        #         chat_history.append({"role": "assistant", "content": "Analiza:"})
+        #     else:
+        #         chat_history.append({"role": "assistant", "content": "<answer>"})
 
         return chat_history

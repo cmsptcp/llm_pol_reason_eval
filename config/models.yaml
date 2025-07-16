@@ -30,6 +30,7 @@ bielik-11b-v26-instruct-fp8:
     temperature: 0.6
     do_sample: true
     top_p: 0.95
+    repetition_penalty: 1.15
 
 bielik-11b-v26-instruct-awq:
   name: "bielik-11b-v26-instruct-awq"
