@@ -169,6 +169,17 @@ class LLMQAEngine:
         if open_tag_match:
             return open_tag_match.group(1).strip()
 
+        analysis_keywords = ["analizuję", "analiza:", "celem jest"]
+        raw_answer_lower = raw_answer_text.lower().strip()
+
+        if any(raw_answer_lower.startswith(keyword) for keyword in analysis_keywords):
+            cut_off_phrases = ["odpowiedź końcowa:", "ostateczna odpowiedź:", "**odpowiedź:**"]
+            for phrase in cut_off_phrases:
+                if phrase in raw_answer_lower:
+                    cut_off_index = raw_answer_lower.find(phrase)
+                    return raw_answer_text[:cut_off_index].strip()
+            return raw_answer_text.strip()
+
         thinking_tags = [r'</thinking>', r'</think>', r'</inner_monologue>']
         last_content = None
         last_index = -1
