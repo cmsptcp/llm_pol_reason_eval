@@ -19,3 +19,9 @@
 - {{ choice.choice_id }}: {{ choice.choice_text }}
 {% endfor %}
 {% endif %}
+### TWOJA ODPOWIEDŹ
+{%- if 'chain_of_thought' in template_params.components %}
+Pamiętaj, aby przedstawić swoją analizę, a na samym końcu umieścić ostateczną odpowiedź w znacznikach <answer> i </answer>.
+{%- else %}
+Pamiętaj, aby udzielić tylko ostatecznej zwięzłej odpowiedzi w znacznikach <answer> i </answer>, bez żadnych dodatkowych wyjaśnień.
+{%- endif %}

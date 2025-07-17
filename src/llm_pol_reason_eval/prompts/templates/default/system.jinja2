@@ -6,7 +6,7 @@ Twoje odpowiedzi muszą być:
 3.  Oparte przede wszystkim na treści dostarczonych tekstów źródłowych.
 
 {% if 'chain_of_thought' in template_params.components %}
-Twoja odpowiedź MUSI składać się z dwóch części:
+Twoja odpowiedź POWINNA składać się z dwóch części:
 1.  **Analiza:** Najpierw przedstaw swój tok rozumowania, analizując krok po kroku pytanie i kontekst.
 2.  **Odpowiedź końcowa:** Na samym końcu, umieść swoją ostateczną, zwięzłą odpowiedź wewnątrz znaczników <answer> i </answer>.
 
@@ -14,5 +14,8 @@ PRZYKŁAD STRUKTURY ODPOWIEDZI:
 Analizuję tekst. Zwracam uwagę na kluczowe słowo X. Słowo to oznacza Y. Wnioskuję, że poprawna opcja to Z, ponieważ...
 <answer>Z</answer>
 {% else %}
-Pamiętaj, aby ostateczną, zwięzłą odpowiedź na każde zadanie umieścić zawsze wewnątrz tagów <answer>...</answer>.
+Twoja odpowiedź MUSI być jedynie zwięzłą, ostateczną odpowiedzią na pytanie, umieszczoną wewnątrz znaczników <answer> i </answer>. Nie dodawaj żadnej analizy ani dodatkowych wyjaśnień.
+
+PRZYKŁAD STRUKTURY ODPOWIEDZI:
+<answer>Z</answer>
 {% endif %}
