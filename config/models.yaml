@@ -10,7 +10,7 @@ bielik-1-5b-v3-instruct:
 
 bielik-4-5b-v3-instruct:
   name: "bielik-4-5b-v3-instruct"
-  path: "speakleash/Bielik-4.5B-v3-Instruct"
+  path: "speakleash/Bielik-4.5B-v3.0-Instruct"
   family: "bielik"
   inference_backend: "vllm"
   generation_params:
