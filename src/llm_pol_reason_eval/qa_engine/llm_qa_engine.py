@@ -173,7 +173,7 @@ class LLMQAEngine:
         raw_answer_lower = raw_answer_text.lower().strip()
 
         if any(raw_answer_lower.startswith(keyword) for keyword in analysis_keywords):
-            cut_off_phrases = ["odpowiedź końcowa:", "ostateczna odpowiedź:", "**odpowiedź:**"]
+            cut_off_phrases = ["odpowiedź końcowa:", "ostateczna odpowiedź:", "**odpowiedź:**", "odpowiedź to", "ostatecznie wybieram opcję"]
             for phrase in cut_off_phrases:
                 if phrase in raw_answer_lower:
                     cut_off_index = raw_answer_lower.find(phrase)
