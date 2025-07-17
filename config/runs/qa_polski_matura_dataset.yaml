@@ -52,6 +52,23 @@ experiments:
         open_synthesis: { max_new_tokens: 2048 }
         open_text: { max_new_tokens: 2048 }
 
+  bielik-medium-fp8-full-matura:
+    task_name: "Bielik 4.5B - Pełny (Few-Shot + CoT) - zbiór maturalny"
+    model: bielik-4-5b-v3-instruct-fp8
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
+    output_dir: "results/bielik-medium-fp8-full-matura"
+    iterations: 1
+    prompt_composition:
+      components: [ "few_shot", "chain_of_thought" ]
+      template_params: { num_few_shot: 3 }
+    param_overrides:
+      per_type:
+        open_essay: { max_new_tokens: 3584 }
+        open_poetry_interpretation: { max_new_tokens: 3584 }
+        open_summary: { max_new_tokens: 2048 }
+        open_synthesis: { max_new_tokens: 2048 }
+        open_text: { max_new_tokens: 2048 }
+
   bielik-normal-fp8-simple-matura:
     task_name: "Bielik 11B FP8 - Prosty (Zero-Shot) - zbiór maturalny"
     model: bielik-11b-v26-instruct-fp8

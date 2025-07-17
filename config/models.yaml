@@ -19,6 +19,18 @@ bielik-4-5b-v3-instruct:
     do_sample: true
     top_p: 0.95
 
+bielik-4-5b-v3-instruct-fp8:
+  name: "bielik-4-5b-v3-instruct-fp8"
+  path: "speakleash/Bielik-4.5B-v3.0-Instruct-FP8-Dynamic"
+  family: "bielik"
+  inference_backend: "vllm"
+  quantization: "compressed-tensors"
+  generation_params:
+    max_new_tokens: 2048
+    temperature: 0.6
+    do_sample: true
+    top_p: 0.95
+
 bielik-11b-v26-instruct-fp8:
   name: "bielik-11b-v26-instruct-fp8"
   path: "speakleash/Bielik-11B-v2.6-Instruct-FP8-Dynamic"
