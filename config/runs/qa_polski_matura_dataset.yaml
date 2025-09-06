@@ -155,6 +155,19 @@ experiments:
         open_essay: { max_new_tokens: 3072 }
         open_poetry_interpretation: { max_new_tokens: 3072 }
 
+  pllum-medium-fp8-simple-matura:
+    task_name: "PLLuM 8B - Prosty (Zero-Shot) - zbiór maturalny"
+    model: pllum-8b-instruct-fp8
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
+    output_dir: "results/pllum-medium-fp8-simple-matura"
+    iterations: 3
+    prompt_composition:
+      components: [ ]
+    param_overrides:
+      per_type:
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
+
   pllum-medium-full-matura:
     task_name: "PLLuM 8B - Pełny (Few-Shot + CoT) - zbiór maturalny"
     model: pllum-8b-instruct
@@ -163,6 +176,23 @@ experiments:
     iterations: 3
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
+      template_params: { num_few_shot: 3 }
+    param_overrides:
+      per_type:
+        open_essay: { max_new_tokens: 3584 }
+        open_poetry_interpretation: { max_new_tokens: 3584 }
+        open_summary: { max_new_tokens: 2048 }
+        open_synthesis: { max_new_tokens: 2048 }
+        open_text: { max_new_tokens: 2048 }
+
+  pllum-medium-fp8-full-matura:
+    task_name: "PLLuM 8B - Pełny (Few-Shot + CoT) - zbiór maturalny"
+    model: pllum-8b-instruct-fp8
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
+    output_dir: "results/pllum-medium-fp8-full-matura"
+    iterations: 3
+    prompt_composition:
+      components: [ "few_shot", "chain_of_thought" ]
       template_params: { num_few_shot: 3 }
     param_overrides:
       per_type:

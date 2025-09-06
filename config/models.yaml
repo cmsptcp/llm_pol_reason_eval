@@ -94,6 +94,18 @@ qwen3-14b-fp8:
   prompt_template_params:
     enable_thinking: true
 
+pllum-8b-instruct-fp8:
+  name: "pllum-8b-instruct"
+  path: "cmsptcp/Llama-PLLuM-8B-instruct-FP8-Dynamic"
+  family: "pllum"
+  inference_backend: "vllm"
+  quantization: "compressed-tensors"
+  generation_params:
+    max_new_tokens: 2048
+    temperature: 0.6
+    do_sample: true
+    top_p: 0.95
+
 pllum-8b-instruct:
   name: "pllum-8b-instruct"
   path: "CYFRAGOVPL/Llama-PLLuM-8B-instruct"
