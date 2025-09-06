@@ -4,7 +4,7 @@ experiments:
     model: bielik-1-5b-v3-instruct
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-small-simple-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: []
     param_overrides: {}
@@ -14,7 +14,7 @@ experiments:
     model: bielik-1-5b-v3-instruct
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-small-full-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
     param_overrides:
@@ -27,7 +27,20 @@ experiments:
     model: bielik-4-5b-v3-instruct
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-medium-simple-matura"
-    iterations: 1
+    iterations: 3
+    prompt_composition:
+      components: []
+    param_overrides:
+      per_type:
+        open_essay: { max_new_tokens: 3072 }
+        open_poetry_interpretation: { max_new_tokens: 3072 }
+
+  bielik-medium-fp8-simple-matura:
+    task_name: "Bielik 4.5B - Prosty (Zero-Shot) - zbiór maturalny"
+    model: bielik-4-5b-v3-instruct-fp8
+    input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
+    output_dir: "results/bielik-medium-fp8-simple-matura"
+    iterations: 3
     prompt_composition:
       components: []
     param_overrides:
@@ -40,7 +53,7 @@ experiments:
     model: bielik-4-5b-v3-instruct
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-medium-full-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
       template_params: { num_few_shot: 3 }
@@ -57,7 +70,7 @@ experiments:
     model: bielik-4-5b-v3-instruct-fp8
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-medium-fp8-full-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: [ "few_shot", "chain_of_thought" ]
       template_params: { num_few_shot: 3 }
@@ -74,7 +87,7 @@ experiments:
     model: bielik-11b-v26-instruct-fp8
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-normal-fp8-simple-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: []
     param_overrides:
@@ -87,7 +100,7 @@ experiments:
     model: bielik-11b-v26-instruct-fp8
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-normal-fp8-full-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
       template_params: { num_few_shot: 3 }
@@ -104,7 +117,7 @@ experiments:
     model: bielik-11b-v26-instruct-awq
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-normal-awq-simple-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: []
     param_overrides:
@@ -117,7 +130,7 @@ experiments:
     model: bielik-11b-v26-instruct-awq
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/bielik-normal-awq-full-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
       template_params: { num_few_shot: 3 }
@@ -134,7 +147,7 @@ experiments:
     model: pllum-8b-instruct
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/pllum-medium-simple-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: []
     param_overrides:
@@ -147,7 +160,7 @@ experiments:
     model: pllum-8b-instruct
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/pllum-medium-full-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
       template_params: { num_few_shot: 3 }
@@ -164,7 +177,7 @@ experiments:
     model: pllum-12b-instruct-fp8
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/pllum-normal-fp8-simple-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: []
     param_overrides:
@@ -177,7 +190,7 @@ experiments:
     model: pllum-12b-instruct-fp8
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/pllum-normal-fp8-full-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
       template_params: { num_few_shot: 3 }
@@ -194,7 +207,7 @@ experiments:
     model: pllum-12b-instruct-awq
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/pllum-normal-awq-simple-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: []
     param_overrides:
@@ -207,7 +220,7 @@ experiments:
     model: pllum-12b-instruct-awq
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/pllum-normal-awq-full-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
       template_params: { num_few_shot: 3 }
@@ -224,7 +237,7 @@ experiments:
     model: qwen3-1-7b
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-small-simple-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       main_template: "base_question_prompt.jinja2"
       components: []
@@ -242,7 +255,7 @@ experiments:
     model: qwen3-1-7b
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-small-full-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       main_template: "base_question_prompt.jinja2"
       components: ["few_shot", "chain_of_thought"]
@@ -263,7 +276,7 @@ experiments:
     model: qwen3-4b
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-medium-simple-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: []
     param_overrides:
@@ -277,7 +290,7 @@ experiments:
     model: qwen3-4b
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-medium-full-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
       template_params: { num_few_shot: 3 }
@@ -295,7 +308,7 @@ experiments:
     model: qwen3-14b-fp8
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-normal-fp8-simple-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: []
     param_overrides:
@@ -309,7 +322,7 @@ experiments:
     model: qwen3-14b-fp8
     input_dataset: "data/dataset/polski_matura_dataset_2025-06-23T13-08-12Z.json"
     output_dir: "results/qwen-normal-fp8-full-matura"
-    iterations: 1
+    iterations: 3
     prompt_composition:
       components: ["few_shot", "chain_of_thought"]
       template_params: { num_few_shot: 3 }
